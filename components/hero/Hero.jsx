@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import styles from './index.module.css'
 import BtnArrow from '../BtnArrow'
+import ScrollDown from '../scrollDown'
 
 export default function Hero({ slides }) {
    const [activeIndex, setActiveIndex] = useState(0)
@@ -57,6 +58,7 @@ export default function Hero({ slides }) {
                <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
             </button>
          </div>
+         <ScrollDown />
       </div>
    )
 }
