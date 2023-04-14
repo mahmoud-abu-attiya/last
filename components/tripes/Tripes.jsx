@@ -139,7 +139,7 @@ const Tripes = ({ data: countries }) => {
           <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
         </button>
       </div>
-      <Link href='/our-programs' className="border-b-2 text-secondary text-xs w-fit mx-auto block pb-1 lg:hidden">
+      <Link href='/our-programs' className="border-b-2 text-secondary text-xs w-fit mx-auto block pb-1 lg:hidden mb-16">
         عرض الكل
       </Link>
       </div>

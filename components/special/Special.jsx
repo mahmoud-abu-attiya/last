@@ -63,7 +63,7 @@ const Special = ({ data }) => {  const slides = data.concat(data.slice(0, 4))
   }
 
   return (
-    <div className="lg:container py-20 relative">
+    <div className="lg:container py-20 relative mb-20">
     {/* <div className={styles.news__container}> */}
       <h3
         className={`mb-10 ${styles.news__title}`}
