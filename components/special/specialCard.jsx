@@ -15,7 +15,7 @@ const SpecialCard = ({ item }) => {
   return (
       <div className={styles.card} onClick={() => routerTo()}>
         <Image
-          src={item?.image}
+          src="/images/placeholder.webp"
           fill
           alt={item?.id}
           quality={50}
