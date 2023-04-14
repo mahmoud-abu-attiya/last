@@ -1,0 +1,51 @@
+.container {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+}
+.link {
+  background-color: var(--first-clr);
+  cursor: pointer;
+  padding: 0;
+  transition: 0.2s;
+  padding: 0.8rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.instagram:hover {
+  background-color: purple;
+}
+.snapchat:hover {
+  background-color: yellow;
+}
+.tiktok:hover {
+  background-color: #ff0050;
+}
+.twitter:hover {
+  background-color: #1da1f2;
+}
+.youtube:hover {
+  background-color: #c4302b;
+}
+.icon {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .link {
+    padding: 0.6rem;
+  }
+  .icon {
+    font-size: 1.1rem;
+  }
+}

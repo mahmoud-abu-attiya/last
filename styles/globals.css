@@ -143,3 +143,60 @@ h6,
       linear-gradient(225deg, white 25%, transparent 25%);
    background-size: 30px 30px;
 }
+
+.main__title {
+   position: relative;
+   text-transform: uppercase;
+   margin: 0 auto 2rem;
+   font-size: 2rem;
+   width: fit-content;
+   transition: 0.2s;
+   background: linear-gradient(
+     90deg,
+     var(--first-clr),
+     #ffff00,
+     #15772a,
+     #0033ff,
+     #0cd105,
+     var(--first-clr)
+   );
+   background-size: 400%;
+   text-align: center;
+   -webkit-text-fill-color: transparent;
+   -webkit-background-clip: text;
+   -moz-background-clip: text;
+   background-clip: text;
+   animation: animateTitle 10s linear infinite;
+ }
+ @keyframes animateTitle {
+   0% {
+     background-position: 0%;
+   }
+   100% {
+     background-position: 400%;
+   }
+ }
+
+ .dots {
+   background-image: url('/dots.png');
+   height: 186px;
+   width: 204px;
+   background-repeat: no-repeat;
+   opacity: 0.3 !important;
+   position: absolute;
+ }
+ .dots-up {
+   top: 200px;
+   right: 0;
+ }
+ .dots-down {
+   bottom: 200px;
+   left: 0;
+ }
+ @media (max-width: 900px) {
+   .dots,
+   .dots-down,
+   .dots-up {
+     display: none;
+   }
+ }
