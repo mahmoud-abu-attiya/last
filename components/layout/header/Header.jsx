@@ -164,7 +164,7 @@ export default function Header({ countries }) {
                 setResponse('')
               }}
             >
-              <i class="far fa-times"></i>
+              <i className="far fa-times"></i>
             </span>
           )}
           <div

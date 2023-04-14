@@ -27,7 +27,7 @@ const SpecialCard = ({ item }) => {
               {/* <BsArrowLeft className={styles.card__btn__icon} /> */}
               <span className={styles.card__btn__icon}>
 
-              <i class="fas fa-arrow-left"></i>
+              <i className="fas fa-arrow-left"></i>
               </span>
           </Link>
           <a
@@ -40,7 +40,7 @@ const SpecialCard = ({ item }) => {
             {/* <BsArrowLeft className={styles.card__btn__icon} /> */}
             <span className={styles.card__btn__icon}>
 
-            <i class="fas fa-arrow-left"></i>
+            <i className="fas fa-arrow-left"></i>
             </span>
           </a>
         </div>

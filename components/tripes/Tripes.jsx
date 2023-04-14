@@ -23,6 +23,7 @@ const Tripes = ({ data: countries }) => {
   let [index, setIndex] = useState(1)
   const [transition, setTransition] = useState(true)
   const [canClick, setCanClick] = useState(true)
+  const [touchPosition, setTouchPosition] = useState(null)
 
   const next = () => {
     if (!canClick) return
@@ -73,6 +74,32 @@ const Tripes = ({ data: countries }) => {
 
   }
 
+  const handleTouchStart = (e) => {
+    const touchDown = e.touches[0].clientX
+    setTouchPosition(touchDown)
+}
+
+  const handleTouchMove = (e) => {
+    const touchDown = touchPosition
+
+    if(touchDown === null) {
+        return
+    }
+
+    const currentTouch = e.touches[0].clientX
+    const diff = touchDown - currentTouch
+
+    if (diff > 5) {
+        next()
+    }
+
+    if (diff < -5) {
+        prev()
+    }
+
+    setTouchPosition(null)
+}
+
   const tripesTabs = ['جميع الوجهات', 'الوجهات الخارجية', 'الوجهات الداخلية']
   return (
     <div className={`grid grid-cols-6 ${styles.tripes}`}>
@@ -116,7 +143,7 @@ const Tripes = ({ data: countries }) => {
       >
         اختر وجهتك الان
       </h2>
-        <div className='w-full overflow-hidden'>
+        <div className='w-full overflow-hidden cursor-move' onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
           <div className='swiper-wrapper'>
             <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
               {slides.map((slide, index) => {

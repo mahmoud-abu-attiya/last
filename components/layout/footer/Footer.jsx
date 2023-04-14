@@ -25,7 +25,7 @@ const Footer = ({ countries }) => {
               <Link href={`/our-programs/${country?.id}`} className={styles.famous__places__link}>
 
                   {/* <IoIosArrowBack /> */}
-                  <i class="fas fa-angle-left"></i>
+                  <i className="fas fa-angle-left"></i>
                   {country?.name}
 
               </Link>
@@ -38,7 +38,7 @@ const Footer = ({ countries }) => {
           <h3 className={styles.title}>اتصل بنا</h3>
           <div className={styles.call__us__head}>
             {/* <BiSupport /> */}
-            <i class="fas fa-headset"></i>
+            <i className="fas fa-headset"></i>
             للحجز والاستفسار
           </div>
           <span className={styles.call__us__span}>فضلا الإتصال على</span>
@@ -50,7 +50,7 @@ const Footer = ({ countries }) => {
               className={styles.contact__link}
             >
               {/* <BsEnvelopeFill /> */}
-              <i class="fas fa-envelope"></i>
+              <i className="fas fa-envelope"></i>
                {settings?.email}
             </a>
             <a
@@ -60,7 +60,7 @@ const Footer = ({ countries }) => {
               className={styles.contact__link}
             >
               {/* <GiRotaryPhone /> */}
-              <i class="fas fa-phone-alt"></i>
+              <i className="fas fa-phone-alt"></i>
                {settings?.phone}
             </a>
             <a
@@ -70,7 +70,7 @@ const Footer = ({ countries }) => {
               className={styles.contact__link}
             >
               {/* <BsPhoneFill /> */}
-              <i class="fas fa-mobile"></i>
+              <i className="fas fa-mobile"></i>
                {settings?.mobile}
             </a>
             <a
@@ -80,7 +80,7 @@ const Footer = ({ countries }) => {
               className={styles.contact__link}
             >
               {/* <BsWhatsapp /> */}
-              <i class="fab fa-whatsapp"></i>
+              <i className="fab fa-whatsapp"></i>
                {settings?.whatsup}
             </a>
           </div>
@@ -119,7 +119,7 @@ const Footer = ({ countries }) => {
               aria-label='Footer Link - Instagram'
             >
               {/* <BsInstagram /> */}
-              <i class="fab fa-instagram"></i>
+              <i className="fab fa-instagram"></i>
             </a>
             <a
               href={settings?.tiktok}
@@ -138,7 +138,7 @@ const Footer = ({ countries }) => {
               aria-label='Footer Link - Twitter'
             >
               {/* <BsTwitter /> */}
-              <i class="fab fa-twitter"></i>  
+              <i className="fab fa-twitter"></i>  
             </a>
             <a
               href={settings?.snapchat}
@@ -148,7 +148,7 @@ const Footer = ({ countries }) => {
               aria-label='Footer Link - Snapchat'
             >
               {/* <BsSnapchat /> */}
-              <i class="fab fa-snapchat-ghost"></i>
+              <i className="fab fa-snapchat-ghost"></i>
             </a>
             <a
               href={settings?.youtube}
@@ -158,7 +158,7 @@ const Footer = ({ countries }) => {
               aria-label='Footer Link - Youtube'
             >
               {/* <BsYoutube /> */}
-              <i class="fab fa-youtube"></i>
+              <i className="fab fa-youtube"></i>
             </a>
           </div>
         </div>
@@ -179,7 +179,7 @@ const Footer = ({ countries }) => {
           className={styles.scroll__top__btn}
         >
           {/* <RiArrowUpFill /> */}
-          <i class="fas fa-arrow-up"></i>
+          <i className="fas fa-arrow-up"></i>
         </button>
       </div>
 
