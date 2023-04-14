@@ -1,11 +1,9 @@
 .tripes {
-  direction: rtl;
-  margin: 6rem 0 4rem;
-  position: relative;
+  /* position: relative; */
 }
-.tripes__container {
+/* .tripes__container {
   display: flex;
-}
+} */
 .tripes__title {
   font-size: 3rem;
   text-align: center;
@@ -13,31 +11,15 @@
   margin-bottom: 5rem;
 }
 .tripes__tabs {
-  flex: 2;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  position: relative;
   align-items: flex-start;
-  flex-direction: column;
   gap: 4.2rem;
   padding-right: 2rem;
 }
-.tripes__tabs::after {
-  content: '';
-  position: absolute;
-  width: 2px;
-  top: -6rem;
-  bottom: -4rem;
-  right: 21rem;
-  opacity: 0.5;
-  background-color: lightgray;
-}
 .tripes__tab {
-  border: none;
-  outline: none;
-  background-color: transparent;
   font-size: 1.6rem;
-  color: #5e6568;
   font-weight: bold;
   transition: 0.2s;
   cursor: pointer;
@@ -106,16 +88,10 @@
     font-size: 2.5rem;
   }
   .tripes__tabs {
-    flex-direction: row;
-    justify-content: center;
     margin-bottom: 3rem;
-  }
-  .tripes__tabs::after {
-    display: none;
   }
   .tripes__tab {
     font-size: 1.1rem;
-    padding: 0.2rem;
   }
   .tripes__tab__active {
     border-bottom: 2px solid var(--second-clr);
