@@ -16,7 +16,7 @@ const Success = ({ data, features_slides }) => {
         }
       }, 3000)
       return () => clearInterval(interval)
-   }, [activeIndex, value])
+  }, [activeIndex, value])
   return (
     <div className={`grid grid-cols-5 ${styles.success__container}`} id='success'>
       <div className={`col-span-5 lg:col-span-2 gap-4 lg:gap-20 ${styles.success__top}`}>
