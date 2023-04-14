@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import styles from './index.module.scss'
+import styles from './index.module.css'
 import BtnArrow from '../BtnArrow'
 
 export default function Hero({ slides }) {
@@ -35,17 +35,16 @@ export default function Hero({ slides }) {
                   <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"><span className='sr-only'>overlay</span></div>
                   <Image src={slide.image} alt="hero" fill className={`object-cover`} />
                   <div className={styles.hero__content}>
-                  <div
-                    className={styles.hero__container}
-                  >
-                    <h1 className={styles.hero__title}>{slide.title}</h1>
-                    <BtnArrow
-                      title={slide.button_text}
-
-                      href={slide.link}
-                    />
+                     <div
+                        className={styles.hero__container}
+                     >
+                        <h1 className={styles.hero__title}>{slide.title}</h1>
+                        <BtnArrow
+                           title={slide.button_text}
+                           href={slide.link || '/'}
+                        />
+                     </div>
                   </div>
-                </div>
                </div>
             )
          })}
@@ -53,7 +52,7 @@ export default function Hero({ slides }) {
             <button className="btn p-4 group" onClick={prev}>
                <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
             </button>
-               <div className=" whitespace-nowrap text-white">{activeIndex + 1} / {slides.length}</div>
+            <div className=" whitespace-nowrap text-white">{activeIndex + 1} / {slides.length}</div>
             <button className="btn p-4 group" onClick={next}>
                <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
             </button>
