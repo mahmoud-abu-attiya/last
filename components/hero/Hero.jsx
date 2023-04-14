@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Image from 'next/image'
+import styles from './index.module.scss'
+import BtnArrow from '../BtnArrow'
 
 export default function Hero({ slides }) {
    const [activeIndex, setActiveIndex] = useState(0)
@@ -32,6 +34,18 @@ export default function Hero({ slides }) {
                <div className={`transition duration-500 ${index === activeIndex ? "opacity-100" : "opacity-0"}`} key={index}>
                   <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"><span className='sr-only'>overlay</span></div>
                   <Image src={slide.image} alt="hero" fill className={`object-cover`} />
+                  <div className={styles.hero__content}>
+                  <div
+                    className={styles.hero__container}
+                  >
+                    <h1 className={styles.hero__title}>{slide.title}</h1>
+                    <BtnArrow
+                      title={slide.button_text}
+
+                      href={slide.link}
+                    />
+                  </div>
+                </div>
                </div>
             )
          })}
