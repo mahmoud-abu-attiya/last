@@ -85,10 +85,8 @@ export default function Programs({ data }) {
                 return (
                   <div className="slide" key={index}>
                     <FlipCard
-                      img={slide.image}
-                      title={slide.title}
-                      description={"lorem ipsom"}
-                      btnTitle={"المذيد"}
+                      country={slide}
+                      btnTitle={"تفاصيل البرنامج"}
                       btnUrl={"/link"}
                     />
                   </div>
