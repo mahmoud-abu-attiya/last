@@ -8,7 +8,7 @@
 }
 
 .up .flip-card {
-   @apply translate-y-6
+   @apply translate-y-6;
 }
 
 .down .flip-card {
@@ -77,4 +77,10 @@
 
 .flip-card-back {
    transform: rotateY(180deg);
+}
+
+@media (max-width: 767px) {
+   .swiper-wrapper{
+      transform: translateX(calc((100vw - 300px) / -2));
+   }
 }

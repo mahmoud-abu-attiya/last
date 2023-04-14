@@ -3,9 +3,11 @@ import FlipCard from '../FlipCard'
 import Image from 'next/image'
 
 export default function Programs({ data }) {
-  const slides = data.concat(data)
-  let [translate, setTranslate] = useState(0)
-  let [index, setIndex] = useState(0)
+  const slides = data.concat(data.slice(0, 4))
+  slides.unshift(data[data.length - 1])
+  const step = 100 / slides.length
+  let [translate, setTranslate] = useState(step)
+  let [index, setIndex] = useState(1)
   const [transition, setTransition] = useState(true)
   const [canClick, setCanClick] = useState(true)
 
@@ -13,12 +15,12 @@ export default function Programs({ data }) {
     if (!canClick) return
     setCanClick(false) 
     setIndex(index + 1)
-    setTranslate((index+1) * (100 / slides.length))
+    setTranslate((index+1) * (step))
     if (index === slides.length - 5) {
       setTimeout(() => {
         setTransition(false)
-        setTranslate(0)
-        setIndex(0)
+        setTranslate(step)
+        setIndex(1)
         setTimeout(() => {
           setTransition(true)
           setCanClick(true)
@@ -34,7 +36,7 @@ export default function Programs({ data }) {
   const prev = () => {
     if (!canClick) return
     setCanClick(false)
-    if (index === 0) {
+    if (index === 1) {
       setTransition(false)
       setTranslate((100 / slides.length) * (slides.length - 4))
       setIndex(slides.length - 4)
@@ -59,8 +61,8 @@ export default function Programs({ data }) {
   }
 
   return (
-    <section className='grid grid-cols-12 py-16 pr-16'>
-      <div className='col-span-12 md:col-span-3'>
+    <section className='grid grid-cols-12 py-16'>
+      <div className='col-span-12 md:col-span-3 pr-16'>
         <h2>أحدث
           خصومات
           البرامج
@@ -77,6 +79,7 @@ export default function Programs({ data }) {
       <div className='col-span-12 md:col-span-9'>
         <div className='bg-gray-200'>
           <div className='w-full overflow-hidden'>
+            <div className='swiper-wrapper'>
             <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
               {slides.map((slide, index) => {
                 return (
@@ -91,6 +94,7 @@ export default function Programs({ data }) {
                   </div>
                 )
               })}
+            </div>
             </div>
           </div>
         </div>
