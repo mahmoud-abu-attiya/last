@@ -1,14 +1,25 @@
 import styles from './index.module.css'
-import { memo, useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import BtnArrow from '../BtnArrow'
 
 const Success = ({ data, features_slides }) => {
   const [value, setValue] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0)
+  useEffect(() => {
+      const interval = setInterval(() => {
+        if (activeIndex !== features_slides.length - 1) {
+          setActiveIndex(activeIndex + 1)
+        } else {
+            setActiveIndex(0)
+        }
+      }, 3000)
+      return () => clearInterval(interval)
+   }, [activeIndex, value])
   return (
-    <div className={styles.success__container} id='success'>
-      <div className={styles.success__top}>
+    <div className={`grid grid-cols-5 ${styles.success__container}`} id='success'>
+      <div className={`col-span-5 lg:col-span-2 gap-4 lg:gap-20 ${styles.success__top}`}>
         <h2
           className={styles.success__title}
         >
@@ -29,14 +40,14 @@ const Success = ({ data, features_slides }) => {
             </button>
           ))}
         </div>
-        <Link href='/about-us' className={styles.view__all}>
+        <Link href='/about-us' className={"border-b pb-2 hidden lg:block"}>
           عرض مميزات وسام النجاح
         </Link>
       </div>
-      <div className={styles.success__content}>
+      <div className={`col-span-5 lg:col-span-3 ${styles.success__content}`}>
         {features_slides.map((slide, i) => {
           return (
-            <div className={`transition duration-500 ${i === value ? "opacity-100" : "opacity-0"}`} key={i}>
+            <div className={`transition duration-500 ${i === activeIndex ? "opacity-100" : "opacity-0"}`} key={i}>
               <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"><span className='sr-only'>overlay</span></div>
               <Image src={slide.image} alt={`background image : ${i}`} fill className={`object-cover`} />
             </div>
@@ -52,8 +63,13 @@ const Success = ({ data, features_slides }) => {
           </div>
         </div>
       </div>
+      <div className="col-span-5 block lg:hidden w-full bg-secondary py-4 text-xs text-center">
+        <Link href='/about-us' className={"border-b pb-2"}>
+          عرض مميزات وسام النجاح
+        </Link>
+      </div>
     </div>
   )
 }
 
-export default memo(Success)
+export default Success

@@ -2,28 +2,24 @@
   direction: rtl;
   position: relative;
   color: white;
-  display: flex;
 }
 .success__top {
   background-color: var(--second-clr);
-  width: 100%;
-  flex: 3;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   flex-direction: column;
+  padding: 2rem 8rem;
 }
 .success__content {
   width: 100%;
-  height: 100%;
+  min-height: 800px;
   position: relative;
-  isolation: isolate;
 }
 .success__title {
   font-size: 2.5rem;
   width: 55%;
   text-align: right;
-  padding-right: 8rem;
 }
 .success__tabs {
   display: flex;
@@ -31,7 +27,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 4.4rem;
-  margin: 1rem 8rem 0 20rem;
 }
 .success__tab {
   border: none;
@@ -48,7 +43,7 @@
 .success__tab__active {
   color: white;
   position: relative;
-  padding-right: 1rem;
+  transform: translateX(-1rem);
 }
 .success__tab__active::after {
   content: '';
@@ -61,14 +56,6 @@
   background-color: white;
   border-radius: 20px;
 }
-.success__img {
-  object-fit: cover;
-  object-position: center;
-  position: relative;
-  width: 100%;
-  height: 130vh;
-  z-index: -1;
-}
 .success__item {
   display: flex;
   flex-direction: column;
@@ -78,8 +65,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 .success__item__container {
   max-width: 700px;
@@ -94,24 +80,9 @@
   font-size: 1rem;
   line-height: 2;
 }
-.view__all {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin: 0 11rem 0 0;
-  width: fit-content;
-  padding-bottom: 0.2rem;
-  color: white;
-  font-size: 0.8rem;
-  position: relative;
-}
-@media (max-width: 1200px) {
+@media (max-width: 1023px) {
   .success__container {
     color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
   .success__title {
     text-align: center;
@@ -141,31 +112,13 @@
   .success__tab__active {
     color: white;
     border-bottom: 2px solid white;
+    transform: none;
   }
   .success__tab__active::after {
     display: none;
   }
   .success__img {
     height: calc(100vh - 6rem);
-  }
-  .view__all {
-    bottom: -45px;
-    padding: 1rem 0;
-    margin: 0 auto;
-    position: absolute;
-    justify-content: center;
-    width: 100%;
-    background-color: var(--second-clr);
-    font-size: 0.7rem;
-  }
-  .view__all::after {
-    content: '';
-    position: absolute;
-    width: 135px;
-    bottom: 0.8rem;
-    left: 50%;
-    transform: translateX(-50%);
-    border-bottom: 1px solid white;
   }
 }
 @media (max-width: 768px) {
