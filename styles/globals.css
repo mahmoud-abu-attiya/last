@@ -1,3 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.flip-card{
+   width: 300px;
+   height: 450px;
+}
+
+.up .flip-card {
+   @apply translate-y-6
+}
+
+.down .flip-card {
+   @apply -translate-y-6
+}
+
+.flip-card h3 {
+   font-size: clamp(17px, 1.5vw, 1.5rem);
+}
+
+.flip-card {
+   background-color: transparent;
+   /* width: 100%; */
+   padding-top: calc((3 / 2) * 100%);
+   perspective: 1000px;
+}
+
+.flip-card-inner {
+   position: absolute;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   transition: transform 0.6s;
+   transform-style: preserve-3d;
+}
+.flip-card-back{
+   box-shadow: 0 2rem 3rem rgba(0,0,0,.05);
+}
+.flip-card:hover .flip-card-inner {
+   transform: rotateY(-180deg);
+}
+
+.flip-card:hover .flip-card-inner .flip-card-front span.absolute {
+   z-index: 0;
+}
+
+.flip-card:hover .flip-card-inner .flip-card-front>div {
+   z-index: 0;
+}
+
+.flip-card-front,
+.flip-card-back {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+}
+
+.flip-card-front {
+   background-color: #bbb;
+   color: black;
+}
+
+.flip-card-front img {
+   z-index: 0;
+}
+
+.flip-card-front span.absolute {
+   z-index: 1;
+}
+
+.flip-card-front>div {
+   z-index: 2;
+}
+
+.flip-card-back {
+   transform: rotateY(180deg);
+}

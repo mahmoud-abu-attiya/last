@@ -1,4 +1,5 @@
 import Hero from "@/components/hero/Hero";
+import Programs from "@/components/programs/Programs";
 
 export default function Home({ data, programsCountries }) {
   const {
@@ -14,6 +15,7 @@ export default function Home({ data, programsCountries }) {
   return (
     <>
       <Hero slides={slides} />
+      <Programs data={latest_discounts} />
     </>
   )
 }
