@@ -63,7 +63,7 @@ const About = ({ data }) => {
               className={styles.about__item__content}
             >
               <p className={styles.about__item__text}>{data[value]?.content}</p>
-              <BtnArrow title={data[value]?.title} url={'/contact-us'} />
+              <BtnArrow title={data[value]?.title} href={'/contact-us'} />
             </div>
           </div>
         </div>
