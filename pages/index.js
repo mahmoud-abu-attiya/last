@@ -3,6 +3,7 @@ import Programs from "@/components/programs/Programs";
 import Success from "@/components/success/Success";
 import Tripes from "@/components/tripes/Tripes";
 import About from "@/components/about/About";
+import Special from "@/components/special/Special";
 
 export default function Home({ data, programsCountries }) {
   const {
@@ -22,6 +23,7 @@ export default function Home({ data, programsCountries }) {
       <Success data={features} features_slides={features_slides}/>
       <Tripes data={programsCountries} />
       <About data={about_wsam_elngah} />
+      <Special data={special_offers} />
     </>
   )
 }
