@@ -157,7 +157,6 @@ const Menu = (props) => {
             alt='logo'
             width={102}
             height={70}
-            layout='intrinsic'
           />
         )}
       </div>

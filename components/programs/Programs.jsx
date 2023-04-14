@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import FlipCard from '../FlipCard'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Programs({ data }) {
   const slides = data.concat(data.slice(0, 4))
@@ -13,9 +14,9 @@ export default function Programs({ data }) {
 
   const next = () => {
     if (!canClick) return
-    setCanClick(false) 
+    setCanClick(false)
     setIndex(index + 1)
-    setTranslate((index+1) * (step))
+    setTranslate((index + 1) * (step))
     if (index === slides.length - 5) {
       setTimeout(() => {
         setTransition(false)
@@ -48,26 +49,26 @@ export default function Programs({ data }) {
         setTranslate(translate - 100 / slides.length)
         setTimeout(() => {
           setCanClick(true)
-        } , 500);
+        }, 500);
       }, 10);
-    }else{
+    } else {
       setIndex(index - 1)
       setTranslate(translate - 100 / slides.length)
       setTimeout(() => {
         setCanClick(true)
-      } , 500);
+      }, 500);
     }
-    
+
   }
 
   return (
-    <section className='grid grid-cols-12 py-16'>
-      <div className='col-span-12 md:col-span-3 pr-16'>
-        <h2>أحدث
+    <section className='grid grid-cols-12 py-16 programs'>
+      <div className='col-span-12 md:col-span-3 pr-16 text-white flex flex-col justify-between gap-4'>
+        <h2 className='text-xl sm:text-2xl lg:text-5xl w-min'>أحدث
           خصومات
           البرامج
           السياحية</h2>
-        <div className="btns">
+        <div>
           <button className="btn p-4 group" onClick={prev}>
             <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
           </button>
@@ -75,15 +76,17 @@ export default function Programs({ data }) {
             <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
           </button>
         </div>
+        <Link href="/" className='border-b pb-2 w-fit'>
+          عرض كل البرامج
+          </Link>
       </div>
       <div className='col-span-12 md:col-span-9'>
-        <div className='bg-gray-200'>
-          <div className='w-full overflow-hidden'>
-            <div className='swiper-wrapper'>
+        <div className='w-full overflow-hidden'>
+          <div className='swiper-wrapper'>
             <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
               {slides.map((slide, index) => {
                 return (
-                  <div className="slide" key={index}>
+                  <div className={index % 2 === 0 ? "translate-y-4" : "-translate-y-4"} key={index}>
                     <FlipCard
                       country={slide}
                       btnTitle={"تفاصيل البرنامج"}
@@ -92,7 +95,6 @@ export default function Programs({ data }) {
                   </div>
                 )
               })}
-            </div>
             </div>
           </div>
         </div>
