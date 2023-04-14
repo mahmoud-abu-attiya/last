@@ -3,8 +3,10 @@ import styles from './index.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
 
-const SpecialCard = ({ item, settings }) => {
+const SpecialCard = ({ item }) => {
+  const settings = useSelector((state) => state.settings.value)
   const router = useRouter()
   const routerTo = () => {
     router.push(`/special-offers/${item.id}`)
