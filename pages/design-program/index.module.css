@@ -109,7 +109,7 @@
   position: relative;
   width: 100%;
   flex: 1;
-  background-image: url('/book-grid4.webp');
+  background-image: url('/images/book-grid4.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -339,7 +339,7 @@
   padding: 1rem;
   box-sizing: border-box;
   direction: rtl;
-  background-image: url('/visionbg.webp');
+  background-image: url('/images/visionbg.webp');
   width: 100%;
 }
 .card__container {
@@ -388,7 +388,7 @@
   left: -20px;
   width: 165px;
   height: 26px;
-  background-image: url('/bg-shadow.png');
+  background-image: url('/images/bg-shadow.png');
   background-repeat: no-repeat;
 }
 .card__content__img::after {

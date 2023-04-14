@@ -1,5 +1,5 @@
 import styles from './index.module.css'
-import AnimatedBtn from '../../components/animatedBtn'
+import BtnArrow from '@/components/BtnArrow'
 import Image from 'next/image'
 import Head from 'next/head'
 // import { AiFillStar } from 'react-icons/ai'
@@ -109,14 +109,11 @@ const SeaTripes = ({
                     ريال سعودي
                   </p>
                   <div className={styles.offer__card__btns}>
-                    <AnimatedBtn
-                      text='حجز العرض'
-                      textColor='#222'
-                      url={`https://api.whatsapp.com/send?phone=${
+                    <BtnArrow
+                      title='حجز العرض'
+                      href={`https://api.whatsapp.com/send?phone=${
                         settings?.whatsup
                       }&${message(card?.id)}`}
-                      target='_blank'
-                      rel='noreferrer'
                     />
                   </div>
                 </div>
@@ -156,7 +153,6 @@ export async function getServerSideProps() {
       programs,
       slide,
       settings,
-    },
-    revalidate: 1,
+    }
   }
 }

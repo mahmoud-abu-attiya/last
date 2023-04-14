@@ -176,8 +176,7 @@ const Aviation = ({
             src={slides[0]?.image}
             alt={slides[0]?.title}
             fill
-            objectFit='cover'
-            objectPosition='center'
+            className='object-cover'
           />
         )}
         <h1 className={styles.hero__title}>{slides[0]?.title}</h1>

@@ -13,7 +13,7 @@ import Image from 'next/image'
 //   BsFillMoonFill,
 //   BsFillPeopleFill,
 // } from 'react-icons/bs'
-import AnimatedBtn from '../../../../../components/animatedBtn'
+import BtnArrow from '@/components/BtnArrow'
 // import { MdLocationOn } from 'react-icons/md'
 import Link from 'next/link'
 import Head from 'next/head'
@@ -363,15 +363,13 @@ const Details = (props) => {
                         </div>
                       </div>
                       <div className={styles.similar__card__btns}>
-                        <AnimatedBtn
-                          text='تفاصيل العرض'
-                          textColor='#222'
-                          url={`/our-programs/${prog?.country?.id}/${prog?.category?.id}/${prog?.id}`}
+                        <BtnArrow
+                          title='تفاصيل العرض'
+                          href={`/our-programs/${prog?.country?.id}/${prog?.category?.id}/${prog?.id}`}
                         />
-                        <AnimatedBtn
-                          text='حجز العرض'
-                          textColor='#222'
-                          url={`https://api.whatsapp.com/send?phone=${
+                        <BtnArrow
+                          title='حجز العرض'
+                          href={`https://api.whatsapp.com/send?phone=${
                             settings?.whatsup
                           }&${message(prog?.id)}`}
                           target='_blank'

@@ -10,7 +10,7 @@ const Thanks = ({reviews, slides}) => {
       <Head>
         <title>{slides[0]?.title}</title>
       </Head>
-      <div className={styles.hero__bg}>
+      <div className={`overflow-hidden ${styles.hero__bg}`}>
         {slides[0]?.image && (
           <Image src={slides[0]?.image} alt={slides[0]?.title} fill />
         )}

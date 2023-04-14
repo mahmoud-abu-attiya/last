@@ -22,7 +22,7 @@ const AboutUs = ({ about, slides }) => {
       <Head>
         <title>{slides[0].title}</title>
       </Head>
-      <div className={styles.hero__bg}>
+      <div className={`overflow-hidden ${styles.hero__bg}`}>
         {slides[0].image && (
           <Image src={slides[0].image} alt={slides[0].title} fill />
         )}
@@ -48,7 +48,7 @@ const AboutUs = ({ about, slides }) => {
 
       <div className={styles.about__us__options}>
         <div className={styles.about__us__options__img}>
-          <Image fill src='/boat.gif' alt='' />
+          <Image fill src='/images/boat.gif' alt='' />
         </div>
         <div className={styles.about__us__cards}>
           {steps.map((card) => (
@@ -62,7 +62,7 @@ const AboutUs = ({ about, slides }) => {
       <div className={styles.about__us__grid}>
         {images.map((image, i) => (
           <div key={i} className={ imagesStyles[i] }>
-            <Image src={image.image} alt="about" fill objectFit='cover' />
+            <Image src={image.image} alt="about" fill className='cover' />
           </div>
         ))}
       </div>

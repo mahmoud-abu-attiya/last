@@ -29,17 +29,15 @@ const Place = (props) => {
               <Link
                 href="/our-programs/[place]/[categoryId]"
                 as={`/our-programs/${place}/${category?.id}`}
-                key={category?.id}
+                key={category?.id} className={styles.place__card}
               >
-                <a className={styles.place__card}>
-                  <Image
-                    fill
-                    src={category?.image}
-                    alt={category?.name}
-                    className={styles.place__card__img}
-                  />
-                  <h3>{category?.name}</h3>
-                </a>
+                <Image
+                  fill
+                  src={category?.image}
+                  alt={category?.name}
+                  className={styles.place__card__img}
+                />
+                <h3>{category?.name}</h3>
               </Link>
             ))
           ) : (

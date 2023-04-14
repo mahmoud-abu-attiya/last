@@ -128,7 +128,7 @@ const Footer = ({ countries }) => {
               className={styles.tiktok}
               aria-label='Footer Link - Tiktok'
             >
-              {/* <FaTiktok /> */}
+              <i class="fab fa-tiktok"></i>
             </a>
             <a
               href={settings?.twitter}

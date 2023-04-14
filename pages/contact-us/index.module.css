@@ -53,7 +53,7 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-image: url('/visionbg.webp');
+  background-image: url('/images/visionbg.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -112,7 +112,7 @@
   width: 100%;
   flex: 1;
   background-color: rgba(0, 0, 0, 0.5);
-  background-image: url('/contact-us-form.webp');
+  background-image: url('/images/contact-us-form.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

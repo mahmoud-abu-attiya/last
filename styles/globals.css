@@ -124,7 +124,7 @@ h6,
 }
 
 .programs {
-   background-image: url(../public/images/visionbg.webp);
+   background-image: url(/images/visionbg.webp);
    background-size: cover;
 }
 

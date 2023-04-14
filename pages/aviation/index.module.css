@@ -63,7 +63,7 @@
   flex-direction: column;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
-  background-image: url('/visionbg.webp');
+  background-image: url('/images/visionbg.webp');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -206,7 +206,7 @@
   position: relative;
   width: 100%;
   flex: 1;
-  background-image: url('/form-img-plane.webp');
+  background-image: url('/images/form-img-plane.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -262,6 +262,7 @@
   text-align: center;
   color: white;
   font-size: 1.2rem;
+  margin-bottom: 0.7rem;
 }
 .contact__title::after {
   content: '';

@@ -1,21 +1,9 @@
 import styles from './index.module.css'
-import AnimatedBtn from '../../components/animatedBtn'
+import BtnArrow from '@/components/BtnArrow'
 import Image from 'next/image'
-// import {
-//   BsPhoneFill,
-//   BsEnvelopeFill,
-//   BsSnapchat,
-//   BsTwitter,
-//   BsInstagram,
-//   BsYoutube,
-//   BsWhatsapp,
-// } from 'react-icons/bs'
-// import { MdLocationOn } from 'react-icons/md'
-// import { GiRotaryPhone } from 'react-icons/gi'
 import Head from 'next/head'
-// import { FaTiktok } from 'react-icons/fa'
 import ScrollDown from '../../components/scrollDown'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'
 
 const ContactUs = ({ slide, settings }) => {
@@ -88,7 +76,7 @@ const ContactUs = ({ slide, settings }) => {
       <Head>
         <title>تواصل معنا</title>
       </Head>
-      <div className={styles.hero__bg}>
+      <div className={`text-white ${styles.hero__bg}`}>
         {slide[0].image && (
           <Image
             src={slide[0].image}
@@ -97,10 +85,9 @@ const ContactUs = ({ slide, settings }) => {
           />
         )}
         <h1>{slide[0].title}</h1>
-        <AnimatedBtn
-          text={slide[0].button_text}
-          textColor='white'
-          url={'#form'}
+        <BtnArrow
+          title={slide[0].button_text}
+          href={'#form'}
         />
         <ScrollDown />
       </div>
@@ -168,10 +155,10 @@ const ContactUs = ({ slide, settings }) => {
           <Snackbar ref={snackbarRef} message={snackbarMsg} type={'success'} />
           <div className={styles.form__img}>
             <div className={styles.form__img__content}>
-              <h3 className='main__title'>هيا نتواصل</h3>
+              <h3 className='main__title my-4'>هيا نتواصل</h3>
               <div className={styles.contact__data}>
                 <div className={`${styles.contact__data__card}`}>
-                  <h3>الجوال</h3>
+                  <h3 className='my-4'>الجوال</h3>
                   <div className={styles.phone}>
                     <div>
                       <a
@@ -181,7 +168,7 @@ const ContactUs = ({ slide, settings }) => {
                       >
                         {settings.mobile}
                       </a>
-                      {/* <BsPhoneFill /> */}
+                      <i className="fas fa-mobile text-primary"></i>
                     </div>
                     <div>
                       <a
@@ -191,7 +178,7 @@ const ContactUs = ({ slide, settings }) => {
                       >
                         {settings.whatsup}
                       </a>
-                      {/* <BsWhatsapp /> */}
+                      <i className="fab fa-whatsapp text-primary"></i>
                     </div>
                     <div>
                       <a
@@ -201,12 +188,12 @@ const ContactUs = ({ slide, settings }) => {
                       >
                         {settings.phone}
                       </a>
-                      {/* <GiRotaryPhone /> */}
+                      <i className="fas fa-phone-rotary text-primary"></i>
                     </div>
                   </div>
                 </div>
                 <div className={styles.contact__data__card}>
-                  <h3>البريد الالكتروني</h3>
+                  <h3 className='my-4'>البريد الالكتروني</h3>
                   <div>
                     <a
                       href={`mailto:${settings.email}`}
@@ -215,14 +202,14 @@ const ContactUs = ({ slide, settings }) => {
                     >
                       {settings.email}
                     </a>
-                    {/* <BsEnvelopeFill /> */}
+                    <i className="fas fa-envelope text-primary"></i>
                   </div>
                 </div>
                 <div className={styles.contact__data__card}>
-                  <h3>العنوان</h3>
+                  <h3 className='my-4'>العنوان</h3>
                   <div>
                     <div>{settings.address}</div>
-                    {/* <MdLocationOn /> */}
+                    <i class="fas fa-map-marker-alt text-primary"></i>
                   </div>
                 </div>
               </div>
@@ -233,7 +220,7 @@ const ContactUs = ({ slide, settings }) => {
                   rel='noreferrer'
                   className={styles.instagram}
                 >
-                  {/* <BsInstagram /> */}
+                  <i class="fab fa-instagram"></i>
                 </a>
                 <a
                   href={settings.twitter}
@@ -241,7 +228,7 @@ const ContactUs = ({ slide, settings }) => {
                   rel='noreferrer'
                   className={styles.twitter}
                 >
-                  {/* <BsTwitter /> */}
+                  <i class="fab fa-twitter"></i>
                 </a>
                 <a
                   href={settings.tiktok}
@@ -249,7 +236,7 @@ const ContactUs = ({ slide, settings }) => {
                   rel='noreferrer'
                   className={styles.tiktok}
                 >
-                  {/* <FaTiktok /> */}
+                  <i class="fab fa-tiktok"></i>
                 </a>
                 <a
                   href={settings.snapchat}
@@ -257,7 +244,7 @@ const ContactUs = ({ slide, settings }) => {
                   rel='noreferrer'
                   className={styles.snapchat}
                 >
-                  {/* <BsSnapchat /> */}
+                  <i class="fab fa-snapchat-ghost"></i>
                 </a>
                 <a
                   href={settings.youtube}
@@ -265,7 +252,7 @@ const ContactUs = ({ slide, settings }) => {
                   rel='noreferrer'
                   className={styles.youtube}
                 >
-                  {/* <BsYoutube /> */}
+                  <i class="fab fa-youtube"></i>
                 </a>
               </div>
             </div>

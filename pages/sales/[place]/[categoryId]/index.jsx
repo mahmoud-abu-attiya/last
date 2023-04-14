@@ -1,7 +1,7 @@
 import styles from './index.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
-import AnimatedBtn from '../../../../components/animatedBtn'
+import BtnArrow from '@/components/BtnArrow'
 // import { BsFillSunFill, BsFillMoonFill, BsFillPeopleFill } from 'react-icons/bs'
 // import { MdLocationOn } from 'react-icons/md'
 // import { AiFillStar } from 'react-icons/ai'
@@ -78,11 +78,9 @@ const Offer = (props) => {
                       <Link
                         href={`/sales/${place}/${categoryId}/${program.id}`}
                       >
-                        <a>
                           <span className={styles.offer__card__title}>
                             {program?.category?.name} {program.rate} نجوم
                           </span>
-                        </a>
                       </Link>
                       <div className={styles.stars}>
                         {Array.from(Array(program.rate)).map((s, i) => (
@@ -119,19 +117,15 @@ const Offer = (props) => {
                       ريال سعودي
                     </p>
                     <div className={styles.offer__card__btns}>
-                      <AnimatedBtn
-                        text='تفاصيل العرض'
-                        textColor='#222'
-                        url={`/sales/${place}/${categoryId}/${program.id}`}
+                      <BtnArrow
+                        title='تفاصيل العرض'
+                        href={`/sales/${place}/${categoryId}/${program.id}`}
                       />
-                      <AnimatedBtn
-                        text='حجز العرض'
-                        textColor='#222'
-                        url={`https://api.whatsapp.com/send?phone=${
+                      <BtnArrow
+                        title='حجز العرض'
+                        href={`https://api.whatsapp.com/send?phone=${
                           settings?.whatsup
                         }&${message(program?.id)}`}
-                        target='_blank'
-                        rel='noreferrer'
                       />
                     </div>
                   </div>
