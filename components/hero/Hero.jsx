@@ -19,12 +19,12 @@ export default function Hero({ slides }) {
       }
    }
 
-   useEffect(() => {
-      const interval = setInterval(() => {
-         next()
-      }, 3000)
-      return () => clearInterval(interval)
-   }, [activeIndex])
+   // useEffect(() => {
+   //    const interval = setInterval(() => {
+   //       next()
+   //    }, 3000)
+   //    return () => clearInterval(interval)
+   // }, [activeIndex])
    return (
       <div className='h-screen w-full'>
          {slides.map((slide, index) => {

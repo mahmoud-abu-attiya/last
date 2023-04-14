@@ -2,7 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-.flip-card{
+@font-face {
+   font-family: "bukra";
+   src: local("Times New Roman"), url(../public/fonts/bukraregular.otf);
+   font-display: swap;
+}
+
+@font-face {
+   font-family: "bukrabold";
+   src: local("Times New Roman"), url(../public/fonts/bukrabold.otf);
+   font-display: swap;
+}
+
+html,
+body {
+   scroll-behavior: smooth;
+}
+
+* {
+   font-family: "bukra";
+}
+
+h1,h2,h3,h4,h5,h6,.bold{
+   font-family: "bukrabold";
+}
+
+.flip-card {
    width: 300px;
    height: 450px;
 }
@@ -34,9 +59,11 @@
    transition: transform 0.6s;
    transform-style: preserve-3d;
 }
-.flip-card-back{
-   box-shadow: 0 2rem 3rem rgba(0,0,0,.05);
+
+.flip-card-back {
+   box-shadow: 0 2rem 3rem rgba(0, 0, 0, .05);
 }
+
 .flip-card:hover .flip-card-inner {
    transform: rotateY(-180deg);
 }
@@ -80,7 +107,7 @@
 }
 
 @media (max-width: 767px) {
-   .swiper-wrapper{
+   .swiper-wrapper {
       transform: translateX(calc((100vw - 300px) / -2));
    }
 }
