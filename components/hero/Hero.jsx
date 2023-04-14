@@ -36,12 +36,12 @@ export default function Hero({ slides }) {
             )
          })}
          <div className="btns absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4 z-10">
-            <button className="btn p-4 group" onClick={next}>
-               <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
-            </button>
-               <div className="fractions text-white">{activeIndex + 1} / {slides.length}</div>
             <button className="btn p-4 group" onClick={prev}>
                <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
+            </button>
+               <div className=" whitespace-nowrap text-white">{activeIndex + 1} / {slides.length}</div>
+            <button className="btn p-4 group" onClick={next}>
+               <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
             </button>
          </div>
       </div>

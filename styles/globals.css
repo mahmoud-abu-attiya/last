@@ -14,6 +14,11 @@
    font-display: swap;
 }
 
+:root {
+   --first-clr: #59b5ba;
+   --second-clr: #07162d;
+}
+
 html,
 body {
    scroll-behavior: smooth;

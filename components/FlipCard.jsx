@@ -16,7 +16,7 @@ const FlipCard = ({ img, title, description, btnTitle, btnUrl }) => {
                      {title}
                   </h3>
                   <span className="text-primary min-w-[3rem] w-12 h-12 border border-primary rounded-full flex justify-center items-center">
-                     <Image src="/icons/arrow-left.svg" className="rotate-45" alt="arrow" width={20} height={20} />
+                     <i className="fal fa-arrow-left rotate-45"></i>
                   </span>
                </div>
             </div>
