@@ -7,6 +7,10 @@ import Special from "@/components/special/Special";
 import Events from "@/components/events/Events";
 import NewPrograms from "@/components/newPrograms/NewPrograms";
 
+export const config = {
+  unstable_runtimeJS: false,
+}
+
 export default function Home({ data, programsCountries }) {
   const {
     features = [],
