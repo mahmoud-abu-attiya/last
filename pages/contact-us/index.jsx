@@ -209,7 +209,7 @@ const ContactUs = ({ slide, settings }) => {
                   <h3 className='my-4'>العنوان</h3>
                   <div>
                     <div>{settings.address}</div>
-                    <i class="fas fa-map-marker-alt text-primary"></i>
+                    <i className="fas fa-map-marker-alt text-primary"></i>
                   </div>
                 </div>
               </div>
@@ -220,7 +220,7 @@ const ContactUs = ({ slide, settings }) => {
                   rel='noreferrer'
                   className={styles.instagram}
                 >
-                  <i class="fab fa-instagram"></i>
+                  <i className="fab fa-instagram"></i>
                 </a>
                 <a
                   href={settings.twitter}
@@ -228,7 +228,7 @@ const ContactUs = ({ slide, settings }) => {
                   rel='noreferrer'
                   className={styles.twitter}
                 >
-                  <i class="fab fa-twitter"></i>
+                  <i className="fab fa-twitter"></i>
                 </a>
                 <a
                   href={settings.tiktok}
@@ -236,7 +236,7 @@ const ContactUs = ({ slide, settings }) => {
                   rel='noreferrer'
                   className={styles.tiktok}
                 >
-                  <i class="fab fa-tiktok"></i>
+                  <i className="fab fa-tiktok"></i>
                 </a>
                 <a
                   href={settings.snapchat}
@@ -244,7 +244,7 @@ const ContactUs = ({ slide, settings }) => {
                   rel='noreferrer'
                   className={styles.snapchat}
                 >
-                  <i class="fab fa-snapchat-ghost"></i>
+                  <i className="fab fa-snapchat-ghost"></i>
                 </a>
                 <a
                   href={settings.youtube}
@@ -252,7 +252,7 @@ const ContactUs = ({ slide, settings }) => {
                   rel='noreferrer'
                   className={styles.youtube}
                 >
-                  <i class="fab fa-youtube"></i>
+                  <i className="fab fa-youtube"></i>
                 </a>
               </div>
             </div>

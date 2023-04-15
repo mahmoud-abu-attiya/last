@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import FlipCard from '../FlipCard'
+import FlipCard from './FlipCard'
 import Image from 'next/image'
 import Link from 'next/link'
 

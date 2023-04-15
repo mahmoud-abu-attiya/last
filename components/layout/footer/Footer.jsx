@@ -23,11 +23,8 @@ const Footer = ({ countries }) => {
           {countries?.slice(0, 7).map((country) => (
             <span key={country?.id} className={styles.famous__places__span}>
               <Link href={`/our-programs/${country?.id}`} className={styles.famous__places__link}>
-
-                  {/* <IoIosArrowBack /> */}
-                  <i className="fas fa-angle-left"></i>
-                  {country?.name}
-
+                <i className="fal fa-angle-left text-xl"></i>
+                {country?.name}
               </Link>
             </span>
           ))}
@@ -37,7 +34,6 @@ const Footer = ({ countries }) => {
         >
           <h3 className={styles.title}>اتصل بنا</h3>
           <div className={styles.call__us__head}>
-            {/* <BiSupport /> */}
             <i className="fas fa-headset"></i>
             للحجز والاستفسار
           </div>
@@ -49,9 +45,8 @@ const Footer = ({ countries }) => {
               rel='noreferrer'
               className={styles.contact__link}
             >
-              {/* <BsEnvelopeFill /> */}
-              <i className="fas fa-envelope"></i>
-               {settings?.email}
+              <i className="fas fa-envelope text-primary"></i>
+              {settings?.email}
             </a>
             <a
               href={`tel:${settings?.phone}`}
@@ -59,9 +54,8 @@ const Footer = ({ countries }) => {
               rel='noreferrer'
               className={styles.contact__link}
             >
-              {/* <GiRotaryPhone /> */}
-              <i className="fas fa-phone-alt"></i>
-               {settings?.phone}
+              <i className="fas fa-phone-alt text-primary"></i>
+              {settings?.phone}
             </a>
             <a
               href={`tel:${settings?.mobile}`}
@@ -69,9 +63,8 @@ const Footer = ({ countries }) => {
               rel='noreferrer'
               className={styles.contact__link}
             >
-              {/* <BsPhoneFill /> */}
-              <i className="fas fa-mobile"></i>
-               {settings?.mobile}
+              <i className="fas fa-mobile text-primary"></i>
+              {settings?.mobile}
             </a>
             <a
               href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`}
@@ -79,9 +72,8 @@ const Footer = ({ countries }) => {
               rel='noreferrer'
               className={styles.contact__link}
             >
-              {/* <BsWhatsapp /> */}
-              <i className="fab fa-whatsapp"></i>
-               {settings?.whatsup}
+              <i className="fab fa-whatsapp text-primary"></i>
+              {settings?.whatsup}
             </a>
           </div>
           <span className={styles.call__us__span}>
@@ -118,7 +110,6 @@ const Footer = ({ countries }) => {
               className={styles.instagram}
               aria-label='Footer Link - Instagram'
             >
-              {/* <BsInstagram /> */}
               <i className="fab fa-instagram"></i>
             </a>
             <a
@@ -128,7 +119,7 @@ const Footer = ({ countries }) => {
               className={styles.tiktok}
               aria-label='Footer Link - Tiktok'
             >
-              <i class="fab fa-tiktok"></i>
+              <i className="fab fa-tiktok"></i>
             </a>
             <a
               href={settings?.twitter}
@@ -137,8 +128,7 @@ const Footer = ({ countries }) => {
               className={styles.twitter}
               aria-label='Footer Link - Twitter'
             >
-              {/* <BsTwitter /> */}
-              <i className="fab fa-twitter"></i>  
+              <i className="fab fa-twitter"></i>
             </a>
             <a
               href={settings?.snapchat}
@@ -147,7 +137,6 @@ const Footer = ({ countries }) => {
               className={styles.snapchat}
               aria-label='Footer Link - Snapchat'
             >
-              {/* <BsSnapchat /> */}
               <i className="fab fa-snapchat-ghost"></i>
             </a>
             <a
@@ -157,20 +146,18 @@ const Footer = ({ countries }) => {
               className={styles.youtube}
               aria-label='Footer Link - Youtube'
             >
-              {/* <BsYoutube /> */}
               <i className="fab fa-youtube"></i>
             </a>
           </div>
         </div>
         {settings?.logo && (
           <Link href='/' className={styles.f__logo}>
-              <Image
-                src={settings?.logo}
-                width={145}
-                height={100}
-                layout='intrinsic'
-                alt='wsam elnagah logo'
-              />
+            <Image
+              src={settings?.logo}
+              width={145}
+              height={100}
+              alt='wsam elnagah logo'
+            />
           </Link>
         )}
         <button
@@ -178,7 +165,6 @@ const Footer = ({ countries }) => {
           title='ارجع الي الاعلي'
           className={styles.scroll__top__btn}
         >
-          {/* <RiArrowUpFill /> */}
           <i className="fas fa-arrow-up"></i>
         </button>
       </div>
@@ -186,9 +172,9 @@ const Footer = ({ countries }) => {
       <p className={styles.copyright}>
         <span className={styles.copyright__text}>{settings?.copy_rights}</span>
         <span className={styles.copyright__msg}>
-          Made with 
-          {/* <AiFillHeart /> */}
-           in Elnagah
+          Made with
+          <i className="fas fa-heart text-red-500"></i>
+          in Elnagah
         </span>
       </p>
     </footer>

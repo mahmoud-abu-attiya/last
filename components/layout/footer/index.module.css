@@ -10,7 +10,6 @@
 /* Up & Down Section */
 .f__logo {
   color: #ffffff;
-  font-family: 'Bebas Neue', cursive;
   letter-spacing: 2px;
   padding: 5px 10px;
   font-size: 45px;
@@ -33,22 +32,21 @@
 .call__us,
 .location,
 .social {
-  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   color: white;
 }
 .location {
   max-width: 260px;
-  font-family: 'Bukra Regular', sans-serif;
 }
 .title {
   color: white;
   position: relative;
   transition: 0.2s;
   width: fit-content;
-  padding-bottom: 0.2rem;
   border-bottom: 2px solid white;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.2rem;
 }
 /* .famous__places__span {
   width: fit-content;
@@ -99,7 +97,6 @@
   flex-direction: column;
   gap: 0.2rem;
   color: white;
-  font-family: 'Bukra Regular', sans-serif;
   margin: 0.7rem 0;
 }
 .call__us__span {
@@ -173,7 +170,6 @@
   font-size: 2rem;
 }
 .copyright {
-  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   display: flex;
   justify-content: space-evenly;
@@ -182,7 +178,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   color: white;
-  padding: 0 1rem;
+  padding: 1rem;
 }
 .copyright span {
   display: flex;

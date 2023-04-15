@@ -210,7 +210,7 @@ export default function Header({ countries }) {
               className={styles.header__search}
               onClick={() => setIsSearch(true)}
             >
-              <i class="far fa-search text-xl"></i>
+              <i className="far fa-search text-xl"></i>
             </span>
 
             <span

@@ -51,12 +51,12 @@ export default function Hero({ slides }) {
          })}
          <div className="btns absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4 xl:gap-24 z-10">
             <button className="btn p-4 group opacity-50 hover:opacity-100" onClick={prev}>
-               <svg xmlns="http://www.w3.org/2000/svg" width="84" height="83" viewBox="0 0 84 83" className='rotate-180'>
+               <svg xmlns="http://www.w3.org/2000/svg" width="84" height="83" viewBox="0 0 84 83" className='rotate-180 max-w-[15vw]'>
                <g id="Previous" transform="translate(-1197.879 -864.108)">
                   <g id="Group_51" data-name="Group 51" transform="translate(1289.118 952.395) rotate(180)">
                      <g id="Group_14" data-name="Group 14" transform="translate(49.439 5.433) rotate(45)" opacity="0.9">
-                     <path id="Path_28" data-name="Path 28" d="M0,54.614,55.006,0" transform="translate(1.214 2.096)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
-                     <path id="Path_29" data-name="Path 29" d="M0,0H45.219V42.667" transform="translate(12.109 1.214)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                     <path id="Path_28" data-name="Path 28" d="M0,54.614,55.006,0" transform="translate(1.214 2.096)" fill="none" stroke="#fff" strokeLinecap="round" strokeWidth="3"/>
+                     <path id="Path_29" data-name="Path 29" d="M0,0H45.219V42.667" transform="translate(12.109 1.214)" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"/>
                      </g>
                   </g>
                </g>
@@ -64,12 +64,12 @@ export default function Hero({ slides }) {
             </button>
             <div className=" whitespace-nowrap text-white text-xl">{activeIndex + 1} / {slides.length}</div>
             <button className="btn p-4 group opacity-50 hover:opacity-100" onClick={next}>
-               <svg xmlns="http://www.w3.org/2000/svg" width="84" height="83" viewBox="0 0 84 83">
+               <svg xmlns="http://www.w3.org/2000/svg" width="84" height="83" viewBox="0 0 84 83" className='max-w-[15vw]'>
                   <g id="Previous" transform="translate(-1197.879 -864.108)">
                      <g id="Group_51" data-name="Group 51" transform="translate(1289.118 952.395) rotate(180)">
                         <g id="Group_14" data-name="Group 14" transform="translate(49.439 5.433) rotate(45)" opacity="0.9">
-                           <path id="Path_28" data-name="Path 28" d="M0,54.614,55.006,0" transform="translate(1.214 2.096)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3" />
-                           <path id="Path_29" data-name="Path 29" d="M0,0H45.219V42.667" transform="translate(12.109 1.214)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+                           <path id="Path_28" data-name="Path 28" d="M0,54.614,55.006,0" transform="translate(1.214 2.096)" fill="none" stroke="#fff" strokeLinecap="round" strokeWidth="3" />
+                           <path id="Path_29" data-name="Path 29" d="M0,0H45.219V42.667" transform="translate(12.109 1.214)" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
                         </g>
                      </g>
                   </g>
