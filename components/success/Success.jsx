@@ -63,7 +63,7 @@ const Success = ({ data, features_slides }) => {
           </div>
         </div>
       </div>
-      <div className="col-span-6 block lg:hidden w-full bg-secondary py-4 text-xs text-center">
+      <div className="col-span-6 block xl:hidden w-full bg-secondary py-4 text-xs text-center">
         <Link href='/about-us' className={"border-b pb-2"}>
           عرض مميزات وسام النجاح
         </Link>

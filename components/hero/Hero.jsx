@@ -25,7 +25,7 @@ export default function Hero({ slides }) {
    useEffect(() => {
       const interval = setInterval(() => {
          next()
-      }, 3000)
+      }, 4000)
       return () => clearInterval(interval)
    }, [activeIndex])
    return (
@@ -49,9 +49,8 @@ export default function Hero({ slides }) {
                </div>
             )
          })}
-         <div className="btns absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-24 z-10">
+         <div className="btns absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4 xl:gap-24 z-10">
             <button className="btn p-4 group opacity-50 hover:opacity-100" onClick={prev}>
-               {/* <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={80} height={80} unoptimized={true} /> */}
                <svg xmlns="http://www.w3.org/2000/svg" width="84" height="83" viewBox="0 0 84 83" className='rotate-180'>
                <g id="Previous" transform="translate(-1197.879 -864.108)">
                   <g id="Group_51" data-name="Group 51" transform="translate(1289.118 952.395) rotate(180)">
@@ -65,7 +64,6 @@ export default function Hero({ slides }) {
             </button>
             <div className=" whitespace-nowrap text-white text-xl">{activeIndex + 1} / {slides.length}</div>
             <button className="btn p-4 group opacity-50 hover:opacity-100" onClick={next}>
-               {/* <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={80} height={80} unoptimized={true} /> */}
                <svg xmlns="http://www.w3.org/2000/svg" width="84" height="83" viewBox="0 0 84 83">
                   <g id="Previous" transform="translate(-1197.879 -864.108)">
                      <g id="Group_51" data-name="Group 51" transform="translate(1289.118 952.395) rotate(180)">

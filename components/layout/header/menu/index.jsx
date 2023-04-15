@@ -5,25 +5,61 @@ import { memo, useEffect, useState } from 'react'
 import styles from '../Header.module.css'
 
 export const headerLinks = [
-  { text: 'الرئيسية', route: '/', icon: <i className="fas fa-home"></i> },
-  { text: 'البرامج السياحية', route: '/our-programs', icon: <i className="fad fa-flag-checkered"></i> },
+  {
+    text: 'الرئيسية',
+    route: '/',
+    icon: "/icons/home.svg"
+  },
+  {
+    text: 'البرامج السياحية',
+    route: '/our-programs',
+    icon: "/icons/flag.svg"
+  },
   {
     text: 'العروض المميزة',
     route: '/special-offers',
-    icon: <i className="fas fa-bolt"></i>,
+    icon: "/icons/thunder.svg"
   },
-  { text: 'الخصومات', route: '/sales', icon: <i className="fas fa-percent"></i> },
-  { text: 'الطيران', route: '/aviation', icon: <i className="fas fa-plane"></i> },
-  { text: 'حجز فنادق', route: '/book-hotel', icon: <i className="fas fa-hotel"></i>},
+  {
+    text: 'الخصومات',
+    route: '/sales',
+    icon: "/icons/offer.svg"
+  },
+  {
+    text: 'الطيران',
+    route: '/aviation',
+    icon: "/icons/plane.svg"
+  },
+  {
+    text: 'حجز فنادق',
+    route: '/book-hotel',
+    icon: "/icons/hotel.svg"
+  },
   {
     text: 'تصميم برنامج سياحي',
     route: '/design-program',
-    icon: <i className="fas fa-pencil-ruler"></i>,
+    icon: "/icons/design.svg"
   },
-  { text: 'رحلات بحرية', route: '/sea-tripes', icon: <i className="fas fa-ship"></i>},
-  { text: 'تواصل معنا', route: '/contact-us', icon: <i className="fas fa-user-tag"></i> },
-  { text: 'نبذه عنا', route: '/about-us', icon: <i className="fas fa-info"></i> },
-  { text: 'شكر العملاء', route: '/thanks', icon: <i className="fas fa-handshake"></i> },
+  {
+    text: 'رحلات بحرية',
+    route: '/sea-tripes',
+    icon: "/icons/boot.svg"
+  },
+  {
+    text: 'تواصل معنا',
+    route: '/contact-us',
+    icon: "/icons/user.svg"
+  },
+  {
+    text: 'نبذه عنا',
+    route: '/about-us',
+    icon: "/icons/info.svg"
+  },
+  {
+    text: 'شكر العملاء',
+    route: '/thanks',
+    icon: "/icons/hand.svg"
+  },
 ]
 
 const Menu = (props) => {
@@ -72,16 +108,21 @@ const Menu = (props) => {
           return (
             <li
               key={link.route}
-              className={`${styles.header__li} ${
-                i === value ? styles.active__link : ''
-              }`}
+              className={`${styles.header__li} ${i === value ? styles.active__link : ''
+                }`}
               onClick={() => setShowMenu(false)}
             >
               {/* <link.icon /> */}
-              <span>{link.icon}</span>
+              {/* <span>{link.icon}</span> */}
+              <Image
+                src={link.icon}
+                alt={link.text}
+                width={20}
+                height={20}
+              />
               <Link href={link.route} onClick={() => setValue(i)} className={styles.header__link}>
 
-                  {link.text}
+                {link.text}
               </Link>
             </li>
           )

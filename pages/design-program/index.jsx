@@ -2,18 +2,6 @@ import Head from 'next/head'
 import styles from './index.module.css'
 import Image from 'next/image'
 import BtnArrow from '@/components/BtnArrow'
-// import {
-//   BsEnvelopeFill,
-//   BsInstagram,
-//   BsPhoneFill,
-//   BsSnapchat,
-//   BsTwitter,
-//   BsWhatsapp,
-//   BsYoutube,
-// } from 'react-icons/bs'
-// import { GiRotaryPhone } from 'react-icons/gi'
-// import { MdLocationOn } from 'react-icons/md'
-// import { FaTiktok } from 'react-icons/fa'
 import ScrollDown from '../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'

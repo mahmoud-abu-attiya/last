@@ -3,8 +3,9 @@ import Header from './header/Header'
 import Footer from './footer/Footer'
 import { useDispatch } from 'react-redux'
 import { setSettingsData } from '../../slices/settingsSlices'
-import SocailMedia from './socialMedia'
 import FixedBtn from '../fixedBtn'
+import SocailMedia from '../socialMedia'
+
 
 export default function Layout({ children, settings, countries, footerCountries }) {
    const dispatch = useDispatch()

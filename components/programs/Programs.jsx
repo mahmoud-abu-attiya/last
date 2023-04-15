@@ -63,12 +63,12 @@ export default function Programs({ data }) {
 
   return (
     <section className='grid grid-cols-12 py-16 md:py-20 programs'>
-      <div className='col-span-12 lg:col-span-3 pr-16 text-white lg:flex flex-col justify-between gap-4'>
-        <h2 className='text-2xl lg:text-5xl lg:w-min text-center lg:text-start'>أحدث
+      <div className='col-span-12 xl:col-span-3 pr-16 text-white xl:flex flex-col justify-between gap-4'>
+        <h2 className='text-2xl lg:text-5xl xl:w-min text-center xl:text-start'>أحدث
           خصومات
           البرامج
           السياحية</h2>
-        <div className='hidden lg:block'>
+        <div className='hidden xl:block'>
           <button className="btn p-4 group" onClick={prev}>
             <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
           </button>
@@ -76,11 +76,11 @@ export default function Programs({ data }) {
             <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
           </button>
         </div>
-        <Link href="/" className='border-b pb-2 w-fit text-xs hidden lg:block'>
+        <Link href="/" className='border-b pb-2 w-fit text-xs hidden xl:block'>
           عرض كل البرامج
           </Link>
       </div>
-      <div className='col-span-12 lg:col-span-9'>
+      <div className='col-span-12 xl:col-span-9'>
         <div className='w-full overflow-hidden'>
           <div className='swiper-wrapper'>
             <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
@@ -99,7 +99,7 @@ export default function Programs({ data }) {
           </div>
         </div>
       </div>
-      <div className="block lg:hidden col-span-12 text-center">
+      <div className="block xl:hidden col-span-12 text-center">
       <Link href="/" className='border-b pb-2 w-fit text-xs text-white'>
           عرض كل البرامج
           </Link>

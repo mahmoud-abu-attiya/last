@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-   font-family: "bukra";
-   src: local("Times New Roman"), url(../public/fonts/bukraregular.otf);
-   font-display: swap;
-}
-
-@font-face {
-   font-family: "bukrabold";
-   src: local("Times New Roman"), url(../public/fonts/bukrabold.otf);
-   font-display: swap;
-}
-
 :root {
    --first-clr: #59b5ba;
    --second-clr: #07162d;
@@ -25,7 +13,7 @@ body {
 }
 
 * {
-   font-family: "bukra";
+   font-weight: 400;
 }
 
 h1,
@@ -35,11 +23,7 @@ h4,
 h5,
 h6,
 .bold {
-   font-family: "bukrabold";
-}
-
-.regular{
-   font-family: "bukra";
+   font-weight: 900;
 }
 
 .flip-card {
@@ -182,7 +166,7 @@ h6,
  }
 
  .dots {
-   background-image: url('/dots.png');
+   background-image: url('/images/dots.png');
    height: 186px;
    width: 204px;
    background-repeat: no-repeat;
