@@ -38,6 +38,10 @@ h6,
    font-family: "bukrabold";
 }
 
+.regular{
+   font-family: "bukra";
+}
+
 .flip-card {
    width: 300px;
    height: 450px;

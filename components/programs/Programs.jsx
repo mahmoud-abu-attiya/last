@@ -62,13 +62,13 @@ export default function Programs({ data }) {
   }
 
   return (
-    <section className='grid grid-cols-12 py-16 programs'>
-      <div className='col-span-12 md:col-span-3 pr-16 text-white flex flex-col justify-between gap-4'>
-        <h2 className='text-xl sm:text-2xl lg:text-5xl w-min'>أحدث
+    <section className='grid grid-cols-12 py-16 md:py-20 programs'>
+      <div className='col-span-12 lg:col-span-3 pr-16 text-white lg:flex flex-col justify-between gap-4'>
+        <h2 className='text-2xl lg:text-5xl lg:w-min text-center lg:text-start'>أحدث
           خصومات
           البرامج
           السياحية</h2>
-        <div>
+        <div className='hidden lg:block'>
           <button className="btn p-4 group" onClick={prev}>
             <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
           </button>
@@ -76,11 +76,11 @@ export default function Programs({ data }) {
             <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
           </button>
         </div>
-        <Link href="/" className='border-b pb-2 w-fit'>
+        <Link href="/" className='border-b pb-2 w-fit text-xs hidden lg:block'>
           عرض كل البرامج
           </Link>
       </div>
-      <div className='col-span-12 md:col-span-9'>
+      <div className='col-span-12 lg:col-span-9'>
         <div className='w-full overflow-hidden'>
           <div className='swiper-wrapper'>
             <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
@@ -97,6 +97,19 @@ export default function Programs({ data }) {
               })}
             </div>
           </div>
+        </div>
+      </div>
+      <div className="block lg:hidden col-span-12 text-center">
+      <Link href="/" className='border-b pb-2 w-fit text-xs text-white'>
+          عرض كل البرامج
+          </Link>
+          <div>
+          <button className="btn p-4 group" onClick={prev}>
+            <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
+          </button>
+          <button className="btn p-4 group" onClick={next}>
+            <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
+          </button>
         </div>
       </div>
     </section>

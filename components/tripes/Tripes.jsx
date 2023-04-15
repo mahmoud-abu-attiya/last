@@ -103,32 +103,32 @@ const Tripes = ({ data: countries }) => {
   const tripesTabs = ['جميع الوجهات', 'الوجهات الخارجية', 'الوجهات الداخلية']
   return (
     <div className={`grid grid-cols-6 ${styles.tripes}`}>
-      <div className="col-span-6 lg:col-span-1 pt-16 lg:py-20 lg:border-l flex flex-col justify-between items-center">
-        <Link href='/our-programs' className={"border-b pb-2 w-fit hidden lg:block"}>
+      <div className="col-span-6 xl:col-span-1 pt-16 xl:py-20 xl:border-l flex flex-col justify-between items-center">
+        <Link href='/our-programs' className={"border-b pb-2 w-fit hidden xl:block"}>
         عرض الكل
       </Link>
       <h2
-        className={`lg:hidden ${styles.tripes__title}`}
+        className={`xl:hidden ${styles.tripes__title}`}
       >
         اختر وجهتك الان
       </h2>
         <div
-          className={` flex-row lg:flex-col justify-center ${styles.tripes__tabs}`}
+          className={`flex-row xl:flex-col gap-8 justify-center ${styles.tripes__tabs}`}
         >
           {tripesTabs.map((tab, i) => (
             <button
               key={i}
               onClick={() => setValue(i)}
-              className={`${styles.tripes__tab} border-secondary border-none px-4 ${value == i ? "md:border-b-2 text-secondary" : "text-gray-600"}`}
+              className={`${styles.tripes__tab} border-secondary mx-4 xl:px-4 ${value == i ? "border-b-2 text-secondary xl:border-none" : "text-gray-600 border-none"}`}
             >
               {tab}
             </button>
           ))}
-          <span className={`absolute transition-all hidden lg:flex left-0 -translate-x-1/2 justify-center items-center -translate-y-1/2 w-16 h-8 bg-white ${value == 0 ? "top-[10%]" : value == 1 ? "top-1/2" : "top-[90%]"}`}>
+          <span className={`absolute transition-all hidden xl:flex left-0 -translate-x-1/2 justify-center items-center -translate-y-1/2 w-16 h-8 bg-white ${value == 0 ? "top-[10%]" : value == 1 ? "top-1/2" : "top-[90%]"}`}>
             <span className="bg-secondary h-1 w-full block"></span>
           </span>
         </div>
-      <div className='hidden lg:block'>
+      <div className='hidden xl:block'>
         <button className="btn p-4 group" onClick={prev}>
           <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
         </button>
@@ -137,9 +137,9 @@ const Tripes = ({ data: countries }) => {
         </button>
       </div>
       </div>
-      <div className={` col-span-6 lg:col-span-5 lg:pr-10 lg:py-20`}>
+      <div className={` col-span-6 xl:col-span-5 xl:pr-10 xl:py-20`}>
       <h2
-        className={`hidden lg:block ${styles.tripes__title}`}
+        className={`hidden xl:block ${styles.tripes__title}`}
       >
         اختر وجهتك الان
       </h2>
@@ -158,17 +158,17 @@ const Tripes = ({ data: countries }) => {
             </div>
           </div>
         </div>
-        <div className='block lg:hidden text-center'>
+        <div className='flex items-center gap-8 xl:hidden justify-center mb-16'>
         <button className="btn p-4 group" onClick={prev}>
           <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
         </button>
+        <Link href='/our-programs' className="border-b-2 text-secondary text-xs w-fit block pb-1 xl:hidden">
+        عرض الكل
+      </Link>
         <button className="btn p-4 group" onClick={next}>
           <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
         </button>
       </div>
-      <Link href='/our-programs' className="border-b-2 text-secondary text-xs w-fit mx-auto block pb-1 lg:hidden mb-16">
-        عرض الكل
-      </Link>
       </div>
     </div>
   )
