@@ -87,7 +87,6 @@
   background-color: #f6f5f5;
   border-radius: 50px;
   display: flex;
-  direction: rtl;
   flex-direction: column;
   grid-area: 2rem;
 }

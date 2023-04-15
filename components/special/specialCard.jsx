@@ -17,7 +17,7 @@ const SpecialCard = ({ item }) => {
         <Image
           src={ item.image ||"/images/placeholder.webp"}
           fill
-          alt={item?.id}
+          alt={item.id}
           quality={50}
           className={styles.card__img}
         />
@@ -32,7 +32,7 @@ const SpecialCard = ({ item }) => {
           </Link>
           <a
             className={styles.card__btn}
-            href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}&${message}`}
+            href={`https://api.whatsapp.com/send?phone=${settings.whatsup}&${message}`}
             target='_blank'
             rel='noreferrer'
           >

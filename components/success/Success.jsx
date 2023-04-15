@@ -57,9 +57,9 @@ const Success = ({ data, features_slides }) => {
           <div
             className={styles.success__item__container}
           >
-            <h3 className={styles.success__item__title}>{data[value]?.name}</h3>
-            <p className={styles.success__item__text}>{data[value]?.content}</p>
-            <BtnArrow title={data[value]?.name} href={'/about-us'} />
+            <h3 className={styles.success__item__title}>{data[value].name}</h3>
+            <p className={styles.success__item__text}>{data[value].content}</p>
+            <BtnArrow title={data[value].name} href={'/about-us'} />
           </div>
         </div>
       </div>

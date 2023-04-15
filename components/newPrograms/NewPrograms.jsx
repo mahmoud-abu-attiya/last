@@ -1,13 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-// import { memo } from 'react'
-// import { AiFillStar } from 'react-icons/ai'
-// import { BsFillMoonFill, BsFillPeopleFill, BsFillSunFill } from 'react-icons/bs'
-// import { MdLocationOn } from 'react-icons/md'
 import BtnArrow from '../BtnArrow'
 import styles from './index.module.css'
+import { useSelector } from 'react-redux'
 
-const NewPrograms = ({ programs, settings }) => {
+const NewPrograms = ({ programs }) => {
+  const settings = useSelector((state) => state.settings.value)
   const message = (id) => {
     const program = programs.find((p) => p.id === id)
     return `شكرا لك علي تواصلك مع وكالة وسام النجاح للسفر والسياحة - الوجهة: ${program.title}, عدد الايام: ${program.days}, عدد الليالي: ${program.nights}, السعر بعد الخصم: ${program.price}`
@@ -85,7 +83,7 @@ const NewPrograms = ({ programs, settings }) => {
                 <BtnArrow
                   title='حجز العرض'
                   href={`https://api.whatsapp.com/send?phone=${
-                    settings?.whatsup
+                    settings.whatsup
                   }&${message(program.id)}`}
                 />
               </div>

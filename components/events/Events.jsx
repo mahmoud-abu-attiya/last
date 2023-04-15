@@ -15,7 +15,7 @@ const Events = ({ event }) => {
   const snackbarRef = useRef(null)
 
   const counter = () => {
-    let countDownDate = new Date(event?.event_date).getTime()
+    let countDownDate = new Date(event.event_date).getTime()
     let dateNow = new Date().getTime()
     let dateDiff = countDownDate - dateNow
     const days = Math.floor(dateDiff / (1000 * 60 * 60 * 24))
@@ -36,7 +36,7 @@ const Events = ({ event }) => {
     }, 1000)
     return () => clearInterval(interval)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [event?.event_date])
+  }, [event.event_date])
 
   const handleSubmit = async (event) => {
     try {
@@ -60,7 +60,7 @@ const Events = ({ event }) => {
       ) {
         const response = await fetch(endpoint, options)
         const result = await response.json()
-        setSnackbarMsg(result?.message || result)
+        setSnackbarMsg(result.message || result)
         snackbarRef.current.show()
         event.target.reset()
       }
@@ -97,26 +97,26 @@ const Events = ({ event }) => {
             className={styles.time}
           >
             <div className={styles.unit}>
-              <span className={styles.unit__firstSpan}>{date?.days || 0}</span>
+              <span className={styles.unit__firstSpan}>{date.days || 0}</span>
               <span className={styles.unit__lastSpan}>يوم</span>
             </div>
             <div className={styles.unit}>
-              <span className={styles.unit__firstSpan}>{date?.hours || 0}</span>
+              <span className={styles.unit__firstSpan}>{date.hours || 0}</span>
               <span className={styles.unit__lastSpan}>ساعة</span>
             </div>
             <div className={styles.unit}>
               <span className={styles.unit__firstSpan}>
-                {date?.minutes < 10
-                  ? `0${date?.minutes || 0}`
-                  : date?.minutes || 0}
+                {date.minutes < 10
+                  ? `0${date.minutes || 0}`
+                  : date.minutes || 0}
               </span>
               <span className={styles.unit__lastSpan}>دقيقة</span>
             </div>
             <div className={styles.unit}>
               <span className={styles.unit__firstSpan}>
-                {date?.seconds < 10
-                  ? `0${date?.seconds || 0}`
-                  : date?.seconds || 0}
+                {date.seconds < 10
+                  ? `0${date.seconds || 0}`
+                  : date.seconds || 0}
               </span>
               <span className={styles.unit__lastSpan}>ثانية</span>
             </div>
@@ -124,12 +124,12 @@ const Events = ({ event }) => {
           <h2
             className={styles.title}
           >
-            {event?.title}
+            {event.title}
           </h2>
           <p
             className={styles.description}
           >
-            {event?.content}
+            {event.content}
           </p>
         </div>
         <div className={styles.subscribe}>
@@ -146,7 +146,7 @@ const Events = ({ event }) => {
                 اشترك
               </button>
             </div>
-            <small style={{ color: 'red' }}>{formError?.email}</small>
+            <small style={{ color: 'red' }}>{formError.email}</small>
           </form>
         </div>
       </div>

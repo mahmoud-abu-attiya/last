@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './Header.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -46,7 +45,7 @@ export default function Header({ countries }) {
     event.preventDefault()
     setSearchTerm(searchTerm)
     if (
-      countries?.find(({ name }) => name === searchTerm)?.name !== undefined
+      countries.find(({ name }) => name === searchTerm).name !== undefined
     ) {
       router.push(`/our-programs/${searchTerm}`)
       setSearchTerm('')

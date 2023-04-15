@@ -131,7 +131,7 @@ const Menu = (props) => {
       {/* Header Menu Data (Visible only on mobile) */}
       <div className={styles.header__social}>
         <a
-          href={settings?.youtube}
+          href={settings.youtube}
           target='_blank'
           rel='noreferrer'
           className={styles.youtube}
@@ -140,7 +140,7 @@ const Menu = (props) => {
           {/* <BsYoutube /> */}
         </a>
         <a
-          href={settings?.twitter}
+          href={settings.twitter}
           target='_blank'
           rel='noreferrer'
           className={styles.twitter}
@@ -149,7 +149,7 @@ const Menu = (props) => {
           {/* <BsTwitter /> */}
         </a>
         <a
-          href={settings?.tiktok}
+          href={settings.tiktok}
           target='_blank'
           rel='noreferrer'
           className={styles.tiktok}
@@ -158,7 +158,7 @@ const Menu = (props) => {
           {/* <FaTiktok /> */}
         </a>
         <a
-          href={settings?.snapchat}
+          href={settings.snapchat}
           target='_blank'
           rel='noreferrer'
           className={styles.snapchat}
@@ -167,7 +167,7 @@ const Menu = (props) => {
           {/* <BsSnapchat /> */}
         </a>
         <a
-          href={settings?.instagram}
+          href={settings.instagram}
           target='_blank'
           rel='noreferrer'
           className={styles.instagram}
@@ -192,9 +192,9 @@ const Menu = (props) => {
             : styles.logo__container__menu__hide
         }
       >
-        {settings?.logo && (
+        {settings.logo && (
           <Image
-            src={props?.settings?.logo}
+            src={props.settings.logo}
             alt='logo'
             width={102}
             height={70}

@@ -20,11 +20,11 @@ const Footer = ({ countries }) => {
           className={styles.famous__places}
         >
           <h3 className={styles.title}>أشهر الوجهات السياحية</h3>
-          {countries?.slice(0, 7).map((country) => (
-            <span key={country?.id} className={styles.famous__places__span}>
-              <Link href={`/our-programs/${country?.id}`} className={styles.famous__places__link}>
+          {countries.slice(0, 7).map((country) => (
+            <span key={country.id} className={styles.famous__places__span}>
+              <Link href={`/our-programs/${country.id}`} className={styles.famous__places__link}>
                 <i className="fal fa-angle-left text-xl"></i>
-                {country?.name}
+                {country.name}
               </Link>
             </span>
           ))}
@@ -40,40 +40,40 @@ const Footer = ({ countries }) => {
           <span className={styles.call__us__span}>فضلا الإتصال على</span>
           <div className={styles.call__us__container}>
             <a
-              href={`mailto:${settings?.email}`}
+              href={`mailto:${settings.email}`}
               target='_blank'
               rel='noreferrer'
               className={styles.contact__link}
             >
               <i className="fas fa-envelope text-primary"></i>
-              {settings?.email}
+              {settings.email}
             </a>
             <a
-              href={`tel:${settings?.phone}`}
+              href={`tel:${settings.phone}`}
               target='_blank'
               rel='noreferrer'
               className={styles.contact__link}
             >
               <i className="fas fa-phone-alt text-primary"></i>
-              {settings?.phone}
+              {settings.phone}
             </a>
             <a
-              href={`tel:${settings?.mobile}`}
+              href={`tel:${settings.mobile}`}
               target='_blank'
               rel='noreferrer'
               className={styles.contact__link}
             >
               <i className="fas fa-mobile text-primary"></i>
-              {settings?.mobile}
+              {settings.mobile}
             </a>
             <a
-              href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`}
+              href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`}
               target='_blank'
               rel='noreferrer'
               className={styles.contact__link}
             >
               <i className="fab fa-whatsapp text-primary"></i>
-              {settings?.whatsup}
+              {settings.whatsup}
             </a>
           </div>
           <span className={styles.call__us__span}>
@@ -84,10 +84,10 @@ const Footer = ({ countries }) => {
           className={styles.location}
         >
           <h3 className={styles.title}>موقعنا</h3>
-          {settings?.address}
-          {settings?.latitude && settings?.longitude && (
+          {settings.address}
+          {settings.latitude && settings.longitude && (
             <iframe
-              src={`https://maps.google.com/maps?q=${settings?.latitude},${settings?.longitude}&zoom=15&hl=es;&output=embed&lazy=1&iframe=1`}
+              src={`https://maps.google.com/maps?q=${settings.latitude},${settings.longitude}&zoom=15&hl=es;&output=embed&lazy=1&iframe=1`}
               width='260px'
               height='280px'
               style={{ border: 'none', marginTop: '.5rem' }}
@@ -104,7 +104,7 @@ const Footer = ({ countries }) => {
           <h3 className={styles.title}>تابعنا علي</h3>
           <div className={styles.social__icons}>
             <a
-              href={settings?.instagram}
+              href={settings.instagram}
               target='_blank'
               rel='noreferrer'
               className={styles.instagram}
@@ -113,7 +113,7 @@ const Footer = ({ countries }) => {
               <i className="fab fa-instagram"></i>
             </a>
             <a
-              href={settings?.tiktok}
+              href={settings.tiktok}
               target='_blank'
               rel='noreferrer'
               className={styles.tiktok}
@@ -122,7 +122,7 @@ const Footer = ({ countries }) => {
               <i className="fab fa-tiktok"></i>
             </a>
             <a
-              href={settings?.twitter}
+              href={settings.twitter}
               target='_blank'
               rel='noreferrer'
               className={styles.twitter}
@@ -131,7 +131,7 @@ const Footer = ({ countries }) => {
               <i className="fab fa-twitter"></i>
             </a>
             <a
-              href={settings?.snapchat}
+              href={settings.snapchat}
               target='_blank'
               rel='noreferrer'
               className={styles.snapchat}
@@ -140,7 +140,7 @@ const Footer = ({ countries }) => {
               <i className="fab fa-snapchat-ghost"></i>
             </a>
             <a
-              href={settings?.youtube}
+              href={settings.youtube}
               target='_blank'
               rel='noreferrer'
               className={styles.youtube}
@@ -150,10 +150,10 @@ const Footer = ({ countries }) => {
             </a>
           </div>
         </div>
-        {settings?.logo && (
+        {settings.logo && (
           <Link href='/' className={styles.f__logo}>
             <Image
-              src={settings?.logo}
+              src={settings.logo}
               width={145}
               height={100}
               alt='wsam elnagah logo'
@@ -170,7 +170,7 @@ const Footer = ({ countries }) => {
       </div>
 
       <p className={styles.copyright}>
-        <span className={styles.copyright__text}>{settings?.copy_rights}</span>
+        <span className={styles.copyright__text}>{settings.copy_rights}</span>
         <span className={styles.copyright__msg}>
           Made with
           <i className="fas fa-heart text-red-500"></i>

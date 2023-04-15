@@ -75,11 +75,9 @@ const Special = ({ data }) => {  const slides = data.concat(data.slice(0, 4))
           <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
             {slides.map((slide, index) => {
               return (
-                <div key={index}>
                   <SpecialCard
-                    item={slide}
+                     key={index} item={slide}
                   />
-                </div>
               )
             })}
           </div>

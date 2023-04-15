@@ -29,6 +29,9 @@ h6,
 .flip-card {
    width: 300px;
    height: 450px;
+   background-color: transparent;
+   padding-top: calc((3 / 2) * 100%);
+   perspective: 1000px;
 }
 
 .up .flip-card {
@@ -43,13 +46,6 @@ h6,
    font-size: clamp(17px, 1.5vw, 1.5rem);
 }
 
-.flip-card {
-   background-color: transparent;
-   /* width: 100%; */
-   padding-top: calc((3 / 2) * 100%);
-   perspective: 1000px;
-}
-
 .flip-card-inner {
    position: absolute;
    top: 0;
@@ -61,6 +57,7 @@ h6,
 
 .flip-card-back {
    box-shadow: 0 2rem 3rem rgba(0, 0, 0, .05);
+   transform: rotateY(180deg);
 }
 
 .flip-card:hover .flip-card-inner {
@@ -101,10 +98,6 @@ h6,
    z-index: 2;
 }
 
-.flip-card-back {
-   transform: rotateY(180deg);
-}
-
 @media (max-width: 767px) {
    .swiper-wrapper {
       transform: translateX(calc((100vw - 300px) / -2));
@@ -139,15 +132,13 @@ h6,
    font-size: 2rem;
    width: fit-content;
    transition: 0.2s;
-   background: linear-gradient(
-     90deg,
-     var(--first-clr),
-     #ffff00,
-     #15772a,
-     #0033ff,
-     #0cd105,
-     var(--first-clr)
-   );
+   background: linear-gradient(90deg,
+         var(--first-clr),
+         #ffff00,
+         #15772a,
+         #0033ff,
+         #0cd105,
+         var(--first-clr));
    background-size: 400%;
    text-align: center;
    -webkit-text-fill-color: transparent;
@@ -155,36 +146,42 @@ h6,
    -moz-background-clip: text;
    background-clip: text;
    animation: animateTitle 10s linear infinite;
- }
- @keyframes animateTitle {
-   0% {
-     background-position: 0%;
-   }
-   100% {
-     background-position: 400%;
-   }
- }
+}
 
- .dots {
+@keyframes animateTitle {
+   0% {
+      background-position: 0%;
+   }
+
+   100% {
+      background-position: 400%;
+   }
+}
+
+.dots {
    background-image: url('/images/dots.png');
    height: 186px;
    width: 204px;
    background-repeat: no-repeat;
    opacity: 0.3 !important;
    position: absolute;
- }
- .dots-up {
+}
+
+.dots-up {
    top: 200px;
    right: 0;
- }
- .dots-down {
+}
+
+.dots-down {
    bottom: 200px;
    left: 0;
- }
- @media (max-width: 900px) {
+}
+
+@media (max-width: 900px) {
+
    .dots,
    .dots-down,
    .dots-up {
-     display: none;
+      display: none;
    }
- }
+}

@@ -2,14 +2,15 @@
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
-  background-color: #ececec;
-  direction: rtl;
+  background-color: #ececec
 }
+
 .testimonials .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
 }
+
 .testimonials .box {
   padding: 20px;
   background-color: white;
@@ -17,6 +18,7 @@
   border-radius: 6px;
   position: relative;
 }
+
 .testimonials .box .img {
   position: absolute;
   left: -10px;
@@ -26,20 +28,25 @@
   border-radius: 50%;
   border: 10px solid #ececec;
 }
+
 .testimonials .box .img img {
   border-radius: 50%;
 }
+
 .testimonials .box h3 {
   margin: 0 0 10px;
 }
+
 .testimonials .box .title {
   color: #777;
   margin-bottom: 10px;
   display: block;
 }
+
 .testimonials .box .rate .filled {
   color: #ffc107;
 }
+
 .testimonials .box p {
   line-height: 1.5;
   color: #777;

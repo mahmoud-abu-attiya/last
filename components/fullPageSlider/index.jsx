@@ -22,17 +22,17 @@ const FullPageSlider = ({ title, btnText, btnUrl, data }) => {
   }, [activeIndex])
   return (
     <div className={styles.slider}>
-      {data?.map((item, i) => {
+      {data.map((item, i) => {
         return (
           <div className={`transition duration-500 ${i === activeIndex ? "opacity-100" : "opacity-0"}`} key={i}>
             <Image src={item.image} alt="hero" fill className={`object-cover`} />
             <div className={styles.slider__content}>
                 <div className={styles.slider__container}>
                   <h1 className={styles.slider__title}>
-                    {item?.title || title}
+                    {item.title || title}
                   </h1>
                   <BtnArrow
-                    title={item?.button_text || btnText}
+                    title={item.button_text || btnText}
                     href={btnUrl}
                   />
                 </div>

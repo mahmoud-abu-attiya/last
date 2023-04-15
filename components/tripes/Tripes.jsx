@@ -10,9 +10,9 @@ const Tripes = ({ data: countries }) => {
     if (value === 0) {
       return countries;
     } else if (value === 1) {
-      return countries.filter((country) => country?.type === 'out');
+      return countries.filter((country) => country.type === 'out');
     } else {
-      return countries.filter((country) => country?.type === 'in');
+      return countries.filter((country) => country.type === 'in');
     }
   }, [value, countries]);
 

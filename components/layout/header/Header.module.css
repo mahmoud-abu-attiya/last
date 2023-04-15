@@ -4,7 +4,6 @@
   position: fixed;
   background: transparent;
   z-index: 60;
-  direction: rtl;
   padding: 1rem 0;
   transition: 0.3s;
   margin-top: 3rem;
@@ -222,7 +221,6 @@
   align-items: center;
   flex-direction: column;
   transition: 0.4s;
-  direction: rtl;
   padding-top: 20%;
 }
 .header__search__menu.show__search {
