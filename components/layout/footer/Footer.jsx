@@ -87,7 +87,7 @@ const Footer = ({ countries }) => {
           {settings?.address}
           {settings?.latitude && settings?.longitude && (
             <iframe
-              src={`https://maps.google.com/maps?q=${settings?.latitude},${settings?.longitude}&zoom=15&hl=es;&output=embed`}
+              src={`https://maps.google.com/maps?q=${settings?.latitude},${settings?.longitude}&zoom=15&hl=es;&output=embed&lazy=1&iframe=1`}
               width='260px'
               height='280px'
               style={{ border: 'none', marginTop: '.5rem' }}
