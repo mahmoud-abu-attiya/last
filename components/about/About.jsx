@@ -1,7 +1,6 @@
 import styles from './index.module.css'
 import React, { memo, useState } from 'react'
 import Image from 'next/image'
-// import AnimatedBtn from '../animatedBtn'
 import BtnArrow from '../BtnArrow'
 
 const About = ({ data }) => {

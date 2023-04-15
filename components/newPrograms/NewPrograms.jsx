@@ -5,7 +5,6 @@ import Link from 'next/link'
 // import { BsFillMoonFill, BsFillPeopleFill, BsFillSunFill } from 'react-icons/bs'
 // import { MdLocationOn } from 'react-icons/md'
 import BtnArrow from '../BtnArrow'
-// import AnimatedBtn from '../animatedBtn'
 import styles from './index.module.css'
 
 const NewPrograms = ({ programs, settings }) => {

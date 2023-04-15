@@ -90,11 +90,11 @@ const Tripes = ({ data: countries }) => {
     const diff = touchDown - currentTouch
 
     if (diff > 5) {
-        next()
+        prev()
     }
 
     if (diff < -5) {
-        prev()
+        next()
     }
 
     setTouchPosition(null)

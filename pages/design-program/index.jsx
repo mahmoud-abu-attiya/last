@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from './index.module.css'
 import Image from 'next/image'
-import AnimatedBtn from '../../components/animatedBtn'
+import BtnArrow from '@/components/BtnArrow'
 // import {
 //   BsEnvelopeFill,
 //   BsInstagram,
@@ -122,7 +122,7 @@ const DesignProgram = ({ data, slide, settings }) => {
           >
             <div className={styles.hero__bg}>
               <h1>{data.title}</h1>
-              <AnimatedBtn text={slide[0]?.button_text} url='#form' />
+              <BtnArrow title={slide[0]?.button_text} href='#form' />
               <ScrollDown />
             </div>
             <div className={styles.card}>
