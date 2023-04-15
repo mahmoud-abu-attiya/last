@@ -18,87 +18,87 @@ const Tripes = ({ data: countries }) => {
 
   const slides = filteredCountries.concat(filteredCountries.slice(0, 4))
   slides.unshift(filteredCountries[filteredCountries.length - 1])
-  const step = 100 / slides.length
-  let [translate, setTranslate] = useState(step)
-  let [index, setIndex] = useState(1)
-  const [transition, setTransition] = useState(true)
-  const [canClick, setCanClick] = useState(true)
-  const [touchPosition, setTouchPosition] = useState(null)
+//   const step = 100 / slides.length
+//   let [translate, setTranslate] = useState(step)
+//   let [index, setIndex] = useState(1)
+//   const [transition, setTransition] = useState(true)
+//   const [canClick, setCanClick] = useState(true)
+//   const [touchPosition, setTouchPosition] = useState(null)
 
-  const next = () => {
-    if (!canClick) return
-    setCanClick(false)
-    setIndex(index + 1)
-    setTranslate((index + 1) * (step))
-    if (index === slides.length - 5) {
-      setTimeout(() => {
-        setTransition(false)
-        setTranslate(step)
-        setIndex(1)
-        setTimeout(() => {
-          setTransition(true)
-          setCanClick(true)
-        }, 10)
-      }, 500);
-    } else {
-      setTimeout(() => {
-        setCanClick(true)
-      }, 500);
-    }
-  }
+//   const next = () => {
+//     if (!canClick) return
+//     setCanClick(false)
+//     setIndex(index + 1)
+//     setTranslate((index + 1) * (step))
+//     if (index === slides.length - 5) {
+//       setTimeout(() => {
+//         setTransition(false)
+//         setTranslate(step)
+//         setIndex(1)
+//         setTimeout(() => {
+//           setTransition(true)
+//           setCanClick(true)
+//         }, 10)
+//       }, 500);
+//     } else {
+//       setTimeout(() => {
+//         setCanClick(true)
+//       }, 500);
+//     }
+//   }
 
-  const prev = () => {
-    if (!canClick) return
-    setCanClick(false)
-    if (index === 1) {
-      setTransition(false)
-      setTranslate((100 / slides.length) * (slides.length - 4))
-      setIndex(slides.length - 4)
-      translate = (100 / slides.length) * (slides.length - 4)
-      index = slides.length - 4
-      setTimeout(() => {
-        setTransition(true)
-        setIndex(index - 1)
-        setTranslate(translate - 100 / slides.length)
-        setTimeout(() => {
-          setCanClick(true)
-        }, 500);
-      }, 10);
-    } else {
-      setIndex(index - 1)
-      setTranslate(translate - 100 / slides.length)
-      setTimeout(() => {
-        setCanClick(true)
-      }, 500);
-    }
+//   const prev = () => {
+//     if (!canClick) return
+//     setCanClick(false)
+//     if (index === 1) {
+//       setTransition(false)
+//       setTranslate((100 / slides.length) * (slides.length - 4))
+//       setIndex(slides.length - 4)
+//       translate = (100 / slides.length) * (slides.length - 4)
+//       index = slides.length - 4
+//       setTimeout(() => {
+//         setTransition(true)
+//         setIndex(index - 1)
+//         setTranslate(translate - 100 / slides.length)
+//         setTimeout(() => {
+//           setCanClick(true)
+//         }, 500);
+//       }, 10);
+//     } else {
+//       setIndex(index - 1)
+//       setTranslate(translate - 100 / slides.length)
+//       setTimeout(() => {
+//         setCanClick(true)
+//       }, 500);
+//     }
 
-  }
+//   }
 
-  const handleTouchStart = (e) => {
-    const touchDown = e.touches[0].clientX
-    setTouchPosition(touchDown)
-}
+//   const handleTouchStart = (e) => {
+//     const touchDown = e.touches[0].clientX
+//     setTouchPosition(touchDown)
+// }
 
-  const handleTouchMove = (e) => {
-    const touchDown = touchPosition
+//   const handleTouchMove = (e) => {
+//     const touchDown = touchPosition
 
-    if(touchDown === null) {
-        return
-    }
+//     if(touchDown === null) {
+//         return
+//     }
 
-    const currentTouch = e.touches[0].clientX
-    const diff = touchDown - currentTouch
+//     const currentTouch = e.touches[0].clientX
+//     const diff = touchDown - currentTouch
 
-    if (diff > 5) {
-        prev()
-    }
+//     if (diff > 5) {
+//         prev()
+//     }
 
-    if (diff < -5) {
-        next()
-    }
+//     if (diff < -5) {
+//         next()
+//     }
 
-    setTouchPosition(null)
-}
+//     setTouchPosition(null)
+// }
 
   const tripesTabs = ['جميع الوجهات', 'الوجهات الخارجية', 'الوجهات الداخلية']
   return (
@@ -129,10 +129,14 @@ const Tripes = ({ data: countries }) => {
           </span>
         </div>
       <div className='hidden xl:block'>
-        <button className="btn p-4 group" onClick={prev}>
+        {/* <button className="btn p-4 group" onClick={prev}> */}
+        <button className="btn p-4 group">
+
           <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
         </button>
-        <button className="btn p-4 group" onClick={next}>
+        {/* <button className="btn p-4 group" onClick={next}> */}
+        <button className="btn p-4 group">
+
           <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
         </button>
       </div>
@@ -143,9 +147,11 @@ const Tripes = ({ data: countries }) => {
       >
         اختر وجهتك الان
       </h2>
-        <div className='w-full overflow-hidden cursor-move' onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
+        {/* <div className='w-full overflow-hidden cursor-move' onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}> */}
+        <div className='w-full overflow-hidden cursor-move'>
           <div className='swiper-wrapper'>
-            <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
+            {/* <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}> */}
+            <div className={`w-fit flex gap-4`}>
               {slides.map((slide, index) => {
                 return (
                   <div key={index}>
@@ -159,13 +165,15 @@ const Tripes = ({ data: countries }) => {
           </div>
         </div>
         <div className='flex items-center gap-8 xl:hidden justify-center mb-16'>
-        <button className="btn p-4 group" onClick={prev}>
+        {/* <button className="btn p-4 group" onClick={prev}> */}
+        <button className="btn p-4 group">
           <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
         </button>
         <Link href='/our-programs' className="border-b-2 text-secondary text-xs w-fit block pb-1 xl:hidden">
         عرض الكل
       </Link>
-        <button className="btn p-4 group" onClick={next}>
+        {/* <button className="btn p-4 group" onClick={next}> */}
+        <button className="btn p-4 group">
           <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
         </button>
       </div>

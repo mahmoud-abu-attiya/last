@@ -20,27 +20,27 @@ export default function Header({ countries }) {
   const [searchTerm, setSearchTerm] = useState('')
 
   // Show when scroll Up, Hide when scroll Down
-  useEffect(() => {
-    const scrollFuc = () => {
-      if (lastScrollTop < window.scrollY) {
-        setIsScrollTop(true)
-      } else {
-        setIsScrollTop(false)
-      }
-    }
-    let lastScrollTop = window.scrollY
-    window.addEventListener(
-      'scroll',
-      scrollFuc(),
-      { passive: true }
-    )
-    return () =>
-      removeEventListener(
-        'scroll',
-        scrollFuc(),
-        { passive: true }
-      )
-  }, [])
+  // useEffect(() => {
+  //   const scrollFuc = () => {
+  //     if (lastScrollTop < window.scrollY) {
+  //       setIsScrollTop(true)
+  //     } else {
+  //       setIsScrollTop(false)
+  //     }
+  //   }
+  //   let lastScrollTop = window.scrollY
+  //   window.addEventListener(
+  //     'scroll',
+  //     scrollFuc(),
+  //     { passive: true }
+  //   )
+  //   return () =>
+  //     removeEventListener(
+  //       'scroll',
+  //       scrollFuc(),
+  //       { passive: true }
+  //     )
+  // }, [])
 
   const onSearch = (event, searchTerm) => {
     event.preventDefault()
@@ -57,9 +57,12 @@ export default function Header({ countries }) {
     }
   }
   return (
+    // <header
+    //   className={`${styles.header} ${showHeader ? styles.active : ''} ${isScrollTop ? styles.hide : ''
+    //     }`}
+    // >
     <header
-      className={`${styles.header} ${showHeader ? styles.active : ''} ${isScrollTop ? styles.hide : ''
-        }`}
+      className={`${styles.header} `}
     >
       <nav className={styles.nav}>
         {/* Logo */}
@@ -130,12 +133,15 @@ export default function Header({ countries }) {
           />
         )}
         {/* Search Page */}
-        <div
+        {/* <div
           className={
             isSearch
               ? `${styles.header__search__menu} ${styles.show__search}`
               : styles.header__search__menu
           }
+        > */}
+        <div
+          className={styles.header__search__menu}
         >
           <form
             onSubmit={(event) => onSearch(event, searchTerm)}
