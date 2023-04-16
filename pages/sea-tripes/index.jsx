@@ -2,15 +2,14 @@ import styles from './index.module.css'
 import BtnArrow from '@/components/BtnArrow'
 import Image from 'next/image'
 import Head from 'next/head'
-// import { AiFillStar } from 'react-icons/ai'
-// import { BsFillMoonFill, BsFillPeopleFill, BsFillSunFill } from 'react-icons/bs'
 import FullPageSlider from '../../components/fullPageSlider'
+import { useSelector } from 'react-redux'
 
 const SeaTripes = ({
   programs,
   slide,
-  settings,
 }) => {
+  const settings = useSelector((state) => state.settings.value)
   const message = (id) => {
     const program = programs?.find((p) => p?.id === id)
     return `شكرا لك علي تواصلك مع وكالة وسام النجاح للسفر والسياحة - الوجهة: ${program.title}, عدد الايام: ${program.days}, عدد الليالي: ${program.nights}, السعر بعد الخصم: ${program.price_after_discount}`
@@ -43,16 +42,16 @@ const SeaTripes = ({
                 <div className={styles.offer__card__content}>
                   <div className={styles.offer__card__period}>
                     <span>
-                      {/* <BsFillSunFill /> */}
+                      <i class="fas fa-sun"></i>
                       {card?.days} أيام
                     </span>
                     <span>
-                      {/* <BsFillMoonFill /> */}
+                      <i class="fas fa-moon"></i>
                       {card?.nights} ليالي
                     </span>
                     {card?.people && (
                       <span>
-                        {/* <BsFillPeopleFill /> */}
+                        <i class="fas fa-user-friends"></i>
                         {card?.people}
                       </span>
                     )}
@@ -69,8 +68,7 @@ const SeaTripes = ({
                     </a>
                     <div className={styles.stars}>
                       {Array.from(Array(card.rate)).map((s, i) => (
-                        // <AiFillStar key={i} />
-                        <span key={i}>d</span>
+                        <i class="fas fa-star text-yellow-400" key={i}></i>
                       ))}
                     </div>
                   </div>
@@ -130,10 +128,9 @@ export default SeaTripes;
 
 
 export async function getServerSideProps() {
-  const [programsRes, slidesRes, settingsRes] = await Promise.all([
+  const [programsRes, slidesRes] = await Promise.all([
     fetch('https://backend.elnagahtravels.com/public/api/sea_trips'),
     fetch('https://backend.elnagahtravels.com/public/api/slides?page=sea-trips'),
-    fetch('https://backend.elnagahtravels.com/public/api/settings'),
   ])
 
   const [
@@ -141,18 +138,15 @@ export async function getServerSideProps() {
     {
       data: { slide = [] },
     },
-    { settings = {} },
   ] = await Promise.all([
     programsRes.json(),
     slidesRes.json(),
-    settingsRes.json(),
   ])
 
   return {
     props: {
       programs,
       slide,
-      settings,
     }
   }
 }

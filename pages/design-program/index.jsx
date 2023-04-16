@@ -5,8 +5,10 @@ import BtnArrow from '@/components/BtnArrow'
 import ScrollDown from '../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'
+import { useSelector } from 'react-redux'
 
-const DesignProgram = ({ data, slide, settings }) => {
+const DesignProgram = ({ data, slide }) => {
+  const settings = useSelector((state) => state.settings.value)
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const [formErros, setFormErrors] = useState({})
   const snackbarRef = useRef(null)
@@ -119,7 +121,6 @@ const DesignProgram = ({ data, slide, settings }) => {
                   <h3>{data?.subtitle}</h3>
                   <h4>
                     {data?.content}
-                    {/* <BsTwitter /> */}
                     {data?.icon && (
                       <Image
                         src={data?.icon}
@@ -314,6 +315,7 @@ const DesignProgram = ({ data, slide, settings }) => {
                               {settings?.mobile}
                             </a>
                             {/* <BsPhoneFill /> */}
+                            <i className="fas fa-mobile text-primary"></i>
                           </div>
                           <div>
                             <a
@@ -324,6 +326,7 @@ const DesignProgram = ({ data, slide, settings }) => {
                               {settings?.whatsup}
                             </a>
                             {/* <BsWhatsapp /> */}
+                            <i className="fab fa-whatsapp text-primary"></i>
                           </div>
                           <div>
                             <a
@@ -334,6 +337,7 @@ const DesignProgram = ({ data, slide, settings }) => {
                               {settings?.phone}
                             </a>
                             {/* <GiRotaryPhone /> */}
+                            <i className="fas fa-phone-rotary text-primary"></i>
                           </div>
                         </div>
                       </div>
@@ -348,58 +352,59 @@ const DesignProgram = ({ data, slide, settings }) => {
                             {settings?.email}
                           </a>
                           {/* <BsEnvelopeFill /> */}
+                          <i className="fas fa-envelope text-primary"></i>
                         </div>
                       </div>
                       <div className={styles.contact__data__card}>
                         <h3>العنوان</h3>
                         <div>
                           <div>{settings?.address}</div>
-                          {/* <MdLocationOn /> */}
+                          <i className="fas fa-map-marker-alt text-primary"></i>
                         </div>
                       </div>
                     </div>
                     <div className={styles.social__icons}>
-                      <a
-                        href={settings?.instagram}
-                        target='_blank'
-                        rel='noreferrer'
-                        className={styles.instagram}
-                      >
-                        {/* <BsInstagram /> */}
-                      </a>
-                      <a
-                        href={settings?.twitter}
-                        target='_blank'
-                        rel='noreferrer'
-                        className={styles.twitter}
-                      >
-                        {/* <BsTwitter /> */}
-                      </a>
-                      <a
-                        href={settings?.tiktok}
-                        target='_blank'
-                        rel='noreferrer'
-                        className={styles.tiktok}
-                      >
-                        {/* <FaTiktok /> */}
-                      </a>
-                      <a
-                        href={settings?.snapchat}
-                        target='_blank'
-                        rel='noreferrer'
-                        className={styles.snapchat}
-                      >
-                        {/* <BsSnapchat /> */}
-                      </a>
-                      <a
-                        href={settings?.youtube}
-                        target='_blank'
-                        rel='noreferrer'
-                        className={styles.youtube}
-                      >
-                        {/* <BsYoutube /> */}
-                      </a>
-                    </div>
+                <a
+                  href={settings.instagram}
+                  target='_blank'
+                  rel='noreferrer'
+                  className={styles.instagram}
+                >
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a
+                  href={settings.twitter}
+                  target='_blank'
+                  rel='noreferrer'
+                  className={styles.twitter}
+                >
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a
+                  href={settings.tiktok}
+                  target='_blank'
+                  rel='noreferrer'
+                  className={styles.tiktok}
+                >
+                  <i className="fab fa-tiktok"></i>
+                </a>
+                <a
+                  href={settings.snapchat}
+                  target='_blank'
+                  rel='noreferrer'
+                  className={styles.snapchat}
+                >
+                  <i className="fab fa-snapchat-ghost"></i>
+                </a>
+                <a
+                  href={settings.youtube}
+                  target='_blank'
+                  rel='noreferrer'
+                  className={styles.youtube}
+                >
+                  <i className="fab fa-youtube"></i>
+                </a>
+              </div>
                   </div>
                 </div>
               </div>
@@ -414,27 +419,23 @@ const DesignProgram = ({ data, slide, settings }) => {
 export default DesignProgram
 
 export async function getServerSideProps() {
-  const [mainRes, programsRes, settingsRes] = await Promise.all([
+  const [mainRes, programsRes] = await Promise.all([
     fetch('https://backend.elnagahtravels.com/public/api/design_program').then(res => res.json()),
     fetch('https://backend.elnagahtravels.com/public/api/slides?page=design-program').then(res => res.json()),
-    fetch('https://backend.elnagahtravels.com/public/api/settings').then(res => res.json()),
   ]);
   const [
     { hotels: data = {} },
     {
       data: { slide = [] },
     },
-    { settings = {} },
   ] = await Promise.all([
     mainRes,
     programsRes,
-    settingsRes,
   ]);
   return {
     props: {
       data,
       slide,
-      settings,
     },
   };
 }

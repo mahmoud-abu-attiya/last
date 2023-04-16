@@ -196,6 +196,7 @@
   .hotels__list__item img {
     border-radius: 10px;
     transition: 0.2s;
+    height: 60px;
   }
   .hotels__list__item:hover {
     background-color: lightgray;

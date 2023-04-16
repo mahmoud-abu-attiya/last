@@ -1,11 +1,5 @@
 import styles from './index.module.css'
 import { useRouter } from 'next/router'
-// import {
-//   AiOutlineArrowLeft,
-//   AiFillPlusCircle,
-//   AiFillMinusCircle,
-// } from 'react-icons/ai'
-// import { BsFillCircleFill, BsCheckCircleFill } from 'react-icons/bs'
 import Image from 'next/image'
 import Head from 'next/head'
 import ScrollDown from '../../../components/scrollDown'
@@ -143,13 +137,13 @@ const Details = () => {
           <h2>{offerDetails?.title}</h2>
           <div className={styles.details__details}>
             <h3>
-              {/* <AiOutlineArrowLeft /> تفاصيل البرنامج السياحي */}
+              <i class="fal fa-arrow-left text-primary"></i> تفاصيل البرنامج السياحي
             </h3>
             <div className={styles.details__days}>
               {offerDetails?.program_days?.map((day, i) => (
                 <div className={styles.details__day} key={i}>
                   <h4>
-                    {/* <BsFillCircleFill /> {day?.name} */}
+                    <span className='w-3 h-3 bg-primary rounded-full' /> {day?.name}
                   </h4>
                   <p>{day?.content}</p>
                 </div>
@@ -158,7 +152,7 @@ const Details = () => {
           </div>
           <div className={styles.details__includes}>
             <h3>
-              {/* <AiOutlineArrowLeft /> */}
+              <i class="fal fa-arrow-left text-primary"></i>
               مشتملات الرحلة
             </h3>
             <div className={styles.details__contents}>
@@ -167,7 +161,7 @@ const Details = () => {
                 <ul>
                   {offerDetails?.includes?.map((item, i) => (
                     <li key={i}>
-                      {/* <AiFillPlusCircle className={styles.green} /> */}
+                      <i class="fas fa-plus-circle text-green-600"></i>
                       {item}
                     </li>
                   ))}
@@ -178,7 +172,7 @@ const Details = () => {
                 <ul>
                   {offerDetails?.exculdes?.map((item, i) => (
                     <li key={i}>
-                      {/* <AiFillMinusCircle className={styles.red} /> */}
+                      <i class="fas fa-minus-circle text-red-500"></i>
                       {item}
                     </li>
                   ))}
@@ -189,7 +183,7 @@ const Details = () => {
                 <ul>
                   {offerDetails?.activities?.map((item, i) => (
                     <li key={i}>
-                      {/* <BsCheckCircleFill className={styles.green} /> */}
+                      <i class="fas fa-check-circle text-green-600"></i>
                       {item}
                     </li>
                   ))}

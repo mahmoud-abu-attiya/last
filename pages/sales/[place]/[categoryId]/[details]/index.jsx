@@ -1,25 +1,12 @@
 import styles from './index.module.css'
 import Image from 'next/image'
-// import {
-//   AiOutlineArrowLeft,
-//   AiFillPlusCircle,
-//   AiFillMinusCircle,
-//   AiFillStar,
-// } from 'react-icons/ai'
-// import {
-//   BsFillCircleFill,
-//   BsCheckCircleFill,
-//   BsFillSunFill,
-//   BsFillMoonFill,
-//   BsFillPeopleFill,
-// } from 'react-icons/bs'
 import BtnArrow from '@/components/BtnArrow'
-// import { MdLocationOn } from 'react-icons/md'
 import Link from 'next/link'
 import Head from 'next/head'
 import ScrollDown from '../../../../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../../../../components/snackbar'
+import { useSelector } from 'react-redux'
 
 const Details = (props) => {
   const [formErrors, setFormErrors] = useState({})
@@ -27,11 +14,9 @@ const Details = (props) => {
 
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const snackbarRef = useRef(null)
-
-  const detailsId = props.detailsId
   const program = props.program
   const programs = props.programs
-  const settings = props.settings
+  const settings = useSelector((state) => state.settings.value)
 
   // const place = props.place
   const validate = (values) => {
@@ -130,22 +115,22 @@ const Details = (props) => {
           </h2>
           <div className={styles.details__details}>
             <h3>
-              {/* <AiOutlineArrowLeft /> تفاصيل البرنامج السياحي */}
+              <i class="fal fa-arrow-left text-primary"></i> تفاصيل البرنامج السياحي
             </h3>
             <div className={styles.details__days}>
               {program?.program_days?.map((day, i) => (
                 <div className={styles.details__day} key={i}>
                   <h4>
-                    {/* <BsFillCircleFill /> {day?.name} */}
+                    <span className='w-3 h-3 bg-primary rounded-full' /> {day?.name}
                   </h4>
-                  <p>{day?.content}</p>
+                  <p className='mb-4'>{day?.content}</p>
                 </div>
               ))}
             </div>
           </div>
           <div className={styles.details__includes}>
             <h3>
-              {/* <AiOutlineArrowLeft /> */}
+              <i class="fal fa-arrow-left text-primary"></i>
               مشتملات الرحلة
             </h3>
             <div className={styles.details__contents}>
@@ -154,7 +139,7 @@ const Details = (props) => {
                 <ul>
                   {program?.includes?.map((item, i) => (
                     <li key={i}>
-                      {/* <AiFillPlusCircle className={styles.green} /> */}
+                      <i class="fas fa-plus-circle text-green-600"></i>
                       {item}
                     </li>
                   ))}
@@ -165,7 +150,7 @@ const Details = (props) => {
                 <ul>
                   {program?.exculdes?.map((item, i) => (
                     <li key={i}>
-                      {/* <AiFillMinusCircle className={styles.red} /> */}
+                      <i class="fas fa-minus-circle text-red-500"></i>
                       {item}
                     </li>
                   ))}
@@ -177,7 +162,7 @@ const Details = (props) => {
                   <ul>
                     {program?.activities?.map((item, i) => (
                       <li key={i}>
-                        {/* <BsCheckCircleFill className={styles.green} /> */}
+                        <i class="fas fa-check-circle text-green-600"></i>
                         {item[0]}
                       </li>
                     ))}
@@ -313,20 +298,20 @@ const Details = (props) => {
                     <div className={styles.similar__card__content}>
                       <div className={styles.similar__card__period}>
                         <span>
-                          {/* <BsFillSunFill /> */}
+                        <i class="fas fa-sun"></i>
                           {prog?.days} أيام
                         </span>
                         <span>
-                          {/* <BsFillMoonFill /> */}
+                        <i class="fas fa-moon"></i>
                           {prog?.nights} ليالي
                         </span>
                         <span>
-                          {/* <MdLocationOn /> */}
+                        <i class="fas fa-map-marker-alt"></i>
                           {prog?.country?.name}
                         </span>
                         {prog.people && (
                           <span>
-                            {/* <BsFillPeopleFill /> */}
+                            <i class="fas fa-user-friends"></i>
                             {program.people}
                           </span>
                         )}
@@ -395,34 +380,28 @@ export const getServerSideProps = async(context)=>{
   const detailsId = context.params.details
   if(place && categoryId && detailsId){
     try {
-      if (detailsId) {
-        const [programRes, programsRes, settingsRes] = await Promise.all([
+        const [programRes, programsRes] = await Promise.all([
           fetch(
             `https://backend.elnagahtravels.com/public/api/programs_details/${detailsId}`
             ),
             fetch(
               `https://backend.elnagahtravels.com/public/api/discounts?country_id=${place}&category_id=${categoryId}`
-              ),
-        fetch(`https://backend.elnagahtravels.com/public/api/settings`),
+              )
       ])
       const [
         { program: discount = {} },
         { discounts = [] },
-        { settings = {} },
       ] = await Promise.all([
         programRes.json(),
         programsRes.json(),
-        settingsRes.json(),
       ])
       return {
         props : {
           program : discount,
           programs : discounts,
-          settings,
           detailsId
         }
       }
-    }
   } catch (error) {
     console.log(error)
   }

@@ -16,12 +16,10 @@
 .details__bg h1 {
   color: lightgray;
   font-size: 2.7rem;
-  direction: rtl;
 }
 /* Details */
 .details {
   display: flex;
-  direction: rtl;
   margin: 4rem auto;
   padding: 0 1rem;
   gap: 2rem;
@@ -56,10 +54,8 @@
   width: fit-content;
   padding-bottom: 0.3rem;
   border-bottom: 2px solid var(--first-clr);
-}
-.details__details h3 svg,
-.details__includes h3 svg {
-  color: var(--first-clr);
+  font-size: 1.3rem;
+  margin: 1rem 0;
 }
 .details__day {
   border-bottom: 1px solid lightgray;
@@ -68,16 +64,17 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-}
-.details__day h4 svg {
-  font-size: 0.6rem;
-  color: var(--first-clr);
+  margin: 1rem 0;
 }
 /* Details Contents */
-.details__content ul {
+.details__content h4 {
+  margin: 1rem 0;
+}
+  .details__content ul {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  margin-right: 2rem;
 }
 .details__content li {
   display: flex;

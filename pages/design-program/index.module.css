@@ -147,6 +147,7 @@
   text-align: center;
   color: white;
   font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 .contact__data__card h3::after {
   content: '';

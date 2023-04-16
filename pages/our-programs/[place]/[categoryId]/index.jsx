@@ -8,14 +8,15 @@ import BtnArrow from '@/components/BtnArrow'
 // import { AiFillStar } from 'react-icons/ai'
 import Head from 'next/head'
 import ScrollDown from '../../../../components/scrollDown'
+import { useSelector } from 'react-redux'
 
 const Offer = (props) => {
+  const settings = useSelector((state) => state.settings.value)
   const router = useRouter();
   const {
     query: { place, categoryId },
   } = router;
   const programs = props.programs
-  const settings = props.settings
 
   const message = (id) => {
     const program = programs?.find((p) => p?.id === id)
@@ -63,19 +64,23 @@ const Offer = (props) => {
                     <div className={styles.offer__card__period}>
                       <span>
                         {/* <BsFillSunFill /> */}
+                        <i class="fas fa-sun"></i>
                         {program.days} أيام
                       </span>
                       <span>
                         {/* <BsFillMoonFill /> */}
+                        <i class="fas fa-moon"></i>
                         {program.nights} ليالي
                       </span>
                       <span>
                         {/* <MdLocationOn /> */}
+                        <i class="fas fa-map-marker-alt"></i>
                         {program.country.name}
                       </span>
                       {program.people && (
                         <span>
                           {/* <BsFillPeopleFill /> */}
+                          <i class="fas fa-user-friends"></i>
                           {program.people}
                         </span>
                       )}
@@ -90,8 +95,7 @@ const Offer = (props) => {
                       </Link>
                       <div className={styles.stars}>
                         {Array.from(Array(program.rate)).map((s, i) => (
-                          // <AiFillStar key={i} />
-                          <span key={i} /> // remove
+                          <i class="fas fa-star text-yellow-400" key={i}></i>
                         ))}
                       </div>
                     </div>
@@ -135,16 +139,9 @@ export const getServerSideProps = async (context)=>{
   const categoryId  = context.params.categoryId
   if(place && categoryId){
     try {
-      const [programsRes, settingsRes] = await Promise.all([
-        fetch(
-          `https://backend.elnagahtravels.com/public/api/programs?country_id=${place}&category_id=${categoryId}`
-      ),
-      fetch('https://backend.elnagahtravels.com/public/api/settings'),
-    ])
-    const [{ programs = [] }, { settings = {} }] = await Promise.all([
-      programsRes.json(),
-      settingsRes.json(),
-    ])
+      const programsRes = await fetch(`https://backend.elnagahtravels.com/public/api/programs?country_id=${place}&category_id=${categoryId}`)
+
+    const { programs = [] } = await programsRes.json()
     
     if(programs.length === 0)
     return {
@@ -153,7 +150,6 @@ export const getServerSideProps = async (context)=>{
     return {
       props : {
         programs ,
-        settings
       }
     }
   } catch (error) {

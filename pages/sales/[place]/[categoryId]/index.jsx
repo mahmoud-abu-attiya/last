@@ -2,15 +2,13 @@ import styles from './index.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import BtnArrow from '@/components/BtnArrow'
-// import { BsFillSunFill, BsFillMoonFill, BsFillPeopleFill } from 'react-icons/bs'
-// import { MdLocationOn } from 'react-icons/md'
-// import { AiFillStar } from 'react-icons/ai'
 import Head from 'next/head'
 import ScrollDown from '../../../../components/scrollDown'
+import { useSelector } from 'react-redux'
 
 const Offer = (props) => {
   const programs = props.programs
-  const settings = props.settings
+  const settings = useSelector((state) => state.settings.value)
   const place = props.place
   const categoryId = props.categoryId
   const message = (id) => {
@@ -55,21 +53,25 @@ const Offer = (props) => {
                   </div>
                   <div className={styles.offer__card__content}>
                     <div className={styles.offer__card__period}>
-                      <span>
+                    <span>
                         {/* <BsFillSunFill /> */}
+                        <i class="fas fa-sun"></i>
                         {program.days} أيام
                       </span>
                       <span>
                         {/* <BsFillMoonFill /> */}
+                        <i class="fas fa-moon"></i>
                         {program.nights} ليالي
                       </span>
                       <span>
                         {/* <MdLocationOn /> */}
+                        <i class="fas fa-map-marker-alt"></i>
                         {program.country.name}
                       </span>
                       {program.people && (
                         <span>
                           {/* <BsFillPeopleFill /> */}
+                          <i class="fas fa-user-friends"></i>
                           {program.people}
                         </span>
                       )}
@@ -84,8 +86,7 @@ const Offer = (props) => {
                       </Link>
                       <div className={styles.stars}>
                         {Array.from(Array(program.rate)).map((s, i) => (
-                          // <AiFillStar key={i} />
-                          <span key={i}>d</span>
+                           <i class="fas fa-star text-yellow-400" key={i}></i>
                         ))}
                       </div>
                     </div>
@@ -150,16 +151,9 @@ export const getServerSideProps = async(context)=>{
   const categoryId = context.params.categoryId
   if(place && categoryId){
     try {
-      const [programsRes, settingsRes] = await Promise.all([
-        fetch(
-          `https://backend.elnagahtravels.com/public/api/discounts?country_id=${place}&category_id=${categoryId}`
-          ),
-          fetch('https://backend.elnagahtravels.com/public/api/settings'),
-    ])
-    const [{ discounts = [] }, { settings = {} }] = await Promise.all([
-      programsRes.json(),
-      settingsRes.json(),
-    ])
+      const programsRes = await fetch(`https://backend.elnagahtravels.com/public/api/discounts?country_id=${place}&category_id=${categoryId}`)
+    const { discounts = [] } = await programsRes.json()
+
     // console.log(discounts)
     if(discounts.length === 0)
     return {
@@ -168,7 +162,6 @@ export const getServerSideProps = async(context)=>{
     return {
       props : {
         programs :discounts ,
-        settings,
         categoryId,
         place
       }

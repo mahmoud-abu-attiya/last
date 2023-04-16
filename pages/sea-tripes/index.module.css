@@ -41,6 +41,7 @@
 .offer__img__container {
   position: relative;
   height: 270px;
+  overflow: hidden;
 }
 .offer__img__container img {
   object-fit: cover;
@@ -117,7 +118,6 @@
   min-height: 290px;
 }
 .offer__card__content {
-  height: 240px;
   padding: 1rem;
   border: 2px solid var(--first-clr);
   border-radius: 0 0 20px 20px;

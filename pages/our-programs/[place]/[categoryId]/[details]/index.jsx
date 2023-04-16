@@ -1,38 +1,17 @@
 import styles from './index.module.css'
 import Image from 'next/image'
-// import {
-//   AiOutlineArrowLeft,
-//   AiFillPlusCircle,
-//   AiFillMinusCircle,
-//   AiFillStar,
-// } from 'react-icons/ai'
-// import {
-//   BsFillCircleFill,
-//   BsCheckCircleFill,
-//   BsFillSunFill,
-//   BsFillMoonFill,
-//   BsFillPeopleFill,
-// } from 'react-icons/bs'
 import BtnArrow from '@/components/BtnArrow'
-// import { MdLocationOn } from 'react-icons/md'
 import Link from 'next/link'
 import Head from 'next/head'
 import ScrollDown from '../../../../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../../../../components/snackbar'
+import { useSelector } from 'react-redux'
 
 const Details = (props) => {
-  // const router = useRouter()
-  // const { details: detailsId, categoryId, place } = router.query
-  // console.log(categoryId)
-  // console.log(place)
-  // console.log(detailsId)
-  // const [programs, setPrograms] = useState([])
-  // const [program, setProgram] = useState({})
-  // const [settings, setSettings] = useState({})
+  const settings = useSelector((state) => state.settings.value)
   const program = props.program
   const programs = props.programs
-  const settings = props.settings
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const snackbarRef = useRef(null)
   const [formErrors, setFormErrors] = useState({})
@@ -136,13 +115,13 @@ const Details = (props) => {
               </h2>
               <div className={styles.details__details}>
                 <h3>
-                  {/* <AiOutlineArrowLeft /> تفاصيل البرنامج السياحي */}
+                  <i class="far fa-arrow-left"></i> تفاصيل البرنامج السياحي
                 </h3>
                 <div className={styles.details__days}>
                   {program?.program_days?.map((day, i) => (
                     <div className={styles.details__day} key={i}>
                       <h4>
-                        {/* <BsFillCircleFill /> {day?.name} */}
+                        <span className="w-3 h-3 bg-primary rounded-full"></span> {day?.name}
                       </h4>
                       <p>{day?.content}</p>
                     </div>
@@ -151,7 +130,7 @@ const Details = (props) => {
               </div>
               <div className={styles.details__includes}>
                 <h3>
-                  {/* <AiOutlineArrowLeft /> */}
+                  <i class="far fa-arrow-left"></i>
                   مشتملات الرحلة
                 </h3>
                 <div className={styles.details__contents}>
@@ -160,7 +139,7 @@ const Details = (props) => {
                     <ul>
                       {program?.includes?.map((item, i) => (
                         <li key={i}>
-                          {/* <AiFillPlusCircle className={styles.green} /> */}
+                          <i class="fas fa-plus-circle text-green-600"></i>
                           {item}
                         </li>
                       ))}
@@ -171,7 +150,7 @@ const Details = (props) => {
                     <ul>
                       {program?.exculdes?.map((item, i) => (
                         <li key={i}>
-                          {/* <AiFillMinusCircle className={styles.red} /> */}
+                          <i class="fas fa-minus-circle text-red-500"></i>
                           {item}
                         </li>
                       ))}
@@ -183,7 +162,7 @@ const Details = (props) => {
                       <ul>
                         {program?.activities?.map((item, i) => (
                           <li key={i}>
-                            {/* <BsCheckCircleFill className={styles.green} /> */}
+                            <i class="fas fa-check-circle text-green-600"></i>
                             {item[0]}
                           </li>
                         ))}
@@ -330,39 +309,36 @@ const Details = (props) => {
                         </div>
                         <div className={styles.similar__card__content}>
                           <div className={styles.similar__card__period}>
-                            <span>
-                              {/* <BsFillSunFill /> */}
-                              {prog?.days} أيام
-                            </span>
-                            <span>
-                              {/* <BsFillMoonFill /> */}
-                              {prog?.nights} ليالي
-                            </span>
-                            <span>
-                              {/* <MdLocationOn /> */}
-                              {prog?.country?.name}
-                            </span>
-                            {prog.people && (
-                              <span>
-                                {/* <BsFillPeopleFill /> */}
-                                {program.people}
-                              </span>
+                          <span>
+                        <i class="fas fa-sun"></i>
+                        {program.days} أيام
+                      </span>
+                      <span>
+                        <i class="fas fa-moon"></i>
+                        {program.nights} ليالي
+                      </span>
+                      <span>
+                        <i class="fas fa-map-marker-alt"></i>
+                        {program.country.name}
+                      </span>
+                      {program.people && (
+                        <span>
+                          <i class="fas fa-user-friends"></i>
+                          {program.people}
+                        </span>
                             )}
                           </div>
                           <div className={styles.similar__heading}>
                             <Link
                               href={`/our-programs/${prog?.country?.id}/${prog?.category?.id}/${prog?.id}`}
                             >
-                              <a>
                                 <h3 className={styles.similar__card__title}>
                                   {prog?.title} {prog?.rate} نجوم
                                 </h3>
-                              </a>
                             </Link>
                             <div className={styles.stars}>
                               {Array.from(Array(prog.rate)).map((s, i) => (
-                                // <AiFillStar key={i} />
-                                <span key={i}>ss</span>
+                                <i class="fas fa-star text-yellow-400" key={i}></i>
                               ))}
                             </div>
                           </div>
@@ -383,17 +359,13 @@ const Details = (props) => {
                           <div className={styles.similar__card__btns}>
                             <BtnArrow
                               title='تفاصيل العرض'
-                              textColor='#222'
                               href={`/our-programs/${prog?.country?.id}/${prog?.category?.id}/${prog?.id}`}
                             />
                             <BtnArrow
                               title='حجز العرض'
-                              textColor='#222'
                               href={`https://api.whatsapp.com/send?phone=${
                                 settings?.whatsup
                               }&${message(prog?.id)}`}
-                              target='_blank'
-                              rel='noreferrer'
                             />
                           </div>
                         </div>
@@ -417,11 +389,10 @@ export const getServerSideProps = async(context)=>{
   const detailsId  = context.params.details
   try {
     if (place && categoryId && detailsId) {
-      const [response, settingsRes, progRes] = await Promise.all([
+      const [response, progRes] = await Promise.all([
         fetch(
           `https://backend.elnagahtravels.com/public/api/programs_details/${detailsId}`
         ),
-        fetch(`https://backend.elnagahtravels.com/public/api/settings`),
         fetch(
           `https://backend.elnagahtravels.com/public/api/programs?country_id=${place}&category_id=${categoryId}`
         ),
@@ -430,17 +401,15 @@ export const getServerSideProps = async(context)=>{
       return {
       notFound: true,
       }
-      const [{ program = {} }, { settings = {} }, { programs = [] }] =
+      const [{ program = {} }, { programs = [] }] =
         await Promise.all([
           response.json(),
-          settingsRes.json(),
           progRes.json(),
         ])
         
         return {
           props : {
             program ,
-            settings ,
             programs
           }
         }

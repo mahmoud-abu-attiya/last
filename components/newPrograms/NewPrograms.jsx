@@ -34,23 +34,27 @@ const NewPrograms = ({ programs }) => {
             </div>
             <div className={styles.newPrograms__card__content}>
               <div className={styles.newPrograms__card__period}>
-                <span>
-                  {/* <BsFillSunFill /> */}
-                  {program.days} أيام
-                </span>
-                <span>
-                  {/* <BsFillMoonFill /> */}
-                  {program.nights} ليالي
-                </span>
-                <span>
-                  {/* <MdLocationOn /> */}
-                  {program.country.name}
-                </span>
-                {program.people && (
-                  <span>
-                    {/* <BsFillPeopleFill /> */}
-                    {program.people}
-                  </span>
+              <span>
+                        {/* <BsFillSunFill /> */}
+                        <i class="fas fa-sun"></i>
+                        {program.days} أيام
+                      </span>
+                      <span>
+                        {/* <BsFillMoonFill /> */}
+                        <i class="fas fa-moon"></i>
+                        {program.nights} ليالي
+                      </span>
+                      <span>
+                        {/* <MdLocationOn /> */}
+                        <i class="fas fa-map-marker-alt"></i>
+                        {program.country.name}
+                      </span>
+                      {program.people && (
+                        <span>
+                          {/* <BsFillPeopleFill /> */}
+                          <i class="fas fa-user-friends"></i>
+                          {program.people}
+                        </span>
                 )}
               </div>
               <div className={styles.newPrograms__heading__container}>
@@ -66,8 +70,7 @@ const NewPrograms = ({ programs }) => {
                 </div>
                 <div className={styles.stars}>
                   {Array.from(Array(program.rate)).map((s, i) => (
-                    // <AiFillStar key={i} />
-                    <span key={i} />
+                     <i class="fas fa-star text-yellow-400" key={i}></i>
                   ))}
                 </div>
               </div>

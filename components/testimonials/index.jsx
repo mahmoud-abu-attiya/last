@@ -9,7 +9,7 @@ const Testimonials = ({ data }) => {
         {data.map((person, i) => (
           <div className={styles.box} key={i}>
             <div className={styles.img}>
-            <Image src={person.image} alt={person.name} width={100} height={100}/>
+            <Image src={person.image} alt={person.name} className='w-[100px] h-[100px] object-cover' width={100} height={100}/>
             </div>
             <h3>{person.name}</h3>
             {person.jobtitle && (

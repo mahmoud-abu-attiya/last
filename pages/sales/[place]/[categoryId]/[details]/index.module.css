@@ -62,15 +62,13 @@
   width: fit-content;
   padding-bottom: 0.3rem;
   border-bottom: 2px solid var(--first-clr);
-}
-.details__details h3 svg,
-.details__includes h3 svg {
-  color: var(--first-clr);
+  font-size: 1.3rem;
 }
 .details__day {
   border-bottom: 1px solid lightgray;
 }
 .details__day h4 {
+  margin: 1rem 0;
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -80,10 +78,14 @@
   color: var(--first-clr);
 }
 /* Details Contents */
-.details__content ul {
+.details__content h4{
+  margin: 1rem 0;
+}
+  .details__content ul {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  margin: 0 2.5rem;
 }
 .details__content li {
   display: flex;

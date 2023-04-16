@@ -4,8 +4,10 @@ import Head from 'next/head'
 import Hotels from '../../components/hotels'
 import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'
+import { useSelector } from 'react-redux'
 
-const BookHotel = ({ hotels, slide, settings }) => {
+const BookHotel = ({ hotels, slide }) => {
+  const settings = useSelector((state) => state.settings.value)
   const [formErrors, setFormErrors] = useState({})
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const regex = /^\S+@\S+\.\S+$/
@@ -185,27 +187,23 @@ export default BookHotel
 
 
 export async function getServerSideProps() {
-  const [hotelsRes, slideRes, settingsRes] = await Promise.all([
+  const [hotelsRes, slideRes] = await Promise.all([
     fetch('https://backend.elnagahtravels.com/public/api/hotels'),
     fetch('https://backend.elnagahtravels.com/public/api/slides?page=hotels'),
-    fetch('https://backend.elnagahtravels.com/public/api/settings'),
   ])
   const [
     { hotels = [] },
     {
       data: { slide = [] },
     },
-    { settings = {} },
   ] = await Promise.all([
     hotelsRes.json(),
     slideRes.json(),
-    settingsRes.json(),
   ])
   return {
     props: {
       hotels,
       slide,
-      settings,
     },
   }
 }

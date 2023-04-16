@@ -5,8 +5,10 @@ import Head from 'next/head'
 import ScrollDown from '../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'
+import { useSelector } from 'react-redux'
 
-const ContactUs = ({ slide, settings }) => {
+const ContactUs = ({ slide }) => {
+  const settings = useSelector((state) => state.settings.value)
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const [formErrors, setFormErrors] = useState({})
   const regex = /^\S+@\S+\.\S+$/
@@ -282,17 +284,13 @@ export default ContactUs
 
 
 export async function getServerSideProps() {
-  const [slidersRes, settingsRes] = await Promise.all([
-    fetch('https://backend.elnagahtravels.com/public/api/slides?page=contact_us'),
-    fetch('https://backend.elnagahtravels.com/public/api/settings'),
-  ]);
+  const slidersRes = await fetch('https://backend.elnagahtravels.com/public/api/slides?page=contact_us')
 
-  const [
+  const 
     {
       data: { slide = [] },
-    },
-    { settings = {} },
-  ] = await Promise.all([slidersRes.json(), settingsRes.json()])
+    }
+   = await slidersRes.json()
 
-  return { props: { slide, settings } };
+  return { props: { slide } };
 }
