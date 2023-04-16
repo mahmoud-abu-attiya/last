@@ -1,27 +1,15 @@
 import styles from './index.module.css'
 import Image from 'next/image'
 import Head from 'next/head'
-// import {
-//   BsEnvelopeFill,
-//   BsFillPeopleFill,
-//   BsInstagram,
-//   BsPhoneFill,
-//   BsSnapchat,
-//   BsTwitter,
-//   BsWhatsapp,
-//   BsYoutube,
-// } from 'react-icons/bs'
-// import { MdLocationOn } from 'react-icons/md'
-// import { GiRotaryPhone } from 'react-icons/gi'
-// import { FaTiktok } from 'react-icons/fa'
 import ScrollDown from '../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'
+import { useSelector } from 'react-redux'
 
 const Aviation = ({
-  slide,
-  settings,
+  slide
 }) => {
+  const settings = useSelector((state) => state.settings.value)
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const snackbarRef = useRef(null)
   const [snackbarMsg2, setSnackbarMsg2] = useState('')
@@ -544,20 +532,14 @@ const Aviation = ({
 export default Aviation
 
 export async function getServerSideProps() {
-  const [response, settingsRes] = await Promise.all([
-    fetch('https://backend.elnagahtravels.com/public/api/slides?page=aviation'),
-    fetch('https://backend.elnagahtravels.com/public/api/settings'),
-  ])
-  const [
+  const response = await fetch('https://backend.elnagahtravels.com/public/api/slides?page=aviation')
+  const
     {
       data: { slide },
-    },
-    { settings = {} },
-  ]  = await Promise.all([response.json(), settingsRes.json()])
+    } = await response.json()
   return {
     props: {
-      slide,
-      settings,
+      slide
     },
   }
 }

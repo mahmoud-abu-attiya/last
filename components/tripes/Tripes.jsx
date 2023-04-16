@@ -77,41 +77,41 @@ const Tripes = ({ data: countries }) => {
   const handleTouchStart = (e) => {
     const touchDown = e.touches[0].clientX
     setTouchPosition(touchDown)
-}
+  }
 
   const handleTouchMove = (e) => {
     const touchDown = touchPosition
 
-    if(touchDown === null) {
-        return
+    if (touchDown === null) {
+      return
     }
 
     const currentTouch = e.touches[0].clientX
     const diff = touchDown - currentTouch
 
     if (diff > 5) {
-        prev()
+      prev()
     }
 
     if (diff < -5) {
-        next()
+      next()
     }
 
     setTouchPosition(null)
-}
+  }
 
   const tripesTabs = ['جميع الوجهات', 'الوجهات الخارجية', 'الوجهات الداخلية']
   return (
     <div className={`grid grid-cols-6 ${styles.tripes}`}>
       <div className="col-span-6 xl:col-span-1 pt-16 xl:py-20 xl:border-l flex flex-col justify-between items-center">
         <Link href='/our-programs' className={"border-b pb-2 w-fit hidden xl:block"}>
-        عرض الكل
-      </Link>
-      <h2
-        className={`xl:hidden ${styles.tripes__title}`}
-      >
-        اختر وجهتك الان
-      </h2>
+          عرض الكل
+        </Link>
+        <h2
+          className={`xl:hidden ${styles.tripes__title}`}
+        >
+          اختر وجهتك الان
+        </h2>
         <div
           className={`flex-row xl:flex-col gap-8 justify-center ${styles.tripes__tabs}`}
         >
@@ -128,47 +128,45 @@ const Tripes = ({ data: countries }) => {
             <span className="bg-secondary h-1 w-full block"></span>
           </span>
         </div>
-      <div className='hidden xl:block'>
-        <button className="btn p-4 group" onClick={prev}>
-          <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
-        </button>
-        <button className="btn p-4 group" onClick={next}>
-          <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
-        </button>
-      </div>
+        <div className='hidden xl:block'>
+          <button className="btn p-4 group" onClick={prev}>
+            <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
+          </button>
+          <button className="btn p-4 group" onClick={next}>
+            <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
+          </button>
+        </div>
       </div>
       <div className={` col-span-6 xl:col-span-5 xl:pr-10 xl:py-20`}>
-      <h2
-        className={`hidden xl:block ${styles.tripes__title}`}
-      >
-        اختر وجهتك الان
-      </h2>
+        <h2
+          className={`hidden xl:block ${styles.tripes__title}`}
+        >
+          اختر وجهتك الان
+        </h2>
         <div className='w-full overflow-hidden cursor-move' onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
           <div className='swiper-wrapper'>
             <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
               {slides.map((slide, index) => {
                 return (
-                  <div key={index}>
-                    <TripesCard
-                      item={slide}
-                    />
-                  </div>
+                  <TripesCard
+                    item={slide} key={index}
+                  />
                 )
               })}
             </div>
           </div>
         </div>
         <div className='flex items-center gap-8 xl:hidden justify-center mb-16'>
-        <button className="btn p-4 group" onClick={prev}>
-          <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
-        </button>
-        <Link href='/our-programs' className="border-b-2 text-secondary text-xs w-fit block pb-1 xl:hidden">
-        عرض الكل
-      </Link>
-        <button className="btn p-4 group" onClick={next}>
-          <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
-        </button>
-      </div>
+          <button className="btn p-4 group" onClick={prev}>
+            <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
+          </button>
+          <Link href='/our-programs' className="border-b-2 text-secondary text-xs w-fit block pb-1 xl:hidden">
+            عرض الكل
+          </Link>
+          <button className="btn p-4 group" onClick={next}>
+            <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
+          </button>
+        </div>
       </div>
     </div>
   )
