@@ -39,7 +39,7 @@ export default function Hero({ slides }) {
                      <div
                         className={styles.hero__container}
                      >
-                        <h1 className={styles.hero__title}>{slide.title}</h1>
+                        {slide[2] ? <h1 className={styles.hero__title}>{slide.title}</h1> : <h2 className={styles.hero__title}>{slide.title}</h2>}
                         <BtnArrow
                            title={slide.button_text}
                            href={slide.link || '/'}
