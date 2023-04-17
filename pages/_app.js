@@ -4,6 +4,9 @@ import App from 'next/app'
 import { store } from "../store";
 import { Provider } from 'react-redux';
 import localFont from 'next/font/local'
+import { useEffect } from 'react';
+import TagManager from 'react-gtm-module'
+import Script from 'next/script';
 
 const bukra = localFont({
    src: [
@@ -19,9 +22,35 @@ const bukra = localFont({
      },
    ],
  })
-export default function MyApp({ Component, pageProps, countries, footerCountries, settings }) {
+ export default function MyApp({ Component, pageProps, countries, footerCountries, settings }) {
+  const tagManagerArgs = {
+     gtmId: `${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`,
+   }
+ 
+   useEffect(() => {
+    TagManager.initialize(tagManagerArgs)
+    window.dataLayer.push({
+      event: 'pageview',
+    })
+   }, [])
   return (
     <>
+    <Script
+        id='gtm'
+        strategy='lazyOnload'
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+      />
+
+      <Script id='gtm2' strategy='lazyOnload'>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}', {
+          page_path: window.location.pathname,
+          });
+        `}
+      </Script>
     <style jsx global>{`
         html {
           font-family: ${bukra.style.fontFamily};

@@ -3,7 +3,7 @@
   color: white;
 }
 .success__top {
-  background-image: url("/images/success-bg.png");
+  background-image: url("/images/success-bg.webp");
   background-size: cover;
   display: flex;
   justify-content: space-around;
