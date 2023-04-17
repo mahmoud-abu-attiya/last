@@ -3,7 +3,8 @@
   color: white;
 }
 .success__top {
-  background-color: var(--second-clr);
+  background-image: url("/images/success-bg.png");
+  background-size: cover;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
@@ -32,7 +33,7 @@
   outline: none;
   background-color: transparent;
   font-size: 2rem;
-  color: rgb(136, 133, 133);
+  color: rgb(235, 235, 235);
   padding-right: 0;
   font-weight: bold;
   transition: 0.2s;

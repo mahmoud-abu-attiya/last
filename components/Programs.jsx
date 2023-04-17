@@ -106,11 +106,13 @@ export default function Programs({ data }) {
           البرامج
           السياحية</h2>
         <div className='hidden xl:block'>
-          <button className="btn p-4 group" onClick={prev}>
-            <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
+          <button className="btn p-4 group hover:translate-x-3 duration-500" onClick={prev}>
+            <Image src="/icons/prev-arrow.svg" alt="arrow-left" width={60} height={60} />
+            <span className="opacity-0 group-hover:opacity-100 transition text-white uppercase text-xs duration-500">prev</span>
           </button>
-          <button className="btn p-4 group" onClick={next}>
-            <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
+          <button className="btn p-4 group hover:-translate-x-3 duration-500" onClick={next}>
+            <Image src="/icons/next-arrow.svg" alt="arrow-right" width={60} height={60} />
+            <span className="opacity-0 group-hover:opacity-100 transition text-white uppercase text-xs duration-500">next</span>
           </button>
         </div>
         <Link href="/" className='border-b pb-2 w-fit text-xs hidden xl:block'>
@@ -141,11 +143,13 @@ export default function Programs({ data }) {
           عرض كل البرامج
         </Link>
         <div>
-          <button className="btn p-4 group" onClick={prev}>
-            <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
+          <button className="btn p-4 group hover:translate-x-3 duration-500" onClick={prev}>
+            <Image src="/icons/prev-arrow.svg" alt="arrow-left" width={60} height={60} />
+            <span className="opacity-0 group-hover:opacity-100 transition text-white uppercase text-xs duration-500">prev</span>
           </button>
-          <button className="btn p-4 group" onClick={next}>
-            <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
+          <button className="btn p-4 group hover:-translate-x-3 duration-500" onClick={next}>
+            <Image src="/icons/next-arrow.svg" alt="arrow-right" width={60} height={60} />
+            <span className="opacity-0 group-hover:opacity-100 transition text-white uppercase text-xs duration-500">next</span>
           </button>
         </div>
       </div>

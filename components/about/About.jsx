@@ -40,14 +40,12 @@ const About = ({ data }) => {
               zIndex: '-1',
             }}
           >
-            {value === i && (
               <Image
                 src={img}
                 alt={`background image ${i}`}
-                className={styles.about__img}
+                className={`object-cover object-center w-full h-full duration-500 ${value === i ? "opacity-100" : "opacity-0"} transition`}
                 fill
               />
-            )}
           </div>
         ))}
         {/* Filter content based on tabs */}

@@ -17,7 +17,7 @@ const FlipCard = ({ country, btnTitle, btnUrl }) => {
               {country.country.name}
             </h3>
             <span className="text-primary min-w-[3rem] w-12 h-12 border-2 border-primary rounded-full flex justify-center items-center">
-              <i className="fal fa-arrow-left rotate-45"></i>
+              <i className="fas fa-arrow-left rotate-45"></i>
             </span>
           </div>
         </div>

@@ -18,28 +18,22 @@ export default function Header({ countries }) {
   const [response, setResponse] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
 
-  // Show when scroll Up, Hide when scroll Down
-  useEffect(() => {
-    const scrollFuc = () => {
-      if (lastScrollTop < window.scrollY) {
-        setIsScrollTop(true)
-      } else {
-        setIsScrollTop(false)
-      }
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    if (currentScrollPos > prevScrollPos) {
+      setIsScrollTop(true);
+    } else {
+      setIsScrollTop(false);
     }
-    let lastScrollTop = window.scrollY
-    window.addEventListener(
-      'scroll',
-      scrollFuc(),
-      { passive: true }
-    )
-    return () =>
-      removeEventListener(
-        'scroll',
-        scrollFuc(),
-        { passive: true }
-      )
-  }, [])
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
 
   const onSearch = (event, searchTerm) => {
     event.preventDefault()

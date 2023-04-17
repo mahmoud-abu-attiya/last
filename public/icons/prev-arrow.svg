@@ -29,8 +29,8 @@
                   transform="translate(0.058 0.928)"
                   fill="none"
                   stroke="#ccc"
-                  strokeLinecap="round"
-                  strokeWidth="3"
+                  stroke-linecap="round"
+                  stroke-width="3"
                />
                <path
                   id="Path_29"
@@ -39,9 +39,9 @@
                   transform="translate(10.859 0.058)"
                   fill="none"
                   stroke="#ccc"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
                />
             </g>
          </g>

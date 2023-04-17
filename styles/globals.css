@@ -181,7 +181,11 @@ h6,
    -moz-user-select: none;
    -ms-user-select: none;
    user-select: none;
- }
+}
+
+.h-screen img.hero-img {
+   height: 100vh !important;
+}
 
 @media (max-width: 900px) {
 

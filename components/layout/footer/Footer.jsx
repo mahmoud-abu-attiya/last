@@ -67,7 +67,7 @@ const Footer = ({ countries }) => {
             </span>
           ))}
         </div>
-        <div
+        {/* <div
           className={styles.call__us}
         >
           <h3 className={styles.title}>اتصل بنا</h3>
@@ -117,7 +117,7 @@ const Footer = ({ countries }) => {
           <span className={styles.call__us__span}>
             حتى نتمكن من خدمتكم بشكل أفضل
           </span>
-        </div>
+        </div> */}
         <div
           className={styles.location}
         >

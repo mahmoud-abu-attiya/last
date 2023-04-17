@@ -139,11 +139,13 @@ const Tripes = ({ data: countries }) => {
           </span>
         </div>
         <div className='hidden xl:block'>
-          <button className="btn p-4 group" onClick={prev}>
-            <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
+          <button className="btn p-4 group hover:translate-x-3 duration-500" onClick={prev}>
+            <Image src="/icons/prev-arrow.svg" alt="arrow-left" width={60} height={60} />
+            <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">prev</span>
           </button>
-          <button className="btn p-4 group" onClick={next}>
-            <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
+          <button className="btn p-4 group hover:-translate-x-3 duration-500" onClick={next}>
+            <Image src="/icons/next-arrow.svg" alt="arrow-right" width={60} height={60} />
+            <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">next</span>
           </button>
         </div>
       </div>
@@ -155,7 +157,7 @@ const Tripes = ({ data: countries }) => {
         </h2>
         <div className='w-full overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
           <div className='swiper-wrapper'>
-          <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
+            <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
               {slides.map((slide, index) => {
                 return (
                   <TripesCard
@@ -167,14 +169,13 @@ const Tripes = ({ data: countries }) => {
           </div>
         </div>
         <div className='flex items-center gap-8 xl:hidden justify-center mb-16'>
-          <button className="btn p-4 group" onClick={prev}>
-            <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={60} height={60} />
+          <button className="btn p-4 group hover:translate-x-3 duration-500" onClick={prev}>
+            <Image src="/icons/prev-arrow.svg" alt="arrow-left" width={60} height={60} />
+            <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">prev</span>
           </button>
-          <Link href='/our-programs' className="border-b-2 text-secondary text-xs w-fit block pb-1 xl:hidden">
-            عرض الكل
-          </Link>
-          <button className="btn p-4 group" onClick={next}>
-            <Image src="/icons/next-arrow.svg" className='group-hover:-translate-x-4 transition duration-300' alt="arrow-right" width={60} height={60} />
+          <button className="btn p-4 group hover:-translate-x-3 duration-500" onClick={next}>
+            <Image src="/icons/next-arrow.svg" alt="arrow-right" width={60} height={60} />
+            <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">next</span>
           </button>
         </div>
       </div>

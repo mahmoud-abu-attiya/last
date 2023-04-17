@@ -7,16 +7,22 @@ import BtnArrow from '../BtnArrow'
 const Success = ({ data, features_slides }) => {
   const [value, setValue] = useState(0)
   const [activeIndex, setActiveIndex] = useState(0)
+  const changebg = () => {
+    if (activeIndex !== features_slides.length - 1) {
+      setActiveIndex(activeIndex + 1)
+    } else {
+      setActiveIndex(0)
+    }
+  }
   useEffect(() => {
       const interval = setInterval(() => {
-        if (activeIndex !== features_slides.length - 1) {
-          setActiveIndex(activeIndex + 1)
-        } else {
-            setActiveIndex(0)
-        }
+        changebg()
       }, 3000)
       return () => clearInterval(interval)
-  }, [activeIndex, value])
+  }, [activeIndex])
+  useEffect(() => {
+    changebg()
+  }, [value])
   return (
     <div className={`grid grid-cols-12 ${styles.success__container}`} id='success'>
       <div className={`col-span-12 xl:col-span-5 gap-4 xl:gap-20 ${styles.success__top}`}>
