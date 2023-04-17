@@ -21,7 +21,7 @@ const Snackbar = forwardRef(({ message, type }, ref) => {
       }}
     >
       <span className="text-4xl flex items-center justify-center">
-        {type === 'success' ? <i className="far fa-check"></i> : <i class="far fa-comment-alt-exclamation"></i>}
+        {type === 'success' ? <i className="far fa-check"></i> : <i className="far fa-comment-alt-exclamation"></i>}
       </span>
       <p className="bold">{message}</p>
     </div>

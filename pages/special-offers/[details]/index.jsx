@@ -137,7 +137,7 @@ const Details = () => {
           <h2>{offerDetails?.title}</h2>
           <div className={styles.details__details}>
             <h3>
-              <i class="fal fa-arrow-left text-primary"></i> تفاصيل البرنامج السياحي
+              <i className="fal fa-arrow-left text-primary"></i> تفاصيل البرنامج السياحي
             </h3>
             <div className={styles.details__days}>
               {offerDetails?.program_days?.map((day, i) => (
@@ -152,7 +152,7 @@ const Details = () => {
           </div>
           <div className={styles.details__includes}>
             <h3>
-              <i class="fal fa-arrow-left text-primary"></i>
+              <i className="fal fa-arrow-left text-primary"></i>
               مشتملات الرحلة
             </h3>
             <div className={styles.details__contents}>
@@ -161,7 +161,7 @@ const Details = () => {
                 <ul>
                   {offerDetails?.includes?.map((item, i) => (
                     <li key={i}>
-                      <i class="fas fa-plus-circle text-green-600"></i>
+                      <i className="fas fa-plus-circle text-green-600"></i>
                       {item}
                     </li>
                   ))}
@@ -172,7 +172,7 @@ const Details = () => {
                 <ul>
                   {offerDetails?.exculdes?.map((item, i) => (
                     <li key={i}>
-                      <i class="fas fa-minus-circle text-red-500"></i>
+                      <i className="fas fa-minus-circle text-red-500"></i>
                       {item}
                     </li>
                   ))}
@@ -183,7 +183,7 @@ const Details = () => {
                 <ul>
                   {offerDetails?.activities?.map((item, i) => (
                     <li key={i}>
-                      <i class="fas fa-check-circle text-green-600"></i>
+                      <i className="fas fa-check-circle text-green-600"></i>
                       {item}
                     </li>
                   ))}

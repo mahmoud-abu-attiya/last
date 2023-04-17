@@ -42,16 +42,16 @@ const SeaTripes = ({
                 <div className={styles.offer__card__content}>
                   <div className={styles.offer__card__period}>
                     <span>
-                      <i class="fas fa-sun"></i>
+                      <i className="fas fa-sun"></i>
                       {card?.days} أيام
                     </span>
                     <span>
-                      <i class="fas fa-moon"></i>
+                      <i className="fas fa-moon"></i>
                       {card?.nights} ليالي
                     </span>
                     {card?.people && (
                       <span>
-                        <i class="fas fa-user-friends"></i>
+                        <i className="fas fa-user-friends"></i>
                         {card?.people}
                       </span>
                     )}
@@ -68,7 +68,7 @@ const SeaTripes = ({
                     </a>
                     <div className={styles.stars}>
                       {Array.from(Array(card.rate)).map((s, i) => (
-                        <i class="fas fa-star text-yellow-400" key={i}></i>
+                        <i className="fas fa-star text-yellow-400" key={i}></i>
                       ))}
                     </div>
                   </div>

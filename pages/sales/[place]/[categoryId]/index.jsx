@@ -55,23 +55,23 @@ const Offer = (props) => {
                     <div className={styles.offer__card__period}>
                     <span>
                         {/* <BsFillSunFill /> */}
-                        <i class="fas fa-sun"></i>
+                        <i className="fas fa-sun"></i>
                         {program.days} أيام
                       </span>
                       <span>
                         {/* <BsFillMoonFill /> */}
-                        <i class="fas fa-moon"></i>
+                        <i className="fas fa-moon"></i>
                         {program.nights} ليالي
                       </span>
                       <span>
                         {/* <MdLocationOn /> */}
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i className="fas fa-map-marker-alt"></i>
                         {program.country.name}
                       </span>
                       {program.people && (
                         <span>
                           {/* <BsFillPeopleFill /> */}
-                          <i class="fas fa-user-friends"></i>
+                          <i className="fas fa-user-friends"></i>
                           {program.people}
                         </span>
                       )}
@@ -86,7 +86,7 @@ const Offer = (props) => {
                       </Link>
                       <div className={styles.stars}>
                         {Array.from(Array(program.rate)).map((s, i) => (
-                           <i class="fas fa-star text-yellow-400" key={i}></i>
+                           <i className="fas fa-star text-yellow-400" key={i}></i>
                         ))}
                       </div>
                     </div>

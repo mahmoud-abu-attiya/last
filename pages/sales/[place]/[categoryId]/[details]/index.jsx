@@ -115,7 +115,7 @@ const Details = (props) => {
           </h2>
           <div className={styles.details__details}>
             <h3>
-              <i class="fal fa-arrow-left text-primary"></i> تفاصيل البرنامج السياحي
+              <i className="fal fa-arrow-left text-primary"></i> تفاصيل البرنامج السياحي
             </h3>
             <div className={styles.details__days}>
               {program?.program_days?.map((day, i) => (
@@ -130,7 +130,7 @@ const Details = (props) => {
           </div>
           <div className={styles.details__includes}>
             <h3>
-              <i class="fal fa-arrow-left text-primary"></i>
+              <i className="fal fa-arrow-left text-primary"></i>
               مشتملات الرحلة
             </h3>
             <div className={styles.details__contents}>
@@ -139,7 +139,7 @@ const Details = (props) => {
                 <ul>
                   {program?.includes?.map((item, i) => (
                     <li key={i}>
-                      <i class="fas fa-plus-circle text-green-600"></i>
+                      <i className="fas fa-plus-circle text-green-600"></i>
                       {item}
                     </li>
                   ))}
@@ -150,7 +150,7 @@ const Details = (props) => {
                 <ul>
                   {program?.exculdes?.map((item, i) => (
                     <li key={i}>
-                      <i class="fas fa-minus-circle text-red-500"></i>
+                      <i className="fas fa-minus-circle text-red-500"></i>
                       {item}
                     </li>
                   ))}
@@ -162,7 +162,7 @@ const Details = (props) => {
                   <ul>
                     {program?.activities?.map((item, i) => (
                       <li key={i}>
-                        <i class="fas fa-check-circle text-green-600"></i>
+                        <i className="fas fa-check-circle text-green-600"></i>
                         {item[0]}
                       </li>
                     ))}
@@ -298,20 +298,20 @@ const Details = (props) => {
                     <div className={styles.similar__card__content}>
                       <div className={styles.similar__card__period}>
                         <span>
-                        <i class="fas fa-sun"></i>
+                        <i className="fas fa-sun"></i>
                           {prog?.days} أيام
                         </span>
                         <span>
-                        <i class="fas fa-moon"></i>
+                        <i className="fas fa-moon"></i>
                           {prog?.nights} ليالي
                         </span>
                         <span>
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i className="fas fa-map-marker-alt"></i>
                           {prog?.country?.name}
                         </span>
                         {prog.people && (
                           <span>
-                            <i class="fas fa-user-friends"></i>
+                            <i className="fas fa-user-friends"></i>
                             {program.people}
                           </span>
                         )}
