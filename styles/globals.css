@@ -97,7 +97,27 @@ h6,
    z-index: 2;
 }
 
-@media (max-width: 767px) {
+h2{
+   line-height: 4rem !important;
+}
+
+.md\:container.special{
+   padding: 0;
+   max-width: 100%;
+}
+
+@media (min-width: 1024px){
+   .md\:container.special{
+      width: calc((300px * 3) + 3rem);
+   }
+}
+@media (min-width: 1280px) {
+   .md\:container.special{
+      width: calc((300px * 4) + 4rem);
+   }
+}
+
+@media (max-width: 1024px) {
    .swiper-wrapper {
       transform: translateX(calc((100vw - 300px) / -2));
    }

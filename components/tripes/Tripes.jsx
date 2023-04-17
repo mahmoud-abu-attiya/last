@@ -128,8 +128,8 @@ const Tripes = ({ data: countries }) => {
           {tripesTabs.map((tab, i) => (
             <button
               key={i}
-              onClick={() => setValue(i)}
-              className={`${styles.tripes__tab} border-secondary mx-4 xl:px-4 ${value == i ? "border-b-2 text-secondary xl:border-none" : "text-gray-600 border-none"}`}
+              onClick={() => {setValue(i); setTranslate(0); setIndex(1)}}
+              className={`${styles.tripes__tab} text-xl xl:text-2xl border-secondary mx-4 ${value == i ? "border-b-2 text-secondary xl:border-none" : "text-gray-600 border-none"}`}
             >
               {tab}
             </button>

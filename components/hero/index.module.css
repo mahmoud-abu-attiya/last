@@ -98,6 +98,8 @@
   }
 }
 
+
+
 @media (max-width: 900px) {
   .swiper__prev,
   .swiper__next {
@@ -115,6 +117,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+  .btns button{
+    width: 6rem !important;
   }
   .hero__title {
     font-size: 1.5rem;

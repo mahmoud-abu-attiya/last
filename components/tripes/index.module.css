@@ -13,7 +13,6 @@
   padding-right: 2rem;
 }
 .tripes__tab {
-  font-size: 1.6rem;
   font-weight: bold;
   transition: 0.2s;
   cursor: pointer;
@@ -82,9 +81,9 @@
   .tripes__tabs {
     margin-bottom: 3rem;
   }
-  .tripes__tab {
-    font-size: 1.1rem;
-  }
+  /* .tripes__tab {
+    font-size: 1rem;
+  } */
   .tripes__tab__active {
     border-bottom: 2px solid var(--second-clr);
     border-radius: 0;

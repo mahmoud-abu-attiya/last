@@ -106,7 +106,7 @@ const Special = ({ data }) => {
       >
         العروض المميزة
       </h3>
-      <div className='w-full overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
+      <div className='w-full md:container special overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
         <div className='swiper-wrapper'>
           <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
             {slides.map((slide, index) => {
