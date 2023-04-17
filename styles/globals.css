@@ -176,6 +176,13 @@ h6,
    left: 0;
 }
 
+.swiper-wrapper * {
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+ }
+
 @media (max-width: 900px) {
 
    .dots,

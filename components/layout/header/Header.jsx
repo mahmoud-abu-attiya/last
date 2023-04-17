@@ -67,8 +67,8 @@ export default function Header({ countries }) {
             <Image
               src={settings.logo}
               alt='logo'
-              width={102}
-              height={70}
+              width={120}
+              height={85}
               priority={true}
               className={styles.header__logo}
               sizes="(max-width: 68px) 100vw,

@@ -16,9 +16,14 @@
   background-color: var(--second-clr);
   margin: 0;
 }
-.header__li.active__link .header__link,
-.header__li.active__link svg {
+.header__li.active__link .header__link{
   color: var(--first-clr);
+}
+.header__li img {
+  filter: invert(100%) sepia(0%) saturate(7481%) hue-rotate(57deg) brightness(106%) contrast(101%);
+}
+.header__li.active__link img {
+  filter: invert(69%) sepia(41%) saturate(462%) hue-rotate(134deg) brightness(87%) contrast(86%);
 }
 .nav {
   width: min(100% - 1rem, 1250px);
@@ -90,59 +95,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.2s;
+  transition: all 0.2s;
   padding: 0.2;
   width: 35px;
   height: 35px;
   border-radius: 10px;
-  /* background-color: white; */
+  font-size: 1.3rem;
 }
-.header__icons svg {
-  font-size: 1.4rem;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.whats {
-  background-image: linear-gradient(to bottom ,#25D366, #128c53);
-  animation-name: bounce;
-  animation-duration: 4s;
-  transition-delay: 2s;
-}
-.mail {
-  background-image: linear-gradient(to bottom ,#ccc, gray);
-  animation-name: bounce2;
-  animation-duration: 4s;
-  transition-delay: 2s;
-}
-.phone {
-  background-image: linear-gradient(to bottom , skyblue,rgb(0, 183, 255) );
-  animation-name: bounce;
-  animation-duration: 4s;
-  transition-delay: 2s;
-}
-.phone svg {
-  font-size: 1.5rem;
-}
-.mobile {
-  background-image: linear-gradient(to bottom ,#1f5a6c, #1f396c );
-  animation-name: bounce2;
-  animation-duration: 4s;
-  transition-delay: 5s;
-}
-.whats:hover {
-  background-color: #075e54;
-}
-.mail:hover {
-  background-color: gray;
-}
-.phone:hover {
-  background-color: skyblue;
-}
-.mobile:hover {
-  background-color: #1f396c;
-}
-.header__icons a:hover svg {
-  color: white !important;
+.header__icons a:hover {
+  transform: scale(1.1);
+  background-color: #cccccc42;
+  border: 1px solid #cccccc52;
 }
 @media (max-width: 768px) {
   .header__icons {
@@ -436,9 +399,6 @@
     flex-direction: row;
     justify-content: flex-start;
     width: 100%;
-  }
-  .phone svg {
-    font-size: 1.28rem;
   }
   .header__end {
     gap: 0.5rem;

@@ -11,7 +11,6 @@
 .f__logo {
   color: #ffffff;
   font-family: 'Bebas Neue', cursive;
-  letter-spacing: 2px;
   padding: 5px 10px;
   font-size: 45px;
   align-self: flex-start;
@@ -26,7 +25,6 @@
   margin: 5px;
   width: 90%;
   flex-wrap: wrap;
-  border-bottom: 1px solid white;
 }
 
 .famous__places,

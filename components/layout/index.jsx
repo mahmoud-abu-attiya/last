@@ -14,8 +14,8 @@ export default function Layout({ children, settings, countries, footerCountries 
       <>
          <Header countries={countries} />
          {children}
-         <SocailMedia />
-         <FixedBtn />
+         {/* <SocailMedia /> */}
+         {/* <FixedBtn /> */}
          <Footer countries={footerCountries} />
       </>
    )

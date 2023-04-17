@@ -30,12 +30,6 @@
   cursor: pointer;
   transition: 0.2s;
 }
-.card__img {
-  transition: 0.2s;
-}
-/* .card:hover .card__img {
-  transform: scale(1.1);
-} */
 .card__content {
   display: flex;
   flex-direction: column;
@@ -44,7 +38,7 @@
   padding: 1rem;
   justify-content: flex-end;
   height: 100%;
-  background: linear-gradient(360deg, var(--first-clr) -30%, transparent);
+  background: linear-gradient(360deg, var(--first-clr) 25%, transparent);
   z-index: 1;
   transition: 0.2s;
   opacity: 0;

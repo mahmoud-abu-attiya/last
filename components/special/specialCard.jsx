@@ -19,7 +19,7 @@ const SpecialCard = ({ item }) => {
           fill
           alt={item.id}
           quality={50}
-          className={styles.card__img}
+          className="object-cover"
         />
         <div className={styles.card__content}>
           <Link href={`/special-offers/${item.id}`} className={styles.card__btn}>

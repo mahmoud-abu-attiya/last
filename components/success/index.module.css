@@ -37,7 +37,6 @@
   font-weight: bold;
   transition: 0.2s;
   cursor: pointer;
-  letter-spacing: 2px;
 }
 .success__tab__active {
   color: white;
@@ -106,7 +105,6 @@
   .success__tab {
     font-size: 1.4rem;
     padding: 0 0 0.2rem 0;
-    letter-spacing: 0;
   }
   .success__tab__active {
     color: white;

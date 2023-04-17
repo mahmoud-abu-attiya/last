@@ -121,7 +121,6 @@ const Menu = (props) => {
                 height={20}
               />
               <Link href={link.route} onClick={() => setValue(i)} className={styles.header__link}>
-
                 {link.text}
               </Link>
             </li>

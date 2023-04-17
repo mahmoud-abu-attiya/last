@@ -4,6 +4,42 @@ import Image from 'next/image'
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
 
+const SubFooter = ({settings}) => {
+  return (
+    <div className="sticky bottom-0 p-4 lg:px-16 grid grid-cols-4 bg-gray-100 z-20">
+      <a href={`tel:${settings.mobile}`} className="flex items-center justify-center gap-8 px-10 group" target='_blank' rel='noreferrer'>
+        <i className="fas fa-mobile text-primary text-xl sm:text-4xl group-hover:scale-125 transition"></i>
+        <div className='hidden lg:block'>
+          <p className="text-xs">اتصل بنا علي المحمول.</p>
+        <p className="link bold hover:underline">{settings.mobile}</p>
+        </div>
+      </a>
+      <a href={`tel:${settings.phone}`} className="flex items-center justify-center gap-8 px-10 group border-r-2 border-gray-300" target='_blank' rel='noreferrer'>
+        <i className="fas fa-phone-rotary text-primary text-xl sm:text-4xl group-hover:scale-125 transition"></i>
+        <div className='hidden lg:block'>
+          <p className="text-xs">اتصل بنا علي الهاتف الرضي.</p>
+        <p className="link bold hover:underline">{settings.phone}</p>
+        </div>
+      </a>
+      <a href={`mailto:${settings.email}`} className="flex items-center justify-center gap-8 px-10 group border-r-2 border-gray-300" target='_blank' rel='noreferrer'>
+        <i className="fas fa-envelope text-primary text-xl sm:text-4xl group-hover:scale-125 transition"></i>
+        <div className='hidden lg:block'>
+          <p className="text-xs">يمكنك مراسلتنا علي البريد الالكتروني.</p>
+        <p className="link bold hover:underline">{settings.email}</p>
+        </div>
+      </a>
+      <a href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} className="flex items-center justify-center gap-8 px-10 group border-r-2 border-gray-300" target='_blank' rel='noreferrer'>
+        <i className="fab fa-whatsapp text-primary text-xl sm:text-4xl group-hover:scale-125 transition"></i>
+        <div className='hidden lg:block'>
+          <p className="text-xs">تواصل معنا عن طرق الواتساب.</p>
+        <p className="link bold hover:underline">{settings.whatsup}</p>
+        </div>
+      </a>
+    </div>
+  )
+}
+
+
 const Footer = ({ countries }) => {
   const settings = useSelector((state) => state.settings.value)
   const scrollToTop = () => {
@@ -14,6 +50,8 @@ const Footer = ({ countries }) => {
   }
 
   return (
+    <>
+      <SubFooter settings={settings} />
     <footer className={styles.footer}>
       <div className={styles.up__section}>
         <div
@@ -178,6 +216,7 @@ const Footer = ({ countries }) => {
         </span>
       </p>
     </footer>
+    </>
   )
 }
 

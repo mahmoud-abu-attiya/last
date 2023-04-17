@@ -26,8 +26,9 @@ const Events = ({ event }) => {
     const seconds = Math.floor((dateDiff % (1000 * 60)) / 1000)
     if (dateDiff < 0) {
       setDate({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-    }
+    } else {
     setDate({ days, hours, minutes, seconds })
+    }
   }
 
   useEffect(() => {
@@ -35,7 +36,6 @@ const Events = ({ event }) => {
       counter()
     }, 1000)
     return () => clearInterval(interval)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [event.event_date])
 
   const handleSubmit = async (event) => {

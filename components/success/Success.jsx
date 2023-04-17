@@ -18,8 +18,8 @@ const Success = ({ data, features_slides }) => {
       return () => clearInterval(interval)
   }, [activeIndex, value])
   return (
-    <div className={`grid grid-cols-6 ${styles.success__container}`} id='success'>
-      <div className={`col-span-6 xl:col-span-2 gap-4 xl:gap-20 ${styles.success__top}`}>
+    <div className={`grid grid-cols-12 ${styles.success__container}`} id='success'>
+      <div className={`col-span-12 xl:col-span-5 gap-4 xl:gap-20 ${styles.success__top}`}>
         <h2
           className={styles.success__title}
         >
@@ -40,11 +40,11 @@ const Success = ({ data, features_slides }) => {
             </button>
           ))}
         </div>
-        <Link href='/about-us' className={"border-b pb-2 hidden xl:block"}>
+        <Link href='/about-us' className={"border-b pb-2 hidden xl:block text-xs whitespace-nowrap"}>
           عرض مميزات وسام النجاح
         </Link>
       </div>
-      <div className={`col-span-6 xl:col-span-4 ${styles.success__content}`}>
+      <div className={`col-span-12 xl:col-span-7 ${styles.success__content}`}>
         {features_slides.map((slide, i) => {
           return (
             <div className={`transition duration-500 ${i === activeIndex ? "opacity-100" : "opacity-0"}`} key={i}>
@@ -63,8 +63,8 @@ const Success = ({ data, features_slides }) => {
           </div>
         </div>
       </div>
-      <div className="col-span-6 block xl:hidden w-full bg-secondary py-4 text-xs text-center">
-        <Link href='/about-us' className={"border-b pb-2"}>
+      <div className="col-span-12 block xl:hidden w-full bg-secondary py-4 text-xs text-center">
+        <Link href='/about-us' className={"border-b pb-2 text-xs whitespace-nowrap"}>
           عرض مميزات وسام النجاح
         </Link>
       </div>

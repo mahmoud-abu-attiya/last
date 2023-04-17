@@ -23,7 +23,7 @@ const Tripes = ({ data: countries }) => {
   let [index, setIndex] = useState(1)
   const [transition, setTransition] = useState(true)
   const [canClick, setCanClick] = useState(true)
-  const [touchPosition, setTouchPosition] = useState(null)
+  const [position, setPosition] = useState(null)
 
   const next = () => {
     if (!canClick) return
@@ -74,20 +74,30 @@ const Tripes = ({ data: countries }) => {
 
   }
 
-  const handleTouchStart = (e) => {
-    const touchDown = e.touches[0].clientX
-    setTouchPosition(touchDown)
+  const handleStart = (e) => {
+    let down;
+    if (e.touches) {
+      down = e.touches[0].clientX
+    } else {
+      down = e.clientX
+    }
+    setPosition(down)
   }
 
-  const handleTouchMove = (e) => {
-    const touchDown = touchPosition
+  const handleMove = (e) => {
+    const down = position
 
-    if (touchDown === null) {
+    if (down === null) {
       return
     }
 
-    const currentTouch = e.touches[0].clientX
-    const diff = touchDown - currentTouch
+    let current;
+    if (e.touches) {
+      current = e.touches[0].clientX
+    } else {
+      current = e.clientX
+    }
+    const diff = down - current
 
     if (diff > 5) {
       prev()
@@ -97,13 +107,13 @@ const Tripes = ({ data: countries }) => {
       next()
     }
 
-    setTouchPosition(null)
+    setPosition(null)
   }
 
   const tripesTabs = ['جميع الوجهات', 'الوجهات الخارجية', 'الوجهات الداخلية']
   return (
-    <div className={`grid grid-cols-6 ${styles.tripes}`}>
-      <div className="col-span-6 xl:col-span-1 pt-16 xl:py-20 xl:border-l flex flex-col justify-between items-center">
+    <div className={`grid grid-cols-10 ${styles.tripes}`}>
+      <div className="col-span-10 xl:col-span-2 pt-16 xl:py-20 xl:border-l flex flex-col justify-between items-center">
         <Link href='/our-programs' className={"border-b pb-2 w-fit hidden xl:block"}>
           عرض الكل
         </Link>
@@ -137,15 +147,15 @@ const Tripes = ({ data: countries }) => {
           </button>
         </div>
       </div>
-      <div className={` col-span-6 xl:col-span-5 xl:pr-10 xl:py-20`}>
+      <div className={` col-span-10 xl:col-span-8 xl:pr-10 xl:py-20`}>
         <h2
           className={`hidden xl:block ${styles.tripes__title}`}
         >
           اختر وجهتك الان
         </h2>
-        <div className='w-full overflow-hidden cursor-move' onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
+        <div className='w-full overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
           <div className='swiper-wrapper'>
-            <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
+          <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
               {slides.map((slide, index) => {
                 return (
                   <TripesCard

@@ -5,13 +5,15 @@ import Link from 'next/link'
 import { useState } from 'react'
 import Image from 'next/image'
 
-const Special = ({ data }) => {  const slides = data.concat(data.slice(0, 4))
+const Special = ({ data }) => {
+  const slides = data.concat(data.slice(0, 4))
   slides.unshift(data[data.length - 1])
   const step = 100 / slides.length
   let [translate, setTranslate] = useState(step)
   let [index, setIndex] = useState(1)
   const [transition, setTransition] = useState(true)
   const [canClick, setCanClick] = useState(true)
+  const [position, setPosition] = useState(null)
 
   const next = () => {
     if (!canClick) return
@@ -62,16 +64,51 @@ const Special = ({ data }) => {  const slides = data.concat(data.slice(0, 4))
 
   }
 
+  const handleStart = (e) => {
+    let down;
+    if (e.touches) {
+      down = e.touches[0].clientX
+    } else {
+      down = e.clientX
+    }
+    setPosition(down)
+  }
+
+  const handleMove = (e) => {
+    const down = position
+
+    if (down === null) {
+      return
+    }
+
+    let current;
+    if (e.touches) {
+      current = e.touches[0].clientX
+    } else {
+      current = e.clientX
+    }
+    const diff = down - current
+
+    if (diff > 5) {
+      prev()
+    }
+
+    if (diff < -5) {
+      next()
+    }
+
+    setPosition(null)
+  }
+
   return (
     <div className="lg:container py-20 relative mb-20">
-    {/* <div className={styles.news__container}> */}
       <h3
         className={`mb-10 ${styles.news__title}`}
       >
         العروض المميزة
       </h3>
-      <div className='w-full overflow-hidden'>
-        <div className='swiper-wrapper'>
+      <div className='w-full overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
+      <div className='swiper-wrapper'>
           <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
             {slides.map((slide, index) => {
               return (
