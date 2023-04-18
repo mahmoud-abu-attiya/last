@@ -264,8 +264,8 @@
 .similar__card__btns {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
 }
 .similar__card__period {
   font-size: 0.8rem;
@@ -312,9 +312,4 @@
   padding: 1rem;
   border: 2px solid var(--first-clr);
   border-radius: 0 0 20px 20px;
-}
-.similar__card__btns {
-  display: flex;
-  justify-content: flex-start;
-  gap: 1rem;
 }

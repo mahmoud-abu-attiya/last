@@ -3,9 +3,6 @@ import styles from './index.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import BtnArrow from '@/components/BtnArrow'
-// import { BsFillSunFill, BsFillMoonFill, BsFillPeopleFill } from 'react-icons/bs'
-// import { MdLocationOn } from 'react-icons/md'
-// import { AiFillStar } from 'react-icons/ai'
 import Head from 'next/head'
 import ScrollDown from '../../../../components/scrollDown'
 import { useSelector } from 'react-redux'
@@ -63,23 +60,19 @@ const Offer = (props) => {
                   <div className={styles.offer__card__content}>
                     <div className={styles.offer__card__period}>
                       <span>
-                        {/* <BsFillSunFill /> */}
                         <i className="fas fa-sun"></i>
                         {program.days} أيام
                       </span>
                       <span>
-                        {/* <BsFillMoonFill /> */}
                         <i className="fas fa-moon"></i>
                         {program.nights} ليالي
                       </span>
                       <span>
-                        {/* <MdLocationOn /> */}
                         <i className="fas fa-map-marker-alt"></i>
                         {program.country.name}
                       </span>
                       {program.people && (
                         <span>
-                          {/* <BsFillPeopleFill /> */}
                           <i className="fas fa-user-friends"></i>
                           {program.people}
                         </span>

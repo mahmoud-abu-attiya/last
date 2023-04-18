@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript, Script } from "next/document";
 import Favicon from "@/components/favicon";
 
 export default function Document() {
@@ -7,7 +7,7 @@ export default function Document() {
          <Head>
             <meta property="og:type" content="website" />
             <link
-               href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css"
+               href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.min.css"
                rel="stylesheet"
                type="text/css"
             />

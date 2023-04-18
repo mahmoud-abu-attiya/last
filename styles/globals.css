@@ -215,3 +215,9 @@ h2{
       display: none;
    }
 }
+
+@media (max-width: 640px) {
+   .subFooter a img{
+      width: 25px;
+   }
+}

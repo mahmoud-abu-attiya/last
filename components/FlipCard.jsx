@@ -12,7 +12,7 @@ const FlipCard = ({ country, btnTitle, btnUrl }) => {
       <div className="flip-card-inner rounded-3xl">
         <div className="flip-card-front rounded-3xl overflow-hidden flex">
           <Image src={country.image} alt={country.country.name} fill className="object-cover" quality={100} />
-          <div className="flex w-full gap-8 justify-between items-end bg-black/25 h-full p-4">
+          <div className="flex w-full gap-8 justify-between items-end h-full p-4">
             <h3 className="title md:text-xl lg:text-2xl text-white font-bold mb-4">
               {country.country.name}
             </h3>

@@ -134,7 +134,7 @@ const Tripes = ({ data: countries }) => {
               {tab}
             </button>
           ))}
-          <span className={`absolute transition-all hidden xl:flex left-0 -translate-x-1/2 justify-center items-center -translate-y-1/2 w-16 h-8 bg-white ${value == 0 ? "top-[10%]" : value == 1 ? "top-1/2" : "top-[90%]"}`}>
+          <span className={`absolute transition-all hidden xl:flex left-0 -translate-x-1/2 justify-center items-center -translate-y-1/2 w-14 xl:w-16 h-8 bg-white ${value == 0 ? "top-[5%]" : value == 1 ? "top-1/2" : "top-[95%]"}`}>
             <span className="bg-secondary h-1 w-full block"></span>
           </span>
         </div>
