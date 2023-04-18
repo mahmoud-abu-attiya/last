@@ -6,11 +6,11 @@ export default function Document() {
       <Html lang="ar">
          <Head>
             <meta property="og:type" content="website" />
-            <link
+            {/* <link
                href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.min.css"
                rel="stylesheet"
                type="text/css"
-            />
+            /> */}
             <meta
                property="og:image"
                content="https://backend.elnagahtravels.com/storage/settings/szKT4ynI1ZggowEi1MIgofP9DqYJswYog1g7wpRh.png"
