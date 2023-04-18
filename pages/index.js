@@ -24,11 +24,11 @@ export default function Home({ data, programsCountries }) {
    return (
       <>
          <Head>
+            <title>وسام النجاح للسفر والسياحة</title>
             <meta
                name="viewport"
                content="width=device-width, initial-scale=1"
             />
-            <title>وسام النجاح للسفر والسياحة</title>
             <meta
                name="description"
                content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."

@@ -6,9 +6,7 @@ import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'
 import { useSelector } from 'react-redux'
 
-const Aviation = ({
-  slide
-}) => {
+const Aviation = ({ slide }) => {
   const settings = useSelector((state) => state.settings.value)
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const snackbarRef = useRef(null)
@@ -157,6 +155,26 @@ const Aviation = ({
     <>
       <Head>
         <title>الطيران</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+        <meta
+          name="description"
+          content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
+        <meta property="og:title" content="الطيران" />
+        <meta property="og:url" content="https://last-delta.vercel.app/aviation" />
+        <meta name="keywords" content={settings.keywords} />
+        <meta
+          property="og:description"
+          content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
+        <meta name="twitter:title" content="الطيران" />
+        <meta
+          name="twitter:description"
+          content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
       </Head>
       <div className={styles.hero__bg}>
         {slides[0]?.image && (

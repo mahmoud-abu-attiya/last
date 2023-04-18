@@ -2,8 +2,10 @@ import styles from './index.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
 import ScrollDown from '../../components/scrollDown'
+import { useSelector } from 'react-redux'
 
 const AboutUs = ({ about, slides }) => {
+  const settings = useSelector(state => state.settings.value)
   const { images = [], achievements = [], steps = [] } = about
   const imagesStyles = [
     "",
@@ -21,6 +23,26 @@ const AboutUs = ({ about, slides }) => {
     <>
       <Head>
         <title>{slides[0].title}</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+        />
+        <meta
+            name="description"
+            content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
+        <meta property="og:title" content={slides[0].title} />
+        <meta property="og:url" content="https://last-delta.vercel.app/our-programs" />
+        <meta name="keywords" content={settings.keywords} />
+        <meta
+            property="og:description"
+            content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
+        <meta name="twitter:title" content={slides[0].title} />
+        <meta
+            name="twitter:description"
+            content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
       </Head>
       <div className={`overflow-hidden ${styles.hero__bg}`}>
         {slides[0].image && (

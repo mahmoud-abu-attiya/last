@@ -77,6 +77,26 @@ const ContactUs = ({ slide }) => {
     <>
       <Head>
         <title>تواصل معنا</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+        />
+        <meta
+            name="description"
+            content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
+        <meta property="og:title" content="تواصل معنا" />
+        <meta property="og:url" content="https://last-delta.vercel.app/contact-us" />
+        <meta name="keywords" content={settings.keywords} />
+        <meta
+            property="og:description"
+            content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
+        <meta name="twitter:title" content="تواصل معنا" />
+        <meta
+            name="twitter:description"
+            content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
       </Head>
       <div className={`text-white ${styles.hero__bg}`}>
         {slide[0].image && (

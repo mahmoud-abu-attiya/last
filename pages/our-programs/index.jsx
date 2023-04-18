@@ -3,12 +3,34 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
 import FullPageSlider from '../../components/fullPageSlider'
+import { useSelector } from 'react-redux'
 
 const OurPrograms = ({ countries, slides }) => {
+  const settings = useSelector(state => state.settings.value);
   return (
     <>
       <Head>
         <title>البرامج السياحية</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+        />
+        <meta
+            name="description"
+            content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
+        <meta property="og:title" content="البرامج السياحية" />
+        <meta property="og:url" content="https://last-delta.vercel.app/our-programs" />
+        <meta name="keywords" content={settings.keywords} />
+        <meta
+            property="og:description"
+            content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
+        <meta name="twitter:title" content="البرامج السياحية" />
+        <meta
+            name="twitter:description"
+            content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+        />
       </Head>
       <FullPageSlider
         data={slides}
