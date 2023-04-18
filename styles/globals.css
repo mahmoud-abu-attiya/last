@@ -227,10 +227,22 @@ h2{
 
 @media (max-width: 640px) {
    .subFooter a img{
-      width: 25px;
+      width: 30px;
    }
 }
 @media (max-width: 1024px) {
+   .subFooter .whats{
+      background-image: linear-gradient(to bottom, rgb(0, 169, 0), green);
+   }
+   .subFooter .hours{
+      background-image: linear-gradient(to bottom, aqua, #00a6ff);
+   }
+   .subFooter .email{
+      background-image: linear-gradient(to top, #0c00ff, transparent);
+   }
+   .subFooter .phone{
+      background-image: linear-gradient(to bottom, green, rgb(0, 86, 0));
+   }
    .subFooter a img{
       filter: invert(100%) sepia(4%) saturate(16%) hue-rotate(115deg) brightness(106%) contrast(103%);
    }   

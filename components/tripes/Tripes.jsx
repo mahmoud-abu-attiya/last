@@ -18,6 +18,12 @@ const Tripes = ({ data: countries }) => {
 
   const slides = filteredCountries.concat(filteredCountries.slice(0, 4))
   slides.unshift(filteredCountries[filteredCountries.length - 1])
+  // const step = 100 / slides.length
+  // let [translate, setTranslate] = useState(step)
+  // let [index, setIndex] = useState(1)
+  // const [transition, setTransition] = useState(true)
+  // const [canClick, setCanClick] = useState(true)
+  // const [position, setPosition] = useState(null)
   const step = 100 / slides.length
   let [translate, setTranslate] = useState(step)
   let [index, setIndex] = useState(1)
@@ -25,6 +31,90 @@ const Tripes = ({ data: countries }) => {
   const [canClick, setCanClick] = useState(true)
   const [position, setPosition] = useState(null)
 
+  // const next = () => {
+  //   if (!canClick) return
+  //   setCanClick(false)
+  //   setIndex(index + 1)
+  //   setTranslate((index + 1) * (step))
+  //   if (index === slides.length - 5) {
+  //     setTimeout(() => {
+  //       setTransition(false)
+  //       setTranslate(step)
+  //       setIndex(1)
+  //       setTimeout(() => {
+  //         setTransition(true)
+  //         setCanClick(true)
+  //       }, 10)
+  //     }, 500);
+  //   } else {
+  //     setTimeout(() => {
+  //       setCanClick(true)
+  //     }, 500);
+  //   }
+  // }
+
+  // const prev = () => {
+  //   if (!canClick) return
+  //   setCanClick(false)
+  //   if (index === 1) {
+  //     setTransition(false)
+  //     setTranslate((100 / slides.length) * (slides.length - 4))
+  //     setIndex(slides.length - 4)
+  //     translate = (100 / slides.length) * (slides.length - 4)
+  //     index = slides.length - 4
+  //     setTimeout(() => {
+  //       setTransition(true)
+  //       setIndex(index - 1)
+  //       setTranslate(translate - 100 / slides.length)
+  //       setTimeout(() => {
+  //         setCanClick(true)
+  //       }, 500);
+  //     }, 10);
+  //   } else {
+  //     setIndex(index - 1)
+  //     setTranslate(translate - 100 / slides.length)
+  //     setTimeout(() => {
+  //       setCanClick(true)
+  //     }, 500);
+  //   }
+
+  // }
+
+  // const handleStart = (e) => {
+  //   let down;
+  //   if (e.touches) {
+  //     down = e.touches[0].clientX
+  //   } else {
+  //     down = e.clientX
+  //   }
+  //   setPosition(down)
+  // }
+
+  // const handleMove = (e) => {
+  //   const down = position
+
+  //   if (down === null) {
+  //     return
+  //   }
+
+  //   let current;
+  //   if (e.touches) {
+  //     current = e.touches[0].clientX
+  //   } else {
+  //     current = e.clientX
+  //   }
+  //   const diff = down - current
+
+  //   if (diff > 5) {
+  //     prev()
+  //   }
+
+  //   if (diff < -5) {
+  //     next()
+  //   }
+
+  //   setPosition(null)
+  // }
   const next = () => {
     if (!canClick) return
     setCanClick(false)
@@ -128,7 +218,7 @@ const Tripes = ({ data: countries }) => {
           {tripesTabs.map((tab, i) => (
             <button
               key={i}
-              onClick={() => {setValue(i); setTranslate(0); setIndex(2)}}
+              onClick={() => { setValue(i); setTranslate(step); setIndex(1) }}
               className={`${styles.tripes__tab} text-xl xl:text-2xl border-secondary mx-2 lg:mx-4 ${value == i ? "border-b-2 text-secondary xl:border-none" : "text-gray-600 border-none"}`}
             >
               {tab}
@@ -155,6 +245,19 @@ const Tripes = ({ data: countries }) => {
         >
           اختر وجهتك الان
         </h2>
+        {/* <div className='w-full overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
+          <div className='swiper-wrapper'>
+            <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
+              {slides.map((slide, index) => {
+                return (
+                  <TripesCard
+                    item={slide} key={index}
+                  />
+                )
+              })}
+            </div>
+          </div>
+        </div> */}
         <div className='w-full overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
           <div className='swiper-wrapper'>
             <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>

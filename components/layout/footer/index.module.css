@@ -1,6 +1,6 @@
 .footer {
   /* background-color: #1f396c; */
-  background-image: linear-gradient(315deg, #1f396c, var(--second-clr));
+  background-image: linear-gradient(315deg, #475f8e, var(--second-clr));
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
