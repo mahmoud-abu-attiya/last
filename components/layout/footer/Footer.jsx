@@ -6,32 +6,32 @@ import { useSelector } from 'react-redux'
 
 const SubFooter = ({ settings }) => {
   return (
-    <div className="sticky subFooter bottom-0 p-4 lg:px-16 grid grid-cols-4 bg-gray-100 z-20">
-      <a href={`tel:${settings.mobile}`} className="flex items-center justify-center gap-6 md:px-10" target='_blank' rel='noreferrer'>
-        <i className="fal fa-mobile text-primary text-xl sm:text-4xl"></i>
+    <div className="sticky subFooter bottom-0 p-4 lg:px-16 grid grid-cols-4 lg:bg-gray-100 z-20 gap-4 lg:gap-0">
+      <a href={`tel:${settings.mobile}`} className="rounded-lg shadow-lg lg:shadow-none bg-secondary p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10" target='_blank' rel='noreferrer'>
+        <i className="fal fa-mobile text-white lg:text-primary text-xl sm:text-4xl"></i>
         <div className='hidden lg:block'>
           <p className="text-xs">اتصل بنا علي المحمول.</p>
           <p className="link bold hover:underline">{settings.mobile}</p>
         </div>
       </a>
-      <a href={`tel:${settings.phone}`} className="flex items-center justify-center gap-6 md:px-10 border-r-2 border-gray-300" target='_blank' rel='noreferrer'>
-        {/* <i className="fas fa-phone-rotary text-primary text-xl sm:text-4xl"></i> */}
-        <Image src="/icons/24-7.png" alt="phone" width={40} height={40} style={{ filter: "invert(73%) sepia(14%) saturate(1317%) hue-rotate(134deg) brightness(89%) contrast(81%)" }} />
+      <a href={`tel:${settings.phone}`} className="rounded-lg shadow-lg lg:shadow-none bg-primary p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300" target='_blank' rel='noreferrer'>
+        {/* <i className="fas fa-phone-rotary text-white lg:text-primary text-xl sm:text-4xl"></i> */}
+        <Image src="/icons/24-7.png" alt="phone" width={40} height={40} />
         <div className='hidden lg:block'>
           <p className="text-xs">اتصل بنا علي الهاتف الرضي.</p>
           <p className="link bold hover:underline">{settings.phone}</p>
         </div>
       </a>
-      <a href={`mailto:${settings.email}`} className="flex items-center justify-center gap-6 md:px-10 border-r-2 border-gray-300" target='_blank' rel='noreferrer'>
-        {/* <i className="fas fa-envelope text-primary text-xl sm:text-4xl"></i> */}
-        <i class="fal fa-envelope-open-text text-primary text-xl sm:text-4xl"></i>
+      <a href={`mailto:${settings.email}`} className="rounded-lg shadow-lg lg:shadow-none bg-blue-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300" target='_blank' rel='noreferrer'>
+        {/* <i className="fas fa-envelope text-white lg:text-primary text-xl sm:text-4xl"></i> */}
+        <i class="fal fa-envelope-open-text text-white lg:text-primary text-xl sm:text-4xl"></i>
         <div className='hidden lg:block'>
           <p className="text-xs">يمكنك مراسلتنا علي البريد الالكتروني.</p>
           <p className="link bold hover:underline">{settings.email}</p>
         </div>
       </a>
-      <a href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} className="flex items-center justify-center gap-6 md:px-10 border-r-2 border-gray-300" target='_blank' rel='noreferrer'>
-        <i className="fab fa-whatsapp text-primary text-xl sm:text-4xl"></i>
+      <a href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} className="rounded-lg shadow-lg lg:shadow-none bg-green-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300" target='_blank' rel='noreferrer'>
+        <i className="fab fa-whatsapp text-white lg:text-primary text-xl sm:text-4xl"></i>
         <div className='hidden lg:block'>
           <p className="text-xs">تواصل معنا عن طرق الواتساب.</p>
           <p className="link bold hover:underline">{settings.whatsup}</p>

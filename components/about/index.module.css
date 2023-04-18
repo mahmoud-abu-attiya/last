@@ -39,7 +39,6 @@
   border: none;
   outline: none;
   background-color: transparent;
-  font-size: 1.3rem;
   color: lightgray;
   padding: 1.2rem 3.5rem;
   border-radius: 40px;
@@ -114,7 +113,7 @@
     padding: 0;
   }
   .about__tab {
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 1.5rem;
   }
   .about__item {
     flex-direction: column;
@@ -122,6 +121,9 @@
     margin-top: 0;
   }
   .about__item__container {
-    flex-direction: column;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: auto;
   }
 }

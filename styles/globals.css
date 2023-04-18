@@ -100,6 +100,11 @@ h6,
 h2{
    line-height: 4rem !important;
 }
+@media (max-width: 640px) {
+   h2{
+      line-height: 2rem !important;
+   }
+}
 
 .md\:container.special{
    padding: 0;
@@ -216,8 +221,17 @@ h2{
    }
 }
 
+.subFooter a img{
+   filter: invert(73%) sepia(14%) saturate(1317%) hue-rotate(134deg) brightness(89%) contrast(81%)
+}
+
 @media (max-width: 640px) {
    .subFooter a img{
       width: 25px;
    }
+}
+@media (max-width: 1024px) {
+   .subFooter a img{
+      filter: invert(100%) sepia(4%) saturate(16%) hue-rotate(115deg) brightness(106%) contrast(103%);
+   }   
 }

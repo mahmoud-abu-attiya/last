@@ -1,5 +1,5 @@
 import styles from './index.module.css'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import TripesCard from './tripesCard'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -112,8 +112,8 @@ const Tripes = ({ data: countries }) => {
 
   const tripesTabs = ['جميع الوجهات', 'الوجهات الخارجية', 'الوجهات الداخلية']
   return (
-    <div className={`grid grid-cols-10 ${styles.tripes}`}>
-      <div className="col-span-10 xl:col-span-2 pt-16 xl:py-20 xl:border-l flex flex-col justify-between items-center">
+    <div className={`grid grid-cols-12 ${styles.tripes}`}>
+      <div className="col-span-12 xl:col-span-3 pt-16 xl:py-20 xl:border-l flex flex-col justify-between items-center">
         <Link href='/our-programs' className={"border-b pb-2 w-fit hidden xl:block"}>
           عرض الكل
         </Link>
@@ -128,8 +128,8 @@ const Tripes = ({ data: countries }) => {
           {tripesTabs.map((tab, i) => (
             <button
               key={i}
-              onClick={() => {setValue(i); setTranslate(0); setIndex(1)}}
-              className={`${styles.tripes__tab} text-xl xl:text-2xl border-secondary mx-4 ${value == i ? "border-b-2 text-secondary xl:border-none" : "text-gray-600 border-none"}`}
+              onClick={() => {setValue(i); setTranslate(0); setIndex(2)}}
+              className={`${styles.tripes__tab} text-xl xl:text-2xl border-secondary mx-2 lg:mx-4 ${value == i ? "border-b-2 text-secondary xl:border-none" : "text-gray-600 border-none"}`}
             >
               {tab}
             </button>
@@ -149,7 +149,7 @@ const Tripes = ({ data: countries }) => {
           </button>
         </div>
       </div>
-      <div className={` col-span-10 xl:col-span-8 xl:pr-10 xl:py-20`}>
+      <div className={` col-span-12 xl:col-span-9 xl:pr-10 xl:py-20`}>
         <h2
           className={`hidden xl:block ${styles.tripes__title}`}
         >

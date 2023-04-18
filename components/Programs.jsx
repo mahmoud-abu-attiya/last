@@ -100,7 +100,7 @@ export default function Programs({ data }) {
 
   return (
     <section className='grid grid-cols-12 py-16 md:py-20 programs'>
-      <div className='col-span-12 xl:col-span-3 pr-16 text-white xl:flex flex-col justify-between gap-4'>
+      <div className='col-span-12 xl:col-span-3 px-6 xl:pr-16 text-white xl:flex flex-col justify-between gap-4'>
         <h2 className='text-2xl lg:text-5xl xl:w-min text-center xl:text-start'>أحدث
           خصومات
           البرامج
