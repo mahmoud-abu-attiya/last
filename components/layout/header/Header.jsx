@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 
 
 export default function Header({ countries }) {
-  const router = useRouter()
+  // const router = useRouter()
   const settings = useSelector((state) => state.settings.value)
 
   const [showHeader, setShowHeader] = useState(false) // to hide/show on scroll
@@ -49,9 +49,9 @@ export default function Header({ countries }) {
   //     setResponse(' لا توجد نتائج')
   //   }
   // }
-  useEffect(() => {
-    console.log(countries);
-  }, [countries])
+  // useEffect(() => {
+  //   console.log(countries);
+  // }, [countries])
   return (
     <header
       className={`${styles.header} ${showHeader ? styles.active : ''} ${isScrollTop ? styles.hide : ''

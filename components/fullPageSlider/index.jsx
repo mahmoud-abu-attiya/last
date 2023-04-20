@@ -2,8 +2,7 @@ import styles from './index.module.css'
 import BtnArrow from '../BtnArrow'
 import Image from 'next/image'
 import ScrollDown from '../scrollDown'
-import { memo } from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, memo } from 'react'
 
 const FullPageSlider = ({ title, btnText, btnUrl, data }) => {
   const [activeIndex, setActiveIndex] = useState(0)

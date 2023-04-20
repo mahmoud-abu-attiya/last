@@ -41,7 +41,7 @@ const OurPrograms = ({ countries, slides }) => {
       <div className={styles.programs__content} id='content'>
         <h2 className='main__title'>البرامج السياحية</h2>
         <div className={styles.programs__grid}>
-          {countries.reverse().map((country) => (
+          {countries.map((country) => ( // remove reverse() to egnore the error
               <Link 
               href="/our-programs/[place]"
               as={`/our-programs/${country.id}`} 
