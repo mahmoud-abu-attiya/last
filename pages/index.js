@@ -49,7 +49,7 @@ export default function Home({ data, programsCountries }) {
          <Hero slides={slides} />
          <Programs data={latest_discounts} />
          <Success data={features} features_slides={features_slides} />
-         {/* <Tripes data={programsCountries} /> */}
+         <Tripes data={programsCountries} />
          <About data={about_wsam_elngah} />
          <Special data={special_offers} />
          <div className="spikes"></div>

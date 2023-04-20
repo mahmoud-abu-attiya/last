@@ -1,5 +1,5 @@
 import styles from './index.module.css'
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import TripesCard from './tripesCard'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -230,11 +230,11 @@ const Tripes = ({ data: countries }) => {
         </div>
         <div className='hidden xl:block'>
           <button className="btn p-4 group hover:translate-x-3 duration-500" onClick={prev}>
-            <Image src="/icons/prev-arrow.svg" alt="arrow-left" width={60} height={60} />
+            <Image src="/icons/prev-arrow.svg" alt="arrow-left" width={60} height={60} priority={true} />
             <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">prev</span>
           </button>
           <button className="btn p-4 group hover:-translate-x-3 duration-500" onClick={next}>
-            <Image src="/icons/next-arrow.svg" alt="arrow-right" width={60} height={60} />
+            <Image src="/icons/next-arrow.svg" alt="arrow-right" width={60} height={60} priority={true} />
             <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">next</span>
           </button>
         </div>
@@ -273,11 +273,11 @@ const Tripes = ({ data: countries }) => {
         </div>
         <div className='flex items-center gap-8 xl:hidden justify-center mb-16'>
           <button className="btn p-4 group hover:translate-x-3 duration-500" onClick={prev}>
-            <Image src="/icons/prev-arrow.svg" alt="arrow-left" width={60} height={60} />
+            <Image src="/icons/prev-arrow.svg" alt="arrow-left" width={60} height={60} priority={true} />
             <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">prev</span>
           </button>
           <button className="btn p-4 group hover:-translate-x-3 duration-500" onClick={next}>
-            <Image src="/icons/next-arrow.svg" alt="arrow-right" width={60} height={60} />
+            <Image src="/icons/next-arrow.svg" alt="arrow-right" width={60} height={60} priority={true} />
             <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">next</span>
           </button>
         </div>
