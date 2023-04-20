@@ -59,15 +59,15 @@ export default function Header({ countries }) {
         <Link href='/'>
           {settings.logo && (
             <Image
-              src={settings.logo}
+              src="/images/logo.webp"
               alt='logo'
               width={120}
               height={85}
-              priority={true}
+              // priority={true}
               className={styles.header__logo}
-              sizes="(max-width: 68px) 100vw,
-                (max-width: 200px) 50vw,
-                33vw"
+              // sizes="(max-width: 68px) 100vw,
+              //   (max-width: 200px) 50vw,
+              //   33vw"
             />
           )}
         </Link>
@@ -80,6 +80,7 @@ export default function Header({ countries }) {
               target='_blank'
               rel='noreferrer'
               className={styles.mobile}
+              aria-label='Mobile'
             >
               <i className="fas fa-mobile"></i>
             </a>
@@ -88,6 +89,7 @@ export default function Header({ countries }) {
               target='_blank'
               rel='noreferrer'
               className={styles.phone}
+              aria-label='Phone'
             >
               <i className="fas fa-phone-rotary"></i>
             </a>
@@ -96,6 +98,7 @@ export default function Header({ countries }) {
               target='_blank'
               rel='noreferrer'
               className={styles.mail}
+              aria-label='Email'
             >
               <i className="fas fa-envelope"></i>
             </a>
@@ -104,6 +107,7 @@ export default function Header({ countries }) {
               target='_blank'
               rel='noreferrer'
               className={styles.whats}
+              aria-label='Whatsapp'
             >
               <i className="fab fa-whatsapp"></i>
             </a>
@@ -169,7 +173,7 @@ export default function Header({ countries }) {
           >
             {settings.logo && (
               <Image
-                src={settings.logo}
+                src="/images/logo.webp"
                 alt='logo'
                 width={102}
                 height={70}
