@@ -48,7 +48,6 @@ const OurPrograms = ({ countries, slides }) => {
               key={country.id} className={styles.programs__card}>
                   <Image
                     fill
-                    objectFit='cover'
                     src={country.image}
                     alt={'country image'}
                     className={styles.programs__card__img}

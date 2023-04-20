@@ -21,7 +21,7 @@ const FlipCard = ({ country, btnTitle, btnUrl }) => {
             </span>
           </div>
         </div>
-        <div className={`flip-card-back rounded-3xl overflow-hidden bg-white text-secondary p-4 sm:p-6 flex flex-col gap-2 sm:gap-5 items-start ${styles.card__back}`}>
+        <div className={`flip-card-back rounded-3xl overflow-hidden bg-white text-secondary p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 items-start ${styles.card__back}`}>
           <Image
             src={settings.logo}
             alt={`programs logo ${country.name}`}

@@ -35,20 +35,23 @@ export default function Header({ countries }) {
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-  const onSearch = (event, searchTerm) => {
-    event.preventDefault()
-    setSearchTerm(searchTerm)
-    if (
-      countries.find(({ name }) => name === searchTerm).name !== undefined
-    ) {
-      router.push(`/our-programs/${searchTerm}`)
-      setSearchTerm('')
-      setResponse('')
-      setIsSearch(false)
-    } else {
-      setResponse(' لا توجد نتائج')
-    }
-  }
+  // const onSearch = (event, searchTerm) => {
+  //   event.preventDefault()
+  //   setSearchTerm(searchTerm)
+  //   if (
+  //     countries.find(({ name }) => name === searchTerm).name !== undefined
+  //   ) {
+  //     router.push(`/our-programs/${searchTerm}`)
+  //     setSearchTerm('')
+  //     setResponse('')
+  //     setIsSearch(false)
+  //   } else {
+  //     setResponse(' لا توجد نتائج')
+  //   }
+  // }
+  useEffect(() => {
+    console.log(countries);
+  }, [countries])
   return (
     <header
       className={`${styles.header} ${showHeader ? styles.active : ''} ${isScrollTop ? styles.hide : ''
@@ -63,11 +66,8 @@ export default function Header({ countries }) {
               alt='logo'
               width={120}
               height={85}
-              // priority={true}
+              priority={true}
               className={styles.header__logo}
-              // sizes="(max-width: 68px) 100vw,
-              //   (max-width: 200px) 50vw,
-              //   33vw"
             />
           )}
         </Link>
@@ -174,6 +174,7 @@ export default function Header({ countries }) {
             {settings.logo && (
               <Image
                 src="/images/logo.webp"
+                priority={true}
                 alt='logo'
                 width={102}
                 height={70}

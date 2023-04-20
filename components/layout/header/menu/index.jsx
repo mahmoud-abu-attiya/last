@@ -119,6 +119,7 @@ const Menu = (props) => {
                 alt={link.text}
                 width={20}
                 height={20}
+                className={styles.nav__icon}
               />
               <Link href={link.route} onClick={() => setValue(i)} className={styles.header__link}>
                 {link.text}
@@ -137,6 +138,7 @@ const Menu = (props) => {
           aria-label='Header menu link - Youtube'
         >
           {/* <BsYoutube /> */}
+          <i class="fab fa-youtube"></i>
         </a>
         <a
           href={settings.twitter}
@@ -146,6 +148,7 @@ const Menu = (props) => {
           aria-label='Header menu link - Twitter'
         >
           {/* <BsTwitter /> */}
+          <i class="fab fa-twitter"></i>
         </a>
         <a
           href={settings.tiktok}
@@ -155,6 +158,7 @@ const Menu = (props) => {
           aria-label='Header menu link - Tiktok'
         >
           {/* <FaTiktok /> */}
+          <i class="fab fa-tiktok"></i>
         </a>
         <a
           href={settings.snapchat}
@@ -164,6 +168,7 @@ const Menu = (props) => {
           aria-label='Header menu link - Snapchat'
         >
           {/* <BsSnapchat /> */}
+          <i class="fab fa-snapchat-ghost"></i>
         </a>
         <a
           href={settings.instagram}
@@ -172,6 +177,7 @@ const Menu = (props) => {
           className={styles.instagram}
           aria-label='Header menu link - Instagram'
         >
+          <i class="fab fa-instagram"></i>
           {/* <BsInstagram /> */}
         </a>
       </div>
@@ -183,6 +189,7 @@ const Menu = (props) => {
         onClick={() => setShowMenu(false)}
       >
         {/* <AiOutlineMinus /> */}
+        <i className="far fa-times text-2xl"></i>
       </span>
       <div
         className={
