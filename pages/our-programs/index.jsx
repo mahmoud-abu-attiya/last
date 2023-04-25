@@ -50,7 +50,7 @@ const OurPrograms = ({ countries, slides }) => {
             <Link
               href="/our-programs/[place]"
               as={`/our-programs/${country.id}`}
-              key={country.id} className={`h-[15rem] group relative rounded-xl overflow-hidden`}>
+              key={country.id} className={`h-[250px] group relative rounded-xl overflow-hidden`}>
               <Image
                 fill
                 src={country.image}
