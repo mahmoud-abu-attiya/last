@@ -16,24 +16,24 @@ const OurPrograms = ({ countries, slides }) => {
       <Head>
         <title>البرامج السياحية</title>
         <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1"
+          name="viewport"
+          content="width=device-width, initial-scale=1"
         />
         <meta
-            name="description"
-            content={settings.meta_description}
+          name="description"
+          content={settings.meta_description}
         />
         <meta property="og:title" content="البرامج السياحية" />
         <meta property="og:url" content="https://last-delta.vercel.app/our-programs" />
         <meta name="keywords" content={settings.keywords} />
         <meta
-            property="og:description"
-            content={settings.meta_description}
+          property="og:description"
+          content={settings.meta_description}
         />
         <meta name="twitter:title" content="البرامج السياحية" />
         <meta
-            name="twitter:description"
-            content={settings.meta_description}
+          name="twitter:description"
+          content={settings.meta_description}
         />
       </Head>
       <FullPageSlider
@@ -47,31 +47,42 @@ const OurPrograms = ({ countries, slides }) => {
         <p className='max-w-2xl text-center mb-8'> غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.  غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.</p>
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 container`}>
           {countries.map((country) => ( // remove reverse() to egnore the error
-              <Link 
+            <Link
               href="/our-programs/[place]"
-              as={`/our-programs/${country.id}`} 
-              key={country.id} className={`h-[20rem] group relative rounded-xl overflow-hidden`}>
-                  <Image
-                    fill
-                    src={country.image}
-                    alt={'country image'}
-                    className={`object-cover group-hover:scale-110 transition-all duration-500 ease-in-out`}
-                  />
-                  <div className="flex flex-col gap-4 justify-end h-full w-full p-4 bg-gradient-to-t from-black/75 relative z-10 text-white to-transparent">
-                    <h3 className='text-xl md:text-2xl'>{country.name}</h3>
-                    {/* {type == "out" ?
+              as={`/our-programs/${country.id}`}
+              key={country.id} className={`h-[15rem] group relative rounded-xl overflow-hidden`}>
+              <Image
+                fill
+                src={country.image}
+                alt={'country image'}
+                className={`object-cover group-hover:scale-110 transition-all duration-500 ease-in-out`}
+              />
+              <div className="flex flex-col gap-4 justify-end h-full w-full p-4 bg-gradient-to-t from-black/75 relative z-10 text-white to-transparent">
+                <h3 className='text-xl'>{country.name}</h3>
+                {/* {type == "out" ?
                       (<i className="fas fa-plane-alt"></i> country.type
                      : 
                       (<i className="fas fa-taxi"></i> country.type)
                     } */}
-                    {country.type == "out" ?
+                {/* {country.type == "out" ?
                       <div className='flex gap-4 items-center'><i className="fas fa-plane-alt md:text-xl -rotate-45"></i>{country.type}</div>
                      :  
                       <div className='flex gap-4 items-center'><i className="fas fa-taxi md:text-xl"></i>{country.type}</div>
-                      }
+                      } */}
+                <div class="flex gap-2 items-center">
+                  <span> الرياض</span>
+                  <span className='h-1 w-1 bg-white rounded-full'></span>
+                  <span> العلا</span>
+                  <span className='h-1 w-1 bg-white rounded-full'></span>
+                  <span> نيوم(تبوك)</span>
+                  <span className='h-1 w-1 bg-white rounded-full'></span>
+                  <span> جدة</span>
+                  <span className='h-1 w-1 bg-white rounded-full'></span>
+                  <span>9 ليال </span>
                   </div>
-              </Link>
-            ))}
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </>
