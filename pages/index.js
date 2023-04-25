@@ -24,26 +24,26 @@ export default function Home({ data, programsCountries }) {
    return (
       <>
          <Head>
-            <title>وسام النجاح للسفر والسياحة</title>
+            <title>{settings.meta_title}</title>
             <meta
                name="viewport"
                content="width=device-width, initial-scale=1"
             />
             <meta
                name="description"
-               content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+               content={settings.meta_description}
             />
-            <meta property="og:title" content="وسام النجاح للسفر والسياحة" />
+            <meta property="og:title" content={settings.meta_title} />
             <meta property="og:url" content="https://last-delta.vercel.app/" />
             <meta name="keywords" content={settings.keywords} />
             <meta
                property="og:description"
-               content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+               content={settings.meta_description}
             />
-            <meta name="twitter:title" content="وسام النجاح للسفر والسياحة" />
+            <meta name="twitter:title" content={settings.meta_title} />
             <meta
                name="twitter:description"
-               content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
+               content={settings.meta_description}
             />
          </Head>
          <Hero slides={slides} />

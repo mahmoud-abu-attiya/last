@@ -10,6 +10,12 @@
   align-items: center;
   direction: rtl;
 }
+@media (max-width: 768px) {
+  .place__bg {
+    height: 50vh;
+  }
+  
+}
 .place__bg img {
   object-fit: cover;
   object-position: center;

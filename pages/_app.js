@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import App from 'next/app'
 import { store } from "../store";
 import { Provider } from 'react-redux';
-import localFont from 'next/font/local'
+import localFont from 'next/font/local';
 import { useEffect } from 'react';
 import TagManager from 'react-gtm-module'
 import Script from 'next/script';
@@ -41,7 +41,7 @@ const bukra = localFont({
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
       />
 
-      <Script id='gtm2' strategy='lazyOnload'>
+      {/* <Script id='gtm2' strategy='lazyOnload'>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -50,7 +50,7 @@ const bukra = localFont({
           page_path: window.location.pathname,
           });
         `}
-      </Script>
+      </Script> */}
     <style jsx global>{`
         html {
           font-family: ${bukra.style.fontFamily};

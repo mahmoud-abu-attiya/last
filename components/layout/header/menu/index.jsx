@@ -138,7 +138,7 @@ const Menu = (props) => {
           aria-label='Header menu link - Youtube'
         >
           {/* <BsYoutube /> */}
-          <i class="fab fa-youtube"></i>
+          <i className="fab fa-youtube"></i>
         </a>
         <a
           href={settings.twitter}
@@ -148,7 +148,7 @@ const Menu = (props) => {
           aria-label='Header menu link - Twitter'
         >
           {/* <BsTwitter /> */}
-          <i class="fab fa-twitter"></i>
+          <i className="fab fa-twitter"></i>
         </a>
         <a
           href={settings.tiktok}
@@ -158,7 +158,7 @@ const Menu = (props) => {
           aria-label='Header menu link - Tiktok'
         >
           {/* <FaTiktok /> */}
-          <i class="fab fa-tiktok"></i>
+          <i className="fab fa-tiktok"></i>
         </a>
         <a
           href={settings.snapchat}
@@ -168,7 +168,7 @@ const Menu = (props) => {
           aria-label='Header menu link - Snapchat'
         >
           {/* <BsSnapchat /> */}
-          <i class="fab fa-snapchat-ghost"></i>
+          <i className="fab fa-snapchat-ghost"></i>
         </a>
         <a
           href={settings.instagram}
@@ -177,12 +177,12 @@ const Menu = (props) => {
           className={styles.instagram}
           aria-label='Header menu link - Instagram'
         >
-          <i class="fab fa-instagram"></i>
+          <i className="fab fa-instagram"></i>
           {/* <BsInstagram /> */}
         </a>
       </div>
       {/* Header Menu Footer (Visible only on mobile) */}
-      <span className={styles.header__footer}>جميع الحقوق محفوظة © 2022</span>
+      <span className={styles.header__footer}>{settings.copy_rights}</span>
       <span
         id='menuClose'
         className={styles.header__close}

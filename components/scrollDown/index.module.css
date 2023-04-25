@@ -22,9 +22,7 @@
 }
 @media (max-width: 768px) {
   .scroll__down {
-    left: 1rem;
-    bottom: 4.5rem;
-    font-size: 0.5rem;
+    display: none;
   }
 }
 @keyframes animate {

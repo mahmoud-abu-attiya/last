@@ -4,9 +4,87 @@ import BtnArrow from '@/components/BtnArrow'
 import Link from 'next/link'
 import Head from 'next/head'
 import ScrollDown from '../../../../../components/scrollDown'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Snackbar from '../../../../../components/snackbar'
 import { useSelector } from 'react-redux'
+import Breadcrumbs from '../../../../../components/Breadcrumbs'
+import localFont from 'next/font/local'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
+const noto = localFont({ src: '../../../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
+
+const Responsive = ({ data }) => {
+  const [popup, setPopup] = useState(null)
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    initialSlide: 1,
+    responsive: [
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1.2,
+        }
+      }
+    ]
+  };
+  useEffect(() => {
+    if (popup) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  }, [popup])
+  return (
+    <>
+      {popup && (
+        <div className="overlay fixed w-full h-full bg-black/25 z-50 top-0 left-0 flex justify-center items-center">
+          <div className="card shadow-xl rounded-lg overflow-hidden bg-white w-[90%] max-w-md">
+            <div className="img relative w-full h-[15rem]">
+              <Image src={popup.img} alt={popup.name} className='object-cover' fill />
+            </div>
+            <div className="p-4 flex flex-col gap-4">
+              <h5 className='text-xl'>{popup.name}</h5>
+              <p className='normel'>{popup.desc}</p>
+              <button onClick={() => setPopup(null)} className="text-red-500">اغلاق</button>
+            </div>
+          </div>
+        </div>
+      )}
+      <Slider {...settings}>
+        {data.map((slide, index) => {
+          return (
+            <div key={index}>
+              <div className='relative overflow-hidden rounded-lg h-[12rem] cursor-pointer mx-2' onClick={() => setPopup(slide)}>
+                <Image src={slide.img} alt={slide.name} fill className='object-cover' />
+              </div>
+            </div>
+          )
+        })}
+      </Slider>
+    </>
+  );
+};
+
+const Accordion = ({ data, index }) => {
+  const [isActive, setIsActive] = useState(index === 0 ? true : false);
+  return (
+    <div className="relative accordion">
+      <div className="absolute top-[1rem] border-4 bg-gray-50 p-[2px] border-primary right-[1px] translate-x-1/2 w-6 h-6 rounded-full">
+        {isActive && <div className="w-full h-full rounded-full bg-primary"></div>}
+      </div>
+      <div className={`border-r-4 border-primary pr-4 transition-all duration-500 delay-0 ${isActive ? "max-h-[500px]" : "max-h-[55px]"} overflow-hidden`}>
+      <h5 className='text-primary flex my-4 justify-between items-center' onClick={() => setIsActive(!isActive)}>الوصول إلى بانكوك<i className={`far fa-angle-up text-xl text-primary transition ${isActive ? "rotate-180" : "rotate-0"}`}></i></h5>
+      <p className={`text-xs md:text-sm mb-4 ${noto.className}`}>{data.content}</p>
+    </div>
+    </div>
+  );
+};
 
 const Details = (props) => {
   const settings = useSelector((state) => state.settings.value)
@@ -14,8 +92,28 @@ const Details = (props) => {
   const programs = props.programs
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const snackbarRef = useRef(null)
+  const dateRef = useRef(null)
+  // const date = useRef(null)
+  const [date, setDate] = useState('')
   const [formErrors, setFormErrors] = useState({})
   const regex = /^\S+@\S+\.\S+$/
+  const slides = [
+    {
+      img: "https://backend.elnagahtravels.com/storage/countries/3sy8eqcWx46s7QtEcafLPesHfSFiJdOtPjaitwsr.png",
+      name: "مكان",
+      desc: "يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن "
+    },
+    {
+      img: "https://backend.elnagahtravels.com/storage/countries/VDHSwd11Kov6I5ZqcAfrptFR5vrl6WPN0a0n6ldb.jpg",
+      name: "مكان",
+      desc: "يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن "
+    }, {
+      img: "https://backend.elnagahtravels.com/storage/countries/qC3vI4nVvOEZx7h76w3w0A2IfIW7tnBlr7I7mxlt.jpg",
+      name: "مكان",
+      desc: "يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن "
+    }
+  ]
+
 
   const validate = (values) => {
     const errors = {}
@@ -90,303 +188,335 @@ const Details = (props) => {
     const program = programs?.find((p) => p?.id === id)
     return `شكرا لك علي تواصلك مع وكالة وسام النجاح للسفر والسياحة - الوجهة: ${program.title}, عدد الايام: ${program.days}, عدد الليالي: ${program.nights}, السعر بعد الخصم: ${program.price_after_discount}`
   }
+  const handleDate = () => {
+    dateRef.current.showPicker()
+  }
   return (
     <>
       <Head>
-        
-          <title>
-            {`${program?.category?.name} - ${program?.country?.name}`}
-          </title>
-        
+        <title>
+          {`${program.category?.name} - ${program.country?.name}`}
+        </title>
       </Head>
-      {program?.image && (
-        <>
-          <div className={styles.details__bg}>
-            <Image src={program?.image} alt={program?.title} fill />
+      <div className='bg-gray-50'>
+        <div className={styles.details__bg}>
+          <Image src={program?.image} alt={program.title} fill unoptimized={true} />
+          <div className={styles.content}>
             <h1>
-              {program?.category?.name} - {program?.country?.name}
+              {program.category?.name} - {program.country?.name}
             </h1>
-            <ScrollDown />
+            {/* {program.image.map((img, i) => {
+              return ( */}
+            <div className="item cursor-pointer relative w-48 h-32 rounded-lg overflow-hidden">
+              <Image src={program.image} alt={program.title} fill />
+            </div>
+            {/* )
+            })} */}
           </div>
-          <div className={styles.details}>
-            <div className={styles.details__info}>
-              <h2>
-                {program?.category?.name} - {program?.country?.name}
-              </h2>
-              <div className={styles.details__details}>
-                <h3>
-                  <i className="far fa-arrow-left"></i> تفاصيل البرنامج السياحي
-                </h3>
-                <div className={styles.details__days}>
-                  {program?.program_days?.map((day, i) => (
-                    <div className={styles.details__day} key={i}>
-                      <h4>
-                        <span className="w-3 h-3 bg-primary rounded-full"></span> {day?.name}
-                      </h4>
-                      <p>{day?.content}</p>
+          <div className='rounded-full px-4 py-2 text-xs bg-white z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</div>
+          <ScrollDown />
+        </div>
+        <div className={`${styles.details} grid grid-cols-3`}>
+          <div className={`${styles.details__info} col-span-3 lg:col-span-2`}>
+            <Breadcrumbs list={['البرامج السياحية', program.country.name, program.category.name]} />
+            <p className={`text-justify ${noto.className}`}>لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.</p>
+            <h4 className={styles.details__details}>وجهات يمكنك زيارتها</h4>
+            <Responsive data={slides} />
+            <div className={styles.details__details}>
+              <h3 className='text-xl mb-6'>
+                خط سير الرحلة
+              </h3>
+              <div className={styles.details__days}>
+                {program.program_days?.map((day, i) => (
+                  <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
+                    <div className="col-span-2 md:col-span-1 max-h-[55px]">
+                      <h6 className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
+                        {day?.name}
+                      </h6>
                     </div>
-                  ))}
-                </div>
+                    <div className="col-span-7 md:col-span-6">
+                      <Accordion data={day} index={i} />
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className={styles.details__includes}>
-                <h3>
-                  <i className="far fa-arrow-left"></i>
-                  مشتملات الرحلة
-                </h3>
-                <div className={styles.details__contents}>
+            </div>
+            <div className={styles.details__includes}>
+              <h3>
+                <i className="far fa-arrow-left"></i>
+                مشتملات الرحلة
+              </h3>
+              <div className={styles.details__contents}>
+                <div className={styles.details__content}>
+                  <h4>الرحلة تشمل:</h4>
+                  <ul>
+                    {program.includes?.map((item, i) => (
+                      <li key={i}>
+                        <i className="fas fa-plus-circle text-green-600"></i>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={styles.details__content}>
+                  <h4>الرحلة لا تشمل:</h4>
+                  <ul>
+                    {program.exculdes?.map((item, i) => (
+                      <li key={i}>
+                        <i className="fas fa-minus-circle text-red-500"></i>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {program.activities?.length > 0 && (
                   <div className={styles.details__content}>
-                    <h4>الرحلة تشمل:</h4>
+                    <h4>أنشطة الرحلة:</h4>
                     <ul>
-                      {program?.includes?.map((item, i) => (
+                      {program.activities?.map((item, i) => (
                         <li key={i}>
-                          <i className="fas fa-plus-circle text-green-600"></i>
-                          {item}
+                          <i className="fas fa-check-circle text-green-600"></i>
+                          {item[0]}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div className={styles.details__content}>
-                    <h4>الرحلة لا تشمل:</h4>
-                    <ul>
-                      {program?.exculdes?.map((item, i) => (
-                        <li key={i}>
-                          <i className="fas fa-minus-circle text-red-500"></i>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  {program?.activities?.length > 0 && (
-                    <div className={styles.details__content}>
-                      <h4>أنشطة الرحلة:</h4>
-                      <ul>
-                        {program?.activities?.map((item, i) => (
-                          <li key={i}>
-                            <i className="fas fa-check-circle text-green-600"></i>
-                            {item[0]}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                )}
+              </div>
+            </div>
+          </div>
+          <div className={`${styles.details__form} col-span-3 lg:col-span-1`}>
+            <div className={styles.details__form__card}>
+              <h3>السعر</h3>
+              <div className={styles.details__card__price}>
+                <div>
+                  <span className={styles.new__price}>
+                    {program.price_after_discount}
+                  </span>
+                  ريال سعودي
+                </div>
+                <div>
+                  بدلا من
+                  <span className={styles.old__price}>{program.price}</span>
                 </div>
               </div>
             </div>
-            <div className={styles.details__form}>
+            <Link className="w-full rounded-full shadow-md bg-green-600 text-white p-4 flex gap-4 items-center justify-center" href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} target='_blank' rel='noreferrer'>
+              <i className="fab fa-whatsapp text-2xl"></i>
+              <span>تواصل معنا عن طريق الوتساب</span>
+            </Link>
+            <div className="relative w-full my-4">
+              <span className='bg-white p-4 text-gray-600 text-xs z-10 relative'>أو</span>
+              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1 w-[75%] bg-gray-200"></span>
+            </div>
+            <form
+              className={styles.details__form__cards +" "+ noto.className}
+              onSubmit={handleSubmit}
+            >
               <div className={styles.details__form__card}>
-                <h3>السعر</h3>
-                <div className={styles.details__card__price}>
-                  <div>
-                    <span className={styles.new__price}>
-                      {program?.price_after_discount}
-                    </span>
-                    ريال سعودي
-                  </div>
-                  <div>
-                    بدلا من
-                    <span className={styles.old__price}>{program?.price}</span>
-                  </div>
-                </div>
+                <label htmlFor='name'>الاسم</label>
+                <input
+                  type='text'
+                  id='name'
+                  name='name'
+                  placeholder='الاسم'
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.name}
+                </small>
               </div>
-              <form
-                className={styles.details__form__cards}
-                onSubmit={handleSubmit}
-              >
-                <div className={styles.details__form__card}>
-                  <label htmlFor='name'>الاسم</label>
-                  <input
-                    type='text'
-                    id='name'
-                    name='name'
-                    placeholder='الاسم'
-                  />
-                  <small style={{ color: 'red', fontSize: '.6rem' }}>
-                    {formErrors?.name}
-                  </small>
-                </div>
-                <div className={styles.details__form__card}>
-                  <label htmlFor='email'>البريد الالكتروني</label>
-                  <input
-                    type='text'
-                    id='email'
-                    name='email'
-                    placeholder='البريد الالكتروني'
-                  />
-                  <small style={{ color: 'red', fontSize: '.6rem' }}>
-                    {formErrors?.email}
-                  </small>
-                </div>
-                <div className={styles.details__form__card}>
-                  <label htmlFor='phone'>رقم الجوال</label>
-                  <input
-                    type='number'
-                    id='phone'
-                    name='phone'
-                    placeholder='رقم الجوال'
-                  />
-                  <small style={{ color: 'red', fontSize: '.6rem' }}>
-                    {formErrors?.phone}
-                  </small>
-                </div>
-                <div className={styles.details__form__card}>
-                  <label htmlFor='travling_date'>تاريخ السفر</label>
-                  <input
-                    type='date'
-                    id='travling_date'
-                    name='travling_date'
-                    placeholder='تاريخ السفر'
-                  />
-                  <small style={{ color: 'red', fontSize: '.6rem' }}>
-                    {formErrors?.travling_date}
-                  </small>
-                </div>
-                <div className={styles.details__form__card}>
-                  <label htmlFor='travling_distnation'>جهة السفر</label>
-                  <input
-                    type='text'
-                    id='travling_distnation'
-                    name='travling_distnation'
-                    placeholder='جهة السفر'
-                  />
-                  <small style={{ color: 'red', fontSize: '.6rem' }}>
-                    {formErrors?.travling_distnation}
-                  </small>
-                </div>
-                <div className={styles.details__form__card}>
-                  <label htmlFor='ppl_number'>عدد الاشخاص</label>
-                  <input
-                    type='number'
-                    id='ppl_number'
-                    name='ppl_number'
-                    placeholder='عدد الاشخاص'
-                  />
-                  <small style={{ color: 'red', fontSize: '.6rem' }}>
-                    {formErrors?.ppl_number}
-                  </small>
-                </div>
-                <div className={styles.details__form__card}>
-                  <label htmlFor='childs_number'>عدد الاطفال</label>
-                  <input
-                    type='number'
-                    id='childs_number'
-                    name='childs_number'
-                    placeholder='عدد الاطفال'
-                  />
-                  <small style={{ color: 'red', fontSize: '.6rem' }}>
-                    {formErrors?.childs_number}
-                  </small>
-                </div>
-                <button className={styles.form__btn} type='submit'>
-                  ارسال
-                </button>
-              </form>
-              <Snackbar
-                ref={snackbarRef}
-                message={snackbarMsg}
-                type={'success'}
-              />
-            </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='email'>البريد الالكتروني</label>
+                <input
+                  type='text'
+                  id='email'
+                  name='email'
+                  placeholder='البريد الالكتروني'
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.email}
+                </small>
+              </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='phone'>رقم الجوال</label>
+                <input
+                  type='number'
+                  id='phone'
+                  name='phone'
+                  placeholder='رقم الجوال'
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.phone}
+                </small>
+              </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='travling_date'>تاريخ السفر</label>
+                <input
+                  type="date"
+                  id='travling_date'
+                  name='travling_date'
+                  className='absolute'
+                  onChange={(e) => setDate(e.target.value)}
+                  style={{ width: '0', height: '0', zIndex: '-1' }}
+                  ref={dateRef}
+                />
+                <input
+                  type="text"
+                  onFocus={handleDate}
+                  onClick={handleDate}
+                  placeholder={new Date().toLocaleDateString()}
+                  value={date}
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.travling_date}
+                </small>
+              </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='travling_distnation'>جهة السفر</label>
+                <input
+                  type='text'
+                  id='travling_distnation'
+                  name='travling_distnation'
+                  placeholder='جهة السفر'
+                  
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.travling_distnation}
+                </small>
+              </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='ppl_number'>عدد الاشخاص</label>
+                <input
+                  type='number'
+                  id='ppl_number'
+                  name='ppl_number'
+                  placeholder='عدد الاشخاص'
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.ppl_number}
+                </small>
+              </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='childs_number'>عدد الاطفال</label>
+                <input
+                  type='number'
+                  id='childs_number'
+                  name='childs_number'
+                  placeholder='عدد الاطفال'
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.childs_number}
+                </small>
+              </div>
+              <button className={styles.form__btn} type='submit'>
+                ارسال
+              </button>
+            </form>
+            <Snackbar
+              ref={snackbarRef}
+              message={snackbarMsg}
+              type={'success'}
+            />
           </div>
-          {programs?.filter((prog) => prog?.id !== program?.id).length > 0 && (
-            <div className={styles.similar}>
-              <h2>برامج مشابهة</h2>
-              <div className={styles.similar__cards}>
-                {programs
-                  ?.filter((prog) => prog?.id !== program?.id)
-                  .slice(0, 3)
-                  .map((prog) => (
-                    <div className={styles.similar__card} key={prog?.id}>
-                      <div className={styles.similar__card__container}>
-                        <div className={styles.similar__img__container}>
-                          {prog?.image && (
-                            <Image
-                              src={prog?.image}
-                              alt={prog?.title}
-                              fill
-                              className={styles.similar__card__img}
-                            />
+        </div>
+        {programs?.filter((prog) => prog?.id !== program.id).length > 0 && (
+          <div className={styles.similar}>
+            <h2>برامج مشابهة</h2>
+            <div className={styles.similar__cards}>
+              {programs
+                ?.filter((prog) => prog?.id !== program.id)
+                .slice(0, 3)
+                .map((prog) => (
+                  <div className={styles.similar__card} key={prog?.id}>
+                    <div className={styles.similar__card__container}>
+                      <div className={styles.similar__img__container}>
+                        {prog?.image && (
+                          <Image
+                            src={prog?.image}
+                            alt={prog?.title}
+                            fill
+                            className={styles.similar__card__img}
+                          />
+                        )}
+                      </div>
+                      <div className={styles.similar__card__content}>
+                        <div className={styles.similar__card__period}>
+                          <span>
+                            <i className="fas fa-sun"></i>
+                            {program.days} أيام
+                          </span>
+                          <span>
+                            <i className="fas fa-moon"></i>
+                            {program.nights} ليالي
+                          </span>
+                          <span>
+                            <i className="fas fa-map-marker-alt"></i>
+                            {program.country.name}
+                          </span>
+                          {program.people && (
+                            <span>
+                              <i className="fas fa-user-friends"></i>
+                              {program.people}
+                            </span>
                           )}
                         </div>
-                        <div className={styles.similar__card__content}>
-                          <div className={styles.similar__card__period}>
-                          <span>
-                        <i className="fas fa-sun"></i>
-                        {program.days} أيام
-                      </span>
-                      <span>
-                        <i className="fas fa-moon"></i>
-                        {program.nights} ليالي
-                      </span>
-                      <span>
-                        <i className="fas fa-map-marker-alt"></i>
-                        {program.country.name}
-                      </span>
-                      {program.people && (
-                        <span>
-                          <i className="fas fa-user-friends"></i>
-                          {program.people}
-                        </span>
-                            )}
+                        <div className={styles.similar__heading}>
+                          <Link
+                            href={`/our-programs/${prog?.country?.id}/${prog?.category?.id}/${prog?.id}`}
+                          >
+                            <h3 className={styles.similar__card__title}>
+                              {prog?.title} {prog?.rate} نجوم
+                            </h3>
+                          </Link>
+                          <div className={styles.stars}>
+                            {Array.from(Array(prog.rate)).map((s, i) => (
+                              <i className="fas fa-star text-yellow-400" key={i}></i>
+                            ))}
                           </div>
-                          <div className={styles.similar__heading}>
-                            <Link
-                              href={`/our-programs/${prog?.country?.id}/${prog?.category?.id}/${prog?.id}`}
-                            >
-                                <h3 className={styles.similar__card__title}>
-                                  {prog?.title} {prog?.rate} نجوم
-                                </h3>
-                            </Link>
-                            <div className={styles.stars}>
-                              {Array.from(Array(prog.rate)).map((s, i) => (
-                                <i className="fas fa-star text-yellow-400" key={i}></i>
-                              ))}
-                            </div>
+                        </div>
+                        <div className={styles.similar__card__price}>
+                          <div>
+                            <span className={styles.new__price}>
+                              {prog?.price_after_discount}
+                            </span>{' '}
+                            ريال سعودي
                           </div>
-                          <div className={styles.similar__card__price}>
-                            <div>
-                              <span className={styles.new__price}>
-                                {prog?.price_after_discount}
-                              </span>{' '}
-                              ريال سعودي
-                            </div>
-                            <div>
-                              بدلا من
-                              <span className={styles.old__price}>
-                                {prog?.price}
-                              </span>
-                            </div>
+                          <div>
+                            بدلا من
+                            <span className={styles.old__price}>
+                              {prog?.price}
+                            </span>
                           </div>
-                          <div className={styles.similar__card__btns}>
-                            <BtnArrow
-                              title='تفاصيل العرض'
-                              href={`/our-programs/${prog?.country?.id}/${prog?.category?.id}/${prog?.id}`}
-                            />
-                            <BtnArrow
-                              title='حجز العرض'
-                              href={`https://api.whatsapp.com/send?phone=${
-                                settings?.whatsup
+                        </div>
+                        <div className={styles.similar__card__btns}>
+                          <BtnArrow
+                            title='تفاصيل العرض'
+                            href={`/our-programs/${prog?.country?.id}/${prog?.category?.id}/${prog?.id}`}
+                          />
+                          <BtnArrow
+                            title='حجز العرض'
+                            href={`https://api.whatsapp.com/send?phone=${settings?.whatsup
                               }&${message(prog?.id)}`}
-                            />
-                          </div>
+                          />
                         </div>
                       </div>
                     </div>
-                  ))}
-              </div>
+                  </div>
+                ))}
             </div>
-          )}
-        </>
-      )}
+          </div>
+        )}
+      </div>
     </>
   )
 }
 
 export default Details
 
-export const getServerSideProps = async(context)=>{
-  const place  = context.params.place
-  const categoryId  = context.params.categoryId
-  const detailsId  = context.params.details
+export const getServerSideProps = async (context) => {
+  const place = context.params.place
+  const categoryId = context.params.categoryId
+  const detailsId = context.params.details
   try {
     if (place && categoryId && detailsId) {
       const [response, progRes] = await Promise.all([
@@ -398,21 +528,21 @@ export const getServerSideProps = async(context)=>{
         ),
       ])
       if (response.status !== 200)
-      return {
-      notFound: true,
-      }
+        return {
+          notFound: true,
+        }
       const [{ program = {} }, { programs = [] }] =
         await Promise.all([
           response.json(),
           progRes.json(),
         ])
-        
-        return {
-          props : {
-            program ,
-            programs
-          }
+
+      return {
+        props: {
+          program,
+          programs
         }
+      }
     }
   } catch (error) {
     console.log(error)

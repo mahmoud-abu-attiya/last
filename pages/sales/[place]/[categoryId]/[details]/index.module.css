@@ -8,6 +8,12 @@
   align-items: center;
   flex-direction: column;
 }
+@media (max-width: 768px) {
+  .details__bg {
+    height: 50vh;
+  }
+  
+}
 .details__bg img {
   object-fit: cover;
   object-position: center;

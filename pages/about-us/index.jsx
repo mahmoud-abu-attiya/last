@@ -46,7 +46,7 @@ const AboutUs = ({ about, slides }) => {
       </Head>
       <div className={`overflow-hidden ${styles.hero__bg}`}>
         {slides[0].image && (
-          <Image src={slides[0].image} alt={slides[0].title} fill />
+          <Image src={slides[0].image} alt={slides[0].title} fill unoptimized={true} />
         )}
         <h1>{slides[0].title}</h1>
         <ScrollDown />

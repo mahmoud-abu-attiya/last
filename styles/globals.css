@@ -172,6 +172,18 @@ h2{
    animation: animateTitle 10s linear infinite;
 }
 
+.accordion::after{
+   content: '';
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 90%;
+   height: 1px;
+   background-color: #e4e4e4;
+   z-index: 1;
+}
+
 @keyframes animateTitle {
    0% {
       background-position: 0%;
@@ -212,6 +224,23 @@ h2{
    height: 100vh !important;
 }
 
+.slick-prev:before, .slick-next:before{
+   color: var(--first-clr) !important;
+   font-size: 27px !important;
+}
+.slick-prev, .slick-next{
+   z-index: 1 !important;
+   width: fit-content !important;
+   height: fit-content !important;
+   display: block !important;
+}
+/* .slick-prev{
+   right: -3px !important;
+}
+.slick-next{
+   left: -3px !important;
+} */
+
 @media (max-width: 900px) {
 
    .dots,
@@ -228,6 +257,9 @@ h2{
 @media (max-width: 640px) {
    .subFooter a img{
       width: 30px;
+   }
+   .slick-prev, .slick-next{
+      display: none !important;
    }
 }
 @media (max-width: 1024px) {

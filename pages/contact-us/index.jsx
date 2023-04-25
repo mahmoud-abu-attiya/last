@@ -104,6 +104,7 @@ const ContactUs = ({ slide }) => {
             src={slide[0].image}
             alt={slide[0].button_text}
             fill
+            unoptimized={true}
           />
         )}
         <h1>{slide[0].title}</h1>

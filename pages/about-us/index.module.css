@@ -9,6 +9,11 @@
   align-items: center;
   direction: rtl;
 }
+@media (max-width: 768px) {
+  .hero__bg{
+    height: 50vh;
+  }
+}
 .hero__bg img {
   object-fit: cover;
   object-position: center;

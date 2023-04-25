@@ -182,6 +182,7 @@ const Aviation = ({ slide }) => {
             src={slides[0]?.image}
             alt={slides[0]?.title}
             fill
+            unoptimized={true}
             className='object-cover'
           />
         )}

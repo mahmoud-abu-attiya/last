@@ -24,7 +24,7 @@ const SubFooter = ({ settings }) => {
       </a>
       <a href={`mailto:${settings.email}`} className="lg:shadow-none email bg-blue-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300" target='_blank' rel='noreferrer' aria-label='Email'>
         {/* <i className="fas fa-envelope text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
-        <i class="fal fa-envelope-open-text text-white lg:text-primary text-3xl sm:text-4xl"></i>
+        <i className="fal fa-envelope-open-text text-white lg:text-primary text-3xl sm:text-4xl"></i>
         <div className='hidden lg:block'>
           <p className="text-xs">يمكنك مراسلتنا علي البريد الالكتروني.</p>
           <p className="link bold hover:underline">{settings.email}</p>
@@ -193,7 +193,7 @@ const Footer = ({ countries }) => {
           {settings.logo && (
             <Link href='/' className={styles.f__logo}>
               <Image
-                src={settings.logo}
+                src="/images/logo.webp"
                 width={145}
                 height={100}
                 alt='wsam elnagah logo'

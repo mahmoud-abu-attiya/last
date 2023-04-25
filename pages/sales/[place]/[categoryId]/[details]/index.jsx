@@ -101,7 +101,7 @@ const Details = (props) => {
       </Head>
       <div className={styles.details__bg}>
         {program?.image && (
-          <Image src={program?.image} alt={program?.title} fill />
+          <Image src={program?.image} alt={program?.title} fill unoptimized={true} />
         )}
         <h1>
           {program?.title} - {program?.country?.name}

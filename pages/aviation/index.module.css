@@ -13,6 +13,11 @@
   direction: rtl;
   color: white;
 }
+@media (max-width: 768px) {
+  .hero__bg {
+    height: 50vh;
+  }
+}
 .hero__title {
   font-size: 3rem;
   position: relative;

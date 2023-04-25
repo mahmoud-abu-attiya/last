@@ -126,6 +126,7 @@ const Details = () => {
             alt={offerDetails?.title}
             fill
             objectFit='fill'
+            unoptimized={true}
             priority={true}
           />
         )}

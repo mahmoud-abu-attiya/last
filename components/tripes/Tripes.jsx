@@ -24,6 +24,7 @@ const Tripes = ({ data: countries }) => {
   const [transition, setTransition] = useState(true)
   const [canClick, setCanClick] = useState(true)
   const [position, setPosition] = useState(null)
+  const [animate, setAnimate] = useState(false)
 
   const next = () => {
     if (!canClick) return
@@ -110,6 +111,16 @@ const Tripes = ({ data: countries }) => {
     setPosition(null)
   }
 
+  const handleSwitch = (i) => {
+    setTransition(false);
+    setAnimate(true);
+    setTimeout(() => {
+      setValue(i); setTranslate(0); setIndex(1);
+      // setTransition(true);
+      setAnimate(false);
+    }, 500);
+  }
+
   const tripesTabs = ['جميع الوجهات', 'الوجهات الخارجية', 'الوجهات الداخلية']
   return (
     <div className={`grid grid-cols-12 ${styles.tripes}`}>
@@ -128,7 +139,8 @@ const Tripes = ({ data: countries }) => {
           {tripesTabs.map((tab, i) => (
             <button
               key={i}
-              onClick={() => { setValue(i); setTranslate(step); setIndex(1) }}
+              // onClick={() => { setValue(i); setTranslate(step); setIndex(1) }}
+              onClick={() => handleSwitch(i)}
               className={`${styles.tripes__tab} text-xl xl:text-2xl border-secondary mx-2 lg:mx-4 ${value == i ? "border-b-2 text-secondary xl:border-none" : "text-gray-600 border-none"}`}
             >
               {tab}
@@ -169,7 +181,7 @@ const Tripes = ({ data: countries }) => {
           </div>
         </div> */}
         <div className='w-full overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
-          <div className='swiper-wrapper'>
+          <div className={`swiper-wrapper transition duration-500 ${animate && "opacity-0 -translate-x-96"}`}>
             <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
               {slides.map((slide, index) => {
                 return (

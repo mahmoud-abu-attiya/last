@@ -13,7 +13,7 @@ const Place = (props) => {
     country &&
     <>
       <Head>
-        <title>{country?.name}</title>
+        <title>{country.name}</title>
       </Head>
       <div className={styles.place}>
         <div

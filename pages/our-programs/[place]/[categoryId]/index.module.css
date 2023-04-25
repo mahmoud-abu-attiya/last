@@ -7,6 +7,12 @@
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 768px) {
+  .offer__bg {
+    height: 50vh;
+  }
+  
+}
 .offer__bg img {
   object-fit: cover;
   object-position: center;

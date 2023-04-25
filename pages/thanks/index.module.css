@@ -10,6 +10,12 @@
   gap: 2rem;
   direction: rtl;
 }
+@media (max-width: 768px) {
+  .hero__bg {
+    height: 50vh;
+  }
+  
+}
 .hero__bg::after {
   content: '';
   position: absolute;

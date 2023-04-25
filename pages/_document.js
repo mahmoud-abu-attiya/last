@@ -23,6 +23,7 @@ export default function Document() {
                content="https://backend.elnagahtravels.com/storage/settings/szKT4ynI1ZggowEi1MIgofP9DqYJswYog1g7wpRh.png"
             />
             <Favicon />
+            <meta name="robots" content="noindex, nofollow"/>
          </Head>
          <body dir="rtl">
             <Main />
