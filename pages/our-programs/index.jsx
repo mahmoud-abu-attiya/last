@@ -45,7 +45,7 @@ const OurPrograms = ({ countries, slides }) => {
       <div className={`bg-gray-50 ${styles.programs__content}`} id='content'>
         <h2 className='main__title'>البرامج السياحية</h2>
         <p className='max-w-2xl text-center mb-8'> غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.  غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.</p>
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 container`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container lg:px-8`}>
           {countries.map((country) => ( // remove reverse() to egnore the error
             <Link
               href="/our-programs/[place]"
@@ -69,7 +69,7 @@ const OurPrograms = ({ countries, slides }) => {
                      :  
                       <div className='flex gap-4 items-center'><i className="fas fa-taxi md:text-xl"></i>{country.type}</div>
                       } */}
-                <div class="flex gap-2 items-center">
+                <div class="flex gap-2 items-center text-sm">
                   <span> الرياض</span>
                   <span className='h-1 w-1 bg-white rounded-full'></span>
                   <span> العلا</span>
