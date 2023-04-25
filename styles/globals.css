@@ -254,6 +254,10 @@ h2{
    filter: invert(73%) sepia(14%) saturate(1317%) hue-rotate(134deg) brightness(89%) contrast(81%)
 }
 
+.prog .slick-track{
+   margin: 0 !important;
+}
+
 @media (max-width: 640px) {
    .subFooter a img{
       width: 30px;
