@@ -169,6 +169,7 @@ h2{
    -webkit-background-clip: text;
    -moz-background-clip: text;
    background-clip: text;
+   min-height: 50px;
    animation: animateTitle 10s linear infinite;
 }
 
