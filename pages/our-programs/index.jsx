@@ -42,7 +42,7 @@ const OurPrograms = ({ countries, slides }) => {
         btnText={slides[0]?.button_text}
         btnUrl={'#content'}
       />
-      <div className={`bg-gray-50 ${styles.programs__content}`} id='content'>
+      <div className={`bg-gray-100 ${styles.programs__content}`} id='content'>
         <h2 className='main__title'>البرامج السياحية</h2>
         <p className='max-w-2xl text-center mb-8'> غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.  غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.</p>
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container lg:px-8`}>
