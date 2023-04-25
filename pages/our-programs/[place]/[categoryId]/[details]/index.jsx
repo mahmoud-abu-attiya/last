@@ -290,11 +290,11 @@ const Details = (props) => {
             </div>
             <div className={`${noto.className} p-4 border-t`}>
               <p className="text-gray-400">استمتع بالتخطيط لرحلتك كيفما شئت مع باقات العطلات المخصصة لشخص واحد</p>
-              <div>من <span className='text-xl font-bold'>{program.price_after_discount}</span></div>
+              <div id='form'>من <span className='text-xl font-bold'>{program.price_after_discount} SAR</span></div>
             </div>
             </div>
           </div>
-          <div className={`${styles.details__form} col-span-3 lg:col-span-1`} id='form'>
+          <div className={`${styles.details__form} col-span-3 lg:col-span-1`}>
             {/* <div className={styles.details__form__card}>
               <h3>السعر</h3>
               <div className={styles.details__card__price}>
