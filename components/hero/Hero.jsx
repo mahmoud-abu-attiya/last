@@ -29,7 +29,7 @@ export default function Hero({ slides }) {
       return () => clearInterval(interval)
    }, [activeIndex])
    return (
-      <div className='h-screen w-full'>
+      <div className='h-[50vh] md:h-screen w-full'>
          {slides.map((slide, index) => {
             return (
                <div className={`transition duration-500 ${index === activeIndex ? "opacity-100" : "opacity-0"}`} key={index}>
