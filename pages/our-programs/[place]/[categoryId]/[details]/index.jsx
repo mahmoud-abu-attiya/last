@@ -71,7 +71,7 @@ const Responsive = ({ data }) => {
   );
 };
 
-const Accordion = ({ data, index }) => {
+const Accordion = ({ title, text, index }) => {
   const [isActive, setIsActive] = useState(index === 0 ? true : false);
   return (
     <div className="relative accordion">
@@ -79,8 +79,8 @@ const Accordion = ({ data, index }) => {
         {isActive && <div className="w-full h-full rounded-full bg-primary"></div>}
       </div>
       <div className={`border-r-4 border-primary pr-4 transition-all duration-500 delay-0 ${isActive ? "max-h-[500px]" : "max-h-[55px]"} overflow-hidden`}>
-      <h5 className='text-primary flex my-4 justify-between items-center' onClick={() => setIsActive(!isActive)}>الوصول إلى بانكوك<i className={`far fa-angle-up text-xl text-primary transition ${isActive ? "rotate-180" : "rotate-0"}`}></i></h5>
-      <p className={`text-xs md:text-sm mb-4 ${noto.className}`}>{data.content}</p>
+      <h5 className='text-primary flex my-4 justify-between items-center' onClick={() => setIsActive(!isActive)}>{title} <i className={`far fa-angle-up text-xl text-primary transition ${isActive ? "rotate-180" : "rotate-0"}`}></i></h5>
+      <p className={`text-xs md:text-sm mb-4`}>{text}</p>
     </div>
     </div>
   );
@@ -94,6 +94,7 @@ const Details = (props) => {
   const snackbarRef = useRef(null)
   const dateRef = useRef(null)
   // const date = useRef(null)
+  const [activeTap, setActiveTap] = useState(0)
   const [date, setDate] = useState('')
   const [formErrors, setFormErrors] = useState({})
   const regex = /^\S+@\S+\.\S+$/
@@ -213,20 +214,28 @@ const Details = (props) => {
             {/* )
             })} */}
           </div>
-          <div className='rounded-full px-4 py-2 text-xs bg-white z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</div>
+          <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
           <ScrollDown />
         </div>
+          <div className="md:hidden sticky bg-white mb-4 shadow-md text-xs z-30 top-0 left-0 w-full flex gap-5 p-2">
+            <Link href={"#slider"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 1 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(1)}>وجهات يمكنك زيارتها</Link>
+            <Link href={"#line"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 2 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(2)}>خط سير الرحلة</Link>
+            <Link href={"#form"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 3 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(3)}>يرجى التواصل معي</Link>
+          </div>
         <div className={`${styles.details} grid grid-cols-3`}>
           <div className={`${styles.details__info} col-span-3 lg:col-span-2`}>
-            <Breadcrumbs list={['البرامج السياحية', program.country.name, program.category.name]} />
+            <div className="hidden md:block">
+            <Breadcrumbs list={[{title: 'البرامج السياحية', href: "/our-programs"}, {title: program.country.name, href: `/our-programs/${program.country.id}`}, {title: program.category.name, href: null}]} />
+            </div>
             <p className={`text-justify ${noto.className}`}>لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.</p>
-            <h4 className={styles.details__details}>وجهات يمكنك زيارتها</h4>
+            <h4 id='slider' className={styles.details__details}>وجهات يمكنك زيارتها</h4>
             <Responsive data={slides} />
+            <div className="border flex flex-col gap-4 rounded-b-lg">
             <div className={styles.details__details}>
-              <h3 className='text-xl mb-6'>
+              <h3 className='text-xl mb-6' id='line'>
                 خط سير الرحلة
               </h3>
-              <div className={styles.details__days}>
+              <div className={styles.details__days + " " +  noto.className}>
                 {program.program_days?.map((day, i) => (
                   <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
                     <div className="col-span-2 md:col-span-1 max-h-[55px]">
@@ -235,58 +244,58 @@ const Details = (props) => {
                       </h6>
                     </div>
                     <div className="col-span-7 md:col-span-6">
-                      <Accordion data={day} index={i} />
+                      <Accordion title="الوصول إلى بانكوك" text={day.content} index={i} />
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className={styles.details__includes}>
-              <h3>
-                <i className="far fa-arrow-left"></i>
-                مشتملات الرحلة
+            <div className={styles.details__details}>
+              <h3 className='text-xl mb-6'>
+                الرحلة تشمل:
               </h3>
-              <div className={styles.details__contents}>
-                <div className={styles.details__content}>
-                  <h4>الرحلة تشمل:</h4>
-                  <ul>
-                    {program.includes?.map((item, i) => (
-                      <li key={i}>
-                        <i className="fas fa-plus-circle text-green-600"></i>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className={styles.details__content}>
-                  <h4>الرحلة لا تشمل:</h4>
-                  <ul>
-                    {program.exculdes?.map((item, i) => (
-                      <li key={i}>
-                        <i className="fas fa-minus-circle text-red-500"></i>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                {program.activities?.length > 0 && (
-                  <div className={styles.details__content}>
-                    <h4>أنشطة الرحلة:</h4>
-                    <ul>
-                      {program.activities?.map((item, i) => (
-                        <li key={i}>
-                          <i className="fas fa-check-circle text-green-600"></i>
-                          {item[0]}
-                        </li>
-                      ))}
-                    </ul>
+              <div className={styles.details__days + " " +  noto.className}>
+                {program.includes?.map((item, i) => (
+                  <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
+                    <div className="col-span-2 md:col-span-1 max-h-[55px]">
+                      <h6 className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
+                        
+                      </h6>
+                    </div>
+                    <div className="col-span-7 md:col-span-6">
+                      <Accordion title={"الرحلة تشمل:"} text={item} index={i} />
+                    </div>
                   </div>
-                )}
+                ))}
               </div>
             </div>
+            <div className={styles.details__details}>
+              <h3 className='text-xl mb-6'>
+              الرحلة لا تشمل:
+              </h3>
+              <div className={styles.details__days + " " +  noto.className}>
+                {program.exculdes?.map((item, i) => (
+                  <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
+                    <div className="col-span-2 md:col-span-1 max-h-[55px]">
+                      <h6 className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
+                        
+                      </h6>
+                    </div>
+                    <div className="col-span-7 md:col-span-6">
+                      <Accordion title={"الرحلة لا تشمل:"} text={item} index={i} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className={`${noto.className} p-4 border-t`}>
+              <p className="text-gray-400">استمتع بالتخطيط لرحلتك كيفما شئت مع باقات العطلات المخصصة لشخص واحد</p>
+              <div>من <span className='text-xl font-bold'>{program.price_after_discount}</span></div>
+            </div>
+            </div>
           </div>
-          <div className={`${styles.details__form} col-span-3 lg:col-span-1`}>
-            <div className={styles.details__form__card}>
+          <div className={`${styles.details__form} col-span-3 lg:col-span-1`} id='form'>
+            {/* <div className={styles.details__form__card}>
               <h3>السعر</h3>
               <div className={styles.details__card__price}>
                 <div>
@@ -300,7 +309,7 @@ const Details = (props) => {
                   <span className={styles.old__price}>{program.price}</span>
                 </div>
               </div>
-            </div>
+            </div> */}
             <Link className="w-full rounded-full shadow-md bg-green-600 text-white p-4 flex gap-4 items-center justify-center" href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} target='_blank' rel='noreferrer'>
               <i className="fab fa-whatsapp text-2xl"></i>
               <span>تواصل معنا عن طريق الوتساب</span>

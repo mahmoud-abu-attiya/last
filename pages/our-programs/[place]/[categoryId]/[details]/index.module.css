@@ -67,7 +67,9 @@
 }
 
 /* Details Details */
-
+.details__details{
+  padding: 1rem;
+}
 /* .details__details h3, */
 .details__includes h3 {
   display: flex;
