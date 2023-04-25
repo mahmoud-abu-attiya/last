@@ -23,7 +23,7 @@ const FlipCard = ({ country, btnTitle, btnUrl }) => {
         </div>
         <div className={`flip-card-back rounded-3xl overflow-hidden bg-white text-secondary p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 items-start ${styles.card__back}`}>
           <Image
-            src={settings.logo}
+            src={"/images/logo.webp"}
             alt={`programs logo ${country.name}`}
             width={102}
             height={70}

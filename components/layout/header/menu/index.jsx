@@ -200,7 +200,7 @@ const Menu = (props) => {
       >
         {settings.logo && (
           <Image
-            src={props.settings.logo}
+            src={"/images/logo.webp"}
             alt='logo'
             width={102}
             height={70}
