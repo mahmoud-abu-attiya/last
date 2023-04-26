@@ -224,8 +224,8 @@ const Details = (props) => {
           </div>
         <div className={`${styles.details} grid grid-cols-3`}>
           <div className={`${styles.details__info} col-span-3 lg:col-span-2`}>
-            <div className="hidden md:block">
-            <Breadcrumbs list={[{title: 'البرامج السياحية', href: "/our-programs"}, {title: program.country.name, href: `/our-programs/${program.country.id}`}, {title: program.category.name, href: null}]} />
+            <div className="hidden md:block border-b">
+              <Breadcrumbs list={[{title: 'البرامج السياحية', href: "/our-programs"}, {title: program.country.name, href: `/our-programs/${program.country.id}`}, {title: program.category.name, href: null}]} />
             </div>
             <p className={`text-justify ${noto.className}`}>لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.</p>
             <h4 id='slider' className={styles.details__details}>وجهات يمكنك زيارتها</h4>

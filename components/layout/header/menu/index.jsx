@@ -21,8 +21,8 @@ export const headerLinks = [
     icon: "/icons/thunder.svg"
   },
   {
-    text: 'الخصومات',
-    route: '/sales',
+    text: 'الدليل السياحي',
+    route: '/city-guides',
     icon: "/icons/offer.svg"
   },
   {
