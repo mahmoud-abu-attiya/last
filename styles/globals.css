@@ -97,6 +97,15 @@ h6,
    z-index: 2;
 }
 
+.out{
+   -webkit-text-fill-color: transparent;
+   -webkit-text-stroke: 1px;
+   /* clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+   -webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%); */
+   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
 h2{
    line-height: 4rem !important;
 }
