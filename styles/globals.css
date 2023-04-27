@@ -32,7 +32,10 @@ h6,
    background-color: transparent;
    perspective: 1000px;
 }
-
+.city_flip{
+   width: 300px;
+   height: 250px
+}
 .up .flip-card {
    @apply translate-y-6;
 }
@@ -59,7 +62,7 @@ h6,
    transform: rotateY(180deg);
 }
 
-.flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner{
    transform: rotateY(-180deg);
 }
 
@@ -83,6 +86,10 @@ h6,
 .flip-card-front {
    background-color: #bbb;
    color: black;
+}
+.city_flip_front{
+   background-color: white;
+   color: var(--first-clr)
 }
 
 .flip-card-front img {
