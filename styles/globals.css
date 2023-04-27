@@ -100,9 +100,15 @@ h6,
 h2{
    line-height: 4rem !important;
 }
+.hero h1 , .hero h2{
+   line-height: 2.5rem !important;
+}
 @media (max-width: 640px) {
    h2{
       line-height: 2rem !important;
+   }
+   .hero h1 , .hero h2{
+      line-height: 1.5rem !important;
    }
 }
 
@@ -235,12 +241,6 @@ h2{
    height: fit-content !important;
    display: block !important;
 }
-/* .slick-prev{
-   right: -3px !important;
-}
-.slick-next{
-   left: -3px !important;
-} */
 
 @media (max-width: 900px) {
 
@@ -258,7 +258,14 @@ h2{
 .prog .slick-track{
    margin: 0 !important;
 }
-
+.show{
+   clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100%);
+   -webkit-clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100%);
+}
+.unshow{
+   clip-path: polygon(100% 0%,100% 0%,100% 100%,100% 100%);
+   -webkit-clip-path: polygon(100% 0%,100% 0%,100% 100%,100% 100%);
+}
 @media (max-width: 640px) {
    .subFooter a img{
       width: 30px;

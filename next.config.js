@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: false,
-    domains: ['elnagahtravels.com', 'backend.elnagahtravels.com'],
+    domains: ['elnagahtravels.com', 'backend.elnagahtravels.com', 'images.unsplash.com'],
   },
   async headers() {
     return [

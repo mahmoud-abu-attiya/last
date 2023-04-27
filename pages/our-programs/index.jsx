@@ -9,25 +9,28 @@ import { useEffect, useState } from 'react'
 const Hero = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const next = () => {
-    if (activeIndex !== data.length) {
+    if (activeIndex !== data.length + 1) {
       setActiveIndex(activeIndex + 1)
     } else {
       setActiveIndex(0)
     }
   }
   useEffect(() => {
-    const interval = setInterval(() => {
+    const interval = setTimeout(() => {
       next()
-    }, 5000)
-    return () => clearInterval(interval)
+    }, 4000)
+    return () => clearTimeout(interval)
   }, [activeIndex])
+  useEffect(() => {
+    console.log(data);
+  }, []);
   return (
     <div className='h-screen w-full overflow-hidden relative'>
       {data.map((slide, index) => {
         return (
           <div className={`transition duration-500 w-full h-full ${index === activeIndex ? "opacity-100" : "opacity-0"}`} key={index}>
-            <div className="absolute top-0 left-0 w-full h-screen bg-black/50 z-10"><span className='sr-only'>overlay</span></div>
-            <Image src={slide.image} alt="hero" fill className={`object-cover hero-img transition duration-[10s] ease-linear ${index === activeIndex ? " scale-125" : "scale-100"}`} />
+            <div className="absolute top-0 left-0 w-full h-screen bg-secondary/75 z-10"><span className='sr-only'>overlay</span></div>
+            <Image src={slide.image} alt="hero" fill className={`object-cover hero-img transition duration-[10s] ease-linear ${index === activeIndex ? "scale-125" : "scale-100"}`} />
             <div className="absolute top-0 left-0 flex justify-center items-center w-full h-full z-10 text-white">
               <h2 className="text-xl md:text-2xl max-w-xl text-center">{slide.title}</h2>
             </div>
@@ -35,12 +38,27 @@ const Hero = ({ data }) => {
         )
       })}
       <div className={`transition duration-500 w-full h-full ${activeIndex === 2 ? "opacity-100" : "opacity-0"}`}>
-            <div className="absolute top-0 left-0 w-full h-screen bg-black/50 z-10"><span className='sr-only'>overlay</span></div>
-            <Image src={"/images/travel.gif"} alt="hero" fill className={`object-cover`} />
-            <div className="absolute top-0 left-0 flex justify-center items-center w-full h-full z-10 text-white">
-              <h2 className="text-xl md:text-2xl max-w-xl text-center">{data[0].title}</h2>
-            </div>
-          </div>
+        <div className="absolute top-0 left-0 w-full h-screen bg-secondary/75 z-10"><span className='sr-only'>overlay</span></div>
+        <div className="w-full h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <video id="id_video" autoPlay={true} loop={true} muted playsInline={true} className="w-full h-full object-cover">
+          <source src="/videos/vid1.mp4" type="video/mp4" title="elnagah preview" description="elnagah preview" />Your browser does not support the video tag.
+        </video>
+        </div>
+        <div className="absolute top-0 left-0 flex justify-center items-center w-full h-full z-10 text-white">
+          <h2 className="text-xl md:text-2xl max-w-xl text-center">{data[0].title}</h2>
+        </div>
+      </div>
+      <div className={`transition duration-500 w-full h-full ${activeIndex === 3 ? "opacity-100" : "opacity-0"}`}>
+        <div className="absolute top-0 left-0 w-full h-screen bg-secondary/75 z-10"><span className='sr-only'>overlay</span></div>
+        <div className="w-full h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <video id="id_video" autoPlay={true} loop={true} muted playsInline={true} className="w-full h-full object-cover">
+          <source src="/videos/vid2.mp4" type="video/mp4" title="elnagah preview" description="elnagah preview" />Your browser does not support the video tag.
+        </video>
+        </div>
+        <div className="absolute top-0 left-0 flex justify-center items-center w-full h-full z-10 text-white">
+          <h2 className="text-xl md:text-2xl max-w-xl text-center">{data[1].title}</h2>
+        </div>
+      </div>
     </div>
   )
 }
@@ -93,7 +111,7 @@ const OurPrograms = ({ countries, slides }) => {
                 fill
                 src={country.image}
                 alt={'country image'}
-                className={`object-cover group-hover:scale-110 transition-all duration-500 ease-in-out`}
+                className={`object-cover group-hover:scale-110 transition-all duration-1000 ease-in-out`}
               />
               <div className="flex flex-col gap-4 justify-end h-full w-full p-4 bg-gradient-to-t from-black/75 relative z-10 text-white to-transparent">
                 <h3 className='text-xl'>{country.name}</h3>

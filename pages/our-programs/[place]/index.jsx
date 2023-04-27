@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BtnArrow from '@/components/BtnArrow'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import CountryHero from '@/components/countryHero'
 
 const Place = (props) => {
   const categories = props.categories
@@ -55,13 +56,14 @@ const Place = (props) => {
       <Head>
         <title>{country.name}</title>
       </Head>
-      <div
+      {/* <div
         className={styles.place__bg}
         style={{ backgroundImage: `url(${country?.image})` }}
       >
         <h1>{country?.name}</h1>
         <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-sm text-primary bg-gray-50 shadow-lg z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
-      </div>
+      </div> */}
+      <CountryHero />
       <Slider {...settings} className='w-full prog bg-gray-100 shadow'>
         {categories.map((category) => {
           return (

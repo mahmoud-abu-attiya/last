@@ -32,7 +32,7 @@ export default function Hero({ slides }) {
       <div className='h-screen w-full'>
          {slides.map((slide, index) => {
             return (
-               <div className={`transition duration-500 ${index === activeIndex ? "opacity-100" : "opacity-0"}`} key={index}>
+               <div className={`hero transition duration-500 ${index === activeIndex ? "opacity-100" : "opacity-0"}`} key={index}>
                   <div className="absolute top-0 left-0 w-full h-screen bg-black/50 z-10"><span className='sr-only'>overlay</span></div>
                   <Image src={slide.image} alt="hero" fill className={`object-cover hero-img`} />
                   <div className={styles.hero__content}>
