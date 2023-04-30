@@ -1,6 +1,8 @@
 import styles from './index.module.css'
 import { memo } from 'react'
 import Image from 'next/image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 const Testimonials = ({ data }) => {
   return (
@@ -16,11 +18,16 @@ const Testimonials = ({ data }) => {
               <span className={styles.title}>{person.jobtitle}</span>
             )}
             <div className={styles.rate}>
+              {/* <i className="fas fa-star"></i>
               <i className="fas fa-star"></i>
               <i className="fas fa-star"></i>
               <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
+              <i className="fas fa-star"></i> */}
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
             </div>
             {person.content && <p>{person.content}</p>}
           </div>

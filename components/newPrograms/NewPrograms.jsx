@@ -3,6 +3,8 @@ import Link from 'next/link'
 import BtnArrow from '../BtnArrow'
 import styles from './index.module.css'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar, faSun, faMoon, faMapMarkedAlt, faUserFriends, faLocation } from '@fortawesome/free-solid-svg-icons'
 
 const NewPrograms = ({ programs }) => {
   const settings = useSelector((state) => state.settings.value)
@@ -36,23 +38,27 @@ const NewPrograms = ({ programs }) => {
               <div className={styles.newPrograms__card__period}>
               <span>
                         {/* <BsFillSunFill /> */}
-                        <i className="fas fa-sun"></i>
+                        {/* <i className="fas fa-sun"></i> */}
+                        <FontAwesomeIcon icon={faSun} />
                         {program.days} أيام
                       </span>
                       <span>
                         {/* <BsFillMoonFill /> */}
-                        <i className="fas fa-moon"></i>
+                        {/* <i className="fas fa-moon"></i> */}
+                        <FontAwesomeIcon icon={faMoon} />
                         {program.nights} ليالي
                       </span>
                       <span>
                         {/* <MdLocationOn /> */}
-                        <i className="fas fa-map-marker-alt"></i>
+                        {/* <i className="fas fa-map-marker-alt"></i> */}
+                        <FontAwesomeIcon icon={faLocation} />
                         {program.country.name}
                       </span>
                       {program.people && (
                         <span>
                           {/* <BsFillPeopleFill /> */}
-                          <i className="fas fa-user-friends"></i>
+                          {/* <i className="fas fa-user-friends"></i> */}
+                          <FontAwesomeIcon icon={faUserFriends} />
                           {program.people}
                         </span>
                 )}
@@ -70,7 +76,8 @@ const NewPrograms = ({ programs }) => {
                 </div>
                 <div className={styles.stars}>
                   {Array.from(Array(program.rate)).map((s, i) => (
-                     <i className="fas fa-star text-yellow-400" key={i}></i>
+                    //  <i className="fas fa-star text-yellow-400" key={i}></i>
+                    <FontAwesomeIcon icon={faStar} key={i} />
                   ))}
                 </div>
               </div>

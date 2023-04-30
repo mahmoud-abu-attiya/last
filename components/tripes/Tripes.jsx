@@ -119,12 +119,19 @@ const Tripes = ({ data: countries }) => {
       setAnimate(false);
     }, 500);
     setValue(i);
+    setTranslate(0);
     setIndex(1);
-    if (window.innerWidth > 1024) {
-      setTranslate(0); 
-    } else {
-        setTranslate(step);
-    }
+    // if (window.innerWidth > 1024) {
+    //   setTranslate(0);
+    // } else {
+    //   if (value === 0) {
+    //     setTranslate(2.857142857142857);
+    //   } else if (value === 1) {
+    //     setTranslate(3.7037037037037037);
+    //   } else {
+    //     setTranslate(7.6923076923076925);
+    //   }
+    // }
   }
 
   // useEffect(() => {

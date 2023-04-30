@@ -12,6 +12,9 @@ import localFont from 'next/font/local'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon, faLocationPin, faUserFriends, faStar, faAngleUp, faLocation } from '@fortawesome/free-solid-svg-icons'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 const noto = localFont({ src: '../../../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
 
@@ -79,7 +82,11 @@ const Accordion = ({ title, text, index }) => {
         {isActive && <div className="w-full h-full rounded-full bg-primary"></div>}
       </div>
       <div className={`border-r-4 border-primary pr-4 transition-all duration-500 delay-0 ${isActive ? "max-h-[500px]" : "max-h-[55px]"} overflow-hidden`}>
-      <h5 className='text-primary flex my-4 justify-between items-center' onClick={() => setIsActive(!isActive)}>{title} <i className={`far fa-angle-up text-xl text-primary transition ${isActive ? "rotate-180" : "rotate-0"}`}></i></h5>
+      <h5 className='text-primary flex my-4 justify-between items-center' onClick={() => setIsActive(!isActive)}>
+        {title} 
+        {/* <i className={`far fa-angle-up text-xl text-primary transition ${isActive ? "rotate-180" : "rotate-0"}`}></i> */}
+        <FontAwesomeIcon icon={faAngleUp} className={`text-xl text-primary transition ${isActive ? "rotate-180" : "rotate-0"}`} />
+        </h5>
       <p className={`text-xs md:text-sm mb-4`}>{text}</p>
     </div>
     </div>
@@ -331,7 +338,8 @@ const Details = (props) => {
               </div>
             </div> */}
             <Link className="w-full rounded-full shadow-md bg-green-600 text-white p-4 flex gap-4 items-center justify-center" href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} target='_blank' rel='noreferrer'>
-              <i className="fab fa-whatsapp text-2xl"></i>
+              {/* <i className="fab fa-whatsapp text-2xl"></i> */}
+              <FontAwesomeIcon icon={faWhatsapp} className="text-2xl" />
               <span>تواصل معنا عن طريق الوتساب</span>
             </Link>
             <div className="relative w-full my-4">
@@ -471,20 +479,24 @@ const Details = (props) => {
                       <div className={styles.similar__card__content}>
                         <div className={styles.similar__card__period}>
                           <span>
-                            <i className="fas fa-sun"></i>
+                            {/* <i className="fas fa-sun"></i> */}
+                            <FontAwesomeIcon icon={faSun} />
                             {program.days} أيام
                           </span>
                           <span>
-                            <i className="fas fa-moon"></i>
+                            {/* <i className="fas fa-moon"></i> */}
+                            <FontAwesomeIcon icon={faMoon} />
                             {program.nights} ليالي
                           </span>
                           <span>
-                            <i className="fas fa-map-marker-alt"></i>
+                            {/* <i className="fas fa-map-marker-alt"></i> */}
+                            <FontAwesomeIcon icon={faLocationPin} />
                             {program.country.name}
                           </span>
                           {program.people && (
                             <span>
-                              <i className="fas fa-user-friends"></i>
+                              {/* <i className="fas fa-user-friends"></i> */}
+                              <FontAwesomeIcon icon={faUserFriends} />
                               {program.people}
                             </span>
                           )}
@@ -499,7 +511,8 @@ const Details = (props) => {
                           </Link>
                           <div className={styles.stars}>
                             {Array.from(Array(prog.rate)).map((s, i) => (
-                              <i className="fas fa-star text-yellow-400" key={i}></i>
+                              // <i className="fas fa-star text-yellow-400" key={i}></i>
+                              <FontAwesomeIcon icon={faStar} key={i} className='text-yellow-400' />
                             ))}
                           </div>
                         </div>

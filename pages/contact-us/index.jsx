@@ -6,6 +6,9 @@ import ScrollDown from '../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPhoneAlt, faMobile, faEnvelope, faLocationPin } from '@fortawesome/free-solid-svg-icons'
+import { faWhatsapp, faInstagram, faTwitter, faTiktok, faSnapchat, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 const ContactUs = ({ slide }) => {
   const settings = useSelector((state) => state.settings.value)
@@ -191,7 +194,8 @@ const ContactUs = ({ slide }) => {
                       >
                         {settings.mobile}
                       </a>
-                      <i className="fas fa-mobile text-primary"></i>
+                      {/* <i className="fas fa-mobile text-primary"></i> */}
+                      <FontAwesomeIcon icon={faMobile} className='text-primary h-4' style={{ height: "1rem" }} />
                     </div>
                     <div>
                       <a
@@ -201,7 +205,8 @@ const ContactUs = ({ slide }) => {
                       >
                         {settings.whatsup}
                       </a>
-                      <i className="fab fa-whatsapp text-primary"></i>
+                      {/* <i className="fab fa-whatsapp text-primary"></i> */}
+                      <FontAwesomeIcon icon={faWhatsapp} className='text-primary h-4' style={{ height: "1rem" }} />
                     </div>
                     <div>
                       <a
@@ -211,7 +216,8 @@ const ContactUs = ({ slide }) => {
                       >
                         {settings.phone}
                       </a>
-                      <i className="fas fa-phone-rotary text-primary"></i>
+                      {/* <i className="fas fa-phone-rotary text-primary"></i> */}
+                      <FontAwesomeIcon icon={faPhoneAlt} className='text-primary h-4' style={{ height: "1rem" }} />
                     </div>
                   </div>
                 </div>
@@ -225,14 +231,16 @@ const ContactUs = ({ slide }) => {
                     >
                       {settings.email}
                     </a>
-                    <i className="fas fa-envelope text-primary"></i>
+                    {/* <i className="fas fa-envelope text-primary"></i> */}
+                    <FontAwesomeIcon icon={faEnvelope} className='text-primary h-4' style={{ height: "1rem" }} />
                   </div>
                 </div>
                 <div className={styles.contact__data__card}>
                   <h3 className='my-4'>العنوان</h3>
                   <div>
                     <div>{settings.address}</div>
-                    <i className="fas fa-map-marker-alt text-primary"></i>
+                    {/* <i className="fas fa-map-marker-alt text-primary"></i> */}
+                    <FontAwesomeIcon icon={faLocationPin} className='text-primary h-4' style={{ height: "1rem" }} />
                   </div>
                 </div>
               </div>
@@ -243,7 +251,8 @@ const ContactUs = ({ slide }) => {
                   rel='noreferrer'
                   className={styles.instagram}
                 >
-                  <i className="fab fa-instagram"></i>
+                  {/* <i className="fab fa-instagram"></i> */}
+                  <FontAwesomeIcon icon={faInstagram} />
                 </a>
                 <a
                   href={settings.twitter}
@@ -251,7 +260,8 @@ const ContactUs = ({ slide }) => {
                   rel='noreferrer'
                   className={styles.twitter}
                 >
-                  <i className="fab fa-twitter"></i>
+                  {/* <i className="fab fa-twitter"></i> */}
+                  <FontAwesomeIcon icon={faTwitter} />
                 </a>
                 <a
                   href={settings.tiktok}
@@ -259,7 +269,8 @@ const ContactUs = ({ slide }) => {
                   rel='noreferrer'
                   className={styles.tiktok}
                 >
-                  <i className="fab fa-tiktok"></i>
+                  {/* <i className="fab fa-tiktok"></i> */}
+                  <FontAwesomeIcon icon={faTiktok} />
                 </a>
                 <a
                   href={settings.snapchat}
@@ -267,7 +278,8 @@ const ContactUs = ({ slide }) => {
                   rel='noreferrer'
                   className={styles.snapchat}
                 >
-                  <i className="fab fa-snapchat-ghost"></i>
+                  {/* <i className="fab fa-snapchat-ghost"></i> */}
+                  <FontAwesomeIcon icon={faSnapchat} />
                 </a>
                 <a
                   href={settings.youtube}
@@ -275,7 +287,8 @@ const ContactUs = ({ slide }) => {
                   rel='noreferrer'
                   className={styles.youtube}
                 >
-                  <i className="fab fa-youtube"></i>
+                  {/* <i className="fab fa-youtube"></i> */}
+                  <FontAwesomeIcon icon={faYoutube} />
                 </a>
               </div>
             </div>

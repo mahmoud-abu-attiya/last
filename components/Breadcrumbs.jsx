@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Breadcrumbs = ({ list }) => {
    return (
@@ -8,13 +10,14 @@ const Breadcrumbs = ({ list }) => {
             <li className="inline-flex items-center">
                <Link href={"/"} className="inline-flex text-primary items-center text-xs md:text-sm gap-4 hover:text-blue-600">
                   الرئيسية
-                  <i className="far fa-angle-left text-primary"></i>
+                  {/* <i className="far fa-angle-left text-primary"></i> */}
+                  <FontAwesomeIcon icon={faAngleLeft} className='text-primary' />
                </Link>
             </li>
             {list.map((item, i) => <li key={i} className="inline-flex items-center">
                <Link href={item.href || "#"} className={`inline-flex items-center text-xs md:text-sm gap-4 font-medium ${item.href ? "text-primary" : "text-gray-700"} hover:text-blue-600`}>
                   {item.title}
-                  {i !== list.length - 1 && <i className="far fa-angle-left text-primary"></i>}
+                  {i !== list.length - 1 && <FontAwesomeIcon icon={faAngleLeft} className='text-primary' />}
                </Link>
             </li>)}
          </ol>

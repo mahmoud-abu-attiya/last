@@ -3,12 +3,17 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
+import { faInstagram, faTwitter, faYoutube, faWhatsapp, faTiktok, faSnapchat} from '@fortawesome/free-brands-svg-icons'
+import { faAngleLeft, faArrowUp, faMobile, faEnvelopeOpenText, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 const SubFooter = ({ settings }) => {
   return (
     <div className="sticky subFooter bottom-0 lg:p-4 lg:px-16 grid grid-cols-4 lg:bg-gray-100 z-20 lg:gap-0">
       <a href={`tel:${settings.mobile}`} className="lg:shadow-none phone bg-[green] p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10" target='_blank' rel='noreferrer' aria-label='Mobile'>
-        <i className="fal fa-mobile text-white lg:text-primary text-3xl sm:text-4xl"></i>
+        {/* <i className="fal fa-mobile text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
+        <FontAwesomeIcon icon={faMobile} className='text-white lg:text-primary text-3xl sm:text-4xl' />
         <div className='hidden lg:block'>
           <p className="text-xs">اتصل بنا علي المحمول.</p>
           <p className="link bold hover:underline">{settings.mobile}</p>
@@ -23,15 +28,16 @@ const SubFooter = ({ settings }) => {
         </div>
       </a>
       <a href={`mailto:${settings.email}`} className="lg:shadow-none email bg-blue-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300" target='_blank' rel='noreferrer' aria-label='Email'>
-        {/* <i className="fas fa-envelope text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
-        <i className="fal fa-envelope-open-text text-white lg:text-primary text-3xl sm:text-4xl"></i>
+        {/* <i className="fal fa-envelope-open-text text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
+        <FontAwesomeIcon icon={faEnvelopeOpenText} className='text-white lg:text-primary text-3xl sm:text-4xl' />
         <div className='hidden lg:block'>
           <p className="text-xs">يمكنك مراسلتنا علي البريد الالكتروني.</p>
           <p className="link bold hover:underline">{settings.email}</p>
         </div>
       </a>
       <a href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} className="lg:shadow-none whats bg-green-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300" target='_blank' rel='noreferrer' aria-label='WhatsApp'>
-        <i className="fab fa-whatsapp text-white lg:text-primary text-3xl sm:text-4xl"></i>
+        {/* <i className="fab fa-whatsapp text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
+        <FontAwesomeIcon icon={faWhatsapp} className='text-white lg:text-primary text-3xl sm:text-4xl' />
         <div className='hidden lg:block'>
           <p className="text-xs">تواصل معنا عن طرق الواتساب.</p>
           <p className="link bold hover:underline">{settings.whatsup}</p>
@@ -63,7 +69,8 @@ const Footer = ({ countries }) => {
             {countries.slice(0, 7).map((country) => (
               <span key={country.id} className={styles.famous__places__span}>
                 <Link href={`/our-programs/${country.id}`} className={styles.famous__places__link}>
-                  <i className="fal fa-angle-left text-xl"></i>
+                  {/* <i className="fal fa-angle-left text-xl"></i> */}
+                  <FontAwesomeIcon icon={faAngleLeft} />
                   {country.name}
                 </Link>
               </span>
@@ -150,7 +157,8 @@ const Footer = ({ countries }) => {
                 className={styles.instagram}
                 aria-label='Footer Link - Instagram'
               >
-                <i className="fab fa-instagram"></i>
+                {/* <i className="fab fa-instagram"></i> */}
+                <FontAwesomeIcon icon={faInstagram} />
               </a>
               <a
                 href={settings.tiktok}
@@ -159,7 +167,8 @@ const Footer = ({ countries }) => {
                 className={styles.tiktok}
                 aria-label='Footer Link - Tiktok'
               >
-                <i className="fab fa-tiktok"></i>
+                {/* <i className="fab fa-tiktok"></i> */}
+                <FontAwesomeIcon icon={faTiktok} />
               </a>
               <a
                 href={settings.twitter}
@@ -168,7 +177,8 @@ const Footer = ({ countries }) => {
                 className={styles.twitter}
                 aria-label='Footer Link - Twitter'
               >
-                <i className="fab fa-twitter"></i>
+                {/* <i className="fab fa-twitter"></i> */}
+                <FontAwesomeIcon icon={faTwitter} />
               </a>
               <a
                 href={settings.snapchat}
@@ -177,7 +187,8 @@ const Footer = ({ countries }) => {
                 className={styles.snapchat}
                 aria-label='Footer Link - Snapchat'
               >
-                <i className="fab fa-snapchat-ghost"></i>
+                {/* <i className="fab fa-snapchat-ghost"></i> */}
+                <FontAwesomeIcon icon={faSnapchat} />
               </a>
               <a
                 href={settings.youtube}
@@ -186,7 +197,8 @@ const Footer = ({ countries }) => {
                 className={styles.youtube}
                 aria-label='Footer Link - Youtube'
               >
-                <i className="fab fa-youtube"></i>
+                {/* <i className="fab fa-youtube"></i> */}
+                <FontAwesomeIcon icon={faYoutube} />
               </a>
             </div>
           </div>
@@ -205,7 +217,8 @@ const Footer = ({ countries }) => {
             title='ارجع الي الاعلي'
             className={styles.scroll__top__btn}
           >
-            <i className="fas fa-arrow-up"></i>
+            {/* <i className="fas fa-arrow-up"></i> */}
+            <FontAwesomeIcon icon={faArrowUp} className='text-2xl md:text-3xl' />
           </button>
         </div>
 
@@ -213,7 +226,8 @@ const Footer = ({ countries }) => {
           <span className={styles.copyright__text}>{settings.copy_rights}</span>
           <span className={styles.copyright__msg}>
             Made with
-            <i className="fas fa-heart text-red-500"></i>
+            {/* <i className="fas fa-heart text-red-500"></i> */}
+            <FontAwesomeIcon icon={faHeart} className='text-red-500 text-sm' />
             in Elnagah
           </span>
         </p>

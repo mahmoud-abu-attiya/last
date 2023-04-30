@@ -7,6 +7,8 @@ import ScrollDown from '../../../../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../../../../components/snackbar'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon, faLocationPin, faUserFriends, faStar, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Details = (props) => {
   const [formErrors, setFormErrors] = useState({})

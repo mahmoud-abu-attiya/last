@@ -6,6 +6,9 @@ import ScrollDown from '../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPhoneAlt, faMobile, faEnvelope, faLocationPin } from '@fortawesome/free-solid-svg-icons'
+import { faWhatsapp, faInstagram, faTwitter, faTiktok, faSnapchat, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 const DesignProgram = ({ data, slide }) => {
   const settings = useSelector((state) => state.settings.value)
@@ -319,78 +322,80 @@ const DesignProgram = ({ data, slide }) => {
                   message={snackbarMsg}
                   type={'success'}
                 />
-                <div className={styles.form__img}>
-                  <div className={styles.form__img__content}>
-                    <h3 className='main__title'>تواصل معنا عبر</h3>
-                    <div className={styles.contact__data}>
-                      <div className={styles.contact__data__card}>
-                        <h3>الجوال</h3>
-                        <div className={styles.phone}>
-                          <div>
-                            <a
-                              href={`tel:${settings?.mobile}`}
-                              target='_blank'
-                              rel='noreferrer'
-                            >
-                              {settings?.mobile}
-                            </a>
-                            {/* <BsPhoneFill /> */}
-                            <i className="fas fa-mobile text-primary"></i>
-                          </div>
-                          <div>
-                            <a
-                              href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}&${message}`}
-                              target='_blank'
-                              rel='noreferrer'
-                            >
-                              {settings?.whatsup}
-                            </a>
-                            {/* <BsWhatsapp /> */}
-                            <i className="fab fa-whatsapp text-primary"></i>
-                          </div>
-                          <div>
-                            <a
-                              href={`tel:${settings?.phone}`}
-                              target='_blank'
-                              rel='noreferrer'
-                            >
-                              {settings?.phone}
-                            </a>
-                            {/* <GiRotaryPhone /> */}
-                            <i className="fas fa-phone-rotary text-primary"></i>
-                          </div>
-                        </div>
-                      </div>
-                      <div className={styles.contact__data__card}>
-                        <h3>البريد الالكتروني</h3>
-                        <div>
-                          <a
-                            href={`mailto:${settings?.email}`}
-                            target='_blank'
-                            rel='noreferrer'
-                          >
-                            {settings?.email}
-                          </a>
-                          {/* <BsEnvelopeFill /> */}
-                          <i className="fas fa-envelope text-primary"></i>
-                        </div>
-                      </div>
-                      <div className={styles.contact__data__card}>
-                        <h3>العنوان</h3>
-                        <div>
-                          <div>{settings?.address}</div>
-                          <i className="fas fa-map-marker-alt text-primary"></i>
-                        </div>
-                      </div>
+          <div className={styles.form__img}>
+            <div className={styles.form__img__content}>
+              <h3 className='main__title my-4'>هيا نتواصل</h3>
+              <div className={styles.contact__data}>
+                <div className={`${styles.contact__data__card}`}>
+                  <h3 className='my-4'>الجوال</h3>
+                  <div className={styles.phone}>
+                    <div>
+                      <a
+                        href={`tel:${settings.mobile}`}
+                        target='_blank'
+                        rel='noreferrer'
+                      >
+                        {settings.mobile}
+                      </a>
+                      {/* <i className="fas fa-mobile text-primary"></i> */}
+                      <FontAwesomeIcon icon={faMobile} className='text-primary h-4' style={{ height: "1rem" }} />
                     </div>
-                    <div className={styles.social__icons}>
+                    <div>
+                      <a
+                        href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`}
+                        target='_blank'
+                        rel='noreferrer'
+                      >
+                        {settings.whatsup}
+                      </a>
+                      {/* <i className="fab fa-whatsapp text-primary"></i> */}
+                      <FontAwesomeIcon icon={faWhatsapp} className='text-primary h-4' style={{ height: "1rem" }} />
+                    </div>
+                    <div>
+                      <a
+                        href={`tel:${settings.phone}`}
+                        target='_blank'
+                        rel='noreferrer'
+                      >
+                        {settings.phone}
+                      </a>
+                      {/* <i className="fas fa-phone-rotary text-primary"></i> */}
+                      <FontAwesomeIcon icon={faPhoneAlt} className='text-primary h-4' style={{ height: "1rem" }} />
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.contact__data__card}>
+                  <h3 className='my-4'>البريد الالكتروني</h3>
+                  <div>
+                    <a
+                      href={`mailto:${settings.email}`}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
+                      {settings.email}
+                    </a>
+                    {/* <i className="fas fa-envelope text-primary"></i> */}
+                    <FontAwesomeIcon icon={faEnvelope} className='text-primary h-4' style={{ height: "1rem" }} />
+                  </div>
+                </div>
+                <div className={styles.contact__data__card}>
+                  <h3 className='my-4'>العنوان</h3>
+                  <div>
+                    <div>{settings.address}</div>
+                    {/* <i className="fas fa-map-marker-alt text-primary"></i> */}
+                    <FontAwesomeIcon icon={faLocationPin} className='text-primary h-4' style={{ height: "1rem" }} />
+                  </div>
+                </div>
+              </div>
+              <div className={styles.social__icons}>
                 <a
                   href={settings.instagram}
                   target='_blank'
                   rel='noreferrer'
                   className={styles.instagram}
                 >
-                  <i className="fab fa-instagram"></i>
+                  {/* <i className="fab fa-instagram"></i> */}
+                  <FontAwesomeIcon icon={faInstagram} />
                 </a>
                 <a
                   href={settings.twitter}
@@ -398,7 +403,8 @@ const DesignProgram = ({ data, slide }) => {
                   rel='noreferrer'
                   className={styles.twitter}
                 >
-                  <i className="fab fa-twitter"></i>
+                  {/* <i className="fab fa-twitter"></i> */}
+                  <FontAwesomeIcon icon={faTwitter} />
                 </a>
                 <a
                   href={settings.tiktok}
@@ -406,7 +412,8 @@ const DesignProgram = ({ data, slide }) => {
                   rel='noreferrer'
                   className={styles.tiktok}
                 >
-                  <i className="fab fa-tiktok"></i>
+                  {/* <i className="fab fa-tiktok"></i> */}
+                  <FontAwesomeIcon icon={faTiktok} />
                 </a>
                 <a
                   href={settings.snapchat}
@@ -414,7 +421,8 @@ const DesignProgram = ({ data, slide }) => {
                   rel='noreferrer'
                   className={styles.snapchat}
                 >
-                  <i className="fab fa-snapchat-ghost"></i>
+                  {/* <i className="fab fa-snapchat-ghost"></i> */}
+                  <FontAwesomeIcon icon={faSnapchat} />
                 </a>
                 <a
                   href={settings.youtube}
@@ -422,11 +430,12 @@ const DesignProgram = ({ data, slide }) => {
                   rel='noreferrer'
                   className={styles.youtube}
                 >
-                  <i className="fab fa-youtube"></i>
+                  {/* <i className="fab fa-youtube"></i> */}
+                  <FontAwesomeIcon icon={faYoutube} />
                 </a>
               </div>
-                  </div>
-                </div>
+            </div>
+          </div>
               </div>
             </div>
           </div>

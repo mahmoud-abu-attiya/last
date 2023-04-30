@@ -9,6 +9,8 @@ import Slider from "react-slick";
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 const noto = localFont({ src: '../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
 
@@ -101,7 +103,8 @@ const FamilyActivity = ({ title, img }) => {
                               <h5>جينو بارادايس</h5>
                               <p className='text-xs text-gray-500'>يحتوي مركز جينو بارادايس على ملاهي مائية رائع...</p>
                            </div>
-                           <i className="far fa-chevron-left text-xs"></i>
+                           {/* <i className="far fa-chevron-left text-xs"></i> */}
+                           <FontAwesomeIcon icon={faChevronLeft} className='text-xs' />
                         </div>
                      </div>
                   </div>

@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Head from 'next/head'
 import FullPageSlider from '../../components/fullPageSlider'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon, faUserFriends, faStar } from '@fortawesome/free-solid-svg-icons'
 
 const SeaTripes = ({
   programs,
@@ -63,16 +65,19 @@ const SeaTripes = ({
                 <div className={styles.offer__card__content}>
                   <div className={styles.offer__card__period}>
                     <span>
-                      <i className="fas fa-sun"></i>
+                      {/* <i className="fas fa-sun"></i> */}
+                      <FontAwesomeIcon icon={faSun} />
                       {card?.days} أيام
                     </span>
                     <span>
-                      <i className="fas fa-moon"></i>
+                      {/* <i className="fas fa-moon"></i> */}
+                      <FontAwesomeIcon icon={faMoon} />
                       {card?.nights} ليالي
                     </span>
                     {card?.people && (
                       <span>
-                        <i className="fas fa-user-friends"></i>
+                        {/* <i className="fas fa-user-friends"></i> */}
+                        <FontAwesomeIcon icon={faUserFriends} />
                         {card?.people}
                       </span>
                     )}
@@ -89,7 +94,8 @@ const SeaTripes = ({
                     </a>
                     <div className={styles.stars}>
                       {Array.from(Array(card.rate)).map((s, i) => (
-                        <i className="fas fa-star text-yellow-400" key={i}></i>
+                        // <i className="fas fa-star text-yellow-400" key={i}></i>
+                        <FontAwesomeIcon icon={faStar} key={i} className='text-yellow-400' />
                       ))}
                     </div>
                   </div>

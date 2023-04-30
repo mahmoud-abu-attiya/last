@@ -6,6 +6,8 @@ import BtnArrow from '@/components/BtnArrow'
 import Head from 'next/head'
 import ScrollDown from '../../../../components/scrollDown'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon, faLocationPin, faUserFriends, faStar } from '@fortawesome/free-solid-svg-icons'
 
 const Offer = (props) => {
   const settings = useSelector((state) => state.settings.value)
@@ -61,20 +63,24 @@ const Offer = (props) => {
                   <div className={styles.offer__card__content}>
                     <div className={styles.offer__card__period}>
                       <span>
-                        <i className="fas fa-sun"></i>
+                        {/* <i className="fas fa-sun"></i> */}
+                        <FontAwesomeIcon icon={faSun} />
                         {program.days} أيام
                       </span>
                       <span>
-                        <i className="fas fa-moon"></i>
+                        {/* <i className="fas fa-moon"></i> */}
+                        <FontAwesomeIcon icon={faMoon} />
                         {program.nights} ليالي
                       </span>
                       <span>
-                        <i className="fas fa-map-marker-alt"></i>
+                        {/* <i className="fas fa-map-marker-alt"></i> */}
+                        <FontAwesomeIcon icon={faLocationPin} />
                         {program.country.name}
                       </span>
                       {program.people && (
                         <span>
-                          <i className="fas fa-user-friends"></i>
+                          {/* <i className="fas fa-user-friends"></i> */}
+                          <FontAwesomeIcon icon={faUserFriends} />
                           {program.people}
                         </span>
                       )}
@@ -89,7 +95,8 @@ const Offer = (props) => {
                       </Link>
                       <div className={styles.stars}>
                         {Array.from(Array(program.rate)).map((s, i) => (
-                          <i className="fas fa-star text-yellow-400" key={i}></i>
+                          // <i className="fas fa-star text-yellow-400" key={i}></i>
+                          <FontAwesomeIcon icon={faStar} key={i} className='text-yellow-400' />
                         ))}
                       </div>
                     </div>

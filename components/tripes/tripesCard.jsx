@@ -3,6 +3,8 @@ import styles from './index.module.css'
 import BtnArrow from '../BtnArrow'
 import Image from 'next/image'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const TripesCard = ({ item }) => {
   const settings = useSelector((state) => state.settings.value)
@@ -16,7 +18,8 @@ const TripesCard = ({ item }) => {
             {item.name}
           </h3>
           <span className="text-primary min-w-[3rem] w-12 h-12 border-2 border-primary rounded-full flex justify-center items-center">
-            <i className="fas fa-arrow-left rotate-45"></i>
+            {/* <i className="fas fa-arrow-left rotate-45"></i> */}
+            <FontAwesomeIcon icon={faArrowLeft} className='rotate-45' />
           </span>
         </div>
       </div>

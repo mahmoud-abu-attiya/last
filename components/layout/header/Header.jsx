@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Menu from './menu'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faMobile, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 
 export default function Header({ countries }) {
@@ -82,7 +85,8 @@ export default function Header({ countries }) {
               className={styles.mobile}
               aria-label='Mobile'
             >
-              <i className="fas fa-mobile"></i>
+              {/* <i className="fas fa-mobile"></i> */}
+              <FontAwesomeIcon icon={faMobile} />
             </a>
             <a
               href={`tel:${settings.phone}`}
@@ -91,7 +95,8 @@ export default function Header({ countries }) {
               className={styles.phone}
               aria-label='Phone'
             >
-              <i className="fas fa-phone-rotary"></i>
+              {/* <i className="fas fa-phone-rotary"></i> */}
+              <FontAwesomeIcon icon={faPhoneAlt} />
             </a>
             <a
               href={`mailto:${settings.email}`}
@@ -100,7 +105,8 @@ export default function Header({ countries }) {
               className={styles.mail}
               aria-label='Email'
             >
-              <i className="fas fa-envelope"></i>
+              {/* <i className="fas fa-envelope"></i> */}
+              <FontAwesomeIcon icon={faEnvelope} />
             </a>
             <a
               href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`}
@@ -109,7 +115,8 @@ export default function Header({ countries }) {
               className={styles.whats}
               aria-label='Whatsapp'
             >
-              <i className="fab fa-whatsapp"></i>
+              {/* <i className="fab fa-whatsapp"></i> */}
+              <FontAwesomeIcon icon={faWhatsapp} />
             </a>
           </div>
         )}
@@ -161,7 +168,7 @@ export default function Header({ countries }) {
                 setResponse('')
               }}
             >
-              <i className="far fa-times"></i>
+              <i className="w-6 h-1 bg-secondary block"></i>
             </span>
           )}
           <div
@@ -208,7 +215,8 @@ export default function Header({ countries }) {
               className={styles.header__search}
               onClick={() => setIsSearch(true)}
             >
-              <i className="far fa-search text-xl"></i>
+              {/* <i className="far fa-search text-xl"></i> */}
+              <FontAwesomeIcon icon={faSearch} className='text-xl' />
             </span>
 
             <span

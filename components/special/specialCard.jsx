@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const SpecialCard = ({ item }) => {
   const settings = useSelector((state) => state.settings.value)
@@ -27,7 +29,8 @@ const SpecialCard = ({ item }) => {
               {/* <BsArrowLeft className={styles.card__btn__icon} /> */}
               <span className={styles.card__btn__icon}>
 
-              <i className="fas fa-arrow-left"></i>
+              {/* <i className="fas fa-arrow-left"></i> */}
+              <FontAwesomeIcon icon={faArrowLeft} />
               </span>
           </Link>
           <a
@@ -40,7 +43,8 @@ const SpecialCard = ({ item }) => {
             {/* <BsArrowLeft className={styles.card__btn__icon} /> */}
             <span className={styles.card__btn__icon}>
 
-            <i className="fas fa-arrow-left"></i>
+            {/* <i className="fas fa-arrow-left"></i> */}
+            <FontAwesomeIcon icon={faArrowLeft} />
             </span>
           </a>
         </div>

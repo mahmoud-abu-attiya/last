@@ -10,6 +10,8 @@ import "slick-carousel/slick/slick-theme.css";
 import BtnArrow from '@/components/BtnArrow'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CountryHero from '@/components/countryHero'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon, faLocationPin, faUserFriends, faStar } from '@fortawesome/free-solid-svg-icons'
 
 const Place = (props) => {
   const categories = props.categories
@@ -126,20 +128,24 @@ const Place = (props) => {
                   <div className={`bg-white ${cartStyle.offer__card__content}`}>
                     <div className={cartStyle.offer__card__period}>
                       <span>
-                        <i className="fas fa-sun"></i>
+                        {/* <i className="fas fa-sun"></i> */}
+                        <FontAwesomeIcon icon={faSun} />
                         {item.days} أيام
                       </span>
                       <span>
-                        <i className="fas fa-moon"></i>
+                        {/* <i className="fas fa-moon"></i> */}
+                        <FontAwesomeIcon icon={faMoon} />
                         {item.nights} ليالي
                       </span>
                       <span title={item.country.name}>
-                        <i className="fas fa-map-marker-alt"></i>
+                        {/* <i className="fas fa-map-marker-alt"></i> */}
+                        <FontAwesomeIcon icon={faLocationPin} />
                         {item.country.name.slice(0, 10) + '...'}
                       </span>
                       {item.people && (
                         <span>
-                          <i className="fas fa-user-friends"></i>
+                          {/* <i className="fas fa-user-friends"></i> */}
+                          <FontAwesomeIcon icon={faUserFriends} />
                           {item.people}
                         </span>
                       )}
@@ -154,7 +160,8 @@ const Place = (props) => {
                       </Link>
                       <div className={styles.stars}>
                         {Array.from(Array(item.rate)).map((s, i) => (
-                          <i className="fas fa-star text-yellow-400" key={i}></i>
+                          // <i className="fas fa-star text-yellow-400" key={i}></i>
+                          <FontAwesomeIcon icon={faStar} key={i} className='text-yellow-400' />
                         ))}
                       </div>
                     </div>

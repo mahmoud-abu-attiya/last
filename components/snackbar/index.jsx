@@ -1,4 +1,6 @@
 import { useState, forwardRef, useImperativeHandle } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faCommentAltExclamation } from '@fortawesome/free-solid-svg-icons'
 
 const Snackbar = forwardRef(({ message, type }, ref) => {
   const [showSnackbar, setShowSnackbar] = useState(false)
@@ -21,7 +23,8 @@ const Snackbar = forwardRef(({ message, type }, ref) => {
       }}
     >
       <span className="text-4xl flex items-center justify-center">
-        {type === 'success' ? <i className="far fa-check"></i> : <i className="far fa-comment-alt-exclamation"></i>}
+        {type === 'success' ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faCommentAltExclamation} />}
+        {/* {type === 'success' ? <i className="far fa-check"></i> : <i className="far fa-comment-alt-exclamation"></i>} */}
       </span>
       <p className="bold">{message}</p>
     </div>

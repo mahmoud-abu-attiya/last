@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { memo, useEffect, useState } from 'react'
 import styles from '../Header.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faYoutube, faTwitter, faTiktok, faSnapchat, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 export const headerLinks = [
   {
@@ -138,7 +140,8 @@ const Menu = (props) => {
           aria-label='Header menu link - Youtube'
         >
           {/* <BsYoutube /> */}
-          <i className="fab fa-youtube"></i>
+          {/* <i className="fab fa-youtube"></i> */}
+          <FontAwesomeIcon icon={faYoutube} />
         </a>
         <a
           href={settings.twitter}
@@ -148,7 +151,8 @@ const Menu = (props) => {
           aria-label='Header menu link - Twitter'
         >
           {/* <BsTwitter /> */}
-          <i className="fab fa-twitter"></i>
+          {/* <i className="fab fa-twitter"></i> */}
+          <FontAwesomeIcon icon={faTwitter} />
         </a>
         <a
           href={settings.tiktok}
@@ -158,7 +162,8 @@ const Menu = (props) => {
           aria-label='Header menu link - Tiktok'
         >
           {/* <FaTiktok /> */}
-          <i className="fab fa-tiktok"></i>
+          {/* <i className="fab fa-tiktok"></i> */}
+          <FontAwesomeIcon icon={faTiktok} />
         </a>
         <a
           href={settings.snapchat}
@@ -168,7 +173,8 @@ const Menu = (props) => {
           aria-label='Header menu link - Snapchat'
         >
           {/* <BsSnapchat /> */}
-          <i className="fab fa-snapchat-ghost"></i>
+          {/* <i className="fab fa-snapchat-ghost"></i> */}
+          <FontAwesomeIcon icon={faSnapchat} />
         </a>
         <a
           href={settings.instagram}
@@ -177,7 +183,8 @@ const Menu = (props) => {
           className={styles.instagram}
           aria-label='Header menu link - Instagram'
         >
-          <i className="fab fa-instagram"></i>
+          {/* <i className="fab fa-instagram"></i> */}
+          <FontAwesomeIcon icon={faInstagram} />
           {/* <BsInstagram /> */}
         </a>
       </div>
@@ -189,7 +196,7 @@ const Menu = (props) => {
         onClick={() => setShowMenu(false)}
       >
         {/* <AiOutlineMinus /> */}
-        <i className="far fa-times text-2xl"></i>
+        <i className="w-6 h-1 bg-secondary block"></i>
       </span>
       <div
         className={

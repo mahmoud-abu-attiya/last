@@ -7,6 +7,9 @@ import localFont from 'next/font/local';
 import { useEffect } from 'react';
 // import TagManager from 'react-gtm-module'
 import Script from 'next/script';
+// _app.js
+import '@fortawesome/fontawesome-svg-core/styles.css'
+
 
 const bukra = localFont({
    src: [
