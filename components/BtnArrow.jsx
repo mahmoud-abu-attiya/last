@@ -5,7 +5,7 @@ const BtnArrow = (props) => {
    return (
       <Link
          href={props.href}
-         className="group flex lg:mx-0 text-sm hover:text-white transition-all duration-[.45s] relative hover:px-6 pl-4 h-12 items-center w-fit btnarrow whitespace-nowrap"
+         className={`${props.classes} group flex lg:mx-0 text-sm hover:text-white transition-all duration-[.45s] relative hover:px-6 pl-4 h-12 items-center w-fit btnarrow whitespace-nowrap`}
       >
          <div className="z-20 lg:text-base flex group-hover:gap-4 gap-8 relative items-center transition-all ease-linear duration-200">
             {props.title}

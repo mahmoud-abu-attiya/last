@@ -18,6 +18,27 @@ const SeaTripes = ({
     <>
       <Head>
         <title>الرحلات البحرية</title>
+        <title>{settings.meta_title}</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+        <meta
+          name="description"
+          content={settings.meta_description}
+        />
+        <meta property="og:title" content={settings.meta_title} />
+        <meta property="og:url" content="https://last-delta.vercel.app/" />
+        <meta name="keywords" content={settings.keywords} />
+        <meta
+          property="og:description"
+          content={settings.meta_description}
+        />
+        <meta name="twitter:title" content={settings.meta_title} />
+        <meta
+          name="twitter:description"
+          content={settings.meta_description}
+        />
       </Head>
       <FullPageSlider
         data={slide}
@@ -109,9 +130,8 @@ const SeaTripes = ({
                   <div className={styles.offer__card__btns}>
                     <BtnArrow
                       title='حجز العرض'
-                      href={`https://api.whatsapp.com/send?phone=${
-                        settings?.whatsup
-                      }&${message(card?.id)}`}
+                      href={`https://api.whatsapp.com/send?phone=${settings?.whatsup
+                        }&${message(card?.id)}`}
                     />
                   </div>
                 </div>

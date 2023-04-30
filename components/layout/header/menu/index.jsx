@@ -55,11 +55,11 @@ export const headerLinks = [
     route: '/about-us',
     icon: "/icons/info.svg"
   },
-  {
-    text: 'شكر العملاء',
-    route: '/thanks',
-    icon: "/icons/hand.svg"
-  },
+  // {
+  //   text: 'شكر العملاء',
+  //   route: '/thanks',
+  //   icon: "/icons/hand.svg"
+  // },
 ]
 
 const Menu = (props) => {
@@ -88,7 +88,7 @@ const Menu = (props) => {
       )
     })
     return () => ac.abort()
-  }, [])
+  }, [router])
 
   // No Scroll when Menu Open
   useEffect(() => {

@@ -6,8 +6,10 @@ import ScrollDown from '../../../components/scrollDown'
 import { useEffect, useRef, useState } from 'react'
 import SpecialCard from '../../../components/special/specialCard'
 import Snackbar from '../../../components/snackbar'
+import { useSelector } from 'react-redux'
 
 const Details = () => {
+  const settings = useSelector((state) => state.settings.value)
   const [offerDetails, setOfferDetails] = useState({})
   const [offers, setOffers] = useState([])
   const [snackbarMsg, setSnackbarMsg] = useState('')
@@ -118,6 +120,27 @@ const Details = () => {
     <>
       <Head>
         <title>{offerDetails?.title}</title>
+        <title>{settings.meta_title}</title>
+            <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1"
+            />
+            <meta
+               name="description"
+               content={settings.meta_description}
+            />
+            <meta property="og:title" content={settings.meta_title} />
+            <meta property="og:url" content="https://last-delta.vercel.app/" />
+            <meta name="keywords" content={settings.keywords} />
+            <meta
+               property="og:description"
+               content={settings.meta_description}
+            />
+            <meta name="twitter:title" content={settings.meta_title} />
+            <meta
+               name="twitter:description"
+               content={settings.meta_description}
+            />
       </Head>
       <div className={styles.details__bg}>
         {offerDetails.image && (

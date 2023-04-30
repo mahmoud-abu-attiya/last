@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useRouter } from 'next/router'
+import Head from 'next/head';
+import { useSelector } from 'react-redux';
 
 const noto = localFont({ src: '../../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
 
@@ -60,7 +62,8 @@ const Famose = ({ img, title }) => {
    )
 }
 
-export default function index() {
+export default function Index() {
+   const settings = useSelector(state => state.settings.value)
    const list = [
       {
          title: "الديل السياحي",
@@ -76,6 +79,29 @@ export default function index() {
    ]
    return (
       <>
+         <Head>
+            <title>{list[0].title + " | " + list[1].title + " | " + list[2].title}</title>
+            <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1"
+            />
+            <meta
+               name="description"
+               content={settings.meta_description}
+            />
+            <meta property="og:title" content={list[0].title + " | " + list[1].title + " | " + list[2].title} />
+            <meta property="og:url" content="https://last-delta.vercel.app/" />
+            <meta name="keywords" content={settings.keywords} />
+            <meta
+               property="og:description"
+               content={settings.meta_description}
+            />
+            <meta name="twitter:title" content={list[0].title + " | " + list[1].title + " | " + list[2].title} />
+            <meta
+               name="twitter:description"
+               content={settings.meta_description}
+            />
+         </Head>
          <div className="w-full bg-secondary h-36 md:h-40"></div>
          <div className="w-full h-[50vh] relative overflow-hidden flex">
             <Image src={"https://backend.elnagahtravels.com/storage/countries/HSntLT00EeuGSCtN5PnMQFxZpp5Lnn14qaD08CXI.jpg"} alt="daleel" fill className='object-cover' />

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Index() {
    const data = [
@@ -98,11 +99,12 @@ export default function Index() {
                   <Image src={slide.image} alt="hero" fill className={`object-cover heroimg transition-all duration-[1.5s]`} />
                   <div className="absolute top-0 left-0 flex flex-col justify-center px-4 md:px-20 items-start w-full h-full z-10 text-white">
                      <h2 className="out text-xl md:text-3xl transition-all duration-1000 title delay-300">{slide.title}</h2>
-                     <h3 className="text-2xl md:text-4xl lg:text-5xl transition-all duration-1000 subtitle">{slide.subTitle}</h3>
+                     <h3 className="text-2xl md:text-3xl py-2 lg:text-4xl transition-all duration-1000 subtitle">{slide.subTitle}</h3>
                   </div>
                </div>
             )
          })}
+          <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
       </div>
    )
 }

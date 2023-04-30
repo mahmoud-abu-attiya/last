@@ -39,14 +39,22 @@ const Place = (props) => {
     infinite: false,
     centerMode: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 1,
     responsive: [
       {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          dots: true,
+        }
+      },
+      {
         breakpoint: 640,
         settings: {
           slidesToShow: 2,
+          dots: true,
         }
       }
     ]
@@ -55,27 +63,51 @@ const Place = (props) => {
     <>
       <Head>
         <title>{country.name}</title>
+            <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1"
+            />
+            <meta
+               name="description"
+               content={settings.meta_description}
+            />
+            <meta property="og:title" content={settings.meta_title} />
+            <meta property="og:url" content="https://last-delta.vercel.app/our-programs" />
+            <meta name="keywords" content={settings.keywords} />
+            <meta
+               property="og:description"
+               content={settings.meta_description}
+            />
+            <meta name="twitter:title" content={settings.meta_title} />
+            <meta
+               name="twitter:description"
+               content={settings.meta_description}
+            />
       </Head>
-      {/* <div
-        className={styles.place__bg}
-        style={{ backgroundImage: `url(${country?.image})` }}
-      >
-        <h1>{country?.name}</h1>
-        <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-sm text-primary bg-gray-50 shadow-lg z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
-      </div> */}
       <CountryHero />
-      <Slider {...settings} className='w-full prog bg-gray-100 shadow'>
+      <div className="container hidden md:block">
+        <Breadcrumbs list={[{title: 'البرامج السياحية', href: "/our-programs"}, {title: country.name}]} />
+      </div>
+      <div className="bg-gray-50">
+      <div className="md:hidden">
+      <Slider {...settings} className='w-full prog border-b'>
         {categories.map((category) => {
           return (
-            <button onClick={() => setId(category.id)} key={category?.id} className={`bold transition duration-500 text-center py-4 ${id == category.id ? "border-b-4 border-primary text-primary bg-primary/25" : "text-black border-none"}`}>{category.name}</button>
+            <button onClick={() => setId(category.id)} key={category?.id} className={`text-sm transition duration-500 text-center hover:bg-gray-400/25 py-4 ${id == category.id ? "border-b-4 border-primary text-black bold" : "text-gray-500 border-none font-light"}`}>{category.name}</button>
           )
         })}
       </Slider>
-      <div className="container hidden md:block">
-        <Breadcrumbs list={[{title: 'البرامج السياحية', href: "/our-programs"}, {title: country.name, href: `/our-programs/${country.id}`}]} />
       </div>
-      <div className="bg-gray-50">
       <div className="container">
+      <div className=" hidden sm:block">
+      <Slider {...settings} className='w-full prog border-b'>
+        {categories.map((category) => {
+          return (
+            <button onClick={() => setId(category.id)} key={category?.id} className={`text-sm transition duration-500 text-center hover:bg-gray-400/25 py-4 ${id == category.id ? "border-b-4 border-primary text-black bold" : "text-gray-500 border-none font-light"}`}>{category.name}</button>
+          )
+        })}
+      </Slider>
+      </div>
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-16 transition duration-300 ${anim ? "opacity-0" : "opacity-100"}`}>
           {data ? data.map((item) => {
             return (
@@ -101,9 +133,9 @@ const Place = (props) => {
                         <i className="fas fa-moon"></i>
                         {item.nights} ليالي
                       </span>
-                      <span>
+                      <span title={item.country.name}>
                         <i className="fas fa-map-marker-alt"></i>
-                        {item.country.name}
+                        {item.country.name.slice(0, 10) + '...'}
                       </span>
                       {item.people && (
                         <span>

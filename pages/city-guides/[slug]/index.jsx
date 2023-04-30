@@ -7,6 +7,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useRouter } from 'next/router'
+import Head from 'next/head'
+import { useSelector } from 'react-redux';
 
 const noto = localFont({ src: '../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
 
@@ -111,6 +113,7 @@ const FamilyActivity = ({ title, img }) => {
 }
 
 export default function Daleel() {
+   const settings = useSelector(state => state.settings.value)
    const data = {
       id: 1,
       title: "الدليل السياحي",
@@ -128,6 +131,29 @@ export default function Daleel() {
    ]
    return (
       <>
+      <Head>
+      <title>{data.title + " | " + list[1].title}</title>
+            <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1"
+            />
+            <meta
+               name="description"
+               content={settings.meta_description}
+            />
+            <meta property="og:title" content={data.title + " | " + list[1].title} />
+            <meta property="og:url" content="https://last-delta.vercel.app/city-guides" />
+            <meta name="keywords" content={settings.keywords} />
+            <meta
+               property="og:description"
+               content={settings.meta_description}
+            />
+            <meta name="twitter:title" content={data.title + " | " + list[1].title} />
+            <meta
+               name="twitter:description"
+               content={settings.meta_description}
+            />
+      </Head>
          <div className="w-full bg-secondary h-36 md:h-40"></div>
          <div className="w-full h-[50vh] relative overflow-hidden flex">
             <Image src={data.image} alt="daleel" fill className='object-cover' />
@@ -149,7 +175,7 @@ export default function Daleel() {
                <mark className={`my-4 max-w-3xl text-ellipsis ${noto.className}`}> <strong>ملاحظة:</strong> <em>قد تكون بعض المعالم المذكورة مغلقة حالياً نظراً للقيود المفروضة على الحركة</em></mark>
             </div>
             <div className="flibs flex gap-4 flex-wrap">
-               <div className="flip-card text-center city_flip rounded-xl relative">
+               <div className="flip-card text-center city_flip rounded-xl relative mx-auto md:m-0">
                   <div className="flip-card-inner city_flip_inner rounded-xl  border">
                      <div className="flip-card-front w-full text-center city_flip_front rounded-xl overflow-hidden flex flex-col items-center p-4 justify-between">
                         <div></div>
@@ -167,7 +193,7 @@ export default function Daleel() {
                      </div>
                   </div>
                </div>
-               <div className="flip-card text-center city_flip rounded-xl relative">
+               <div className="flip-card text-center city_flip rounded-xl relative mx-auto md:m-0">
                   <div className="flip-card-inner city_flip_inner rounded-xl  border">
                      <div className="flip-card-front w-full text-center city_flip_front rounded-xl overflow-hidden flex flex-col items-center p-4 justify-between">
                         <div></div>
@@ -185,7 +211,7 @@ export default function Daleel() {
                      </div>
                   </div>
                </div>
-               <div className="flip-card text-center city_flip rounded-xl relative">
+               <div className="flip-card text-center city_flip rounded-xl relative mx-auto md:m-0">
                   <div className="flip-card-inner city_flip_inner rounded-xl  border">
                      <div className="flip-card-front w-full text-center city_flip_front rounded-xl overflow-hidden flex flex-col items-center p-4 justify-between">
                         <div></div>

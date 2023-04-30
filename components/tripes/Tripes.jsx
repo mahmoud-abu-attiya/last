@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react'
 import TripesCard from './tripesCard'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useEffect } from 'react'
 
 const Tripes = ({ data: countries }) => {
   const [value, setValue] = useState(0)
@@ -19,6 +20,7 @@ const Tripes = ({ data: countries }) => {
   const slides = filteredCountries.concat(filteredCountries.slice(0, 4))
   slides.unshift(filteredCountries[filteredCountries.length - 1])
   const step = 100 / slides.length
+  // const [step , setStep] = useState(100 / slides.length)
   let [translate, setTranslate] = useState(step)
   let [index, setIndex] = useState(1)
   const [transition, setTransition] = useState(true)
@@ -112,14 +114,22 @@ const Tripes = ({ data: countries }) => {
   }
 
   const handleSwitch = (i) => {
-    setTransition(false);
     setAnimate(true);
     setTimeout(() => {
-      setValue(i); setTranslate(0); setIndex(1);
-      // setTransition(true);
       setAnimate(false);
     }, 500);
+    setValue(i);
+    setIndex(1);
+    if (window.innerWidth > 1024) {
+      setTranslate(0); 
+    } else {
+        setTranslate(step);
+    }
   }
+
+  // useEffect(() => {
+  //   console.log(step)
+  // }, [slides.length, step])
 
   const tripesTabs = ['جميع الوجهات', 'الوجهات الخارجية', 'الوجهات الداخلية']
   return (

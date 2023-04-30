@@ -198,6 +198,26 @@ const Details = (props) => {
         <title>
           {`${program.category?.name} - ${program.country?.name}`}
         </title>
+            <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1"
+            />
+            <meta
+               name="description"
+               content={settings.meta_description}
+            />
+            <meta property="og:title" content={settings.meta_title} />
+            <meta property="og:url" content="https://last-delta.vercel.app/our-programs" />
+            <meta name="keywords" content={settings.keywords} />
+            <meta
+               property="og:description"
+               content={settings.meta_description}
+            />
+            <meta name="twitter:title" content={settings.meta_title} />
+            <meta
+               name="twitter:description"
+               content={settings.meta_description}
+            />
       </Head>
       <div className='bg-gray-50'>
         <div className={styles.details__bg}>

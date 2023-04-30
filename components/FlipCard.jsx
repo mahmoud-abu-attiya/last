@@ -68,7 +68,7 @@ const FlipCard = ({ country, btnTitle, btnUrl }) => {
           </p>
           <BtnArrow
             title={btnTitle}
-            classes="self-end mt-auto text-primary mx-unset"
+            classes="mt-auto"
             href={btnUrl}
           />
         </div>

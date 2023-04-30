@@ -257,6 +257,18 @@ h2{
    height: fit-content !important;
    display: block !important;
 }
+.scaleAmimation{
+   animation: scale 5s ease-in-out infinite alternate;
+}
+
+@keyframes scale {
+   0% {
+      transform: scale(1);
+   }
+   100% {
+      transform: scale(1.25);
+   }
+}
 
 @media (max-width: 900px) {
 
