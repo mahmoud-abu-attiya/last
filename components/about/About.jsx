@@ -54,13 +54,13 @@ const About = ({ data }) => {
             <h3
               className={styles.about__item__title}
             >
-              {data[value].subtitle}
+              {data[value]?.subtitle}
             </h3>
             <div
               className={styles.about__item__content}
             >
-              <p className={styles.about__item__text}>{data[value].content}</p>
-              <BtnArrow title={data[value].title} href={'/contact-us'} />
+              <p className={styles.about__item__text}>{data[value]?.content}</p>
+              <BtnArrow title={data[value]?.title} href={'/contact-us'} />
             </div>
           </div>
         </div>

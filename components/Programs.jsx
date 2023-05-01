@@ -6,7 +6,7 @@ import Link from 'next/link'
 export default function Programs({ data }) {
   const slides = data.concat(data.slice(0, 4))
   slides.unshift(data[data.length - 1])
-  const step = 100 / slides.length
+  const step = slides.length > 1 ? 100 / slides.length : 0
   let [translate, setTranslate] = useState(step)
   let [index, setIndex] = useState(1)
   const [transition, setTransition] = useState(true)
@@ -126,7 +126,7 @@ export default function Programs({ data }) {
         <div className='w-full overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
           <div className="swiper-wrapper">
           <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
-              {slides.map((slide, index) => {
+              {slides.length > 1 ? slides.map((slide, index) => {
                 return (
                   <div className={index % 2 === 0 ? "translate-y-4" : "-translate-y-4"} key={index}>
                     <FlipCard
@@ -136,7 +136,7 @@ export default function Programs({ data }) {
                     />
                   </div>
                 )
-              })}
+              }) : "loading..."}
           </div>
           </div>
         </div>
