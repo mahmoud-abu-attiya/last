@@ -2,13 +2,11 @@
 import React from "react";
 import BtnArrow from "./BtnArrow";
 import Image from "next/image";
-import { useSelector } from "react-redux";
 import styles from './index.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const FlipCard = ({ country, btnTitle, btnUrl }) => {
-  const settings = useSelector((state) => state.settings.value);
   return (
     <div className="flip-card rounded-3xl my-14 relative">
       <div className="flip-card-inner rounded-3xl">

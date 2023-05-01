@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun, faMoon, faLocationPin, faUserFriends, faStar, faAngleUp, faLocation } from '@fortawesome/free-solid-svg-icons'
+import { faSun, faMoon, faLocationPin, faUserFriends, faStar, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 const noto = localFont({ src: '../../../../../public/fonts/NotoNaskhArabic-Regular.ttf' })

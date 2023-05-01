@@ -4,7 +4,7 @@ import BtnArrow from '../BtnArrow'
 import styles from './index.module.css'
 import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faSun, faMoon, faMapMarkedAlt, faUserFriends, faLocation } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faSun, faMoon, faUserFriends, faLocation } from '@fortawesome/free-solid-svg-icons'
 
 const NewPrograms = ({ programs }) => {
   const settings = useSelector((state) => state.settings.value)

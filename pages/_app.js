@@ -5,9 +5,8 @@ import { store } from "../store";
 import { Provider } from 'react-redux';
 import localFont from 'next/font/local';
 import { useEffect } from 'react';
-// import TagManager from 'react-gtm-module'
+import TagManager from 'react-gtm-module'
 import Script from 'next/script';
-// _app.js
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 
@@ -26,25 +25,25 @@ const bukra = localFont({
    ],
  })
  export default function MyApp({ Component, pageProps, countries, footerCountries, settings }) {
-  // const tagManagerArgs = {
-  //    gtmId: `${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`,
-  //  }
+  const tagManagerArgs = {
+     gtmId: `${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`,
+   }
  
-  //  useEffect(() => {
-  //   TagManager.initialize(tagManagerArgs)
-  //   window.dataLayer.push({
-  //     event: 'pageview',
-  //   })
-  //  }, [])
+   useEffect(() => {
+    TagManager.initialize(tagManagerArgs)
+    window.dataLayer.push({
+      event: 'pageview',
+    })
+   }, [])
   return (
     <>
-    {/* <Script
+    <Script
         id='gtm'
         strategy='lazyOnload'
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
-      /> */}
+      />
 
-      {/* <Script id='gtm2' strategy='lazyOnload'>
+      <Script id='gtm2' strategy='lazyOnload'>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -53,7 +52,7 @@ const bukra = localFont({
           page_path: window.location.pathname,
           });
         `}
-      </Script> */}
+      </Script>
     <style jsx global>{`
         html {
           font-family: ${bukra.style.fontFamily};

@@ -3,7 +3,6 @@ import { useState, useMemo } from 'react'
 import TripesCard from './tripesCard'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useEffect } from 'react'
 
 const Tripes = ({ data: countries }) => {
   const [value, setValue] = useState(0)
