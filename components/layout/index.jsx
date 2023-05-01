@@ -5,7 +5,7 @@ import { setSettingsData } from '../../slices/settingsSlices'
 import { useEffect, useState } from 'react'
 
 
-export default function Layout({ children, countries }) {
+export default function Layout({ children }) {
    const dispatch = useDispatch()
    const [footerCountries, setFooterCountries] = useState([])
    // dispatch(setSettingsData(settings))
@@ -21,7 +21,7 @@ export default function Layout({ children, countries }) {
    }, [])
    return (
       <>
-         <Header countries={countries} />
+         <Header />
          {children}
          <Footer countries={footerCountries} />
       </>

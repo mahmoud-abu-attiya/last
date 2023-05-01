@@ -5,13 +5,14 @@ import { useState, useEffect } from 'react'
 import Menu from './menu'
 import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faMobile, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faMobile, faPhoneAlt, faEnvelope, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 
-export default function Header({ countries }) {
+export default function Header() {
   // const router = useRouter()
   const settings = useSelector((state) => state.settings.value)
+  const [countries, setCounties] = useState()
 
   const [showHeader, setShowHeader] = useState(false) // to hide/show on scroll
   const [isScrollTop, setIsScrollTop] = useState(false) // to hide on scroll down, show on scroll up
@@ -37,20 +38,28 @@ export default function Header({ countries }) {
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-  // const onSearch = (event, searchTerm) => {
-  //   event.preventDefault()
-  //   setSearchTerm(searchTerm)
-  //   if (
-  //     countries.find(({ name }) => name === searchTerm).name !== undefined
-  //   ) {
-  //     router.push(`/our-programs/${searchTerm}`)
-  //     setSearchTerm('')
-  //     setResponse('')
-  //     setIsSearch(false)
-  //   } else {
-  //     setResponse(' لا توجد نتائج')
-  //   }
-  // }
+  const onSearch = (event, searchTerm) => {
+    event.preventDefault()
+    // setSearchTerm(searchTerm)
+    // if (
+    //   countries.find(({ name }) => name === searchTerm).name !== undefined
+    // ) {
+    //   router.push(`/our-programs/${searchTerm}`)
+    //   setSearchTerm('')
+    //   setResponse('')
+    //   setIsSearch(false)
+    // } else {
+    //   setResponse(' لا توجد نتائج')
+    // }
+    fetch('https://backend.elnagahtravels.com/public/api/countries?country_for=programs')
+      .then(res => res.json())
+      .then(data => {
+        const result = data.countries.filter(({ name }) => name.startsWith(searchTerm))
+        setCounties(searchTerm ? result : setResponse(' لا توجد نتائج'))
+        result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج')
+        console.log(result);
+      })
+  }
   // useEffect(() => {
   //   console.log(countries);
   // }, [countries])
@@ -151,12 +160,14 @@ export default function Header({ countries }) {
               onChange={(event) => {
                 setSearchTerm(event.target.value)
                 setResponse('')
+                // onSearch(event, event.target.value)
               }}
               className={styles.search__input}
             />
             <button type='submit' className={styles.search__btn}>
               ابحث
               {/* <BsArrowLeft /> */}
+              <FontAwesomeIcon icon={faArrowLeft} />
             </button>
           </form>
           {isSearch && (
@@ -187,24 +198,19 @@ export default function Header({ countries }) {
               />
             )}
           </div>
-          <div className={styles.dropdown}>
-            {countries.filter(
-              ({ name }) =>
-                searchTerm &&
-                name.startsWith(searchTerm) &&
-                name !== searchTerm
-            )
-              .map(({ name }) => (
-                <div
+          <div className={`max-h-full overflow-y-auto ${styles.dropdown}`}>
+            {countries?.map(({ name, id }) => (
+                <Link
                   className={styles.dropdown__row}
-                  key={name}
-                  onClick={() => setSearchTerm(name)}
+                  key={id}
+                  onClick={() => {setSearchTerm(name); setIsSearch(false);}}
+                  href={`/our-programs/${id}`}
                 >
                   {name}
-                </div>
+                </Link>
               ))}
+              {response && <h2 style={{ color: 'black', zIndex: 4 }}>{response}</h2>}
           </div>
-          <h2 style={{ color: 'black', zIndex: 4 }}>{response}</h2>
         </div>
 
         {/* Header End */}

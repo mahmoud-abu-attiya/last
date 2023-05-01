@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import Layout from '../components/layout'
-import App from 'next/app'
+// import App from 'next/app'
 import { store } from "../store";
 import { Provider } from 'react-redux';
 import localFont from 'next/font/local';
@@ -92,18 +92,18 @@ const bukra = localFont({
 //     settings,
 //   }
 // }
-MyApp.getInitialProps = async (appContext) => {
-  const { ctx } = appContext
-  const programsRes = await fetch('https://backend.elnagahtravels.com/public/api/countries')
+// MyApp.getInitialProps = async (appContext) => {
+//   const { ctx } = appContext
+//   const programsRes = await fetch('https://backend.elnagahtravels.com/public/api/countries')
 
-  const { countries = [] } = programsRes.json()
+//   const { countries = [] } = programsRes.json()
 
-  ctx.res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
+//   ctx.res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
 
-  const appProps = await App.getInitialProps(appContext)
+//   const appProps = await App.getInitialProps(appContext)
 
-  return {
-    ...appProps,
-    countries,
-  }
-}
+//   return {
+//     ...appProps,
+//     countries,
+//   }
+// }
