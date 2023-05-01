@@ -154,19 +154,19 @@ export default function Daleel() {
             />
             <meta
                name="description"
-               content={settings.meta_description}
+               content={settings?.meta_description}
             />
             <meta property="og:title" content={data.title + " | " + list[1].title} />
             <meta property="og:url" content="https://last-delta.vercel.app/city-guides" />
-            <meta name="keywords" content={settings.keywords} />
+            <meta name="keywords" content={settings?.keywords} />
             <meta
                property="og:description"
-               content={settings.meta_description}
+               content={settings?.meta_description}
             />
             <meta name="twitter:title" content={data.title + " | " + list[1].title} />
             <meta
                name="twitter:description"
-               content={settings.meta_description}
+               content={settings?.meta_description}
             />
       </Head>
          <div className="w-full bg-secondary h-36 md:h-40"></div>

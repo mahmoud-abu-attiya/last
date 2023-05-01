@@ -21,19 +21,19 @@ export default function Index({ data }) {
             />
             <meta
                name="description"
-               content={settings.meta_description}
+               content={settings?.meta_description}
             />
             <meta property="og:title" content="الدليل السياحي" />
             <meta property="og:url" content="https://last-delta.vercel.app/" />
-            <meta name="keywords" content={settings.keywords} />
+            <meta name="keywords" content={settings?.keywords} />
             <meta
                property="og:description"
-               content={settings.meta_description}
+               content={settings?.meta_description}
             />
             <meta name="twitter:title" content="الدليل السياحي" />
             <meta
                name="twitter:description"
-               content={settings.meta_description}
+               content={settings?.meta_description}
             />
       </Head>
       <div className='bg-gray-50'>

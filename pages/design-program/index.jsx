@@ -116,7 +116,7 @@ const DesignProgram = ({ data, slide }) => {
         />
         <meta property="og:title" content={data.title} />
         <meta property="og:url" content="https://last-delta.vercel.app/design-program" />
-        <meta name="keywords" content={settings.keywords} />
+        <meta name="keywords" content={settings?.keywords} />
         <meta
           property="og:description"
           content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
@@ -331,33 +331,33 @@ const DesignProgram = ({ data, slide }) => {
                   <div className={styles.phone}>
                     <div>
                       <a
-                        href={`tel:${settings.mobile}`}
+                        href={`tel:${settings?.mobile}`}
                         target='_blank'
                         rel='noreferrer'
                       >
-                        {settings.mobile}
+                        {settings?.mobile}
                       </a>
                       {/* <i className="fas fa-mobile text-primary"></i> */}
                       <FontAwesomeIcon icon={faMobile} className='text-primary h-4' style={{ height: "1rem" }} />
                     </div>
                     <div>
                       <a
-                        href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`}
+                        href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`}
                         target='_blank'
                         rel='noreferrer'
                       >
-                        {settings.whatsup}
+                        {settings?.whatsup}
                       </a>
                       {/* <i className="fab fa-whatsapp text-primary"></i> */}
                       <FontAwesomeIcon icon={faWhatsapp} className='text-primary h-4' style={{ height: "1rem" }} />
                     </div>
                     <div>
                       <a
-                        href={`tel:${settings.phone}`}
+                        href={`tel:${settings?.phone}`}
                         target='_blank'
                         rel='noreferrer'
                       >
-                        {settings.phone}
+                        {settings?.phone}
                       </a>
                       {/* <i className="fas fa-phone-rotary text-primary"></i> */}
                       <FontAwesomeIcon icon={faPhoneAlt} className='text-primary h-4' style={{ height: "1rem" }} />
@@ -368,11 +368,11 @@ const DesignProgram = ({ data, slide }) => {
                   <h3 className='my-4'>البريد الالكتروني</h3>
                   <div>
                     <a
-                      href={`mailto:${settings.email}`}
+                      href={`mailto:${settings?.email}`}
                       target='_blank'
                       rel='noreferrer'
                     >
-                      {settings.email}
+                      {settings?.email}
                     </a>
                     {/* <i className="fas fa-envelope text-primary"></i> */}
                     <FontAwesomeIcon icon={faEnvelope} className='text-primary h-4' style={{ height: "1rem" }} />
@@ -381,7 +381,7 @@ const DesignProgram = ({ data, slide }) => {
                 <div className={styles.contact__data__card}>
                   <h3 className='my-4'>العنوان</h3>
                   <div>
-                    <div>{settings.address}</div>
+                    <div>{settings?.address}</div>
                     {/* <i className="fas fa-map-marker-alt text-primary"></i> */}
                     <FontAwesomeIcon icon={faLocationPin} className='text-primary h-4' style={{ height: "1rem" }} />
                   </div>
@@ -389,7 +389,7 @@ const DesignProgram = ({ data, slide }) => {
               </div>
               <div className={styles.social__icons}>
                 <a
-                  href={settings.instagram}
+                  href={settings?.instagram}
                   target='_blank'
                   rel='noreferrer'
                   className={styles.instagram}
@@ -398,7 +398,7 @@ const DesignProgram = ({ data, slide }) => {
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
                 <a
-                  href={settings.twitter}
+                  href={settings?.twitter}
                   target='_blank'
                   rel='noreferrer'
                   className={styles.twitter}
@@ -407,7 +407,7 @@ const DesignProgram = ({ data, slide }) => {
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
                 <a
-                  href={settings.tiktok}
+                  href={settings?.tiktok}
                   target='_blank'
                   rel='noreferrer'
                   className={styles.tiktok}
@@ -416,7 +416,7 @@ const DesignProgram = ({ data, slide }) => {
                   <FontAwesomeIcon icon={faTiktok} />
                 </a>
                 <a
-                  href={settings.snapchat}
+                  href={settings?.snapchat}
                   target='_blank'
                   rel='noreferrer'
                   className={styles.snapchat}
@@ -425,7 +425,7 @@ const DesignProgram = ({ data, slide }) => {
                   <FontAwesomeIcon icon={faSnapchat} />
                 </a>
                 <a
-                  href={settings.youtube}
+                  href={settings?.youtube}
                   target='_blank'
                   rel='noreferrer'
                   className={styles.youtube}

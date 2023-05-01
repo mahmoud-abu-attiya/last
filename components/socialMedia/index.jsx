@@ -7,7 +7,7 @@ const SocialMedia = () => {
   return (
     <div className={styles.container}>
       <a
-        href={settings.instagram}
+        href={settings?.instagram}
         target='_blank'
         rel='noreferrer'
         aria-label='Fixed Link - Instagram'
@@ -16,7 +16,7 @@ const SocialMedia = () => {
         <i className="fab fa-instagram"></i>
       </a>
       <a
-        href={settings.snapchat}
+        href={settings?.snapchat}
         target='_blank'
         rel='noreferrer'
         aria-label='Fixed Link - Snapchat'
@@ -25,7 +25,7 @@ const SocialMedia = () => {
         <i className="fab fa-snapchat-ghost"></i>
       </a>
       <a
-        href={settings.tiktok}
+        href={settings?.tiktok}
         target='_blank'
         rel='noreferrer'
         aria-label='Fixed Link - Tiktok'
@@ -34,7 +34,7 @@ const SocialMedia = () => {
         <i className="fab fa-tiktok"></i>
       </a>
       <a
-        href={settings.twitter}
+        href={settings?.twitter}
         target='_blank'
         rel='noreferrer'
         aria-label='Fixed Link - Twitter'
@@ -43,7 +43,7 @@ const SocialMedia = () => {
         <i className="fab fa-twitter"></i>
       </a>
       <a
-        href={settings.youtube}
+        href={settings?.youtube}
         target='_blank'
         rel='noreferrer'
         aria-label='Fixed Link - Youtube'

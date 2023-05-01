@@ -35,7 +35,7 @@ const SpecialCard = ({ item }) => {
           </Link>
           <a
             className={styles.card__btn}
-            href={`https://api.whatsapp.com/send?phone=${settings.whatsup}&${message}`}
+            href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}&${message}`}
             target='_blank'
             rel='noreferrer'
           >

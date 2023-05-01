@@ -133,7 +133,7 @@ const Menu = (props) => {
       {/* Header Menu Data (Visible only on mobile) */}
       <div className={styles.header__social}>
         <a
-          href={settings.youtube}
+          href={settings?.youtube}
           target='_blank'
           rel='noreferrer'
           className={styles.youtube}
@@ -144,7 +144,7 @@ const Menu = (props) => {
           <FontAwesomeIcon icon={faYoutube} />
         </a>
         <a
-          href={settings.twitter}
+          href={settings?.twitter}
           target='_blank'
           rel='noreferrer'
           className={styles.twitter}
@@ -155,7 +155,7 @@ const Menu = (props) => {
           <FontAwesomeIcon icon={faTwitter} />
         </a>
         <a
-          href={settings.tiktok}
+          href={settings?.tiktok}
           target='_blank'
           rel='noreferrer'
           className={styles.tiktok}
@@ -166,7 +166,7 @@ const Menu = (props) => {
           <FontAwesomeIcon icon={faTiktok} />
         </a>
         <a
-          href={settings.snapchat}
+          href={settings?.snapchat}
           target='_blank'
           rel='noreferrer'
           className={styles.snapchat}
@@ -177,7 +177,7 @@ const Menu = (props) => {
           <FontAwesomeIcon icon={faSnapchat} />
         </a>
         <a
-          href={settings.instagram}
+          href={settings?.instagram}
           target='_blank'
           rel='noreferrer'
           className={styles.instagram}
@@ -189,7 +189,7 @@ const Menu = (props) => {
         </a>
       </div>
       {/* Header Menu Footer (Visible only on mobile) */}
-      <span className={styles.header__footer}>{settings.copy_rights}</span>
+      <span className={styles.header__footer}>{settings?.copy_rights}</span>
       <span
         id='menuClose'
         className={styles.header__close}
@@ -205,7 +205,7 @@ const Menu = (props) => {
             : styles.logo__container__menu__hide
         }
       >
-        {settings.logo && (
+        {settings?.logo && (
           <Image
             src={"/images/logo.webp"}
             alt='logo'

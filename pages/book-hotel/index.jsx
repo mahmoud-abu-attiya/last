@@ -90,7 +90,7 @@ const BookHotel = ({ hotels, slide }) => {
         />
         <meta property="og:title" content="حجز فندق" />
         <meta property="og:url" content="https://last-delta.vercel.app/book-hotel" />
-        <meta name="keywords" content={settings.keywords} />
+        <meta name="keywords" content={settings?.keywords} />
         <meta
           property="og:description"
           content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."

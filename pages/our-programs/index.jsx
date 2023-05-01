@@ -76,19 +76,19 @@ const OurPrograms = ({ countries, slides }) => {
         />
         <meta
           name="description"
-          content={settings.meta_description}
+          content={settings?.meta_description}
         />
         <meta property="og:title" content="البرامج السياحية" />
         <meta property="og:url" content="https://last-delta.vercel.app/our-programs" />
-        <meta name="keywords" content={settings.keywords} />
+        <meta name="keywords" content={settings?.keywords} />
         <meta
           property="og:description"
-          content={settings.meta_description}
+          content={settings?.meta_description}
         />
         <meta name="twitter:title" content="البرامج السياحية" />
         <meta
           name="twitter:description"
-          content={settings.meta_description}
+          content={settings?.meta_description}
         />
       </Head>
       {/* <FullPageSlider

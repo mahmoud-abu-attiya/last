@@ -62,7 +62,7 @@ export default function Header({ countries }) {
       <nav className={styles.nav}>
         {/* Logo */}
         <Link href='/'>
-          {settings.logo && (
+          {settings?.logo && (
             <Image
               src="/images/logo.webp"
               alt='logo'
@@ -75,10 +75,10 @@ export default function Header({ countries }) {
         </Link>
 
         {/* Header Icons */}
-        {settings.logo && (
+        {settings?.logo && (
           <div className={styles.header__icons}>
             <a
-              href={`tel:${settings.mobile}`}
+              href={`tel:${settings?.mobile}`}
               target='_blank'
               rel='noreferrer'
               className={styles.mobile}
@@ -88,7 +88,7 @@ export default function Header({ countries }) {
               <FontAwesomeIcon icon={faMobile} />
             </a>
             <a
-              href={`tel:${settings.phone}`}
+              href={`tel:${settings?.phone}`}
               target='_blank'
               rel='noreferrer'
               className={styles.phone}
@@ -98,7 +98,7 @@ export default function Header({ countries }) {
               <FontAwesomeIcon icon={faPhoneAlt} />
             </a>
             <a
-              href={`mailto:${settings.email}`}
+              href={`mailto:${settings?.email}`}
               target='_blank'
               rel='noreferrer'
               className={styles.mail}
@@ -108,7 +108,7 @@ export default function Header({ countries }) {
               <FontAwesomeIcon icon={faEnvelope} />
             </a>
             <a
-              href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`}
+              href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`}
               target='_blank'
               rel='noreferrer'
               className={styles.whats}
@@ -121,7 +121,7 @@ export default function Header({ countries }) {
         )}
 
         {/* Menu */}
-        {settings.logo && (
+        {settings?.logo && (
           <Menu
             setIsScrollTop={setIsScrollTop}
             setShowHeader={setShowHeader}
@@ -177,7 +177,7 @@ export default function Header({ countries }) {
                 : styles.logo__container__menu__hide
             }
           >
-            {settings.logo && (
+            {settings?.logo && (
               <Image
                 src="/images/logo.webp"
                 priority={true}
@@ -208,7 +208,7 @@ export default function Header({ countries }) {
         </div>
 
         {/* Header End */}
-        {settings.logo && (
+        {settings?.logo && (
           <div className={styles.header__end}>
             <span
               className={styles.header__search}

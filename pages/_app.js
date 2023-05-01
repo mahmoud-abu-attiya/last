@@ -69,17 +69,34 @@ const bukra = localFont({
 
 
 
+// MyApp.getInitialProps = async (appContext) => {
+//   const { ctx } = appContext
+//   const [programsRes, settingsRes] = await Promise.all([
+//     fetch('https://backend.elnagahtravels.com/public/api/countries'),
+//     fetch('https://backend.elnagahtravels.com/public/api/settings'),
+//   ])
+
+//   const [
+//     { countries = [] },
+//     { settings = {}, countries: footerCountries },
+//   ] = await Promise.all([programsRes.json(), settingsRes.json()])
+
+//   ctx.res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
+
+//   const appProps = await App.getInitialProps(appContext)
+
+//   return {
+//     ...appProps,
+//     countries,
+//     footerCountries,
+//     settings,
+//   }
+// }
 MyApp.getInitialProps = async (appContext) => {
   const { ctx } = appContext
-  const [programsRes, settingsRes] = await Promise.all([
-    fetch('https://backend.elnagahtravels.com/public/api/countries'),
-    fetch('https://backend.elnagahtravels.com/public/api/settings'),
-  ])
+  const programsRes = await fetch('https://backend.elnagahtravels.com/public/api/countries')
 
-  const [
-    { countries = [] },
-    { settings = {}, countries: footerCountries },
-  ] = await Promise.all([programsRes.json(), settingsRes.json()])
+  const { countries = [] } = programsRes.json()
 
   ctx.res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
 
@@ -88,7 +105,5 @@ MyApp.getInitialProps = async (appContext) => {
   return {
     ...appProps,
     countries,
-    footerCountries,
-    settings,
   }
 }
