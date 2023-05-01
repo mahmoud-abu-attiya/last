@@ -59,7 +59,7 @@ export default function Home({ data, programsCountries }) {
    );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
    const [mainRes, programsRes] = await Promise.all([
       fetch("https://backend.elnagahtravels.com/public/api/index").then((res) =>
          res.json()
@@ -71,6 +71,8 @@ export async function getServerSideProps() {
 
    const data = mainRes;
    const programsCountries = programsRes.countries;
+
+   context.res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
 
    return { props: { data, programsCountries } };
 }
