@@ -50,12 +50,12 @@ const SubFooter = ({ settings }) => {
 
 const Footer = ({ countries }) => {
   const settings = useSelector((state) => state.settings.value)
-  const scrollToTop = () => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
+  // const scrollToTop = () => {
+  //   window.scroll({
+  //     top: 0,
+  //     behavior: 'smooth',
+  //   })
+  // }
 
   return (
     <>
@@ -212,14 +212,14 @@ const Footer = ({ countries }) => {
               />
             </Link>
           )}
-          <button
-            onClick={scrollToTop}
+          <a
+            href={"#"}
             title='ارجع الي الاعلي'
             className={styles.scroll__top__btn}
           >
             {/* <i className="fas fa-arrow-up"></i> */}
             <FontAwesomeIcon icon={faArrowUp} className='text-2xl md:text-3xl' />
-          </button>
+          </a>
         </div>
 
         <p className={styles.copyright}>
