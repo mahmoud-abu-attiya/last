@@ -9,7 +9,7 @@ import NewPrograms from "@/components/newPrograms/NewPrograms";
 import Head from "next/head";
 import { useSelector } from "react-redux";
 
-export default function Home({ data, programsCountries }) {
+export default function Home({ data }) {
    const settings = useSelector((state) => state.settings.value);
    const {
       features = [],
@@ -29,10 +29,7 @@ export default function Home({ data, programsCountries }) {
                name="viewport"
                content="width=device-width, initial-scale=1"
             />
-            <meta
-               name="description"
-               content={settings?.meta_description}
-            />
+            <meta name="description" content={settings?.meta_description} />
             <meta property="og:title" content={settings?.meta_title} />
             <meta property="og:url" content="https://last-delta.vercel.app/" />
             <meta name="keywords" content={settings?.keywords} />
@@ -49,7 +46,7 @@ export default function Home({ data, programsCountries }) {
          <Hero slides={slides} />
          <Programs data={latest_discounts} />
          <Success data={features} features_slides={features_slides} />
-         <Tripes data={programsCountries} />
+         <Tripes />
          <About data={about_wsam_elngah} />
          <Special data={special_offers} />
          <div className="spikes"></div>
@@ -60,19 +57,16 @@ export default function Home({ data, programsCountries }) {
 }
 
 export async function getServerSideProps(context) {
-   const [mainRes, programsRes] = await Promise.all([
-      fetch("https://backend.elnagahtravels.com/public/api/index").then((res) =>
-         res.json()
-      ),
-      fetch(
-         "https://backend.elnagahtravels.com/public/api/countries?country_for=programs"
-      ).then((res) => res.json()),
-   ]);
+   const mainRes = await fetch(
+      "https://backend.elnagahtravels.com/public/api/index"
+   ).then((res) => res.json());
 
    const data = mainRes;
-   const programsCountries = programsRes.countries;
 
-   context.res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+   context.res.setHeader(
+      "Cache-Control",
+      "public, max-age=31536000, immutable"
+   );
 
-   return { props: { data, programsCountries } };
+   return { props: { data } };
 }

@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import settingsReducer from './slices/settingsSlices'
-import renderSwiperReducer from './slices/renderSwiper'
+import renderForProgramsReducer from './slices/forPrograms'
 
 export const store = configureStore({
     reducer: {
         settings: settingsReducer,
-        renderSwiper: renderSwiperReducer,
+        forPrograms: renderForProgramsReducer,
     },
 })

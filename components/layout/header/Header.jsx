@@ -12,6 +12,7 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 export default function Header() {
   // const router = useRouter()
   const settings = useSelector((state) => state.settings.value)
+  const forPrograms = useSelector((state) => state.forPrograms.value)
   const [countries, setCounties] = useState()
 
   const [showHeader, setShowHeader] = useState(false) // to hide/show on scroll
@@ -51,14 +52,10 @@ export default function Header() {
     // } else {
     //   setResponse(' لا توجد نتائج')
     // }
-    fetch('https://backend.elnagahtravels.com/public/api/countries?country_for=programs')
-      .then(res => res.json())
-      .then(data => {
-        const result = data.countries.filter(({ name }) => name.startsWith(searchTerm))
+        const result = forPrograms.filter(({ name }) => name.startsWith(searchTerm))
         setCounties(searchTerm ? result : setResponse(' لا توجد نتائج'))
         result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج')
         console.log(result);
-      })
   }
   // useEffect(() => {
   //   console.log(countries);

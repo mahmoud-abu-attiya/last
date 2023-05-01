@@ -1,11 +1,13 @@
 import styles from './index.module.css'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import TripesCard from './tripesCard'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
 
-const Tripes = ({ data: countries }) => {
-  const [value, setValue] = useState(0)
+const Tripes = () => {
+  const countries = useSelector((state) => state.forPrograms.value)
+  const [value, setValue] = useState(2)
   const filteredCountries = useMemo(() => {
     if (value === 0) {
       return countries;
@@ -18,7 +20,7 @@ const Tripes = ({ data: countries }) => {
 
   const slides = filteredCountries.concat(filteredCountries.slice(0, 4))
   slides.unshift(filteredCountries[filteredCountries.length - 1])
-  const step = 100 / slides.length
+  const step = slides.length > 1 ? 100 / slides.length : 0
   // const [step , setStep] = useState(100 / slides.length)
   let [translate, setTranslate] = useState(step)
   let [index, setIndex] = useState(1)
@@ -120,22 +122,14 @@ const Tripes = ({ data: countries }) => {
     setValue(i);
     setTranslate(0);
     setIndex(1);
-    // if (window.innerWidth > 1024) {
-    //   setTranslate(0);
-    // } else {
-    //   if (value === 0) {
-    //     setTranslate(2.857142857142857);
-    //   } else if (value === 1) {
-    //     setTranslate(3.7037037037037037);
-    //   } else {
-    //     setTranslate(7.6923076923076925);
-    //   }
+    // if (window.innerWidth < 1024) {
+    //   next();
     // }
   }
 
-  // useEffect(() => {
-  //   console.log(step)
-  // }, [slides.length, step])
+  useEffect(() => {
+    console.log(slides);
+  }, [slides])
 
   const tripesTabs = ['جميع الوجهات', 'الوجهات الخارجية', 'الوجهات الداخلية']
   return (
@@ -199,13 +193,13 @@ const Tripes = ({ data: countries }) => {
         <div className='w-full overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
           <div className={`swiper-wrapper transition duration-500 ${animate && "opacity-0 -translate-x-96"}`}>
             <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
-              {slides.map((slide, index) => {
+              {slides.length > 1 ? slides.map((slide, index) => {
                 return (
                   <TripesCard
                     item={slide} key={index}
                   />
                 )
-              })}
+              }) : "loading..."}
             </div>
           </div>
         </div>
