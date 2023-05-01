@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
   images: {
     unoptimized: false,
     domains: ['elnagahtravels.com', 'backend.elnagahtravels.com', 'images.unsplash.com'],
