@@ -7,7 +7,7 @@ import Image from 'next/image'
 const Special = ({ data }) => {
   const slides = data.concat(data.slice(0, 4))
   slides.unshift(data[data.length - 1])
-  const step = slides.length > 1 ? 100 / slides.length : 0
+  const step = 100 / slides.length
   let [translate, setTranslate] = useState(step)
   let [index, setIndex] = useState(1)
   const [transition, setTransition] = useState(true)
@@ -109,13 +109,13 @@ const Special = ({ data }) => {
       <div className='w-full md:container special overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
         <div className='swiper-wrapper'>
           <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
-            {slides.length > 1 ? slides.map((slide, index) => {
+            {slides.map((slide, index) => {
               return (
                 <SpecialCard
                   key={index} item={slide}
                 />
               )
-            }) : "loading..."}
+            })}
           </div>
         </div>
       </div>
