@@ -3,7 +3,7 @@ import Favicon from "@/components/favicon";
 
 export default function Document() {
    return (
-      <Html lang="ar_AR">
+      <Html lang="ar">
          <Head>
             <meta charSet="utf-8" />
             <meta property="og:type" content="website" />
