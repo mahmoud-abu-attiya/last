@@ -57,7 +57,7 @@ const Famose = ({ img, title }) => {
                               alt={"any"}
                               className='w-full group-hover:scale-110 transition duration-1000 object-cover rounded-lg' />
                            <div className='relative text-white w-full mt-auto bg-gradient-to-t from-black/75 to-transparent flex flex-col items-start md:items-center justify-end p-4 text-center'>
-                              <h2 className='text-xl'> تمثال أم الجورجيين</h2>
+                              <h3 className='text-xl'> تمثال أم الجورجيين</h3>
                               <p className="sup text-xs">تمثال أم الجورجيين هو عبارة عن تمثال من الألومنيوم طوله 20 متراً على هيئة امرأة في الزي الوطني الجورجي والذي أصبح رمزاً للمدينة.</p>
                            </div>
                         </div>
@@ -184,7 +184,7 @@ export default function Daleel() {
             </div>
             <p className={`my-4 md:my-6 max-w-3xl text-justify ${noto.className}`}>تعد جزر المالديف الوجهة السياحية الأنسب لعشاق البحر والشمس، فهي جزيرة ساحرة تضم العديد من الشواطئ الخلابة ذات المياه الكريستالية. استمتع بالرياضات المائية في المياه الصافية، وشاهد الشعاب المرجانية، تناول ألذ المأكولات البحرية، واستمتع بالرفاهية في أروع منتجعات الجزيرة التي تضمن لك تجربة ولا أروع. سواء كنت ترغب في الاسترخاء على الشاطئ ومشاهدة غروب الشمس، أو تخطّط للاستمتاع بتجربة فريدة في أفضل المنتجعات العالمية فإن جزر المالديف بطابعها الخاص تمنحك الأجواء المناسبة لتمضي أروع الأوقات.</p>
             <div className="my-4 md:my-6">
-               <h4 className=''>مستجدات السفر</h4>
+               <h2 className=''>مستجدات السفر</h2>
                <p className={`my-4 max-w-3xl ${noto.className}`}>تعرّف على آخر مستجدات السفر، إجراءات السلامة وقيود الدخول إلى جزر المالديف. <Link className='text-blue-500 hover:underline' href={"#"}>عرض التفاصيل</Link></p>
                <mark className={`my-4 max-w-3xl text-ellipsis ${noto.className}`}> <strong>ملاحظة:</strong> <em>قد تكون بعض المعالم المذكورة مغلقة حالياً نظراً للقيود المفروضة على الحركة</em></mark>
             </div>
