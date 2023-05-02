@@ -1,7 +1,7 @@
 import styles from './Header.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Menu from './menu'
 import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -22,22 +22,22 @@ export default function Header() {
   const [response, setResponse] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
 
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  // const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-  const handleScroll = () => {
-    const currentScrollPos = window.scrollY;
-    if (currentScrollPos > prevScrollPos) {
-      setIsScrollTop(true);
-    } else {
-      setIsScrollTop(false);
-    }
-    setPrevScrollPos(currentScrollPos);
-  };
+  // const handleScroll = () => {
+  //   const currentScrollPos = window.scrollY;
+  //   if (currentScrollPos > prevScrollPos) {
+  //     setIsScrollTop(true);
+  //   } else {
+  //     setIsScrollTop(false);
+  //   }
+  //   setPrevScrollPos(currentScrollPos);
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // });
 
   const onSearch = (event, searchTerm) => {
     event.preventDefault()
