@@ -52,7 +52,7 @@ const Responsive = ({ data }) => {
               <Image src={popup.img} alt={popup.name} className='object-cover' fill />
             </div>
             <div className="p-4 flex flex-col gap-4">
-              <h5 className='text-xl'>{popup.name}</h5>
+              <div className='text-xl'>{popup.name}</div>
               <p className='normel'>{popup.desc}</p>
               <button onClick={() => setPopup(null)} className="text-red-500">اغلاق</button>
             </div>
@@ -82,11 +82,11 @@ const Accordion = ({ title, text, index }) => {
         {isActive && <div className="w-full h-full rounded-full bg-primary"></div>}
       </div>
       <div className={`border-r-4 border-primary pr-4 transition-all duration-500 delay-0 ${isActive ? "max-h-[500px]" : "max-h-[55px]"} overflow-hidden`}>
-      <h5 className='text-primary flex my-4 justify-between items-center' onClick={() => setIsActive(!isActive)}>
+      <div className='text-primary flex my-4 justify-between items-center' onClick={() => setIsActive(!isActive)}>
         {title} 
         {/* <i className={`far fa-angle-up text-xl text-primary transition ${isActive ? "rotate-180" : "rotate-0"}`}></i> */}
         <FontAwesomeIcon icon={faAngleUp} className={`text-xl text-primary transition ${isActive ? "rotate-180" : "rotate-0"}`} />
-        </h5>
+        </div>
       <p className={`text-xs md:text-sm mb-4`}>{text}</p>
     </div>
     </div>
@@ -285,9 +285,9 @@ const Details = (props) => {
                 {program.includes?.map((item, i) => (
                   <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
                     <div className="col-span-2 md:col-span-1 max-h-[55px]">
-                      <h6 className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
+                      <div className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
                         
-                      </h6>
+                      </div>
                     </div>
                     <div className="col-span-7 md:col-span-6">
                       <Accordion title={"الرحلة تشمل:"} text={item} index={i} />
