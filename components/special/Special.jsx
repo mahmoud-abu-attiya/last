@@ -3,6 +3,7 @@ import SpecialCard from './specialCard'
 import Link from 'next/link'
 import { useState } from 'react'
 import Image from 'next/image'
+import { useEffect } from 'react'
 
 const Special = ({ data }) => {
   const slides = data.concat(data.slice(0, 4))
@@ -13,6 +14,7 @@ const Special = ({ data }) => {
   const [transition, setTransition] = useState(true)
   const [canClick, setCanClick] = useState(true)
   const [position, setPosition] = useState(null)
+  const [render, setRender] = useState(false)
 
   const next = () => {
     if (!canClick) return
@@ -99,41 +101,50 @@ const Special = ({ data }) => {
     setPosition(null)
   }
 
-  return (
-    <div className="lg:container py-20 relative mb-20 md:mb-0">
-      <h3
-        className={`mb-10 ${styles.news__title}`}
-      >
-        العروض المميزة
-      </h3>
-      <div className='w-full md:container special overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
-        <div className='swiper-wrapper'>
-          <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
-            {slides.map((slide, index) => {
-              return (
-                <SpecialCard
-                  key={index} item={slide}
-                />
-              )
-            })}
+  useEffect(() => {
+    setRender(true)
+  }, [])
+
+  if (render) {    
+    return (
+      <div className="lg:container py-20 relative mb-20 md:mb-0">
+        <h3
+          className={`mb-10 ${styles.news__title}`}
+        >
+          العروض المميزة
+        </h3>
+        <div className='w-full md:container special overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
+          <div className='swiper-wrapper'>
+            <div className={`w-fit flex gap-4 ${transition && "transition duration-500"}`} style={{ transform: `translate(${translate}%)` }}>
+              {slides.map((slide, index) => {
+                return (
+                  <SpecialCard
+                    key={index} item={slide}
+                  />
+                )
+              })}
+            </div>
           </div>
         </div>
+        <Link href='/special-offers' className={styles.view__all}>
+          عرض الكل
+        </Link>
+        <div className='flex gap-20 text-center items-center justify-center mt-20'>
+          <button className="btn p-4 group hover:translate-x-3 duration-500" onClick={prev}>
+            <Image src="/icons/prev-arrow.svg" alt="arrow-left" width={60} height={60} priority={true} />
+            <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">prev</span>
+          </button>
+          <button className="btn p-4 group hover:-translate-x-3 duration-500" onClick={next}>
+            <Image src="/icons/next-arrow.svg" alt="arrow-right" width={60} height={60} priority={true} />
+            <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">next</span>
+          </button>
+        </div>
       </div>
-      <Link href='/special-offers' className={styles.view__all}>
-        عرض الكل
-      </Link>
-      <div className='flex gap-20 text-center items-center justify-center mt-20'>
-        <button className="btn p-4 group hover:translate-x-3 duration-500" onClick={prev}>
-          <Image src="/icons/prev-arrow.svg" alt="arrow-left" width={60} height={60} priority={true} />
-          <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">prev</span>
-        </button>
-        <button className="btn p-4 group hover:-translate-x-3 duration-500" onClick={next}>
-          <Image src="/icons/next-arrow.svg" alt="arrow-right" width={60} height={60} priority={true} />
-          <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">next</span>
-        </button>
-      </div>
-    </div>
-  )
+    )
+  } else {
+    return <div>loading...</div>
+  }
+
 }
 
 export default Special
