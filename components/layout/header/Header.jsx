@@ -66,7 +66,7 @@ export default function Header() {
         </Link>
 
         {/* Header Icons */}
-        {settings?.logo && (
+        {/* {settings?.logo && (
           <div className={styles.header__icons}>
             <a
               href={`tel:${settings?.mobile}`}
@@ -75,7 +75,6 @@ export default function Header() {
               className={styles.mobile}
               aria-label='Mobile'
             >
-              {/* <i className="fas fa-mobile"></i> */}
               <FontAwesomeIcon icon={faMobile} />
             </a>
             <a
@@ -85,7 +84,6 @@ export default function Header() {
               className={styles.phone}
               aria-label='Phone'
             >
-              {/* <i className="fas fa-phone-rotary"></i> */}
               <FontAwesomeIcon icon={faPhoneAlt} />
             </a>
             <a
@@ -95,7 +93,6 @@ export default function Header() {
               className={styles.mail}
               aria-label='Email'
             >
-              {/* <i className="fas fa-envelope"></i> */}
               <FontAwesomeIcon icon={faEnvelope} />
             </a>
             <a
@@ -105,11 +102,10 @@ export default function Header() {
               className={styles.whats}
               aria-label='Whatsapp'
             >
-              {/* <i className="fab fa-whatsapp"></i> */}
               <FontAwesomeIcon icon={faWhatsapp} />
             </a>
           </div>
-        )}
+        )} */}
 
         {/* Menu */}
         {settings?.logo && (

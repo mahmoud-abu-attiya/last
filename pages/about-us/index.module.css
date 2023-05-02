@@ -60,7 +60,7 @@
   flex-wrap: wrap;
 }
 @media (max-width: 1050px) {
-  .about__us__best h3::before {
+  .about__us__best h2::before {
     top: auto;
     bottom: -3rem;
     left: 50%;
@@ -69,7 +69,7 @@
     height: 2px;
   }
 }
-.about__us__best h3::after {
+.about__us__best h2::after {
   content: '';
   position: absolute;
   bottom: -1rem;
@@ -103,19 +103,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.about__us__best h5 {
-  font-size: 1rem;
-  margin-bottom: 0;
-  padding: 0.8rem;
-  background-color: var(--second-clr);
-  color: white;
-}
-.about__us__best div h6 {
-  border-bottom: 2px solid var(--first-clr);
-  margin-top: 1rem;
-  padding: 0.4rem 0;
-  font-size: 0.85rem;
 }
 @media (max-width: 768px) {
   .hero__bg h1 {

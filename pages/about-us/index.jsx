@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import ScrollDown from '../../components/scrollDown'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
 const AboutUs = ({ about, slides }) => {
   const settings = useSelector(state => state.settings.value)
@@ -46,20 +48,21 @@ const AboutUs = ({ about, slides }) => {
       </Head>
       <div className={`overflow-hidden ${styles.hero__bg}`}>
         {slides[0].image && (
-          <Image src={slides[0].image} alt={slides[0].title} fill unoptimized={true} />
+          <Image src={slides[0].image} alt={slides[0].title} fill className='object-cover' />
         )}
         <h1>{slides[0].title}</h1>
         <ScrollDown />
       </div>
       <div className={styles.about__us}>
         <div className={styles.about__us__best}>
-          <h3 className='main__title'>انجازاتنا تتحدث عنا</h3>
+          <h2 className='main__title'>انجازاتنا تتحدث عنا</h2>
           <div>
-            <h5>وسام النجاح للسفر والسياحة</h5>
-            <h6>وسام النجاح للسفر و السياحة تقف اليوم ـ بكل فخر</h6>
+            <div className='text-xl m-0 p-3 text-white bold bg-secondary'>وسام النجاح للسفر والسياحة</div>
+            <div className='border-b-2 border-primary mt-4 py-2 bold'>وسام النجاح للسفر و السياحة تقف اليوم ـ بكل فخر</div>
             {achievements.map((achievement) => (
               <p key={achievement?.title}>
                 {/* <BsFillCircleFill /> */}
+                <FontAwesomeIcon icon={faCircle} className='text-primary' />
                 <span>{achievement?.title}</span>
                 <br /> - {achievement?.subtitle}
               </p>
@@ -70,7 +73,7 @@ const AboutUs = ({ about, slides }) => {
 
       <div className={styles.about__us__options}>
         <div className={styles.about__us__options__img}>
-          <Image fill src='/images/boat.gif' alt='' />
+          <Image fill src='/images/boat.gif' alt='' className='object-cover' />
         </div>
         <div className={styles.about__us__cards}>
           {steps.map((card) => (
