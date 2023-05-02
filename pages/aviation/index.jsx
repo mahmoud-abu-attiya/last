@@ -5,6 +5,9 @@ import ScrollDown from '../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPhoneAlt, faEnvelope, faMobile, faLocationPin } from '@fortawesome/free-solid-svg-icons'
+import { faWhatsapp, faTiktok, faInstagram, faTwitter, faSnapchat, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 const Aviation = ({ slide }) => {
   const settings = useSelector((state) => state.settings.value)
@@ -182,7 +185,7 @@ const Aviation = ({ slide }) => {
             src={slides[0]?.image}
             alt={slides[0]?.title}
             fill
-            unoptimized={true}
+            loading='eager'
             className='object-cover'
           />
         )}
@@ -249,7 +252,7 @@ const Aviation = ({ slide }) => {
               </small>
             </div>
             <div className={styles.card}>
-              <h5 className={styles.card__title}>تاريخ السفر</h5>
+              <label htmlFor="traveling_date" classname="{styles.card__title}">تاريخ السفر</label>
               <div>
                 <input
                   type='date'
@@ -264,7 +267,7 @@ const Aviation = ({ slide }) => {
               </small>
             </div>
             <div className={styles.card}>
-              <h5 className={styles.card__title}>تاريخ العودة</h5>
+              <label htmlFor='back_date' className={styles.card__title}>تاريخ العودة</label>
               <div>
                 <input
                   type='date'
@@ -453,6 +456,7 @@ const Aviation = ({ slide }) => {
                     {settings?.mobile}
                   </a>
                   {/* <BsPhoneFill /> */}
+                  <FontAwesomeIcon icon={faMobile} />
                 </div>
                 <div className={styles.contact__card}>
                   <a
@@ -464,6 +468,7 @@ const Aviation = ({ slide }) => {
                     {settings?.whatsup}
                   </a>
                   {/* <BsWhatsapp /> */}
+                  <FontAwesomeIcon icon={faWhatsapp} />
                 </div>
                 <div className={styles.contact__card}>
                   <a
@@ -475,6 +480,7 @@ const Aviation = ({ slide }) => {
                     {settings?.phone}
                   </a>
                   {/* <GiRotaryPhone /> */}
+                  <FontAwesomeIcon icon={faPhoneAlt} />
                 </div>
               </div>
               <div className={styles.contact__data__card}>
@@ -489,12 +495,14 @@ const Aviation = ({ slide }) => {
                     {settings?.email}
                   </a>
                   {/* <BsEnvelopeFill /> */}
+                  <FontAwesomeIcon icon={faEnvelope} />
                 </div>
               </div>
               <div className={styles.contact__data__card}>
                 <h3 className={styles.contact__title}>العنوان</h3>
                 <div className={styles.address}>
                   {/* <MdLocationOn /> */}
+                  <FontAwesomeIcon icon={faLocationPin} style={{ height: "1rem" }} />
                   <span>{settings?.address}</span>
                 </div>
               </div>
@@ -505,40 +513,50 @@ const Aviation = ({ slide }) => {
                 target='_blank'
                 rel='noreferrer'
                 className={styles.instagram}
+                
               >
                 {/* <BsInstagram /> */}
+                <FontAwesomeIcon icon={faInstagram} />
               </a>
               <a
                 href={settings?.twitter}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.twitter}
+                
               >
                 {/* <BsTwitter /> */}
+                <FontAwesomeIcon icon={faTwitter} />
               </a>
               <a
                 href={settings?.tiktok}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.tiktok}
+                
               >
                 {/* <FaTiktok /> */}
+                <FontAwesomeIcon icon={faTiktok} />
               </a>
               <a
                 href={settings?.snapchat}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.snapchat}
+                
               >
                 {/* <BsSnapchat /> */}
+                <FontAwesomeIcon icon={faSnapchat} />
               </a>
               <a
                 href={settings?.youtube}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.youtube}
+                
               >
                 {/* <BsYoutube /> */}
+                <FontAwesomeIcon icon={faYoutube} />
               </a>
             </div>
           </div>
