@@ -24,7 +24,7 @@ const Hotels = ({ hotels, settings }) => {
 			<div className={styles.hotels__container}>
 				<div className={styles.hotels__heading}>
 					<h2 className={styles.hotels__title}> أشهر فنادق</h2>
-					<ul className={styles.hotels__tabs}>
+					<div className={styles.hotels__tabs}>
 						{hotelsTabs?.map((tab, i) => (
 							<button
 								key={i}
@@ -35,7 +35,7 @@ const Hotels = ({ hotels, settings }) => {
 								{tab}
 							</button>
 						))}
-					</ul>
+					</div>
 				</div>
 				<div className={styles.hotels__content}>
 					<div className={styles.hotels__list}>
@@ -56,7 +56,7 @@ const Hotels = ({ hotels, settings }) => {
 									<Image
 										width={60}
 										height={60}
-										className={styles.hotels__list__img}
+										className={`object-cover ${styles.hotels__list__img}`}
 										src={country?.image}
 										alt={country?.name}
 									/>

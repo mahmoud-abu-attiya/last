@@ -220,7 +220,7 @@ const Aviation = ({ slide }) => {
           </div>
           <div className={styles.search__dist}>
             <div className={styles.card}>
-              <h5 className={styles.card__title}>من</h5>
+              <label htmlFor='travel_from' className={styles.card__title}>من</label>
               <div>
                 {/* <MdLocationOn /> */}
                 <input
@@ -236,7 +236,7 @@ const Aviation = ({ slide }) => {
               </small>
             </div>
             <div className={styles.card}>
-              <h5 className={styles.card__title}>الي</h5>
+              <label htmlFor='travel_to' className={styles.card__title}>الي</label>
               <div>
                 {/* <MdLocationOn /> */}
                 <input
@@ -282,12 +282,13 @@ const Aviation = ({ slide }) => {
               </small>
             </div>
             <div className={styles.card} style={{ border: 'none' }}>
-              <h5 className={styles.card__title}>عدد المسافرين</h5>
+              <label htmlFor='travellers_number' className={styles.card__title}>عدد المسافرين</label>
               <div>
                 {/* <BsFillPeopleFill /> */}
                 <input
                   type='number'
                   name='travellers_number'
+                  id='travellers_number'
                   placeholder='عدد المسافرين'
                   className={styles.card__input}
                 />
@@ -448,6 +449,7 @@ const Aviation = ({ slide }) => {
                 <h3 className={styles.contact__title}>الجوال</h3>
                 <div className={styles.contact__card}>
                   <a
+                    aria-label={settings?.mobile}
                     href={`tel:${settings?.mobile}`}
                     target='_blank'
                     rel='noreferrer'
@@ -460,6 +462,7 @@ const Aviation = ({ slide }) => {
                 </div>
                 <div className={styles.contact__card}>
                   <a
+                    aria-label={settings?.whatsup}
                     href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`}
                     target='_blank'
                     rel='noreferrer'
@@ -472,6 +475,7 @@ const Aviation = ({ slide }) => {
                 </div>
                 <div className={styles.contact__card}>
                   <a
+                    aria-label={settings?.phone}
                     href={`tel:${settings?.phone}`}
                     target='_blank'
                     rel='noreferrer'
@@ -487,6 +491,7 @@ const Aviation = ({ slide }) => {
                 <h3 className={styles.contact__title}>البريد الالكتروني</h3>
                 <div className={styles.contact__card}>
                   <a
+                    aria-label={settings?.email}
                     href={`mailto:${settings?.email}`}
                     target='_blank'
                     rel='noreferrer'
@@ -509,6 +514,7 @@ const Aviation = ({ slide }) => {
             </div>
             <div className={styles.social__icons}>
               <a
+                aria-label={"instagram"}
                 href={settings?.instagram}
                 target='_blank'
                 rel='noreferrer'
@@ -519,6 +525,7 @@ const Aviation = ({ slide }) => {
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
               <a
+                aria-label="Twitter"
                 href={settings?.twitter}
                 target='_blank'
                 rel='noreferrer'
@@ -529,6 +536,7 @@ const Aviation = ({ slide }) => {
                 <FontAwesomeIcon icon={faTwitter} />
               </a>
               <a
+                aria-label="tiktok"
                 href={settings?.tiktok}
                 target='_blank'
                 rel='noreferrer'
@@ -539,6 +547,7 @@ const Aviation = ({ slide }) => {
                 <FontAwesomeIcon icon={faTiktok} />
               </a>
               <a
+                aria-label="snapchat"
                 href={settings?.snapchat}
                 target='_blank'
                 rel='noreferrer'
@@ -549,6 +558,7 @@ const Aviation = ({ slide }) => {
                 <FontAwesomeIcon icon={faSnapchat} />
               </a>
               <a
+                aria-label="youtube"
                 href={settings?.youtube}
                 target='_blank'
                 rel='noreferrer'
