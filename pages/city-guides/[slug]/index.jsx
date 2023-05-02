@@ -111,7 +111,7 @@ const FamilyActivity = ({ title, img }) => {
                         </div>
                         <div className="flex justify-between items-center px-4 py-8">
                            <div className="">
-                              <h5>جينو بارادايس</h5>
+                              <h3>جينو بارادايس</h3>
                               <p className='text-xs text-gray-500'>يحتوي مركز جينو بارادايس على ملاهي مائية رائع...</p>
                            </div>
                            {/* <i className="far fa-chevron-left text-xs"></i> */}
@@ -250,7 +250,7 @@ export default function Daleel() {
             <Famose title="أروع وجهات التسوق" img="https://backend.elnagahtravels.com/storage/countries/YurnHNmE6GpQeKn1I5zyv1JwilVeNWhkio4ymvJ7.jpg" />
             <FamilyActivity title="أروع المطاعم وأشهى المأكولات" img="https://backend.elnagahtravels.com/storage/countries/QumVlZgE6YAF5HtxJ0GQzrSNAjZgqliWBlFZ5Z9r.png" />
             <div className="text-center my-8 md:my-16 w-fit mx-auto">
-               <h6 className='text-xl md:text-2xl mb-4'>هل تبحث عن رحلات إلى تبليسي؟</h6>
+               <div className='text-xl md:text-2xl mb-4'>هل تبحث عن رحلات إلى تبليسي؟</div>
                <Link href={"/our-programs"} className='p-4 bg-[#ef4050] text-white w-full block rounded-full'>بحث عن رحلات</Link>
             </div>
          </div>
