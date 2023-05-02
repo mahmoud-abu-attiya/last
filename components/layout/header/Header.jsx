@@ -41,24 +41,10 @@ export default function Header() {
 
   const onSearch = (event, searchTerm) => {
     event.preventDefault()
-    // setSearchTerm(searchTerm)
-    // if (
-    //   countries.find(({ name }) => name === searchTerm).name !== undefined
-    // ) {
-    //   router.push(`/our-programs/${searchTerm}`)
-    //   setSearchTerm('')
-    //   setResponse('')
-    //   setIsSearch(false)
-    // } else {
-    //   setResponse(' لا توجد نتائج')
-    // }
-        const result = forPrograms.filter(({ name }) => name.startsWith(searchTerm))
-        setCounties(searchTerm ? result : setResponse(' لا توجد نتائج'))
-        result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج')
+    const result = forPrograms.filter(({ name }) => name.startsWith(searchTerm))
+    setCounties(searchTerm ? result : setResponse(' لا توجد نتائج'))
+    result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج')
   }
-  // useEffect(() => {
-  //   console.log(countries);
-  // }, [countries])
   return (
     <header
       className={`${styles.header} ${showHeader ? styles.active : ''} ${isScrollTop ? styles.hide : ''
@@ -196,16 +182,16 @@ export default function Header() {
           </div>
           <div className={`max-h-full overflow-y-auto ${styles.dropdown}`}>
             {countries?.map(({ name, id }) => (
-                <Link
-                  className={styles.dropdown__row}
-                  key={id}
-                  onClick={() => {setSearchTerm(name); setIsSearch(false);}}
-                  href={`/our-programs/${id}`}
-                >
-                  {name}
-                </Link>
-              ))}
-              {response && <h2 style={{ color: 'black', zIndex: 4 }}>{response}</h2>}
+              <Link
+                className={styles.dropdown__row}
+                key={id}
+                onClick={() => { setSearchTerm(name); setIsSearch(false); }}
+                href={`/our-programs/${id}`}
+              >
+                {name}
+              </Link>
+            ))}
+            {response && <h2 style={{ color: 'black', zIndex: 4 }}>{response}</h2>}
           </div>
         </div>
 
