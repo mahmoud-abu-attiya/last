@@ -107,7 +107,8 @@ const ContactUs = ({ slide }) => {
             src={slide[0].image}
             alt={slide[0].button_text}
             fill
-            unoptimized={true}
+            className='object-cover'
+            loading='eager'
           />
         )}
         <h1>{slide[0].title}</h1>
@@ -188,6 +189,7 @@ const ContactUs = ({ slide }) => {
                   <div className={styles.phone}>
                     <div>
                       <a
+                        aria-label='mobile'
                         href={`tel:${settings?.mobile}`}
                         target='_blank'
                         rel='noreferrer'
@@ -199,6 +201,7 @@ const ContactUs = ({ slide }) => {
                     </div>
                     <div>
                       <a
+                        aria-label='whatsup'
                         href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`}
                         target='_blank'
                         rel='noreferrer'
@@ -210,6 +213,7 @@ const ContactUs = ({ slide }) => {
                     </div>
                     <div>
                       <a
+                        aria-label='phone'
                         href={`tel:${settings?.phone}`}
                         target='_blank'
                         rel='noreferrer'
@@ -225,6 +229,7 @@ const ContactUs = ({ slide }) => {
                   <h3 className='my-4'>البريد الالكتروني</h3>
                   <div>
                     <a
+                      aria-label='email'
                       href={`mailto:${settings?.email}`}
                       target='_blank'
                       rel='noreferrer'
@@ -246,6 +251,7 @@ const ContactUs = ({ slide }) => {
               </div>
               <div className={styles.social__icons}>
                 <a
+                  aria-label='instagram'
                   href={settings?.instagram}
                   target='_blank'
                   rel='noreferrer'
@@ -255,6 +261,7 @@ const ContactUs = ({ slide }) => {
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
                 <a
+                  aria-label='twitter'
                   href={settings?.twitter}
                   target='_blank'
                   rel='noreferrer'
@@ -264,6 +271,7 @@ const ContactUs = ({ slide }) => {
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
                 <a
+                  aria-label='tiktok'
                   href={settings?.tiktok}
                   target='_blank'
                   rel='noreferrer'
@@ -273,6 +281,7 @@ const ContactUs = ({ slide }) => {
                   <FontAwesomeIcon icon={faTiktok} />
                 </a>
                 <a
+                  aria-label='snapchat'
                   href={settings?.snapchat}
                   target='_blank'
                   rel='noreferrer'
@@ -282,6 +291,7 @@ const ContactUs = ({ slide }) => {
                   <FontAwesomeIcon icon={faSnapchat} />
                 </a>
                 <a
+                  aria-label='youtube'
                   href={settings?.youtube}
                   target='_blank'
                   rel='noreferrer'
