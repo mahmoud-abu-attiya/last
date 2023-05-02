@@ -126,7 +126,7 @@ const Footer = ({ countries }) => {
           >
             <h3 className={styles.title}>موقعنا</h3>
             {settings?.address}
-            {settings?.latitude && settings.longitude && (
+            {/* {settings?.latitude && settings.longitude && (
               <iframe
                 src={`https://maps.google.com/maps?q=${settings?.latitude},${settings?.longitude}&zoom=15&hl=es;&output=embed&lazy=1&iframe=1`}
                 width='260px'
@@ -137,7 +137,7 @@ const Footer = ({ countries }) => {
                 title='footer map saudi arabia'
                 referrerPolicy='no-referrer-when-downgrade'
               ></iframe>
-            )}
+            )} */}
           </div>
           <div
             className={styles.social}
