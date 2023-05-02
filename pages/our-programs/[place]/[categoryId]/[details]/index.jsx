@@ -266,9 +266,9 @@ const Details = (props) => {
                 {program.program_days?.map((day, i) => (
                   <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
                     <div className="col-span-2 md:col-span-1 max-h-[55px]">
-                      <h6 className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
+                      <div className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
                         {day?.name}
-                      </h6>
+                      </div>
                     </div>
                     <div className="col-span-7 md:col-span-6">
                       <Accordion title="الوصول إلى بانكوك" text={day.content} index={i} />

@@ -8,12 +8,6 @@
   align-items: center;
   flex-direction: column;
 }
-@media (max-width: 768px) {
-  .details__bg {
-    height: 50vh;
-  }
-  
-}
 .details__bg img {
   object-fit: cover;
   object-position: center;
@@ -136,6 +130,7 @@
   }
   .details__bg {
     height: 50vh;
+    max-height: 500px;
   }
   .details__form {
     border-radius: 20px;
@@ -347,9 +342,4 @@
   padding: 1rem;
   border: 2px solid var(--first-clr);
   border-radius: 0 0 20px 20px;
-}
-.new__price {
-  font-size: 1.4rem;
-  color: var(--second-clr);
-  font-weight: bolder;
 }
