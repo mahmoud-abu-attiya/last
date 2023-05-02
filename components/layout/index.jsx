@@ -1,4 +1,4 @@
-import Header from './header/Header'
+// import Header from './header/Header'
 import Footer from './footer/Footer'
 import { useDispatch } from 'react-redux'
 import { setSettingsData } from '../../slices/settingsSlices'
@@ -27,7 +27,7 @@ export default function Layout({ children }) {
    }, [])
    return (
       <>
-         <Header />
+         {/* <Header /> */}
          {children}
          <Footer countries={footerCountries} />
       </>
