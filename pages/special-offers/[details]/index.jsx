@@ -251,7 +251,7 @@ const Details = () => {
         />
       </Head>
       <div className={styles.details__bg}>
-        <Image src={offerDetails?.image} alt={offerDetails?.title} fill />
+        <Image src={offerDetails?.image} alt={offerDetails?.title} fill loading="eager" />
         <div className={styles.content}>
           <h1>
             {offerDetails?.title}
