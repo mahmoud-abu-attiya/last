@@ -230,15 +230,15 @@ export default function Daleel() {
                      <div className="flip-card-front w-full text-center city_flip_front rounded-xl overflow-hidden flex flex-col items-center p-4 justify-between">
                         <div></div>
                         <Image src={"https://cms-cdn.almosafer.com/drupal_cms/alm/files/public/cityguides-import/best_time_visit_icon.svg"} alt="any" width={60} height={60} />
-                        <h4 className="font-light mb-4">
+                        <div className="font-light mb-4">
                            أفضل الأوقات للزيارة
-                        </h4>
+                        </div>
                      </div>
                      <div className={`flip-card-back text-center city_flip_back rounded-xl overflow-hidden bg-white text-secondary p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 items-center`}>
                         <Image src={"https://cms-cdn.almosafer.com/drupal_cms/alm/files/public/cityguides-import/best_time_visit_icon.svg"} alt="any" width={40} height={40} />
-                        <h4 className={"text-primary"}>
+                        <div className={"text-primary"}>
                            أفضل الأوقات للزيارة
-                        </h4>
+                        </div>
                         <p className='text-sm'>الصيف حار معتدل والشتاء بارد إلى حدٍ ما، مما يجعلها وجهة مناسبة للرحلات الاستكشافية الخارجية.</p>
                      </div>
                   </div>
