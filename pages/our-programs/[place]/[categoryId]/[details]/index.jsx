@@ -255,7 +255,7 @@ const Details = (props) => {
               <Breadcrumbs list={[{title: 'البرامج السياحية', href: "/our-programs"}, {title: program.country.name, href: `/our-programs/${program.country.id}`}, {title: program.category.name, href: null}]} />
             </div>
             <p className={`text-justify ${noto.className}`}>لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.</p>
-            <h4 id='slider' className={styles.details__details}>وجهات يمكنك زيارتها</h4>
+            <h2 id='slider' className={styles.details__details}>وجهات يمكنك زيارتها</h2>
             <Responsive data={slides} />
             <div className="border flex flex-col gap-4 rounded-b-lg">
             <div className={styles.details__details}>
@@ -304,9 +304,9 @@ const Details = (props) => {
                 {program.exculdes?.map((item, i) => (
                   <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
                     <div className="col-span-2 md:col-span-1 max-h-[55px]">
-                      <h6 className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
+                      <div className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
                         
-                      </h6>
+                      </div>
                     </div>
                     <div className="col-span-7 md:col-span-6">
                       <Accordion title={"الرحلة لا تشمل:"} text={item} index={i} />
