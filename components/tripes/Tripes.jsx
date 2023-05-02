@@ -127,10 +127,6 @@ const Tripes = () => {
     // }
   }
 
-  useEffect(() => {
-    console.log(slides);
-  }, [slides])
-
   const tripesTabs = ['جميع الوجهات', 'الوجهات الخارجية', 'الوجهات الداخلية']
   return (
     <div className={`grid grid-cols-12 ${styles.tripes}`}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import FlipCard from './FlipCard'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -97,9 +97,6 @@ export default function Programs({ data }) {
 
     setPosition(null)
   }
-  useEffect(() => {
-    console.log(slides);
-  }, [])
 
   return (
     <section className='grid grid-cols-12 py-16 md:py-20 programs'>

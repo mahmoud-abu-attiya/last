@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from 'next/image'
 import Breadcrumbs from '../../../../components/Breadcrumbs'
 import localFont from 'next/font/local'

@@ -55,7 +55,6 @@ export default function Header() {
         const result = forPrograms.filter(({ name }) => name.startsWith(searchTerm))
         setCounties(searchTerm ? result : setResponse(' لا توجد نتائج'))
         result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج')
-        console.log(result);
   }
   // useEffect(() => {
   //   console.log(countries);

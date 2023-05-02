@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
 import BtnArrow from "./BtnArrow";
 import Image from "next/image";
 import styles from './index.module.css'

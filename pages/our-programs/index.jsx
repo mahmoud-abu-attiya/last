@@ -63,9 +63,6 @@ const Hero = ({ data }) => {
 
 const OurPrograms = ({ countries, slides }) => {
   const settings = useSelector(state => state.settings.value);
-  useEffect(() => {
-    console.log(countries);
-  }, [])
   return (
     <>
       <Head>

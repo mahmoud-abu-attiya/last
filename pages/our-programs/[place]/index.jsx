@@ -26,7 +26,6 @@ const Place = (props) => {
     return `شكرا لك علي تواصلك مع وكالة وسام النجاح للسفر والسياحة - الوجهة: ${program.title}, عدد الايام: ${program.days}, عدد الليالي: ${program.nights}, السعر بعد الخصم: ${program.price_after_discount}`
   }
   useEffect(() => {
-    console.log(categories)
     fetch(`https://backend.elnagahtravels.com/public/api/programs?country_id=${place}&category_id=${id}`)
       .then(res => res.json()).then(res => {
         setAnim(true)

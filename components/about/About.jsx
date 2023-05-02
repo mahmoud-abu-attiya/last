@@ -1,5 +1,5 @@
 import styles from './index.module.css'
-import React, { memo, useState } from 'react'
+import { memo, useState } from 'react'
 import Image from 'next/image'
 import BtnArrow from '../BtnArrow'
 

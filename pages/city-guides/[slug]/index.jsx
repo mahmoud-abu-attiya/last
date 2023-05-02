@@ -1,6 +1,5 @@
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Image from 'next/image'
-import React from 'react'
 import localFont from 'next/font/local'
 import Link from 'next/link'
 import "slick-carousel/slick/slick.css";
