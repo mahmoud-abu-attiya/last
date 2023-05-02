@@ -228,9 +228,7 @@ const Details = (props) => {
       </Head>
       <div className='bg-gray-50'>
         <div className={styles.details__bg}>
-          <div className='w-full h-full absolute'>
-          <Image src={program?.image} alt={program.title} fill unoptimized={true} />
-          </div>
+          <Image src={program?.image} alt={program.title} fill />
           <div className={styles.content}>
             <h1>
               {program.category?.name} - {program.country?.name}
