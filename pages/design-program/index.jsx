@@ -141,8 +141,8 @@ const DesignProgram = ({ data, slide }) => {
             <div className={styles.card}>
               <div className={styles.card__container}>
                 <div className={styles.card__content}>
-                  <h3>{data?.subtitle}</h3>
-                  <h4>
+                  <h2>{data?.subtitle}</h2>
+                  <div className='flex items-center'>
                     {data?.content}
                     {data?.icon && (
                       <Image
@@ -152,9 +152,10 @@ const DesignProgram = ({ data, slide }) => {
                         alt='social media icon'
                       />
                     )}
-                  </h4>
+                  </div>
                   {data?.image && (
                     <a
+                      aria-label='twitter'
                       href={data.social_link}
                       className={styles.card__content__img}
                     >
@@ -163,7 +164,8 @@ const DesignProgram = ({ data, slide }) => {
                   )}
                   <p>
                     تابعو حسابنا في تويتر شركة وسام النجاح{' '}
-                    <a href={data?.social_link}>{data?.social_text}</a>{' '}
+                    <a
+                      aria-label='twitter' href={data?.social_link}>{data?.social_text}</a>{' '}
                   </p>
                 </div>
               </div>
@@ -331,6 +333,7 @@ const DesignProgram = ({ data, slide }) => {
                   <div className={styles.phone}>
                     <div>
                       <a
+                        aria-label='twitter'
                         href={`tel:${settings?.mobile}`}
                         target='_blank'
                         rel='noreferrer'
@@ -342,6 +345,7 @@ const DesignProgram = ({ data, slide }) => {
                     </div>
                     <div>
                       <a
+                        aria-label='twitter'
                         href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`}
                         target='_blank'
                         rel='noreferrer'
@@ -353,6 +357,7 @@ const DesignProgram = ({ data, slide }) => {
                     </div>
                     <div>
                       <a
+                        aria-label='phone'
                         href={`tel:${settings?.phone}`}
                         target='_blank'
                         rel='noreferrer'
@@ -368,6 +373,7 @@ const DesignProgram = ({ data, slide }) => {
                   <h3 className='my-4'>البريد الالكتروني</h3>
                   <div>
                     <a
+                      aria-label='email'
                       href={`mailto:${settings?.email}`}
                       target='_blank'
                       rel='noreferrer'
@@ -389,6 +395,7 @@ const DesignProgram = ({ data, slide }) => {
               </div>
               <div className={styles.social__icons}>
                 <a
+                  aria-label='instagram'
                   href={settings?.instagram}
                   target='_blank'
                   rel='noreferrer'
@@ -398,6 +405,7 @@ const DesignProgram = ({ data, slide }) => {
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
                 <a
+                  aria-label='twitter'
                   href={settings?.twitter}
                   target='_blank'
                   rel='noreferrer'
@@ -407,6 +415,7 @@ const DesignProgram = ({ data, slide }) => {
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
                 <a
+                  aria-label='tiktok'
                   href={settings?.tiktok}
                   target='_blank'
                   rel='noreferrer'
@@ -416,6 +425,7 @@ const DesignProgram = ({ data, slide }) => {
                   <FontAwesomeIcon icon={faTiktok} />
                 </a>
                 <a
+                  aria-label='snapchat'
                   href={settings?.snapchat}
                   target='_blank'
                   rel='noreferrer'
@@ -425,6 +435,7 @@ const DesignProgram = ({ data, slide }) => {
                   <FontAwesomeIcon icon={faSnapchat} />
                 </a>
                 <a
+                  aria-label='youtube'
                   href={settings?.youtube}
                   target='_blank'
                   rel='noreferrer'
