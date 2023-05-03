@@ -3,6 +3,7 @@ import Head from 'next/head'
 import SpecialCard from '../../components/special/specialCard'
 import FullPageSlider from '../../components/fullPageSlider'
 import { useSelector } from 'react-redux'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 const SpecialOffers = ({slides, specialOffers}) => {
   const settings = useSelector(state => state.settings.value);
@@ -37,6 +38,9 @@ const SpecialOffers = ({slides, specialOffers}) => {
         btnText={slides[0].button_text}
         btnUrl={'#content'}
       />
+      <div className="container hidden md:block border-b">
+        <Breadcrumbs list={[{ title: "العروض المميزة" }]} />
+      </div>
       <div className={styles.offers__content} id='content'>
         <h2 className='main__title'>العروض المميزة</h2>
         <div className={styles.offers__grid}>

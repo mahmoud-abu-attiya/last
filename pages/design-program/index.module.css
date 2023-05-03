@@ -381,7 +381,7 @@
   box-shadow: 0 0 3px rgb(0 0 0 / 50%);
 }
 .card__content__img img {
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   border-radius: 3px;
   box-shadow: 0 0 3px rgb(0 0 0 / 50%);

@@ -1,5 +1,6 @@
 import styles from './index.module.css'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
@@ -9,35 +10,56 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 const SubFooter = ({ settings }) => {
+  const [glitter, setGlitter] = useState(1)
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (glitter < 5 ) {
+        setGlitter(e => e + 1);
+      } else {
+        setGlitter(1);
+      }
+    }, 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, [glitter]);
+
   return (
     <div className="sticky subFooter bottom-0 lg:p-4 lg:px-16 grid grid-cols-4 lg:bg-gray-100 z-20 lg:gap-0">
-      <a href={`tel:${settings?.mobile}`} className="lg:shadow-none phone bg-[green] p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10" target='_blank' rel='noreferrer' aria-label='Mobile'>
+      <a href={`tel:${settings?.mobile}`} className={`${glitter === 1 ? "glitter" : ""} lg:shadow-none phone bg-[green] p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10`} target='_blank' rel='noreferrer' aria-label='Mobile'>
         {/* <i className="fal fa-mobile text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
-        <FontAwesomeIcon icon={faMobile} className='text-white lg:text-primary text-3xl sm:text-4xl' />
+        <div className="icon">
+          <FontAwesomeIcon icon={faMobile} className='text-white lg:text-primary text-3xl sm:text-4xl' />
+        </div>
         <div className='hidden lg:block'>
           <p className="text-xs">اتصل بنا علي المحمول.</p>
           <p className="link bold hover:underline">{settings?.mobile}</p>
         </div>
       </a>
-      <a href={`tel:${settings?.phone}`} className="lg:shadow-none hours p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300" target='_blank' rel='noreferrer' aria-label='Phone'>
+      <a href={`tel:${settings?.phone}`} className={`${glitter === 2 ? "glitter" : ""} lg:shadow-none hours p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300`} target='_blank' rel='noreferrer' aria-label='Phone'>
         {/* <i className="fas fa-phone-rotary text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
+        <div className="icon">
         <Image src="/icons/24-7.png" alt="phone" width={40} height={40} />
+        </div>
         <div className='hidden lg:block'>
           <p className="text-xs">اتصل بنا علي الهاتف الرضي.</p>
           <p className="link bold hover:underline">{settings?.phone}</p>
         </div>
       </a>
-      <a href={`mailto:${settings?.email}`} className="lg:shadow-none email bg-blue-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300" target='_blank' rel='noreferrer' aria-label='Email'>
+      <a href={`mailto:${settings?.email}`} className={`${glitter === 3 ? "glitter" : ""} lg:shadow-none email bg-blue-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300`} target='_blank' rel='noreferrer' aria-label='Email'>
         {/* <i className="fal fa-envelope-open-text text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
-        <FontAwesomeIcon icon={faEnvelopeOpenText} className='text-white lg:text-primary text-3xl sm:text-4xl' />
+        <div className="icon">
+          <FontAwesomeIcon icon={faEnvelopeOpenText} className='text-white lg:text-primary text-3xl sm:text-4xl' />
+        </div>
         <div className='hidden lg:block'>
           <p className="text-xs">يمكنك مراسلتنا علي البريد الالكتروني.</p>
           <p className="link bold hover:underline">{settings?.email}</p>
         </div>
       </a>
-      <a href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`} className="lg:shadow-none whats bg-green-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300" target='_blank' rel='noreferrer' aria-label='WhatsApp'>
+      <a href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`} className={`${glitter === 4 ? "glitter" : ""} lg:shadow-none whats bg-green-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300`} target='_blank' rel='noreferrer' aria-label='WhatsApp'>
         {/* <i className="fab fa-whatsapp text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
-        <FontAwesomeIcon icon={faWhatsapp} className='text-white lg:text-primary text-3xl sm:text-4xl' />
+        <div className="icon">
+          <FontAwesomeIcon icon={faWhatsapp} className='text-white lg:text-primary text-3xl sm:text-4xl' />
+        </div>
         <div className='hidden lg:block'>
           <p className="text-xs">تواصل معنا عن طرق الواتساب.</p>
           <p className="link bold hover:underline">{settings?.whatsup}</p>

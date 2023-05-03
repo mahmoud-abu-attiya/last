@@ -6,6 +6,7 @@ import FullPageSlider from '../../components/fullPageSlider'
 import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon, faUserFriends, faStar } from '@fortawesome/free-solid-svg-icons'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 const SeaTripes = ({
   programs,
@@ -48,6 +49,9 @@ const SeaTripes = ({
         btnText={slide[0].button_text}
         btnUrl={'#content'}
       />
+      <div className="container hidden md:block border-b">
+        <Breadcrumbs list={[{ title: "الرحلات البحرية" }]} />
+      </div>
       <div className={styles.seaTripes__content} id='content'>
         <h2 className='main__title'>الرحلات البحرية</h2>
         <div className={styles.offer__cards}>

@@ -124,7 +124,7 @@ h2{
       line-height: 2rem !important;
    }
    .hero h1 , .hero h2{
-      line-height: 1.5rem !important;
+      line-height: 2rem !important;
    }
 }
 
@@ -294,6 +294,8 @@ h2{
    clip-path: polygon(100% 0%,100% 0%,100% 100%,100% 100%);
    -webkit-clip-path: polygon(100% 0%,100% 0%,100% 100%,100% 100%);
 }
+
+
 @media (max-width: 640px) {
    .subFooter a img{
       width: 30px;
@@ -302,9 +304,75 @@ h2{
       display: none !important;
    }
 }
+.glitter .icon {
+   position: relative;
+   z-index: 1;
+}
+.glitter .icon::after, .glitter .icon::before {
+   position: absolute;
+   content: "";
+   top: 50%;
+   left: 50%;
+   width: 30px;
+   height: 30px;
+   background: var(--first-clr);
+   transform: translate(-50%, -50%);
+   z-index: -1;
+   border-radius: 50%;
+   opacity: 0;
+}
+.glitter .icon::after {
+   animation: scaleicon 1.5s linear infinite;
+}
+.glitter .icon::before {
+   animation: scaleicon 1.5s linear 0.8s infinite;
+}
+@keyframes scaleicon {
+   0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+   }
+   50% {
+      opacity: 0.4;
+   }
+   100% {
+      transform: translate(-50%, -50%) scale(2.5);
+      opacity: 0;
+   }
+}
 @media (max-width: 1024px) {
+   .glitter .icon::after, .glitter .icon::before {
+      content: none;
+   }
+   .glitter{
+      overflow: hidden;
+      position: relative;
+   }
+   .glitter::after{
+      position: absolute;
+      content: "";
+      top: 0;
+      left: -50%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.846), transparent);
+      transform: skew(-25deg);
+      animation: glitter 0.4s linear;
+   }
+   .glitter::before{
+      position: absolute;
+      content: "";
+      top: 0;
+      left: -55%;
+      width: 10%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.846), transparent);
+      transform: skew(-25deg);
+      animation: glitter2 0.4s linear;
+      animation-delay: 0.03s;
+   }
    .subFooter .whats{
-      background-image: linear-gradient(to bottom, rgb(0, 169, 0), green);
+      background-image: linear-gradient(to bottom, rgb(0, 169, 0), rgb(0, 110, 0));
    }
    .subFooter .hours{
       background-image: linear-gradient(to bottom, aqua, #00a6ff);
@@ -313,9 +381,25 @@ h2{
       background-image: linear-gradient(to top, #0c00ff, transparent);
    }
    .subFooter .phone{
-      background-image: linear-gradient(to bottom, green, rgb(0, 86, 0));
+      background-image: linear-gradient(to bottom, green, rgb(0, 67, 0));
    }
    .subFooter a img{
       filter: invert(100%) sepia(4%) saturate(16%) hue-rotate(115deg) brightness(106%) contrast(103%);
    }   
 }
+   @keyframes glitter {
+      0%{
+         left: -50%;
+      }
+      100%{
+         left: 150%;
+      }
+   }
+   @keyframes glitter2 {
+      0%{
+         left: -55%;
+      }
+      100%{
+         left: 155%;
+      }
+   }

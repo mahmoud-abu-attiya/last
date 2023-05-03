@@ -3,7 +3,7 @@ import Programs from "@/components/Programs";
 import Success from "@/components/success/Success";
 import Tripes from "@/components/tripes/Tripes";
 import About from "@/components/about/About";
-// import Special from "@/components/special/Special";
+import Special from "@/components/special/Special";
 import Events from "@/components/events/Events";
 import NewPrograms from "@/components/newPrograms/NewPrograms";
 import Head from "next/head";
@@ -16,7 +16,7 @@ export default function Home({ data }) {
       about_wsam_elngah = [],
       latest_programs = [],
       event = {},
-      // special_offers = [],
+      special_offers = [],
       features_slides = [],
       latest_discounts = [],
       slides = [],
@@ -48,7 +48,7 @@ export default function Home({ data }) {
          <Success data={features} features_slides={features_slides} />
          <Tripes />
          <About data={about_wsam_elngah} />
-         {/* <Special data={special_offers} /> */}
+         <Special data={special_offers} />
          <div className="spikes"></div>
          <Events event={event} />
          <NewPrograms programs={latest_programs} />
