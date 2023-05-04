@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './index.module.css'
 import Snackbar from '../snackbar'
 
@@ -155,4 +155,4 @@ const Events = ({ event }) => {
   )
 }
 
-export default memo(Events)
+export default Events

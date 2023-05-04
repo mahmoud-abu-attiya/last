@@ -2,7 +2,7 @@ import styles from './index.module.css'
 import BtnArrow from '../BtnArrow'
 import Image from 'next/image'
 import ScrollDown from '../scrollDown'
-import { useState, useEffect, memo } from 'react'
+import { useState, useEffect } from 'react'
 
 const FullPageSlider = ({ title, btnText, btnUrl, data }) => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -45,4 +45,4 @@ const FullPageSlider = ({ title, btnText, btnUrl, data }) => {
   )
 }
 
-export default memo(FullPageSlider)
+export default FullPageSlider

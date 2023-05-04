@@ -27,7 +27,6 @@ const FlipCard = ({ country, btnTitle, btnUrl }) => {
             alt={`programs logo ${country.name}`}
             width={102}
             height={70}
-            unoptimized={true}
           />
           <h3 className={styles.card__back__title}>
             {country.country.name}

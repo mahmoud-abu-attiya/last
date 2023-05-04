@@ -1,5 +1,4 @@
 import styles from './index.module.css'
-import { memo } from 'react'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
@@ -37,4 +36,4 @@ const Testimonials = ({ data }) => {
   )
 }
 
-export default memo(Testimonials)
+export default Testimonials

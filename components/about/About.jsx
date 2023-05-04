@@ -1,5 +1,5 @@
 import styles from './index.module.css'
-import { memo, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import BtnArrow from '../BtnArrow'
 
@@ -39,6 +39,7 @@ const About = ({ data }) => {
             style={{
               zIndex: '-1',
             }}
+            className='absolute w-full h-full top-0 left-0'
           >
               <Image
                 src={img}
@@ -69,4 +70,4 @@ const About = ({ data }) => {
   )
 }
 
-export default memo(About)
+export default About

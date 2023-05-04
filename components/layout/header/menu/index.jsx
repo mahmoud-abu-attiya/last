@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { memo, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from '../Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faYoutube, faTwitter, faTiktok, faSnapchat, faInstagram } from '@fortawesome/free-brands-svg-icons'
@@ -218,4 +218,4 @@ const Menu = (props) => {
   )
 }
 
-export default memo(Menu)
+export default Menu

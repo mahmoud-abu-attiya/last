@@ -1,5 +1,5 @@
 import styles from './index.module.css'
-import { memo, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 const Hotels = ({ hotels, settings }) => {
@@ -97,4 +97,4 @@ const Hotels = ({ hotels, settings }) => {
 	)
 }
 
-export default memo(Hotels)
+export default Hotels

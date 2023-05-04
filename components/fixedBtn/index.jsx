@@ -1,7 +1,6 @@
 // import { RiWhatsappLine } from 'react-icons/ri'
 // import { AiFillPhone } from 'react-icons/ai'
 import styles from './index.module.css'
-import { memo } from 'react'
 import { useSelector } from 'react-redux'
 
 const FixedBtn = ({ mobile, whatsup }) => {
@@ -35,4 +34,4 @@ const FixedBtn = ({ mobile, whatsup }) => {
   )
 }
 
-export default memo(FixedBtn)
+export default FixedBtn

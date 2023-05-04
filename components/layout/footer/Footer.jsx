@@ -2,7 +2,6 @@ import styles from './index.module.css'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { faInstagram, faTwitter, faYoutube, faWhatsapp, faTiktok, faSnapchat} from '@fortawesome/free-brands-svg-icons'
 import { faAngleLeft, faArrowUp, faMobile, faEnvelopeOpenText, faHeart } from '@fortawesome/free-solid-svg-icons'
@@ -252,4 +251,4 @@ const Footer = ({ countries }) => {
   )
 }
 
-export default memo(Footer)
+export default Footer

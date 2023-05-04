@@ -53,7 +53,7 @@ const Success = ({ data, features_slides }) => {
       <div className={`col-span-12 xl:col-span-7 ${styles.success__content}`}>
         {features_slides.map((slide, i) => {
           return (
-            <div className={`transition duration-[2s] ${i === activeIndex ? "opacity-100" : "opacity-0"}`} key={i}>
+            <div className={`transition absolute w-full h-full top-0 left-0 duration-[2s] ${i === activeIndex ? "opacity-100" : "opacity-0"}`} key={i}>
               <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"><span className='sr-only'>overlay</span></div>
               <Image src={slide.image} alt={`background image : ${i}`} fill className={`object-cover`} />
               <div className={styles.success__item}>
