@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 import '@/styles/globals.css'
 import Layout from '../components/layout'
-// import App from 'next/app'
+import App from 'next/app'
 import { store } from "../store";
 import { Provider } from 'react-redux';
 import localFont from 'next/font/local';
@@ -69,41 +70,26 @@ const bukra = localFont({
 
 
 
-// MyApp.getInitialProps = async (appContext) => {
-//   const { ctx } = appContext
-//   const [programsRes, settingsRes] = await Promise.all([
-//     fetch('https://backend.elnagahtravels.com/public/api/countries'),
-//     fetch('https://backend.elnagahtravels.com/public/api/settings'),
-//   ])
+MyApp.getInitialProps = async (appContext) => {
+  const { ctx } = appContext
+  const [programsRes, settingsRes] = await Promise.all([
+    fetch('https://backend.elnagahtravels.com/public/api/countries'),
+    fetch('https://backend.elnagahtravels.com/public/api/settings'),
+  ])
 
-//   const [
-//     { countries = [] },
-//     { settings = {}, countries: footerCountries },
-//   ] = await Promise.all([programsRes.json(), settingsRes.json()])
+  const [
+    { countries = [] },
+    { settings = {}, countries: footerCountries },
+  ] = await Promise.all([programsRes.json(), settingsRes.json()])
 
-//   ctx.res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
+  ctx.res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
 
-//   const appProps = await App.getInitialProps(appContext)
+  const appProps = await App.getInitialProps(appContext)
 
-//   return {
-//     ...appProps,
-//     countries,
-//     footerCountries,
-//     settings,
-//   }
-// }
-// MyApp.getInitialProps = async (appContext) => {
-//   const { ctx } = appContext
-//   const programsRes = await fetch('https://backend.elnagahtravels.com/public/api/countries')
-
-//   const { countries = [] } = programsRes.json()
-
-//   ctx.res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
-
-//   const appProps = await App.getInitialProps(appContext)
-
-//   return {
-//     ...appProps,
-//     countries,
-//   }
-// }
+  return {
+    ...appProps,
+    countries,
+    footerCountries,
+    settings,
+  }
+}

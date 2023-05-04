@@ -219,6 +219,7 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
             alt='logo'
             width={102}
             height={70}
+            className={"object-cover"}
           />
         )}
       </div>

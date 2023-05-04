@@ -224,6 +224,7 @@ const Footer = ({ countries }) => {
                 width={145}
                 height={100}
                 alt='wsam elnagah logo'
+                className='object-cover'
               />
             </Link>
           )}

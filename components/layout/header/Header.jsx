@@ -64,7 +64,7 @@ export default function Header() {
               width={120}
               height={85}
               priority={true}
-              className={styles.header__logo}
+              className={` object-cover ${styles.header__logo}`}
             />
           )}
         </Link>
@@ -178,6 +178,7 @@ export default function Header() {
                 alt='logo'
                 width={102}
                 height={70}
+                className={"object-cover"}
               />
             )}
           </div>

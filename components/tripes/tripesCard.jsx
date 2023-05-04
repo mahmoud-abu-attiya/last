@@ -27,7 +27,7 @@ const TripesCard = ({ item }) => {
             alt={`tripes logo ${item.name}`}
             width={102}
             height={70}
-            className={styles.back__logo}
+            className={` object-cover ${styles.back__logo}`}
           />
           <h3 className={styles.back__title}>{item.name}</h3>
           <div className={styles.card__btn}>
