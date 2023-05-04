@@ -28,7 +28,6 @@ const Offer = (props) => {
             src={programs[0]?.country?.image}
             alt={programs[0]?.country?.name}
             fill
-            unoptimized={true}
           />
         )}
         <h1>
