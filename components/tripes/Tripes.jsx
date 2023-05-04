@@ -1,5 +1,5 @@
 import styles from './index.module.css'
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import TripesCard from './tripesCard'
 import Link from 'next/link'
 import Image from 'next/image'
