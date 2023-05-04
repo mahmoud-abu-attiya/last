@@ -22,7 +22,7 @@ const SpecialOffers = ({slides, specialOffers}) => {
         />
         <meta property="og:title" content="العروض المميزة" />
         <meta property="og:url" content="https://last-delta.vercel.app/special-offers" />
-        <meta name="keywords" content={settings?.keywords} />
+        <meta name="keywords" content={settings.keywords} />
         <meta
           property="og:description"
           content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."

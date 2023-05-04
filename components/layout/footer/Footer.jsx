@@ -24,44 +24,44 @@ const SubFooter = ({ settings }) => {
 
   return (
     <div className="sticky subFooter bottom-0 lg:p-4 lg:px-16 grid grid-cols-4 lg:bg-gray-100 z-20 lg:gap-0">
-      <a href={`tel:${settings?.mobile}`} className={`${glitter === 1 ? "glitter" : ""} lg:shadow-none phone bg-[green] p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10`} target='_blank' rel='noreferrer' aria-label='Mobile'>
+      <a href={`tel:${settings.mobile}`} className={`${glitter === 1 ? "glitter" : ""} lg:shadow-none phone bg-[green] p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10`} target='_blank' rel='noreferrer' aria-label='Mobile'>
         {/* <i className="fal fa-mobile text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
         <div className="icon">
           <FontAwesomeIcon icon={faMobile} className='text-white lg:text-primary text-3xl sm:text-4xl' />
         </div>
         <div className='hidden lg:block'>
           <p className="text-xs">اتصل بنا علي المحمول.</p>
-          <p className="link bold hover:underline">{settings?.mobile}</p>
+          <p className="link bold hover:underline">{settings.mobile}</p>
         </div>
       </a>
-      <a href={`tel:${settings?.phone}`} className={`${glitter === 2 ? "glitter" : ""} lg:shadow-none hours p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300`} target='_blank' rel='noreferrer' aria-label='Phone'>
+      <a href={`tel:${settings.phone}`} className={`${glitter === 2 ? "glitter" : ""} lg:shadow-none hours p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300`} target='_blank' rel='noreferrer' aria-label='Phone'>
         {/* <i className="fas fa-phone-rotary text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
         <div className="icon">
         <Image src="/icons/24-7.png" alt="phone" width={40} height={40} />
         </div>
         <div className='hidden lg:block'>
           <p className="text-xs">اتصل بنا علي الهاتف الرضي.</p>
-          <p className="link bold hover:underline">{settings?.phone}</p>
+          <p className="link bold hover:underline">{settings.phone}</p>
         </div>
       </a>
-      <a href={`mailto:${settings?.email}`} className={`${glitter === 3 ? "glitter" : ""} lg:shadow-none email bg-blue-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300`} target='_blank' rel='noreferrer' aria-label='Email'>
+      <a href={`mailto:${settings.email}`} className={`${glitter === 3 ? "glitter" : ""} lg:shadow-none email bg-blue-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300`} target='_blank' rel='noreferrer' aria-label='Email'>
         {/* <i className="fal fa-envelope-open-text text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
         <div className="icon">
           <FontAwesomeIcon icon={faEnvelopeOpenText} className='text-white lg:text-primary text-3xl sm:text-4xl' />
         </div>
         <div className='hidden lg:block'>
           <p className="text-xs">يمكنك مراسلتنا علي البريد الالكتروني.</p>
-          <p className="link bold hover:underline">{settings?.email}</p>
+          <p className="link bold hover:underline">{settings.email}</p>
         </div>
       </a>
-      <a href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`} className={`${glitter === 4 ? "glitter" : ""} lg:shadow-none whats bg-green-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300`} target='_blank' rel='noreferrer' aria-label='WhatsApp'>
+      <a href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} className={`${glitter === 4 ? "glitter" : ""} lg:shadow-none whats bg-green-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300`} target='_blank' rel='noreferrer' aria-label='WhatsApp'>
         {/* <i className="fab fa-whatsapp text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
         <div className="icon">
           <FontAwesomeIcon icon={faWhatsapp} className='text-white lg:text-primary text-3xl sm:text-4xl' />
         </div>
         <div className='hidden lg:block'>
           <p className="text-xs">تواصل معنا عن طرق الواتساب.</p>
-          <p className="link bold hover:underline">{settings?.whatsup}</p>
+          <p className="link bold hover:underline">{settings.whatsup}</p>
         </div>
       </a>
     </div>
@@ -102,40 +102,40 @@ const Footer = ({ countries }) => {
           <span className={styles.call__us__span}>فضلا الإتصال على</span>
           <div className={styles.call__us__container}>
             <a
-              href={`mailto:${settings?.email}`}
+              href={`mailto:${settings.email}`}
               target='_blank'
               rel='noreferrer'
               className={styles.contact__link}
             >
               <i className="fas fa-envelope text-primary"></i>
-              {settings?.email}
+              {settings.email}
             </a>
             <a
-              href={`tel:${settings?.phone}`}
+              href={`tel:${settings.phone}`}
               target='_blank'
               rel='noreferrer'
               className={styles.contact__link}
             >
               <i className="fas fa-phone-alt text-primary"></i>
-              {settings?.phone}
+              {settings.phone}
             </a>
             <a
-              href={`tel:${settings?.mobile}`}
+              href={`tel:${settings.mobile}`}
               target='_blank'
               rel='noreferrer'
               className={styles.contact__link}
             >
               <i className="fas fa-mobile text-primary"></i>
-              {settings?.mobile}
+              {settings.mobile}
             </a>
             <a
-              href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`}
+              href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`}
               target='_blank'
               rel='noreferrer'
               className={styles.contact__link}
             >
               <i className="fab fa-whatsapp text-primary"></i>
-              {settings?.whatsup}
+              {settings.whatsup}
             </a>
           </div>
           <span className={styles.call__us__span}>
@@ -146,10 +146,10 @@ const Footer = ({ countries }) => {
             className={styles.location}
           >
             <h3 className={styles.title}>موقعنا</h3>
-            {settings?.address}
-            {/* {settings?.latitude && settings.longitude && (
+            {settings.address}
+            {/* {settings.latitude && settings.longitude && (
               <iframe
-                src={`https://maps.google.com/maps?q=${settings?.latitude},${settings?.longitude}&zoom=15&hl=es;&output=embed&lazy=1&iframe=1`}
+                src={`https://maps.google.com/maps?q=${settings.latitude},${settings.longitude}&zoom=15&hl=es;&output=embed&lazy=1&iframe=1`}
                 width='260px'
                 height='280px'
                 style={{ border: 'none', marginTop: '.5rem' }}
@@ -166,7 +166,7 @@ const Footer = ({ countries }) => {
             <h3 className={styles.title}>تابعنا علي</h3>
             <div className={styles.social__icons}>
               <a
-                href={settings?.instagram}
+                href={settings.instagram}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.instagram}
@@ -176,7 +176,7 @@ const Footer = ({ countries }) => {
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
               <a
-                href={settings?.tiktok}
+                href={settings.tiktok}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.tiktok}
@@ -186,7 +186,7 @@ const Footer = ({ countries }) => {
                 <FontAwesomeIcon icon={faTiktok} />
               </a>
               <a
-                href={settings?.twitter}
+                href={settings.twitter}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.twitter}
@@ -196,7 +196,7 @@ const Footer = ({ countries }) => {
                 <FontAwesomeIcon icon={faTwitter} />
               </a>
               <a
-                href={settings?.snapchat}
+                href={settings.snapchat}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.snapchat}
@@ -206,7 +206,7 @@ const Footer = ({ countries }) => {
                 <FontAwesomeIcon icon={faSnapchat} />
               </a>
               <a
-                href={settings?.youtube}
+                href={settings.youtube}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.youtube}
@@ -217,7 +217,7 @@ const Footer = ({ countries }) => {
               </a>
             </div>
           </div>
-          {settings?.logo && (
+          {settings.logo && (
             <Link href='/' className={styles.f__logo}>
               <Image
                 src="/images/logo.webp"
@@ -239,7 +239,7 @@ const Footer = ({ countries }) => {
         </div>
 
         <p className={styles.copyright}>
-          <span className={styles.copyright__text}>{settings?.copy_rights}</span>
+          <span className={styles.copyright__text}>{settings.copy_rights}</span>
           <span className={styles.copyright__msg}>
             Made with
             {/* <i className="fas fa-heart text-red-500"></i> */}

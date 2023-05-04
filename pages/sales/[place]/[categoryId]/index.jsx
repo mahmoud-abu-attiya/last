@@ -125,7 +125,7 @@ const Offer = (props) => {
                       <BtnArrow
                         title='حجز العرض'
                         href={`https://api.whatsapp.com/send?phone=${
-                          settings?.whatsup
+                          settings.whatsup
                         }&${message(program?.id)}`}
                       />
                     </div>

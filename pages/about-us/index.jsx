@@ -36,7 +36,7 @@ const AboutUs = ({ about, slides }) => {
         />
         <meta property="og:title" content={slides[0].title} />
         <meta property="og:url" content="https://last-delta.vercel.app/about-us" />
-        <meta name="keywords" content={settings?.keywords} />
+        <meta name="keywords" content={settings.keywords} />
         <meta
             property="og:description"
             content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."

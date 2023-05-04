@@ -168,7 +168,7 @@ const Aviation = ({ slide }) => {
         />
         <meta property="og:title" content="الطيران" />
         <meta property="og:url" content="https://last-delta.vercel.app/aviation" />
-        <meta name="keywords" content={settings?.keywords} />
+        <meta name="keywords" content={settings.keywords} />
         <meta
           property="og:description"
           content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
@@ -449,39 +449,39 @@ const Aviation = ({ slide }) => {
                 <h3 className={styles.contact__title}>الجوال</h3>
                 <div className={styles.contact__card}>
                   <a
-                    aria-label={settings?.mobile}
-                    href={`tel:${settings?.mobile}`}
+                    aria-label={settings.mobile}
+                    href={`tel:${settings.mobile}`}
                     target='_blank'
                     rel='noreferrer'
                     className={styles.contact__link}
                   >
-                    {settings?.mobile}
+                    {settings.mobile}
                   </a>
                   {/* <BsPhoneFill /> */}
                   <FontAwesomeIcon icon={faMobile} />
                 </div>
                 <div className={styles.contact__card}>
                   <a
-                    aria-label={settings?.whatsup}
-                    href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`}
+                    aria-label={settings.whatsup}
+                    href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`}
                     target='_blank'
                     rel='noreferrer'
                     className={styles.contact__link}
                   >
-                    {settings?.whatsup}
+                    {settings.whatsup}
                   </a>
                   {/* <BsWhatsapp /> */}
                   <FontAwesomeIcon icon={faWhatsapp} />
                 </div>
                 <div className={styles.contact__card}>
                   <a
-                    aria-label={settings?.phone}
-                    href={`tel:${settings?.phone}`}
+                    aria-label={settings.phone}
+                    href={`tel:${settings.phone}`}
                     target='_blank'
                     rel='noreferrer'
                     className={styles.contact__link}
                   >
-                    {settings?.phone}
+                    {settings.phone}
                   </a>
                   {/* <GiRotaryPhone /> */}
                   <FontAwesomeIcon icon={faPhoneAlt} />
@@ -491,13 +491,13 @@ const Aviation = ({ slide }) => {
                 <h3 className={styles.contact__title}>البريد الالكتروني</h3>
                 <div className={styles.contact__card}>
                   <a
-                    aria-label={settings?.email}
-                    href={`mailto:${settings?.email}`}
+                    aria-label={settings.email}
+                    href={`mailto:${settings.email}`}
                     target='_blank'
                     rel='noreferrer'
                     className={styles.contact__link}
                   >
-                    {settings?.email}
+                    {settings.email}
                   </a>
                   {/* <BsEnvelopeFill /> */}
                   <FontAwesomeIcon icon={faEnvelope} />
@@ -508,14 +508,14 @@ const Aviation = ({ slide }) => {
                 <div className={styles.address}>
                   {/* <MdLocationOn /> */}
                   <FontAwesomeIcon icon={faLocationPin} style={{ height: "1rem" }} />
-                  <span>{settings?.address}</span>
+                  <span>{settings.address}</span>
                 </div>
               </div>
             </div>
             <div className={styles.social__icons}>
               <a
                 aria-label={"instagram"}
-                href={settings?.instagram}
+                href={settings.instagram}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.instagram}
@@ -526,7 +526,7 @@ const Aviation = ({ slide }) => {
               </a>
               <a
                 aria-label="Twitter"
-                href={settings?.twitter}
+                href={settings.twitter}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.twitter}
@@ -537,7 +537,7 @@ const Aviation = ({ slide }) => {
               </a>
               <a
                 aria-label="tiktok"
-                href={settings?.tiktok}
+                href={settings.tiktok}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.tiktok}
@@ -548,7 +548,7 @@ const Aviation = ({ slide }) => {
               </a>
               <a
                 aria-label="snapchat"
-                href={settings?.snapchat}
+                href={settings.snapchat}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.snapchat}
@@ -559,7 +559,7 @@ const Aviation = ({ slide }) => {
               </a>
               <a
                 aria-label="youtube"
-                href={settings?.youtube}
+                href={settings.youtube}
                 target='_blank'
                 rel='noreferrer'
                 className={styles.youtube}

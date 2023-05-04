@@ -237,19 +237,19 @@ const Details = () => {
         />
         <meta
           name="description"
-          content={settings?.meta_description}
+          content={settings.meta_description}
         />
-        <meta property="og:title" content={settings?.meta_title} />
+        <meta property="og:title" content={settings.meta_title} />
         <meta property="og:url" content="https://last-delta.vercel.app/" />
-        <meta name="keywords" content={settings?.keywords} />
+        <meta name="keywords" content={settings.keywords} />
         <meta
           property="og:description"
-          content={settings?.meta_description}
+          content={settings.meta_description}
         />
-        <meta name="twitter:title" content={settings?.meta_title} />
+        <meta name="twitter:title" content={settings.meta_title} />
         <meta
           name="twitter:description"
-          content={settings?.meta_description}
+          content={settings.meta_description}
         />
       </Head>
       <div className={styles.details__bg}>
@@ -347,7 +347,7 @@ const Details = () => {
           </div>
         </div>
         <div className={`${styles.details__form} col-span-3 lg:col-span-1`}>
-          <Link className="w-full rounded-full shadow-md bg-green-600 text-white p-4 flex gap-4 items-center justify-center" href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}`} target='_blank' rel='noreferrer'>
+          <Link className="w-full rounded-full shadow-md bg-green-600 text-white p-4 flex gap-4 items-center justify-center" href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} target='_blank' rel='noreferrer'>
             {/* <i className="fab fa-whatsapp text-2xl"></i> */}
             <FontAwesomeIcon icon={faWhatsapp} className="text-2xl" />
             <span>تواصل معنا عن طريق الوتساب</span>

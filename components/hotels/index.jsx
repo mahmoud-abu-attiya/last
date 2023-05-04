@@ -70,7 +70,7 @@ const Hotels = ({ hotels, settings }) => {
 							.map((hotel) => (
 								<div key={hotel?.image} className={styles.hotels__card}>
 									<a
-										href={`https://api.whatsapp.com/send?phone=${settings?.mobile}`}
+										href={`https://api.whatsapp.com/send?phone=${settings.mobile}`}
 										target='_blank'
 										rel='noreferrer'
 										style={{ width: '100%', height: '100%' }}

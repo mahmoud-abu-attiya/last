@@ -9,7 +9,7 @@
 //   return (
 //     <div className={styles.fixed__btns}>
 //       <a
-//         href={`tel:${settings?.mobile}`}
+//         href={`tel:${settings.mobile}`}
 //         target='_blank'
 //         title='تواصل معنا عبر الجوال'
 //         rel='noreferrer'
@@ -20,7 +20,7 @@
 //         <span>هاتف</span>
 //       </a>
 //       <a
-//         href={`https://api.whatsapp.com/send?phone=${settings?.whatsup}&${message}`}
+//         href={`https://api.whatsapp.com/send?phone=${settings.whatsup}&${message}`}
 //         target='_blank'
 //         title='تواصل معنا عبر واتساب'
 //         rel='noreferrer'
