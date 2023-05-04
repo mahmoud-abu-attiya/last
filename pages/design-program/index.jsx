@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import Head from 'next/head'
 import styles from './index.module.css'
 import Image from 'next/image'
@@ -101,7 +102,7 @@ const DesignProgram = ({ data, slide }) => {
     }
   }
 
-  const message = `شكرا لك علي تواصلك مع وكالة وسام النجاح للسفر والسياحة`
+  // const message = `شكرا لك علي تواصلك مع وكالة وسام النجاح للسفر والسياحة`
   return (
     <>
       <Head>

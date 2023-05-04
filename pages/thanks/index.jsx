@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import Head from 'next/head'
 import Image from 'next/image'
 import ScrollDown from '../../components/scrollDown'

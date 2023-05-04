@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import styles from './index.module.css'
 import cartStyle from "./[categoryId]/index.module.css"
 import Image from 'next/image'

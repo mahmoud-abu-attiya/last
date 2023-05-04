@@ -1,8 +1,9 @@
-import styles from './index.module.css'
+/* eslint-disable no-undef */
+// import styles from './index.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
-import FullPageSlider from '../../components/fullPageSlider'
+// import FullPageSlider from '../../components/fullPageSlider'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'

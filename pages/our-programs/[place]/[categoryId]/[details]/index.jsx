@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import styles from './index.module.css'
 import Image from 'next/image'
 import BtnArrow from '@/components/BtnArrow'

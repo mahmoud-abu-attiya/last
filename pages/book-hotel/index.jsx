@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import styles from './index.module.css'
 import FullPageSlider from '../../components/fullPageSlider'
 import Head from 'next/head'

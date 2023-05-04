@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import styles from './index.module.css'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
@@ -14,7 +15,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun, faMoon, faLocationPin, faUserFriends, faStar, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+// import { faSun, faMoon, faLocationPin, faUserFriends, faStar, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 const noto = localFont({ src: '../../../public/fonts/NotoNaskhArabic-Regular.ttf' })

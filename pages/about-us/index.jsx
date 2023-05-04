@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import styles from './index.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
