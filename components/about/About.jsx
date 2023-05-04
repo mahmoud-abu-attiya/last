@@ -5,7 +5,6 @@ import BtnArrow from '../BtnArrow'
 
 const About = ({ data }) => {
   const [value, setValue] = useState(0)
-  const imgs = data.map((img) => img.image)
   return (
     <div className={styles.about} id='about'>
       <div className={styles.about__container}>
@@ -33,7 +32,7 @@ const About = ({ data }) => {
           </div>
         </div>
         {/* Content */}
-        {imgs.map((img, i) => (
+        {data.map((img, i) => (
           <div
             key={i}
             style={{
@@ -42,7 +41,7 @@ const About = ({ data }) => {
             className='absolute w-full h-full top-0 left-0'
           >
               <Image
-                src={img}
+                src={img.image}
                 alt={`background image ${i}`}
                 className={`object-cover object-center w-full h-full duration-500 ${value === i ? "opacity-100" : "opacity-0"} transition`}
                 fill

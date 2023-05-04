@@ -64,8 +64,8 @@ export const headerLinks = [
   // },
 ]
 
-const Menu = (props) => {
-  const { showMenu, setShowMenu, setShowHeader, isSearch, settings } = props
+const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
+  // const { showMenu, setShowMenu, setShowHeader, isSearch, settings } = props
   const router = useRouter()
   const [value, setValue] = useState(0)
 
@@ -93,9 +93,12 @@ const Menu = (props) => {
   }, [router])
 
   // No Scroll when Menu Open
+  // useEffect(() => {
+  //   document.body.style.overflowY = showMenu || isSearch ? 'hidden' : 'visible'
+  // }, [showMenu, isSearch])
   useEffect(() => {
-    document.body.style.overflowY = showMenu || isSearch ? 'hidden' : 'visible'
-  }, [showMenu, isSearch])
+    document.body.style.overflowY = showMenu ? 'hidden' : 'visible'
+  }, [showMenu])
   return (
     <div
       className={
@@ -199,8 +202,13 @@ const Menu = (props) => {
         <i className="w-6 h-1 bg-secondary block"></i>
       </span>
       <div
+        // className={
+        //   isSearch || showMenu
+        //     ? styles.logo__container__menu__show
+        //     : styles.logo__container__menu__hide
+        // }
         className={
-          isSearch || showMenu
+          showMenu
             ? styles.logo__container__menu__show
             : styles.logo__container__menu__hide
         }

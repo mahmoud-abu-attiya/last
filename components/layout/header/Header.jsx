@@ -5,8 +5,9 @@ import { useState } from 'react'
 import Menu from './menu'
 import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faMobile, faPhoneAlt, faEnvelope, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+// import { faSearch, faMobile, faPhoneAlt, faEnvelope, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+// import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 
 export default function Header() {
@@ -16,11 +17,11 @@ export default function Header() {
   const [countries, setCounties] = useState()
 
   const [showHeader, setShowHeader] = useState(false) // to hide/show on scroll
-  const [isScrollTop, setIsScrollTop] = useState(false) // to hide on scroll down, show on scroll up
+  // const [isScrollTop, setIsScrollTop] = useState(false) // to hide on scroll down, show on scroll up
   const [showMenu, setShowMenu] = useState(false) // to hide/show menu
   const [isSearch, setIsSearch] = useState(false) // to hide/show search page
   const [response, setResponse] = useState('')
-  const [searchTerm, setSearchTerm] = useState('')
+  // const [searchTerm, setSearchTerm] = useState('')
 
   // const [prevScrollPos, setPrevScrollPos] = useState(0);
 
@@ -39,16 +40,19 @@ export default function Header() {
   //   return () => window.removeEventListener("scroll", handleScroll);
   // });
 
-  const onSearch = (event, searchTerm) => {
+  const onSearch = (event) => {
     event.preventDefault()
-    const result = forPrograms.filter(({ name }) => name.startsWith(searchTerm))
-    setCounties(searchTerm ? result : setResponse(' لا توجد نتائج'))
+    const value = event.target.querySelector('input').value
+    console.log(value);
+    const result = forPrograms.filter(({ name }) => name.startsWith(value))
+    setCounties(value ? result : setResponse(' لا توجد نتائج'))
     result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج')
   }
   return (
     <header
-      className={`${styles.header} ${showHeader ? styles.active : ''} ${isScrollTop ? styles.hide : ''
-        }`}
+      // className={`${styles.header} ${showHeader ? styles.active : ''} ${isScrollTop ? styles.hide : ''
+      //   }`}
+      className={`${styles.header} ${showHeader ? styles.active : ''}`}
     >
       <nav className={styles.nav}>
         {/* Logo */}
@@ -110,13 +114,13 @@ export default function Header() {
         {/* Menu */}
         {settings?.logo && (
           <Menu
-            setIsScrollTop={setIsScrollTop}
+            // setIsScrollTop={setIsScrollTop}
             setShowHeader={setShowHeader}
             showMenu={showMenu}
             setShowMenu={setShowMenu}
             isSearch={isSearch}
             settings={settings}
-            isScrollTop={isScrollTop}
+            // isScrollTop={isScrollTop}
           />
         )}
         {/* Search Page */}
@@ -128,15 +132,16 @@ export default function Header() {
           }
         >
           <form
-            onSubmit={(event) => onSearch(event, searchTerm)}
+            // onSubmit={(event) => onSearch(event, searchTerm)}
+            onSubmit={(event) => onSearch(event)}
             className={styles.search__form}
           >
             <input
               type='text'
               placeholder='البحث'
-              value={searchTerm}
-              onChange={(event) => {
-                setSearchTerm(event.target.value)
+              // value={searchTerm}
+              onChange={() => {
+                // setSearchTerm(event.target.value)
                 setResponse('')
                 // onSearch(event, event.target.value)
               }}
@@ -181,7 +186,8 @@ export default function Header() {
               <Link
                 className={styles.dropdown__row}
                 key={id}
-                onClick={() => { setSearchTerm(name); setIsSearch(false); }}
+                // onClick={() => { setSearchTerm(name); setIsSearch(false); }}
+                onClick={() => setIsSearch(false)}
                 href={`/our-programs/${id}`}
               >
                 {name}

@@ -5,7 +5,6 @@ import Link from 'next/link'
 import BtnArrow from '../BtnArrow'
 
 const Success = ({ data, features_slides }) => {
-  const [value, setValue] = useState(0)
   const [activeIndex, setActiveIndex] = useState(0)
   const changebg = () => {
     if (activeIndex !== features_slides.length - 1) {
@@ -20,9 +19,6 @@ const Success = ({ data, features_slides }) => {
       }, 3000)
       return () => clearInterval(interval)
   }, [activeIndex])
-  useEffect(() => {
-    changebg()
-  }, [value])
   return (
     <div className={`grid grid-cols-12 ${styles.success__container}`} id='success'>
       <div className={`col-span-12 xl:col-span-5 gap-4 xl:gap-20 ${styles.success__top}`}>
@@ -37,9 +33,9 @@ const Success = ({ data, features_slides }) => {
           {data.map((tab, i) => (
             <button
               key={i}
-              onClick={() => setValue(i)}
+              onClick={() => setActiveIndex(i)}
               className={`${styles.success__tab} ${
-                value === i ? styles.success__tab__active : ''
+                activeIndex === i ? styles.success__tab__active : ''
               }`}
             >
               {tab.name}
