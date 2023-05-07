@@ -71,7 +71,6 @@ const bukra = localFont({
 
 
 MyApp.getInitialProps = async (appContext) => {
-  const { ctx } = appContext
   const [programsRes, settingsRes] = await Promise.all([
     fetch('https://backend.elnagahtravels.com/public/api/countries'),
     fetch('https://backend.elnagahtravels.com/public/api/settings'),
@@ -81,8 +80,6 @@ MyApp.getInitialProps = async (appContext) => {
     { countries = [] },
     { settings = {}, countries: footerCountries },
   ] = await Promise.all([programsRes.json(), settingsRes.json()])
-
-  ctx.res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
 
   const appProps = await App.getInitialProps(appContext)
 

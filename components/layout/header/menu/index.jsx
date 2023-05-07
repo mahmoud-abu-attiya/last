@@ -63,7 +63,7 @@ export const headerLinks = [
   //   icon: "/icons/hand.svg"
   // },
   {
-    text: 'المذيد',
+    text: 'خدمات اخري',
     route: '/more',
     icon: "/icons/more.svg"
   }

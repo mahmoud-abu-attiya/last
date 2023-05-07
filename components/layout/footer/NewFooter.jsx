@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux'
 import { faInstagram, faTwitter, faYoutube, faWhatsapp, faTiktok, faSnapchat } from '@fortawesome/free-brands-svg-icons'
 import { faMobile, faAngleLeft, faEnvelopeOpenText, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import localFont from 'next/font/local';
+// import localFont from 'next/font/local';
 
-const noto = localFont({ src: '../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
+// const noto = localFont({ src: '../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
 
 const SubFooter = ({ settings }) => {
    const [glitter, setGlitter] = useState(1)
@@ -78,13 +78,19 @@ const List = ({ title, items }) => {
                <li key={index}>
                   <Link
                      target={item.blank ? "_blank" : ""}
-                     className={`${noto.className} hover:underline hover:text-primary text-gray-300 ${item.icon || item.arrow ? "flex gap-2 items-center" : ""}`}
+                     className={`text-sm bold group text-gray-300 hover:text-primary hover:underline ${item.icon || item.arrow ? "flex gap-2 items-center" : ""}`}
                      href={item.link}
                      title={item.name}
                      aria-label={item.name}
                   >
                      {item.icon && (
-                        <span className={`text-[#0a5164] bg-white rounded-full w-7 h-7 flex items-center justify-center`}>
+                        <span className={`text-[#0a5164] bg-white rounded-full group-hover:text-white transition w-7 h-7 flex items-center justify-center
+                           ${item.label == "instagram" && "group-hover:bg-purple-800"}
+                           ${item.label == "twitter" && "group-hover:bg-sky-500"}
+                           ${item.label == "youtube" && "group-hover:bg-red-700"}
+                           ${item.label == "tiktok" && "group-hover:bg-purple-700"}
+                           ${item.label == "snapchat" && "group-hover:bg-yellow-500"}
+                        `}>
                            <FontAwesomeIcon icon={item.icon} />
                         </span>)}
                      {item.arrow && <FontAwesomeIcon icon={faAngleLeft} />}
@@ -140,18 +146,19 @@ export default function Footer({ countries }) {
                </div>
                <div className="py-10 text-sm border-t flex flex-col md:flex-row gap-10 justify-between items-center md:items-start">
                   <Image src="/images/WTA_ALM-AR.svg" alt="logo" width={200} height={100} />
-                  <div className={`text-center flex flex-col items-center text-gray-300 ${noto.className}`}>
+                  <div className="text-center flex flex-col items-center">
                      <Image src="/images/logo.webp" alt="logo" width={100} height={70} />
-                     <p className='text-sm'>
+                     <p className='text-xs bold'>
                         Made with <FontAwesomeIcon icon={faHeart} className='text-red-500 text-sm' /> in Elnagah
                      </p>
-                     <p className='text-sm'>{settings.copy_rights}</p>
+                     <p className='text-xs bold'>{settings.copy_rights}</p>
                   </div>
-                  <div className='flex gap-2 items-center'>
-                     <Image src="/images/pay1.png" alt="apple pay" title='apple pay' width={30} height={30} />
-                     <Image src="/images/pay2.png" alt="mastercard" title="mastercard" width={30} height={30} />
-                     <Image src="/images/pay3.png" alt="visa" title='visa' width={30} height={30} />
+                  <div className='flex gap-4 items-center'>
+                     <Image src="/images/pay1.png" alt="apple pay" title='apple pay' width={40} height={30} />
+                     <Image src="/images/pay2.png" alt="mastercard" title="mastercard" width={40} height={30} />
+                     <Image src="/images/pay3.png" alt="visa" title='visa' width={40} height={30} />
                      <Image src="/images/pay4.png" alt="paypal" title='paypal' width={30} height={30} />
+                     <Image src="/images/pay5.png" alt="mada" title='mada' width={40} height={30} />
                   </div>
                </div>
             </div>
