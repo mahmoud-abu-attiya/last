@@ -1,5 +1,5 @@
 import Header from './header/Header'
-import Footer from './footer/Footer'
+import Footer from './footer/NewFooter'
 import { useDispatch } from 'react-redux'
 import { setSettingsData } from '../../slices/settingsSlices'
 import { setForProgramsData } from '../../slices/forPrograms'

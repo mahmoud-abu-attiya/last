@@ -62,6 +62,11 @@ export const headerLinks = [
   //   route: '/thanks',
   //   icon: "/icons/hand.svg"
   // },
+  {
+    text: 'المذيد',
+    route: '/more',
+    icon: "/icons/more.svg"
+  }
 ]
 
 const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {

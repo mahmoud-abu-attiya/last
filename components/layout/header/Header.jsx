@@ -110,6 +110,16 @@ export default function Header() {
             </a>
           </div>
         )} */}
+        <Link
+        href={`tel:${settings.phone}`}
+        target='_blank'
+        rel='noreferrer'
+        aria-label='Header menu link - Phone'
+        className={`flex gap-2 text-sm p-2 rounded-md ${showHeader ? "bg-gray-800 border border-gray-700" : "hover:bg-gray-800 hover:border hover:border-gray-700"}`}
+        >
+          {settings.phone}
+          <Image src="/icons/24-7.png" alt="phone" width={25} height={25} style={{ filter: 'invert(70%) sepia(95%) saturate(529%) hue-rotate(360deg) brightness(104%) contrast(104%)' }} />
+        </Link>
 
         {/* Menu */}
         {settings.logo && (
