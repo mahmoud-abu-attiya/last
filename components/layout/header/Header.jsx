@@ -115,7 +115,7 @@ export default function Header() {
           target='_blank'
           rel='noreferrer'
           aria-label='Header menu link - Phone'
-          className={`flex gap-2 p-2 rounded-lg ${showHeader ? "bg-gray-800 border border-gray-700" : "hover:bg-gray-800 hover:border hover:border-gray-700"}`}
+          className={`flex gap-2 p-2 rounded-lg border border-transparent ${showHeader ? "bg-gray-800 border-gray-700" : "hover:bg-gray-800 hover:border-gray-700"}`}
           style={{ letterSpacing: "2px" }}
         >
           {settings.phone}
