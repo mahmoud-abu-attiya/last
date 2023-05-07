@@ -341,7 +341,7 @@ h2{
    }
 }
 @media (max-width: 1024px) {
-   .glitter .icon::after, .glitter .icon::before {
+   /* .glitter .icon::after, .glitter .icon::before {
       content: none;
    }
    .glitter{
@@ -370,7 +370,7 @@ h2{
       transform: skew(-25deg);
       animation: glitter2 0.4s linear;
       animation-delay: 0.03s;
-   }
+   } */
    .subFooter .whats{
       background-image: linear-gradient(to bottom, rgb(0, 169, 0), rgb(0, 110, 0));
    }
