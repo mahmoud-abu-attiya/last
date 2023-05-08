@@ -262,11 +262,11 @@
   font-size: 2rem;
 }
 
-@media (min-width: 1150px) {
+/* @media screen and (min-width: 1150px) {
   .header__menu.show__menu{
     background-color: transparent;
   }
-}
+} */
 @media (max-width: 1150px) {
   .logo__container__menu__show {
     top: 2rem;

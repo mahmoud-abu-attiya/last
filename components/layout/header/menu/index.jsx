@@ -107,7 +107,7 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
   return (
     <div
       className={
-        `bg-white dark:bg-gray-900 text-black dark:text-white ${showMenu
+        `menu ${showMenu
           ? `${styles.header__menu} ${styles.show__menu}`
           : styles.header__menu}`
       }
