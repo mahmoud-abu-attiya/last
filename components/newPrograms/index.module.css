@@ -11,6 +11,11 @@
   font-size: 2.3rem;
   color: #5e6568;
 }
+@media screen and (prefers-color-scheme: dark) {
+  .newPrograms__title {
+    color: white;
+  }
+}
 .newPrograms__cards {
   display: flex;
   justify-content: center;
@@ -50,7 +55,6 @@
   font-size: 1.2rem;
   margin: 0.4rem 0;
   cursor: pointer;
-  color: var(--second-clr);
 }
 .newPrograms__card__btns {
   display: flex;
@@ -61,8 +65,8 @@
 .newPrograms__card__period {
   font-size: 0.8rem;
   padding: 0.2rem 0.7rem;
-  color: white;
-  background-color: var(--second-clr);
+  /* color: white;
+  background-color: var(--second-clr); */
   border-radius: 0.25rem;
   width: fit-content;
   display: flex;
@@ -106,7 +110,6 @@
 }
 .new__price {
   font-size: 1.4rem;
-  color: var(--second-clr);
   font-weight: bolder;
 }
 

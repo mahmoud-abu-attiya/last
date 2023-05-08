@@ -107,9 +107,9 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
   return (
     <div
       className={
-        showMenu
+        `bg-white dark:bg-gray-900 text-black dark:text-white ${showMenu
           ? `${styles.header__menu} ${styles.show__menu}`
-          : styles.header__menu
+          : styles.header__menu}`
       }
     >
       {/* Header Links */}
@@ -197,14 +197,14 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
         </a>
       </div>
       {/* Header Menu Footer (Visible only on mobile) */}
-      <span className={styles.header__footer}>{settings.copy_rights}</span>
+      <span className={`text-secondary dark:text-white ${styles.header__footer}`}>{settings.copy_rights}</span>
       <span
         id='menuClose'
         className={styles.header__close}
         onClick={() => setShowMenu(false)}
       >
         {/* <AiOutlineMinus /> */}
-        <i className="w-6 h-1 bg-secondary block"></i>
+        <i className="w-6 h-1 bg-secondary dark:bg-white block"></i>
       </span>
       <div
         // className={

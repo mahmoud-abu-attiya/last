@@ -23,7 +23,7 @@ const SubFooter = ({ settings }) => {
   }, [glitter]);
 
   return (
-    <div className="sticky subFooter bottom-0 lg:p-4 lg:px-16 grid grid-cols-4 lg:bg-gray-100 z-20 lg:gap-0">
+    <div className="sticky subFooter bottom-0 lg:p-4 lg:px-16 grid grid-cols-4 lg:bg-gray-100 lg:dark:bg-gray-800 lg:dark:text-white z-20 lg:gap-0">
       <a href={`tel:${settings.mobile}`} className={`${glitter === 1 ? "glitter" : ""} lg:shadow-none phone bg-[green] p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10`} target='_blank' rel='noreferrer' aria-label='Mobile'>
         {/* <i className="fal fa-mobile text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
         <div className="icon">

@@ -21,7 +21,7 @@ const TripesCard = ({ item }) => {
           </span>
         </div>
       </div>
-      <div className={`flip-card-back rounded-3xl overflow-hidden bg-white text-secondary p-4 sm:p-6 flex flex-col gap-2 sm:gap-5 items-start ${styles.card__back}`}>
+      <div className={`flip-card-back rounded-3xl overflow-hidden bg-white dark:bg-gray-900 text-secondary dark:text-gray-50 p-4 sm:p-6 flex flex-col gap-2 sm:gap-5 items-start ${styles.card__back}`}>
       <Image
             src={"/images/logo.webp"}
             alt={`tripes logo ${item.name}`}

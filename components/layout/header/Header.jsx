@@ -115,7 +115,7 @@ export default function Header() {
           target='_blank'
           rel='noreferrer'
           aria-label='Header menu link - Phone'
-          className={`flex gap-2 p-2 rounded-lg border border-transparent ${showHeader ? "bg-gray-800 border-gray-700" : "hover:bg-gray-800 hover:border-gray-700"}`}
+          className={`flex gap-2 p-2 rounded-lg border bg-gray-800 border-gray-700`}
           style={{ letterSpacing: "2px" }}
         >
           {settings.phone}
@@ -138,7 +138,7 @@ export default function Header() {
         <div
           className={
             isSearch
-              ? `${styles.header__search__menu} ${styles.show__search}`
+              ? `bg-white dark:bg-gray-900 ${styles.header__search__menu} ${styles.show__search}`
               : styles.header__search__menu
           }
         >
@@ -156,9 +156,9 @@ export default function Header() {
                 setResponse('')
                 // onSearch(event, event.target.value)
               }}
-              className={styles.search__input}
+              className={`border-b focus:border-primary dark:bg-gray-900 dark:text-white dark:border-gray-700 ${styles.search__input}`}
             />
-            <button type='submit' className={styles.search__btn}>
+            <button type='submit' className={`text-secondary dark:text-white ${styles.search__btn}`}>
               ابحث
               {/* <BsArrowLeft /> */}
               <FontAwesomeIcon icon={faArrowLeft} />
@@ -172,7 +172,7 @@ export default function Header() {
                 setResponse('')
               }}
             >
-              <i className="w-6 h-1 bg-secondary block"></i>
+              <i className="w-6 h-1 bg-secondary dark:bg-white block"></i>
             </span>
           )}
           <div
@@ -193,10 +193,10 @@ export default function Header() {
               />
             )}
           </div>
-          <div className={`max-h-full overflow-y-auto ${styles.dropdown}`}>
+          <div className={`max-h-full overflow-y-auto dark:bg-gray-800 ${styles.dropdown}`}>
             {countries?.map(({ name, id }) => (
               <Link
-                className={styles.dropdown__row}
+              className={`dark:text-white text-secondary ${styles.dropdown__row}`}
                 key={id}
                 // onClick={() => { setSearchTerm(name); setIsSearch(false); }}
                 onClick={() => setIsSearch(false)}
@@ -205,7 +205,7 @@ export default function Header() {
                 {name}
               </Link>
             ))}
-            {response && <h2 style={{ color: 'black', zIndex: 4 }}>{response}</h2>}
+            {response && <h2 style={{ zIndex: 4 }}>{response}</h2>}
           </div>
         </div>
 

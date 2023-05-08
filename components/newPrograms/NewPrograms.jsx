@@ -34,8 +34,8 @@ const NewPrograms = ({ programs }) => {
                 className={styles.newPrograms__card__img}
               />
             </div>
-            <div className={styles.newPrograms__card__content}>
-              <div className={styles.newPrograms__card__period}>
+            <div className={`bg-white dark:bg-gray-900 text-secondary dark:text-white ${styles.newPrograms__card__content}`}>
+              <div className={` bg-secondary text-white dark:bg-white dark:text-secondary ${styles.newPrograms__card__period}`}>
               <span>
                         {/* <BsFillSunFill /> */}
                         {/* <i className="fas fa-sun"></i> */}

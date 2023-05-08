@@ -21,7 +21,7 @@ const FlipCard = ({ country, btnTitle, btnUrl }) => {
             </span>
           </div>
         </div>
-        <div className={`flip-card-back rounded-3xl overflow-hidden bg-white text-secondary p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 items-start ${styles.card__back}`}>
+        <div className={`flip-card-back rounded-3xl overflow-hidden bg-white dark:bg-gray-900 text-secondary dark:text-gray-200 p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 items-start ${styles.card__back}`}>
           <Image
             src={"/images/logo.webp"}
             alt={`programs logo ${country.name}`}
@@ -33,12 +33,12 @@ const FlipCard = ({ country, btnTitle, btnUrl }) => {
             {country.country.name}
           </h3>
           <p>
-            <span className="bg-black w-2 h-2 rounded-full"></span>
+            <span className="bg-black dark:bg-gray-50 w-2 h-2 rounded-full"></span>
             <span>{country.category.name}</span>
           </p>
           <p>
             <span>
-              <span className="bg-black w-2 h-2 rounded-full"></span>
+              <span className="bg-black dark:bg-gray-50 w-2 h-2 rounded-full"></span>
               سعر البرنامج
             </span>
             <span> {country.price_after_discount}</span> ريال سعودي
@@ -51,14 +51,14 @@ const FlipCard = ({ country, btnTitle, btnUrl }) => {
             }}
           >
             <span>
-              <span className="bg-black w-2 h-2 rounded-full"></span>
+              <span className="bg-black dark:bg-gray-50 w-2 h-2 rounded-full"></span>
               بدلا من
             </span>
             <span style={{ textDecoration: 'line-through' }}>
               {country.price}
             </span>
           </p>
-          <p className={styles.offer}>
+          <p className={`bg-[#e4faef] dark:bg-green-500/50 dark:text-gray-50 ${styles.offer}`}>
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
               <path d='m30.718 13.042.002-9.522a2.243 2.243 0 0 0-2.24-2.24l-9.52.002-.402-.002c-.83 0-1.62.048-2.19.618L1.822 16.442a1.83 1.83 0 0 0-.542 1.308c0 .495.192.96.542 1.308l11.12 11.12c.348.35.813.542 1.308.542.492 0 .96-.192 1.308-.542l14.544-14.546c.626-.622.62-1.52.618-2.384l-.002-.206zM24.96 8.96a1.92 1.92 0 1 1 .001-3.841 1.92 1.92 0 0 1-.001 3.841z'></path>
             </svg>

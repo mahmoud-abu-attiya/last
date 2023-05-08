@@ -1,7 +1,7 @@
 .tripes__title {
   font-size: 3rem;
   text-align: center;
-  color: #5e6568;
+  /* color: #5e6568; */
   margin-bottom: 5rem;
 }
 .tripes__tabs {
@@ -161,8 +161,8 @@
   border-radius: 20px;
   position: absolute;
   backface-visibility: hidden;
-  background-color: white;
-  color: #222;
+  /* background-color: white;
+  color: #222; */
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;

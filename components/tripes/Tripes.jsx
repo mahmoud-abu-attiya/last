@@ -130,12 +130,12 @@ const Tripes = () => {
   const tripesTabs = ['جميع الوجهات', 'الوجهات الخارجية', 'الوجهات الداخلية']
   return (
     <div className={`grid grid-cols-12 ${styles.tripes}`}>
-      <div className="col-span-12 xl:col-span-3 pt-16 xl:py-20 xl:border-l flex flex-col justify-between items-center">
-        <Link href='/our-programs' className={"border-b pb-2 w-fit hidden xl:block"}>
+      <div className="col-span-12 xl:col-span-3 pt-16 xl:py-20 xl:border-l dark:border-gray-700 flex flex-col justify-between items-center">
+        <Link href='/our-programs' className={"border-b pb-2 w-fit hidden xl:block dark:text-white"}>
           عرض الكل
         </Link>
         <h2
-          className={`xl:hidden ${styles.tripes__title}`}
+          className={`xl:hidden text-gray-600 dark:text-gray-200 ${styles.tripes__title}`}
         >
           اختر وجهتك الان
         </h2>
@@ -147,13 +147,13 @@ const Tripes = () => {
               key={i}
               // onClick={() => { setValue(i); setTranslate(step); setIndex(1) }}
               onClick={() => handleSwitch(i)}
-              className={`${styles.tripes__tab} text-xl xl:text-2xl border-secondary mx-2 lg:mx-4 ${value == i ? "border-b-2 text-secondary xl:border-none" : "text-gray-600 border-none"}`}
+              className={`${styles.tripes__tab} text-xl xl:text-2xl border-secondary dark:border-gray-200 mx-2 lg:mx-4 ${value == i ? "border-b-2 text-secondary dark:text-gray-100 xl:border-none" : "text-gray-600 dark:text-gray-400 border-none"}`}
             >
               {tab}
             </button>
           ))}
-          <span className={`absolute transition-all hidden xl:flex left-0 -translate-x-1/2 justify-center items-center -translate-y-1/2 w-14 xl:w-16 h-8 bg-white ${value == 0 ? "top-[5%]" : value == 1 ? "top-1/2" : "top-[95%]"}`}>
-            <span className="bg-secondary h-1 w-full block"></span>
+          <span className={`absolute transition-all hidden xl:flex left-0 -translate-x-1/2 justify-center items-center -translate-y-1/2 w-14 xl:w-16 h-8 bg-white dark:bg-gray-950 ${value == 0 ? "top-[5%]" : value == 1 ? "top-1/2" : "top-[95%]"}`}>
+            <span className="bg-secondary dark:bg-white h-1 w-full block"></span>
           </span>
         </div>
         <div className='hidden xl:block'>
@@ -169,7 +169,7 @@ const Tripes = () => {
       </div>
       <div className={` col-span-12 xl:col-span-9 xl:pr-10 xl:py-20`}>
         <h2
-          className={`hidden xl:block ${styles.tripes__title}`}
+          className={`hidden xl:block text-gray-600 dark:text-gray-200  ${styles.tripes__title}`}
         >
           اختر وجهتك الان
         </h2>

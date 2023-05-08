@@ -1,15 +1,15 @@
 .news__title {
   text-align: center;
   font-size: 2.4rem;
-  color: rgb(53, 52, 52);
+  /* color: rgb(53, 52, 52); */
 }
 .view__all {
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  border-bottom: 1px solid var(--second-clr);
-  color: var(--second-clr);
+  /* border-bottom: 1px solid var(--second-clr);
+  color: var(--second-clr); */
   position: absolute;
   top: 5rem;
   left: 5rem;

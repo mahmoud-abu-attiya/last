@@ -103,7 +103,7 @@ const Special = ({ data }) => {
   return (
     <div className="lg:container py-20 relative mb-20 md:mb-0">
       <h3
-        className={`mb-10 ${styles.news__title}`}
+        className={`mb-10 text-gray-600 dark:text-gray-100 ${styles.news__title}`}
       >
         العروض المميزة
       </h3>
@@ -120,7 +120,7 @@ const Special = ({ data }) => {
           </div>
         </div>
       </div>
-      <Link href='/special-offers' className={styles.view__all}>
+      <Link href='/special-offers' className={`border-b-2 border-secondary dark:border-gray-300 text-secondary dark:text-gray-300 ${styles.view__all}`}>
         عرض الكل
       </Link>
       <div className='flex gap-20 text-center items-center justify-center mt-20'>

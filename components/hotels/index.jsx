@@ -21,7 +21,8 @@ const Hotels = ({ hotels, settings }) => {
 
 	return (
 		<div className={styles.hotels} id='hotels'>
-			<div className={styles.hotels__container}>
+			{/* <div className={styles.hotels__container}> */}
+			<div className={"container"}>
 				<div className={styles.hotels__heading}>
 					<h2 className={styles.hotels__title}> أشهر فنادق</h2>
 					<div className={styles.hotels__tabs}>
@@ -37,8 +38,8 @@ const Hotels = ({ hotels, settings }) => {
 						))}
 					</div>
 				</div>
-				<div className={styles.hotels__content}>
-					<div className={styles.hotels__list}>
+				<div className={`border p-4 bg-gray-100 shadow-lg rounded-lg ${styles.hotels__content}`}>
+					<div className={`border ${styles.hotels__list}`}>
 						{countries
 							?.filter((c) =>
 								value === 1
@@ -49,7 +50,7 @@ const Hotels = ({ hotels, settings }) => {
 							)
 							.map((country) => (
 								<div
-									className={styles.hotels__list__item}
+									className={`bg-gray-50 shadow-sm ${styles.hotels__list__item}`}
 									key={country?.id}
 									onClick={() => setValue2(country?.name)}
 								>
@@ -68,7 +69,7 @@ const Hotels = ({ hotels, settings }) => {
 						{hotels
 							?.filter((hotel) => hotel?.country?.name === value2)
 							.map((hotel) => (
-								<div key={hotel?.image} className={styles.hotels__card}>
+								<div key={hotel?.image} className={`shadow-md ${styles.hotels__card}`}>
 									<a
 										href={`https://api.whatsapp.com/send?phone=${settings.mobile}`}
 										target='_blank'
@@ -82,7 +83,7 @@ const Hotels = ({ hotels, settings }) => {
 											className={styles.hotels__card__img}
 										/>
 										<div>
-											<h3>{hotel?.name}</h3>
+											<h3 className='max-w-[250px] sm:max-w-[400px]'>{hotel?.name}</h3>
 											<p>
 												{hotel?.country?.name}
 											</p>

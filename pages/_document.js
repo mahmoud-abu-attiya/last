@@ -38,7 +38,7 @@ export default function Document() {
             <meta property="fb:app_id" content="APP_ID"/>
             */}
          </Head>
-         <body dir="rtl">
+         <body dir="rtl" className="dark:bg-gray-950">
             <Main />
             <NextScript />
          </body>
