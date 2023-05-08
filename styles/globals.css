@@ -211,6 +211,12 @@ h2{
    background-color: #e4e4e4;
    z-index: 1;
 }
+@media (prefers-color-scheme: dark) {
+   .accordion::after{
+      background-color: #252d40;
+   }
+   
+}
 
 @keyframes animateTitle {
    0% {

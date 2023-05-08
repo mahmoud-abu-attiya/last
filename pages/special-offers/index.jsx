@@ -39,7 +39,7 @@ const SpecialOffers = ({slides, specialOffers}) => {
         btnText={slides[0].button_text}
         btnUrl={'#content'}
       />
-      <div className="container hidden md:block border-b">
+      <div className="container hidden md:block border-b dark:border-gray-700">
         <Breadcrumbs list={[{ title: "العروض المميزة" }]} />
       </div>
       <div className={styles.offers__content} id='content'>

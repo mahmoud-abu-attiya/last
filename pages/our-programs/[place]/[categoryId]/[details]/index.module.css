@@ -56,8 +56,7 @@
   font-size: 2rem;
   margin: 1rem auto 0;
   padding-bottom: 0.5rem;
-  color: var(--second-clr);
-  border-bottom: 2px solid var(--first-clr);
+  /* border-bottom: 2px solid var(--first-clr); */
 }
 
 /* Details Details */
@@ -71,7 +70,7 @@
   gap: 0.4rem;
   width: fit-content;
   padding-bottom: 0.3rem;
-  border-bottom: 2px solid var(--first-clr);
+  /* border-bottom: 2px solid var(--first-clr); */
 }
 .details__details h3 svg,
 .details__includes h3 svg {
@@ -112,8 +111,8 @@
 .details__form {
   flex: 2;
   padding: 1rem;
-  background-color: white;
-  border: 1px solid #ccc;
+  /* background-color: white; */
+  /* border: 1px solid #ccc; */
   border-radius: 0 0 20px 20px;
   height: fit-content;
   display: flex;
@@ -200,6 +199,12 @@
   width: 100%;
   border: 1px solid lightgray;
   transition: 0.2s;
+}
+@media screen and (prefers-color-scheme: dark) {
+  .details__form__cards input {
+    background-color: #111827;
+    border-color: #1a2335;
+  }
 }
 .details__form__cards input::placeholder {
   font-size: 1.2rem;

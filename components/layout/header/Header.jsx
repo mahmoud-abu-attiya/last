@@ -3,17 +3,32 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import Menu from './menu'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { setTheme } from '../../../slices/themeSlice'
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 // import { faSearch, faMobile, faPhoneAlt, faEnvelope, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 // import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 
 export default function Header() {
   // const router = useRouter()
+  const dispatch = useDispatch()
   const settings = useSelector((state) => state.settings.value)
   const forPrograms = useSelector((state) => state.forPrograms.value)
+
+  const theme = useSelector((state) => state.theme.value);
+
+  const setThemeValue = (theme) => {
+    if (theme == "") {
+      localStorage.removeItem("theme");
+      dispatch(setTheme(""));
+    } else {
+      localStorage.theme = theme;
+      dispatch(setTheme(theme));
+    }
+  };
   const [countries, setCounties] = useState()
 
   const [showHeader, setShowHeader] = useState(false) // to hide/show on scroll
@@ -110,7 +125,7 @@ export default function Header() {
             </a>
           </div>
         )} */}
-        <Link
+        {/* <Link
           href={`tel:${settings.phone}`}
           target='_blank'
           rel='noreferrer'
@@ -120,7 +135,13 @@ export default function Header() {
         >
           {settings.phone}
           <Image src="/icons/24-7.png" alt="phone" width={25} height={25} style={{ filter: 'invert(70%) sepia(95%) saturate(529%) hue-rotate(360deg) brightness(104%) contrast(104%)' }} />
-        </Link>
+        </Link> */}
+        <button
+          className={`px-4 py-2 dark:bg-gray-200 bg-gray-950 rounded-md dark:text-gray-900 text-white border border-gray-800`}
+          onClick={() => setThemeValue(!theme)}
+          title={theme ? " المظهر الداكن" : "المظهر الفاتح"}>
+          {theme ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
+        </button>
 
         {/* Menu */}
         {settings.logo && (
@@ -131,7 +152,7 @@ export default function Header() {
             setShowMenu={setShowMenu}
             isSearch={isSearch}
             settings={settings}
-            // isScrollTop={isScrollTop}
+          // isScrollTop={isScrollTop}
           />
         )}
         {/* Search Page */}
@@ -196,7 +217,7 @@ export default function Header() {
           <div className={`max-h-full overflow-y-auto dark:bg-gray-800 ${styles.dropdown}`}>
             {countries?.map(({ name, id }) => (
               <Link
-              className={`dark:text-white text-secondary ${styles.dropdown__row}`}
+                className={`dark:text-white text-secondary ${styles.dropdown__row}`}
                 key={id}
                 // onClick={() => { setSearchTerm(name); setIsSearch(false); }}
                 onClick={() => setIsSearch(false)}

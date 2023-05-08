@@ -1,31 +1,28 @@
 import Header from './header/Header'
 import Footer from './footer/NewFooter'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setSettingsData } from '../../slices/settingsSlices'
 import { setForProgramsData } from '../../slices/forPrograms'
-// import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 
 export default function Layout({ children, countries, footerCountries, settings }) {
    const dispatch = useDispatch()
-   // const [footerCountries, setFooterCountries] = useState([])
    dispatch(setSettingsData(settings))
    dispatch(setForProgramsData(countries))
-   // useEffect(() => {
-   //    fetch('https://backend.elnagahtravels.com/public/api/settings')
-   //       .then(res => res.json())
-   //       .then(data => {
-   //          // setFooterCountries(data.countries)
-   //          dispatch(setSettingsData(data.settings))
-   //       }
-   //       )
-   //    fetch('https://backend.elnagahtravels.com/public/api/countries?country_for=programs')
-   //       .then(res => res.json())
-   //       .then(data => {
-   //          dispatch(setForProgramsData(data.countries))
-   //       }
-   //       )
-   // }, [])
+   const theme = useSelector((state) => state.theme.value);
+   useEffect(() => {
+      const theme = localStorage.theme;
+      if (
+         theme === true ||
+         (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+         document.documentElement.classList.add("dark");
+      } else {
+         document.documentElement.classList.remove("dark");
+      }
+   }, [theme]);
    return (
       <>
          <Header />

@@ -78,7 +78,6 @@
   font-size: 1.8rem;
 }
 .form__data {
-  background-color: white;
   width: 1200px;
   max-width: min(1200px, 95%);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -96,8 +95,8 @@
   width: 1200px;
   max-width: min(1200px, 95%);
   padding: 2rem 0;
-  background-color: white;
-  color: var(--second-clr);
+  /* background-color: white; */
+  /* color: var(--second-clr); */
   direction: rtl;
 }
 .search__select {
@@ -109,6 +108,7 @@
   padding: 0 1rem;
   border-bottom: 1px solid lightgray;
 }
+
 .search__content {
   display: flex;
   justify-content: flex-start;
@@ -123,7 +123,7 @@
   gap: 0.5rem;
 }
 .search__title {
-  color: var(--second-clr);
+  /* color: var(--second-clr); */
   margin-top: 0.5rem;
 }
 .search__dist {
@@ -134,6 +134,7 @@
   padding: 1rem;
   border-bottom: 1px solid lightgray;
 }
+
 .card {
   border-left: 1px solid lightgray;
 }
@@ -141,7 +142,7 @@
   color: var(--first-clr);
 }
 .card__title {
-  color: var(--second-clr);
+  /* color: var(--second-clr); */
   margin: 0;
 }
 .card__input {
@@ -160,6 +161,18 @@
 .card__input::placeholder {
   font-size: 0.9rem;
   padding-right: 0.4rem;
+}
+@media (prefers-color-scheme: dark) {
+  .search__select, .search__dist {
+    border-bottom: 1px solid #353b51;
+  }
+  .card__input{
+    background-color: #1f2937;
+    border-bottom: 2px solid transparent;
+  }
+  .card{
+    border-left: 1px solid #353b51;
+  }
 }
 .search__checkbox {
   display: flex;
@@ -181,7 +194,7 @@
   flex-direction: column;
   gap: 1rem;
   padding: 2rem 1rem;
-  color: var(--second-clr);
+  /* color: var(--second-clr); */
 }
 .field {
   display: flex;
@@ -197,6 +210,13 @@
   border-radius: 10px;
   border: 1px solid lightgray;
   transition: 0.2s;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .form__input{
+    border-color: #282e42;
+    background-color: #111827;
+  }
+  
 }
 .form__input::placeholder {
   font-size: 0.9rem;

@@ -197,7 +197,7 @@ const Aviation = ({ slide }) => {
         <h2 className={styles.form__title}>
           أدخل بياناتك واستلم تذكرتك وانت بمكانك
         </h2>
-        <form className={styles.form__search} onSubmit={handleSubmit2}>
+        <form className={`bg-white dark:bg-gray-800 dark:text-white text-secondary ${styles.form__search}`} onSubmit={handleSubmit2}>
           <div className={styles.search__select}>
             <div className={styles.search__content}>
               <div className={styles.select}>
@@ -310,7 +310,7 @@ const Aviation = ({ slide }) => {
         </form>
         <Snackbar ref={snackbarRef2} message={snackbarMsg2} type={'success'} />
 
-        <div className={styles.form__data} id='form'>
+        <div className={`bg-white dark:bg-gray-800 dark:text-white ${styles.form__data}`} id='form'>
           <form className={styles.form__content} onSubmit={handleSubmit}>
             <div className={styles.row}>
               <div className={styles.field}>

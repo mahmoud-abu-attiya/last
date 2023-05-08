@@ -50,7 +50,7 @@ const SeaTripes = ({
         btnText={slide[0].button_text}
         btnUrl={'#content'}
       />
-      <div className="container hidden md:block border-b">
+      <div className="container hidden md:block border-b dark:border-gray-700">
         <Breadcrumbs list={[{ title: "الرحلات البحرية" }]} />
       </div>
       <div className={styles.seaTripes__content} id='content'>
@@ -67,7 +67,7 @@ const SeaTripes = ({
                     className={styles.offer__card__img}
                   />
                 </div>
-                <div className={styles.offer__card__content}>
+                <div className={` dark:bg-gray-900 dark:text-white ${styles.offer__card__content}`}>
                   <div className={styles.offer__card__period}>
                     <span>
                       {/* <i className="fas fa-sun"></i> */}

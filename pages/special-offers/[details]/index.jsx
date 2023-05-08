@@ -49,8 +49,8 @@ const Responsive = ({ data }) => {
   return (
     <>
       {popup && (
-        <div className="overlay fixed w-full h-full bg-black/25 z-50 top-0 left-0 flex justify-center items-center">
-          <div className="card shadow-xl rounded-lg overflow-hidden bg-white w-[90%] max-w-md">
+        <div style={{ zIndex: "70" }} className="overlay fixed w-full h-full bg-black/50 backdrop-blur-sm top-0 left-0 flex justify-center items-center">
+          <div className="card shadow-xl rounded-lg overflow-hidden bg-white dark:bg-gray-900 dark:text-white w-[90%] max-w-md">
             <div className="img relative w-full h-[15rem]">
               <Image src={popup.img} alt={popup.name} className='object-cover' fill />
             </div>
@@ -81,7 +81,7 @@ const Accordion = ({ title, text, index }) => {
   const [isActive, setIsActive] = useState(index === 0 ? true : false);
   return (
     <div className="relative accordion">
-      <div className="absolute top-[1rem] border-4 bg-gray-50 p-[2px] border-primary right-[1px] translate-x-1/2 w-6 h-6 rounded-full">
+      <div className="absolute top-[1rem] border-4 bg-gray-50 dark:bg-gray-800 p-[2px] border-primary right-[1px] translate-x-1/2 w-6 h-6 rounded-full">
         {isActive && <div className="w-full h-full rounded-full bg-primary"></div>}
       </div>
       <div className={`border-r-4 border-primary pr-4 transition-all duration-500 delay-0 ${isActive ? "max-h-[500px]" : "max-h-[55px]"} overflow-hidden`}>
@@ -252,7 +252,8 @@ const Details = () => {
           content={settings.meta_description}
         />
       </Head>
-      <div className={styles.details__bg}>
+      <div className="bg-gray-50 dark:bg-gray-900">
+        <div className={styles.details__bg}>
         <Image src={offerDetails?.image} alt={offerDetails?.title} fill loading="eager" />
         <div className={styles.content}>
           <h1>
@@ -276,13 +277,13 @@ const Details = () => {
       </div>
       <div className={`${styles.details} grid grid-cols-3`}>
         <div className={`${styles.details__info} col-span-3 lg:col-span-2`}>
-          <div className="hidden md:block border-b">
+          <div className="hidden md:block border-b dark:border-gray-700">
             <Breadcrumbs list={[{ title: 'العروض المميزة', href: "/special-offers" }, { title: offerDetails?.title, href: null }]} />
           </div>
-          <p className={`text-justify ${noto.className}`}>لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.</p>
-          <h2 id='slider' className={styles.details__details}>وجهات يمكنك زيارتها</h2>
+          <p className={`text-justify dark:text-gray-50 ${noto.className}`}>لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.</p>
+          <h2 id='slider' className={`text-secondary dark:text-white ${styles.details__details}`}>وجهات يمكنك زيارتها</h2>
           <Responsive data={slides} />
-          <div className="border flex flex-col gap-4 rounded-b-lg">
+          <div className="border dark:border-gray-700 dark:bg-gray-800 dark:text-white flex flex-col gap-4 rounded-b-lg">
             <div className={styles.details__details}>
               <h3 className='text-xl mb-6' id='line'>
                 تفاصيل البرنامج السياحي
@@ -340,21 +341,21 @@ const Details = () => {
                 ))}
               </div>
             </div>
-            <div className={`${noto.className} p-4 border-t`}>
+            <div className={`${noto.className} p-4 border-t dark:border-gray-700`}>
               <p className="text-gray-400">استمتع بالتخطيط لرحلتك كيفما شئت مع باقات العطلات المخصصة لشخص واحد</p>
               <div id='form'>من <span className='text-xl font-bold'>{offerDetails.price_after_discount} SAR</span></div>
             </div>
           </div>
         </div>
-        <div className={`${styles.details__form} col-span-3 lg:col-span-1`}>
+        <div className={`${styles.details__form} col-span-3 lg:col-span-1 bg-white dark:bg-gray-800 border border-t-none dark:border-gray-700 dark:text-white`}>
           <Link className="w-full rounded-full shadow-md bg-green-600 text-white p-4 flex gap-4 items-center justify-center" href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} target='_blank' rel='noreferrer'>
             {/* <i className="fab fa-whatsapp text-2xl"></i> */}
             <FontAwesomeIcon icon={faWhatsapp} className="text-2xl" />
             <span>تواصل معنا عن طريق الوتساب</span>
           </Link>
           <div className="relative w-full my-4">
-            <span className='bg-white p-4 text-gray-600 text-xs z-10 relative'>أو</span>
-            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1 w-[75%] bg-gray-200"></span>
+            <span className='bg-white dark:bg-gray-800 p-4 text-gray-600 dark:text-gray-400 text-xs z-10 relative'>أو</span>
+            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1 w-[75%] bg-gray-200 dark:bg-gray-700"></span>
           </div>
           <form
             className={styles.details__form__cards + " " + noto.className}
@@ -464,7 +465,7 @@ const Details = () => {
       </div>
       {offers.filter((prog) => prog?.id !== offerDetails?.id).length > 0 && (
         <div className={styles.similar}>
-          <h2>برامج مشابهة</h2>
+          <h2 className='dark:text-white'>برامج مشابهة</h2>
           <div className={styles.similar__cards}>
             {offers
               ?.filter((offer) => offer?.id !== offerDetails?.id)
@@ -475,6 +476,7 @@ const Details = () => {
           </div>
         </div>
       )}
+      </div>
     </>
   )
 }

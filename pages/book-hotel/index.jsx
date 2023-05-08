@@ -110,7 +110,7 @@ const BookHotel = ({ hotels, slide }) => {
       />
       <Hotels hotels={hotels} settings={settings} />
       <div className='spikes'></div>
-      <div className={styles.form} id='form'>
+      <div className={`bg-white dark:bg-gray-800 dark:text-white ${styles.form__data}`} id='form'>
         <div className={styles.form__bg}></div>
         <div className={styles.form__data}>
           <form className={styles.form__content} onSubmit={handleSubmit}>

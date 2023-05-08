@@ -73,7 +73,6 @@
   font-size: 1.2rem;
   margin: 0.4rem 0;
   cursor: pointer;
-  color: var(--second-clr);
 }
 .offer__card__btns {
   display: flex;
@@ -124,7 +123,6 @@
 }
 .new__price {
   font-size: 1.4rem;
-  color: var(--second-clr);
   font-weight: bolder;
 }
 
@@ -163,7 +161,6 @@
 /* Sales */
 .sales {
   position: relative;
-  justify-content: center;
   width: auto;
   background-color: #e4faef;
   margin-bottom: 2rem;
@@ -173,6 +170,11 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.8rem;
+}
+@media (prefers-color-scheme: dark) {
+  .sales {
+    background-color: #276445;
+  }
 }
 .sales span {
   font-size: 1.1rem;

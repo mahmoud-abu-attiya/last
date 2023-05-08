@@ -96,7 +96,7 @@
   font-size: 1.1rem;
   margin: 0.4rem 0;
   cursor: pointer;
-  color: var(--second-clr);
+  /* color: var(--second-clr); */
 }
 .offer__card__btns {
   display: flex;
@@ -107,7 +107,7 @@
 .offer__card__period {
   font-size: 0.8rem;
   padding: 0.2rem 0.7rem;
-  color: white;
+  /* color: white; */
   background-color: var(--first-clr);
   border-radius: 0.25rem;
   width: fit-content;

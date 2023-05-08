@@ -105,14 +105,14 @@ const FamilyActivity = ({ title, img }) => {
             {data.map((slide, i) => {
                return (
                   <div key={i} dir='rtl'>
-                     <div className='group border overflow-hidden mx-2 rounded-lg cursor-pointer' onClick={() => handleClick(i)}>
+                     <div className='group border dark:border-gray-700 dark:bg-gray-800 overflow-hidden mx-2 rounded-lg cursor-pointer' onClick={() => handleClick(i)}>
                         <div className="relative h-[13rem]">
                            <Image src={img} alt="any" fill className='object-cover' />
                         </div>
                         <div className="flex justify-between items-center px-4 py-8">
                            <div className="">
                               <h3>جينو بارادايس</h3>
-                              <p className='text-xs text-gray-500'>يحتوي مركز جينو بارادايس على ملاهي مائية رائع...</p>
+                              <p className='text-xs text-gray-500 dark:text-gray-400'>يحتوي مركز جينو بارادايس على ملاهي مائية رائع...</p>
                            </div>
                            {/* <i className="far fa-chevron-left text-xs"></i> */}
                            <FontAwesomeIcon icon={faChevronLeft} className='text-xs' />
@@ -145,8 +145,8 @@ export default function Daleel() {
    ]
    return (
       <>
-      <Head>
-      <title>{data.title + " | " + list[1].title}</title>
+         <Head>
+            <title>{data.title + " | " + list[1].title}</title>
             <meta
                name="viewport"
                content="width=device-width, initial-scale=1"
@@ -167,7 +167,7 @@ export default function Daleel() {
                name="twitter:description"
                content={settings.meta_description}
             />
-      </Head>
+         </Head>
          <div className="w-full bg-secondary h-36 md:h-40"></div>
          <div className="w-full h-[50vh] relative overflow-hidden flex">
             <Image src={data.image} alt="daleel" fill className='object-cover' />
@@ -178,8 +178,8 @@ export default function Daleel() {
                </div>
             </div>
          </div>
-         <div className="container">
-            <div className="border-b">
+         <div className="container dark:text-white">
+            <div className="border-b dark:border-gray-700">
                <Breadcrumbs list={list} />
             </div>
             <p className={`my-4 md:my-6 max-w-3xl text-justify ${noto.className}`}>تعد جزر المالديف الوجهة السياحية الأنسب لعشاق البحر والشمس، فهي جزيرة ساحرة تضم العديد من الشواطئ الخلابة ذات المياه الكريستالية. استمتع بالرياضات المائية في المياه الصافية، وشاهد الشعاب المرجانية، تناول ألذ المأكولات البحرية، واستمتع بالرفاهية في أروع منتجعات الجزيرة التي تضمن لك تجربة ولا أروع. سواء كنت ترغب في الاسترخاء على الشاطئ ومشاهدة غروب الشمس، أو تخطّط للاستمتاع بتجربة فريدة في أفضل المنتجعات العالمية فإن جزر المالديف بطابعها الخاص تمنحك الأجواء المناسبة لتمضي أروع الأوقات.</p>
@@ -190,15 +190,14 @@ export default function Daleel() {
             </div>
             <div className="flibs flex gap-4 flex-wrap">
                <div className="flip-card text-center city_flip rounded-xl relative mx-auto md:m-0">
-                  <div className="flip-card-inner city_flip_inner rounded-xl  border">
-                     <div className="flip-card-front w-full text-center city_flip_front rounded-xl overflow-hidden flex flex-col items-center p-4 justify-between">
-                        <div></div>
+                  <div className="flip-card-inner city_flip_inner rounded-xl dark:border-gray-700 border">
+                  <div className="flip-card-front w-full text-center city_flip_front rounded-xl dark:text-white dark:bg-gray-800 overflow-hidden flex flex-col items-center p-4 justify-between">                        <div></div>
                         <Image src={"https://cms-cdn.almosafer.com/drupal_cms/alm/files/public/cityguides-import/best_time_visit_icon.svg"} alt="any" width={60} height={60} />
                         <div className="font-light mb-4">
                            أفضل الأوقات للزيارة
                         </div>
                      </div>
-                     <div className={`flip-card-back text-center city_flip_back rounded-xl overflow-hidden bg-white text-secondary p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 items-center`}>
+                     <div className={`flip-card-back text-center city_flip_back rounded-xl overflow-hidden dark:text-white dark:bg-gray-800 bg-white text-secondary p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 items-center`}>
                         <Image src={"https://cms-cdn.almosafer.com/drupal_cms/alm/files/public/cityguides-import/best_time_visit_icon.svg"} alt="any" width={40} height={40} />
                         <div className={"text-primary"}>
                            أفضل الأوقات للزيارة
@@ -208,15 +207,15 @@ export default function Daleel() {
                   </div>
                </div>
                <div className="flip-card text-center city_flip rounded-xl relative mx-auto md:m-0">
-                  <div className="flip-card-inner city_flip_inner rounded-xl  border">
-                     <div className="flip-card-front w-full text-center city_flip_front rounded-xl overflow-hidden flex flex-col items-center p-4 justify-between">
+                  <div className="flip-card-inner city_flip_inner rounded-xl dark:border-gray-700 border">
+                     <div className="flip-card-front w-full text-center city_flip_front rounded-xl dark:text-white dark:bg-gray-800 overflow-hidden flex flex-col items-center p-4 justify-between">
                         <div></div>
                         <Image src={"https://cms-cdn.almosafer.com/drupal_cms/alm/files/public/cityguides-import/best_time_visit_icon.svg"} alt="any" width={60} height={60} />
                         <div className="font-light mb-4">
                            أفضل الأوقات للزيارة
                         </div>
                      </div>
-                     <div className={`flip-card-back text-center city_flip_back rounded-xl overflow-hidden bg-white text-secondary p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 items-center`}>
+                     <div className={`flip-card-back text-center city_flip_back rounded-xl overflow-hidden dark:text-white dark:bg-gray-800 bg-white text-secondary p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 items-center`}>
                         <Image src={"https://cms-cdn.almosafer.com/drupal_cms/alm/files/public/cityguides-import/best_time_visit_icon.svg"} alt="any" width={40} height={40} />
                         <div className={"text-primary"}>
                            أفضل الأوقات للزيارة
@@ -226,15 +225,15 @@ export default function Daleel() {
                   </div>
                </div>
                <div className="flip-card text-center city_flip rounded-xl relative mx-auto md:m-0">
-                  <div className="flip-card-inner city_flip_inner rounded-xl  border">
-                     <div className="flip-card-front w-full text-center city_flip_front rounded-xl overflow-hidden flex flex-col items-center p-4 justify-between">
+                  <div className="flip-card-inner city_flip_inner rounded-xl dark:border-gray-700 border">
+                     <div className="flip-card-front w-full text-center city_flip_front rounded-xl dark:text-white dark:bg-gray-800 overflow-hidden flex flex-col items-center p-4 justify-between">
                         <div></div>
                         <Image src={"https://cms-cdn.almosafer.com/drupal_cms/alm/files/public/cityguides-import/best_time_visit_icon.svg"} alt="any" width={60} height={60} />
                         <div className="font-light mb-4">
                            أفضل الأوقات للزيارة
                         </div>
                      </div>
-                     <div className={`flip-card-back text-center city_flip_back rounded-xl overflow-hidden bg-white text-secondary p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 items-center`}>
+                     <div className={`flip-card-back text-center city_flip_back rounded-xl overflow-hidden dark:text-white dark:bg-gray-800 bg-white text-secondary p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 items-center`}>
                         <Image src={"https://cms-cdn.almosafer.com/drupal_cms/alm/files/public/cityguides-import/best_time_visit_icon.svg"} alt="any" width={40} height={40} />
                         <div className={"text-primary"}>
                            أفضل الأوقات للزيارة

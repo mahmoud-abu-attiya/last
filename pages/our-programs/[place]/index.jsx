@@ -90,7 +90,7 @@ const Place = (props) => {
       <div className="container hidden md:block">
         <Breadcrumbs list={[{title: 'البرامج السياحية', href: "/our-programs"}, {title: country.name}]} />
       </div>
-      <div className="bg-gray-50">
+      <div className="bg-gray-50 dark:bg-gray-900">
       <div className="md:hidden">
       <Slider {...settings} className='w-full prog border-b'>
         {categories.map((category) => {
@@ -102,10 +102,10 @@ const Place = (props) => {
       </div>
       <div className="container">
       <div className=" hidden sm:block">
-      <Slider {...settings} className='w-full prog border-b'>
+      <Slider {...settings} className='w-full prog border-b dark:border-gray-700'>
         {categories.map((category) => {
           return (
-            <button onClick={() => setId(category.id)} key={category?.id} className={`text-sm transition duration-500 text-center hover:bg-gray-400/25 py-4 ${id == category.id ? "border-b-4 border-primary text-black bold" : "text-gray-500 border-none font-light"}`}>{category.name}</button>
+            <button onClick={() => setId(category.id)} key={category?.id} className={`text-sm transition duration-500 text-center hover:bg-gray-400/25 py-4 ${id == category.id ? "border-b-4 border-primary text-black dark:text-primary bold" : "text-gray-500 border-none font-light"}`}>{category.name}</button>
           )
         })}
       </Slider>
@@ -125,8 +125,8 @@ const Place = (props) => {
                       />
                     )}
                   </div>
-                  <div className={`bg-white ${cartStyle.offer__card__content}`}>
-                    <div className={cartStyle.offer__card__period}>
+                  <div className={`bg-white dark:bg-gray-800 dark:text-gray-50 ${cartStyle.offer__card__content}`}>
+                    <div className={`text-white dark:text-secondary ${cartStyle.offer__card__period}`}>
                       <span>
                         {/* <i className="fas fa-sun"></i> */}
                         <FontAwesomeIcon icon={faSun} />
@@ -154,7 +154,7 @@ const Place = (props) => {
                       <Link
                         href={`/our-programs/${place}/${id}/${item.id}`}
                       >
-                        <h3 className={cartStyle.offer__card__title}>
+                        <h3 className={`text-secondary dark:text-white ${cartStyle.offer__card__title}`}>
                           {item.category.name} {item.rate} نجوم
                         </h3>
                       </Link>

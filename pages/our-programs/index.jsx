@@ -94,14 +94,14 @@ const OurPrograms = ({ countries, slides }) => {
         title={slides[0]?.title}
       /> */}
       <Hero data={slides} />
-      <div className={`bg-gray-100`} id='content'>
+      <div className={`bg-gray-100 dark:bg-gray-900`} id='content'>
         <div className="container">
-          <div className=" border-b">
+          <div className=" border-b dark:border-gray-600">
             <Breadcrumbs list={[{ title: "البرامج السياحية" }]} />
           </div>
           <div className="py-14 md:py-20">
             <h2 className='main__title'>البرامج السياحية</h2>
-            <p className='max-w-2xl text-center mb-8 mx-auto'> غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.  غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.</p>
+            <p className='max-w-2xl text-center mb-8 mx-auto dark:text-gray-300'> غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.  غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.</p>
             <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-8`}>
               {countries.map((country) => ( // remove reverse() to egnore the error
                 <Link

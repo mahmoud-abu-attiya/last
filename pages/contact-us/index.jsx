@@ -121,7 +121,7 @@ const ContactUs = ({ slide }) => {
       <div className={styles.form} id='form'>
         <div className={styles.form__bg}></div>
         <h2>سنكون سعيدين باستلام رسالتك</h2>
-        <div className={styles.form__data}>
+        <div className={`bg-white dark:bg-gray-800 dark:text-white ${styles.form__data}`}>
           <form
             className={styles.form__content}
             onSubmit={handleSubmit}

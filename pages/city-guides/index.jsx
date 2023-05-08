@@ -37,15 +37,15 @@ export default function Index({ data }) {
                content={settings.meta_description}
             />
       </Head>
-      <div className='bg-gray-50'>
+      <div className='bg-gray-50 dark:bg-gray-900'>
          <div className="top h-36 md:h-44 bg-secondary w-full"></div>
          <div className='container max-w-7xl'>
-            <div className="border-b">
+            <div className="border-b dark:border-gray-700">
             <Breadcrumbs list={[{ title: "الدليل السياحي" }]} />
             </div>
             <div className="py-16 md:py-20">
-               <h1 className='text-xl md:text-2xl mb-6'>الدليل السياحي</h1>
-               <p className='text-gray-500'>اكتشف معنا أروع وجهات السفر</p>
+               <h1 className='text-xl md:text-2xl mb-6 dark:text-white'>الدليل السياحي</h1>
+               <p className='text-gray-500 dark:text-gray-400'>اكتشف معنا أروع وجهات السفر</p>
                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mt-16">
                   {countries.map((country) => (
                      <Link className='group overflow-hidden rounded-lg cursor-pointer' key={country.id} href={`/city-guides/${country.id}`}>

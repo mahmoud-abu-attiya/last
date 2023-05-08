@@ -24,13 +24,13 @@ const Hotels = ({ hotels, settings }) => {
 			{/* <div className={styles.hotels__container}> */}
 			<div className={"container"}>
 				<div className={styles.hotels__heading}>
-					<h2 className={styles.hotels__title}> أشهر فنادق</h2>
+					<h2 className={`text-secondary dark:text-white ${styles.hotels__title}`}> أشهر فنادق</h2>
 					<div className={styles.hotels__tabs}>
 						{hotelsTabs?.map((tab, i) => (
 							<button
 								key={i}
 								onClick={() => setValue(i)}
-								className={`${styles.hotels__tab} ${value === i ? styles.hotels__tab__active : ''
+								className={`text-secondary dark:text-white ${styles.hotels__tab} ${value === i ? styles.hotels__tab__active : ''
 									}`}
 							>
 								{tab}
@@ -38,8 +38,8 @@ const Hotels = ({ hotels, settings }) => {
 						))}
 					</div>
 				</div>
-				<div className={`border p-4 bg-gray-100 shadow-lg rounded-lg ${styles.hotels__content}`}>
-					<div className={`border ${styles.hotels__list}`}>
+				<div className={`border p-4 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 shadow-lg rounded-lg ${styles.hotels__content}`}>
+					<div className={`border dark:bg-gray-900 bg-white dark:border-gray-700 ${styles.hotels__list}`}>
 						{countries
 							?.filter((c) =>
 								value === 1
@@ -50,7 +50,7 @@ const Hotels = ({ hotels, settings }) => {
 							)
 							.map((country) => (
 								<div
-									className={`bg-gray-50 shadow-sm ${styles.hotels__list__item}`}
+									className={`bg-gray-50 dark:bg-gray-800 dark:text-white shadow-sm ${styles.hotels__list__item}`}
 									key={country?.id}
 									onClick={() => setValue2(country?.name)}
 								>

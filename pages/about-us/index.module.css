@@ -52,6 +52,15 @@
   flex-direction: row-reverse;
   color: var(--second-clr);
 }
+@media (prefers-color-scheme: dark) {
+  .hero__bg::after {
+    border-color: transparent transparent #030712 transparent;
+  }
+  .about__us{
+    background-color: #030712;
+    color: white;
+  }
+}
 .about__us__best {
   display: flex;
   justify-content: center;
@@ -129,7 +138,6 @@
 .about__us__best div p span {
   font-size: 0.9rem;
   font-weight: bold;
-  color: #222;
   display: inline-block;
 }
 .about__us__best div p svg {
@@ -157,6 +165,12 @@
   background-color: #eeebe5;
   width: 1200px;
   max-width: min(1200px, 95%);
+}
+@media (prefers-color-scheme: dark) {
+  .about__us__options {
+    background-color: #030712;
+    color: white;
+  }
 }
 .about__us__options__img {
   position: relative;
@@ -199,7 +213,6 @@
 }
 .about__us__card p {
   font-size: 0.9rem;
-  color: #222;
   text-align: center;
 }
 
