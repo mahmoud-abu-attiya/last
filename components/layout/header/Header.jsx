@@ -5,9 +5,8 @@ import { useState } from 'react'
 import Menu from './menu'
 import { useSelector, useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faArrowLeft, faSun, faMoon  } from '@fortawesome/free-solid-svg-icons'
 import { setTheme } from '../../../slices/themeSlice'
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 // import { faSearch, faMobile, faPhoneAlt, faEnvelope, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 // import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
@@ -20,15 +19,9 @@ export default function Header() {
 
   const theme = useSelector((state) => state.theme.value);
 
-  const setThemeValue = (theme) => {
-    if (theme == "") {
-      localStorage.removeItem("theme");
-      dispatch(setTheme(""));
-    } else {
-      localStorage.theme = theme;
-      dispatch(setTheme(theme));
-    }
-  };
+  // const setThemeValue = (theme) => {
+  //   dispatch(setTheme(theme));
+  // };
   const [countries, setCounties] = useState()
 
   const [showHeader, setShowHeader] = useState(false) // to hide/show on scroll
@@ -138,9 +131,9 @@ export default function Header() {
         </Link> */}
         <button
           className={`px-4 py-2 dark:bg-gray-200 bg-gray-950 rounded-md dark:text-gray-900 text-white border border-gray-800`}
-          onClick={() => setThemeValue(!theme)}
+          onClick={() => dispatch(setTheme(!theme))}
           title={theme ? " المظهر الداكن" : "المظهر الفاتح"}>
-          {theme ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
+          {theme ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}
         </button>
 
         {/* Menu */}

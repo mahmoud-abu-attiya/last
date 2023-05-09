@@ -12,12 +12,7 @@ export default function Layout({ children, countries, footerCountries, settings 
    dispatch(setForProgramsData(countries))
    const theme = useSelector((state) => state.theme.value);
    useEffect(() => {
-      const theme = localStorage.theme;
-      if (
-         theme === true ||
-         (!("theme" in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
+      if (theme === true) {
          document.documentElement.classList.add("dark");
       } else {
          document.documentElement.classList.remove("dark");
