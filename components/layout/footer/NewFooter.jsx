@@ -1,10 +1,12 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { faInstagram, faTwitter, faYoutube, faWhatsapp, faTiktok, faSnapchat } from '@fortawesome/free-brands-svg-icons'
 import { faMobile, faAngleLeft, faEnvelopeOpenText, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
+import { setTheme } from '../../../slices/themeSlice'
 // import localFont from 'next/font/local';
 
 // const noto = localFont({ src: '../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
@@ -104,7 +106,9 @@ const List = ({ title, items }) => {
 }
 
 export default function Footer({ countries }) {
+   const dispatch = useDispatch();
    const settings = useSelector((state) => state.settings.value)
+   const theme = useSelector((state) => state.theme.value);
    const famousCountries = () => {
       const items = []
       for (let i = 0; i < 7; i++) {
@@ -143,6 +147,17 @@ export default function Footer({ countries }) {
                   <List title="موقعنا" items={[
                      { blank: true, name: settings.address, link: `https://www.google.com/maps/place/24%C2%B042'28.7%22N+46%C2%B037'39.0%22E/@24.707979,46.6254091,16z/data=!4m4!3m3!8m2!3d24.7079785!4d46.627512?hl=en-US` },
                   ]} />
+                  <div className="col-span-2 lg:col-span-5 flex items-center gap-3">
+                     <FontAwesomeIcon icon={faSun} className={`text-yellow-300 ${theme && " opacity-30"}`} />
+                     <button
+                        className={`p-[2px] w-[3rem] flex flex-col  bg-gray-200  dark:bg-gray-950 rounded-full border dark:border-gray-800`}
+                        onClick={() => dispatch(setTheme(!theme))}
+                        title={theme ? " المظهر الداكن" : "المظهر الفاتح"}
+                     >
+                        <span className={`block h-4 w-4 shadow-md rounded-full bg-gray-400 dark:bg-gray-700 transition-[margin] duration-300 ${theme ? "mr-6" : "m-0"}`}></span>
+                     </button>
+                     <FontAwesomeIcon icon={faMoon} className={`text-gray-200 ${!theme && "opacity-30"}`} />
+                  </div>
                </div>
                <div className="py-10 text-sm border-t flex flex-col md:flex-row gap-10 justify-between items-center md:items-start">
                   <Image src="/images/WTA_ALM-AR.svg" alt="logo" width={200} height={100} />

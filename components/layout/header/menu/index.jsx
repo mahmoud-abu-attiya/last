@@ -129,7 +129,7 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
                 alt={link.text}
                 width={20}
                 height={20}
-                className={styles.nav__icon}
+                className={`navicon ${styles.nav__icon}`}
               />
               <Link href={link.route} onClick={() => setValue(i)} className={styles.header__link}>
                 {link.text}

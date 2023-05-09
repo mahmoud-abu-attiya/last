@@ -104,7 +104,7 @@ export default function Index() {
                </div>
             )
          })}
-          <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
+          <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white dark:bg-gray-900 dark:text-gray-50 z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
       </div>
    )
 }

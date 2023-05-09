@@ -95,7 +95,7 @@ const Place = (props) => {
       <Slider {...settings} className='w-full prog border-b'>
         {categories.map((category) => {
           return (
-            <button onClick={() => setId(category.id)} key={category?.id} className={`text-sm transition duration-500 text-center hover:bg-gray-400/25 py-4 ${id == category.id ? "border-b-4 border-primary text-black bold" : "text-gray-500 border-none font-light"}`}>{category.name}</button>
+            <button onClick={() => setId(category.id)} key={category?.id} className={`text-sm transition duration-500 text-center hover:bg-gray-400/25 py-4 ${id == category.id ? "border-b-4 border-primary dark:text-primary text-black bold" : "text-gray-500 border-none font-light"}`}>{category.name}</button>
           )
         })}
       </Slider>

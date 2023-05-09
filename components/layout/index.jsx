@@ -3,6 +3,7 @@ import Footer from './footer/NewFooter'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSettingsData } from '../../slices/settingsSlices'
 import { setForProgramsData } from '../../slices/forPrograms'
+import { setTheme } from '../../slices/themeSlice'
 import { useEffect } from 'react'
 
 
@@ -18,6 +19,15 @@ export default function Layout({ children, countries, footerCountries, settings 
          document.documentElement.classList.remove("dark");
       }
    }, [theme]);
+   useEffect(() => {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+         document.documentElement.classList.add("dark");
+         dispatch(setTheme(true))
+      } else {
+         document.documentElement.classList.remove("dark");
+         dispatch(setTheme(false))
+      }
+   }, []);
    return (
       <>
          <Header />

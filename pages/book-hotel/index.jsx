@@ -110,94 +110,96 @@ const BookHotel = ({ hotels, slide }) => {
       />
       <Hotels hotels={hotels} settings={settings} />
       <div className='spikes'></div>
-      <div className={`bg-white dark:bg-gray-800 dark:text-white ${styles.form__data}`} id='form'>
-        <div className={styles.form__bg}></div>
-        <div className={styles.form__data}>
-          <form className={styles.form__content} onSubmit={handleSubmit}>
-            <div className={styles.full__name}>
-              <label htmlFor='name'>الاسم بالكامل</label>
-              <input
-                type='text'
-                id='name'
-                name='fullname'
-                placeholder='الاسم بالكامل'
-                style={
-                  formErrors?.fullname
-                    ? { borderBottom: '2px solid red' }
-                    : { borderBottom: '2px solid lightgray' }
-                }
-              />
-            </div>
-            <div className={styles.phone}>
-              <label htmlFor='phone'>رقم الجوال</label>
-              <input
-                type='number'
-                id='phone'
-                name='phone'
-                placeholder='رقم الجوال'
-                style={
-                  formErrors?.phone
-                    ? { borderBottom: '2px solid red' }
-                    : { borderBottom: '2px solid lightgray' }
-                }
-              />
-            </div>
-            <div className='email'>
-              <label htmlFor='email'>البريد الالكتروني</label>
-              <input
-                type='text'
-                id='email'
-                name='email'
-                placeholder='البريد الالكتروني'
-                style={
-                  formErrors?.email
-                    ? { borderBottom: '2px solid red' }
-                    : { borderBottom: '2px solid lightgray' }
-                }
-              />
-            </div>
-            <div className='hotel'>
-              <label htmlFor='hotel'>اسم الفندق المطلوب</label>
-              <input
-                type='text'
-                id='hotel'
-                name='hotel_name'
-                placeholder='اسم الفندق المطلوب'
-                style={
-                  formErrors?.hotel_name
-                    ? { borderBottom: '2px solid red' }
-                    : { borderBottom: '2px solid lightgray' }
-                }
-              />
-            </div>
-            <div className='dist'>
-              <label htmlFor='dist'>الوجهة المطلوبة</label>
-              <input
-                type='text'
-                id='dist'
-                name='destination'
-                placeholder='الوجهة المطلوبة'
-                style={
-                  formErrors?.destination
-                    ? { borderBottom: '2px solid red' }
-                    : { borderBottom: '2px solid lightgray' }
-                }
-              />
-            </div>
-            <div className={styles.message}>
-              <label htmlFor='message'>تفاصيل اخري</label>
-              <textarea
-                id='message'
-                name='details'
-                placeholder='تفاصيل اخري'
-                rows='5'
-              />
-            </div>
-            <button type='submit' className={styles.form__btn}>
-              ارسال
-            </button>
-          </form>
-          <Snackbar ref={snackbarRef} message={snackbarMsg} type={'success'} />
+      <div className="pt-8 pb-16">
+        <div className={`bg-white dark:bg-gray-800 dark:text-white ${styles.form__data}`} id='form'>
+          <div className={styles.form__bg}></div>
+          <div className={styles.form__data}>
+            <form className={styles.form__content} onSubmit={handleSubmit}>
+              <div className={styles.full__name}>
+                <label htmlFor='name'>الاسم بالكامل</label>
+                <input
+                  type='text'
+                  id='name'
+                  name='fullname'
+                  placeholder='الاسم بالكامل'
+                  style={
+                    formErrors?.fullname
+                      ? { borderBottom: '2px solid red' }
+                      : { borderBottom: '2px solid lightgray' }
+                  }
+                />
+              </div>
+              <div className={styles.phone}>
+                <label htmlFor='phone'>رقم الجوال</label>
+                <input
+                  type='number'
+                  id='phone'
+                  name='phone'
+                  placeholder='رقم الجوال'
+                  style={
+                    formErrors?.phone
+                      ? { borderBottom: '2px solid red' }
+                      : { borderBottom: '2px solid lightgray' }
+                  }
+                />
+              </div>
+              <div className='email'>
+                <label htmlFor='email'>البريد الالكتروني</label>
+                <input
+                  type='text'
+                  id='email'
+                  name='email'
+                  placeholder='البريد الالكتروني'
+                  style={
+                    formErrors?.email
+                      ? { borderBottom: '2px solid red' }
+                      : { borderBottom: '2px solid lightgray' }
+                  }
+                />
+              </div>
+              <div className='hotel'>
+                <label htmlFor='hotel'>اسم الفندق المطلوب</label>
+                <input
+                  type='text'
+                  id='hotel'
+                  name='hotel_name'
+                  placeholder='اسم الفندق المطلوب'
+                  style={
+                    formErrors?.hotel_name
+                      ? { borderBottom: '2px solid red' }
+                      : { borderBottom: '2px solid lightgray' }
+                  }
+                />
+              </div>
+              <div className='dist'>
+                <label htmlFor='dist'>الوجهة المطلوبة</label>
+                <input
+                  type='text'
+                  id='dist'
+                  name='destination'
+                  placeholder='الوجهة المطلوبة'
+                  style={
+                    formErrors?.destination
+                      ? { borderBottom: '2px solid red' }
+                      : { borderBottom: '2px solid lightgray' }
+                  }
+                />
+              </div>
+              <div className={styles.message}>
+                <label htmlFor='message'>تفاصيل اخري</label>
+                <textarea
+                  id='message'
+                  name='details'
+                  placeholder='تفاصيل اخري'
+                  rows='5'
+                />
+              </div>
+              <button type='submit' className={styles.form__btn}>
+                ارسال
+              </button>
+            </form>
+            <Snackbar ref={snackbarRef} message={snackbarMsg} type={'success'} />
+          </div>
         </div>
       </div>
     </>
