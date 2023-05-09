@@ -33,7 +33,7 @@ const Thanks = ({reviews, slides}) => {
                content={settings.meta_description}
             />
       </Head>
-      <div className={`overflow-hidden ${styles.hero__bg}`}>
+      <div className={`overflow-hidden thankbg ${styles.hero__bg}`}>
         {slides[0]?.image && (
           <Image src={slides[0]?.image} alt={slides[0]?.title} fill unoptimized={true} />
         )}

@@ -2,7 +2,7 @@
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
-  background-color: #ececec
+  /* background-color: #ececec */
 }
 
 .testimonials .container {
@@ -13,7 +13,7 @@
 
 .testimonials .box {
   padding: 20px;
-  background-color: white;
+  /* background-color: white; */
   box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
   border-radius: 6px;
   position: relative;
@@ -24,7 +24,7 @@
   left: -10px;
   top: -50px;
   border-radius: 50%;
-  border: 10px solid #ececec;
+  /* border: 10px solid #ececec; */
 }
 
 .testimonials .box .img img {
@@ -36,18 +36,18 @@
 }
 
 .testimonials .box .title {
-  color: #777;
+  /* color: #777; */
   margin-bottom: 10px;
   display: block;
 }
 
-.testimonials .box .rate .filled {
+.testimonials .box .rate {
   color: #ffc107;
 }
 
 .testimonials .box p {
   line-height: 1.5;
-  color: #777;
+  /* color: #777; */
   margin-top: 10px;
   margin-bottom: 0;
 }

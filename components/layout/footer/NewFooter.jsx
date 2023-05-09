@@ -74,13 +74,13 @@ const SubFooter = ({ settings }) => {
 const List = ({ title, items }) => {
    return (
       <div>
-         <h3 className='w-fit mb-4 border-b-2 border-white'>{title}</h3>
+         <h3 className='w-fit mb-4 border-b-2 border-white text-xs md:text-base'>{title}</h3>
          <ul className='flex flex-col gap-2'>
             {items.map((item, index) => (
                <li key={index}>
                   <Link
                      target={item.blank ? "_blank" : ""}
-                     className={`text-sm bold group text-gray-300 hover:text-primary hover:underline ${item.icon || item.arrow ? "flex gap-2 items-center" : ""}`}
+                     className={`text-xs md:text-sm bold group text-gray-300 hover:text-primary hover:underline ${item.icon || item.arrow ? "flex gap-2 items-center" : ""}`}
                      href={item.link}
                      title={item.name}
                      aria-label={item.name}
@@ -143,6 +143,7 @@ export default function Footer({ countries }) {
                   <List title="المساعدة" items={[
                      { name: 'اتصل بنا', link: '/contact-us' },
                      { name: 'الأسئلة الشائعة', link: '#' },
+                     { name: 'شكر العملاء', link: '/thanks' },
                   ]} />
                   <List title="موقعنا" items={[
                      { blank: true, name: settings.address, link: `https://www.google.com/maps/place/24%C2%B042'28.7%22N+46%C2%B037'39.0%22E/@24.707979,46.6254091,16z/data=!4m4!3m3!8m2!3d24.7079785!4d46.627512?hl=en-US` },
