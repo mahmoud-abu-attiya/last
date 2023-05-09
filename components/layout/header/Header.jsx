@@ -12,23 +12,17 @@ import { setTheme } from '../../../slices/themeSlice'
 
 
 export default function Header() {
-  // const router = useRouter()
-  const dispatch = useDispatch()
-  const settings = useSelector((state) => state.settings.value)
-  const forPrograms = useSelector((state) => state.forPrograms.value)
-
+  const dispatch = useDispatch();
+  const settings = useSelector((state) => state.settings.value);
+  const forPrograms = useSelector((state) => state.forPrograms.value);
   const theme = useSelector((state) => state.theme.value);
+  const [countries, setCounties] = useState();
 
-  // const setThemeValue = (theme) => {
-  //   dispatch(setTheme(theme));
-  // };
-  const [countries, setCounties] = useState()
-
-  const [showHeader, setShowHeader] = useState(false) // to hide/show on scroll
+  const [showHeader, setShowHeader] = useState(false); // to hide/show on scroll
   // const [isScrollTop, setIsScrollTop] = useState(false) // to hide on scroll down, show on scroll up
-  const [showMenu, setShowMenu] = useState(false) // to hide/show menu
-  const [isSearch, setIsSearch] = useState(false) // to hide/show search page
-  const [response, setResponse] = useState('')
+  const [showMenu, setShowMenu] = useState(false); // to hide/show menu
+  const [isSearch, setIsSearch] = useState(false); // to hide/show search page
+  const [response, setResponse] = useState('');
   // const [searchTerm, setSearchTerm] = useState('')
 
   // const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -49,13 +43,13 @@ export default function Header() {
   // });
 
   const onSearch = (event) => {
-    event.preventDefault()
-    const value = event.target.querySelector('input').value
+    event.preventDefault();
+    const value = event.target.querySelector('input').value;
     console.log(value);
-    const result = forPrograms.filter(({ name }) => name.startsWith(value))
-    setCounties(value ? result : setResponse(' لا توجد نتائج'))
-    result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج')
-  }
+    const result = forPrograms.filter(({ name }) => name.startsWith(value));
+    setCounties(value ? result : setResponse(' لا توجد نتائج'));
+    result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج');
+  };
   return (
     <header
       // className={`${styles.header} ${showHeader ? styles.active : ''} ${isScrollTop ? styles.hide : ''
