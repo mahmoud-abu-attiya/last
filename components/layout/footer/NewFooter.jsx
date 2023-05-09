@@ -133,8 +133,8 @@ export default function Footer({ countries }) {
                      { blank: true, label: "snapchat", icon: faSnapchat, name: 'سناب شات', link: settings.snapchat },
                   ]} />
                   <List title="قانوني" items={[
-                     { name: 'الشروط و الأحكام', link: '#' },
-                     { name: 'سياسة الخصوصية', link: '#' },
+                     { name: 'الشروط و الأحكام', link: '/terms-and-conditions' },
+                     { name: 'سياسة الخصوصية', link: '/privacy-policy' },
                   ]} />
                   <List title="المساعدة" items={[
                      { name: 'اتصل بنا', link: '/contact-us' },

@@ -2,13 +2,13 @@
   padding-top: 4rem;
   padding-bottom: 4rem;
   position: relative;
-  background-color: lightblue;
+  /* background-color: #add8e6; */
 }
-@media screen and (prefers-color-scheme: dark) {
+/* @media screen and (prefers-color-scheme: dark) {
   .events {
     background-color: #094c62;
   }
-}
+} */
 .container {
   display: flex;
   align-items: center;
@@ -30,18 +30,18 @@
   justify-content: center;
 }
 .unit {
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
   border-radius: 6px;
   text-align: center;
   width: 75px;
   transition: 0.2s;
   cursor: pointer;
 }
-@media screen and (prefers-color-scheme: dark) {
+/* @media screen and (prefers-color-scheme: dark) {
   .unit {
-    border-color: #334762;
+    border-color: rgb(51, 71, 98);
   }
-}
+} */
 .unit span {
   display: block;
   transition: 0.2s;
@@ -62,15 +62,15 @@
   padding: 8px 10px;
   font-size: 13px;
   color: white;
-  border-top: 1px solid gray;
+  /* border-top: 1px solid gray; */
   border-radius: 0 0 5px 5px;
   transition: 0.2s;
 }
-@media screen and (prefers-color-scheme: dark) {
+/* @media screen and (prefers-color-scheme: dark) {
   .unit__lastSpan {
     border-color: #334762;
   }
-}
+} */
 .unit:hover,
 .unit:hover .unit__lastSpan {
   border-color: var(--first-clr);
@@ -83,24 +83,24 @@
   text-align: center;
   margin: 40px 0 0;
   font-size: 45px;
-  color: var(--second-clr);
+  /* color: var(--second-clr); */
 }
-@media screen and (prefers-color-scheme: dark) {
+/* @media screen and (prefers-color-scheme: dark) {
   .title {
     color: white;
   }
-}
+} */
 .description {
   text-align: center;
   line-height: 1.7;
   font-size: 19px;
-  color: #777;
+  /* color: #777; */
 }
-@media screen and (prefers-color-scheme: dark) {
+/* @media screen and (prefers-color-scheme: dark) {
   .description {
     color: rgb(197, 197, 197);
   }
-}
+} */
 .subscribe {
   width: 100%;
   margin-top: 50px;
@@ -109,17 +109,17 @@
   width: 600px;
   margin: 20px auto;
   padding: 30px 40px;
-  background-color: #f6f5f5;
+  /* background-color: #f6f5f5; */
   border-radius: 50px;
   display: flex;
   flex-direction: column;
   grid-area: 2rem;
 }
-@media screen and (prefers-color-scheme: dark) {
+/* @media screen and (prefers-color-scheme: dark) {
   .subscribe__form {
     background-color: var(--second-clr);
   }
-}
+} */
 .form__field {
   display: flex;
   flex-wrap: wrap;
@@ -134,12 +134,12 @@
   flex: 1;
   caret-color: var(--first-clr);
 }
-@media screen and (prefers-color-scheme: dark) {
+/* @media screen and (prefers-color-scheme: dark) {
   .email__input {
     background-color: #1f396c;
     color: white;
   }
-}
+} */
 .email__input:focus {
   outline: none;
 }

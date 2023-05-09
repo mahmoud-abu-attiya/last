@@ -50,7 +50,7 @@ const Hotels = ({ hotels, settings }) => {
 							)
 							.map((country) => (
 								<div
-									className={`bg-gray-50 dark:bg-gray-800 dark:text-white shadow-sm ${styles.hotels__list__item}`}
+									className={`bg-gray-50 dark:bg-gray-800 dark:text-white shadow-sm hover:bg-[#d3d3d3] dark:hover:bg-gray-700 ${styles.hotels__list__item}`}
 									key={country?.id}
 									onClick={() => setValue2(country?.name)}
 								>

@@ -237,15 +237,15 @@
   height: 60px;
 }
 
-.hotels__list__item:hover {
-  background-color: lightgray;
-}
-@media screen and (prefers-color-scheme: dark) {
+/* .hotels__list__item:hover {
+  background-color: #d3d3d3;
+} */
+/* @media screen and (prefers-color-scheme: dark) {
   .hotels__list__item:hover {
     background-color: #374151;
   }
   
-}
+} */
 
 .hotels__list__item:hover img {
   border-radius: 50%;

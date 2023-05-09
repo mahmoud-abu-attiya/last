@@ -79,7 +79,7 @@ const Events = ({ event }) => {
     return errors
   }
   return (
-    <div className={styles.events}>
+    <div className={`bg-[#add8e6] dark:bg-[#094c62] ${styles.events}`}>
       <div
         className='dots dots-up'
       ></div>
@@ -87,7 +87,7 @@ const Events = ({ event }) => {
         className='dots dots-down'
       ></div>
       <h2
-        className={styles.title}
+        className={`text-secondary dark:text-white ${styles.title}`}
       >
         أخر الأحداث
       </h2>
@@ -96,50 +96,50 @@ const Events = ({ event }) => {
           <div
             className={styles.time}
           >
-            <div className={styles.unit}>
+            <div className={`dark:bg-gray-900 border dark:border-gray-700 ${styles.unit}`}>
               <span className={styles.unit__firstSpan}>{date.days || 0}</span>
-              <span className={styles.unit__lastSpan}>يوم</span>
+              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>يوم</span>
             </div>
-            <div className={styles.unit}>
+            <div className={`dark:bg-gray-900 border dark:border-gray-700 ${styles.unit}`}>
               <span className={styles.unit__firstSpan}>{date.hours || 0}</span>
-              <span className={styles.unit__lastSpan}>ساعة</span>
+              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>ساعة</span>
             </div>
-            <div className={styles.unit}>
+            <div className={`dark:bg-gray-900 border dark:border-gray-700 ${styles.unit}`}>
               <span className={styles.unit__firstSpan}>
                 {date.minutes < 10
                   ? `0${date.minutes || 0}`
                   : date.minutes || 0}
               </span>
-              <span className={styles.unit__lastSpan}>دقيقة</span>
+              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>دقيقة</span>
             </div>
-            <div className={styles.unit}>
+            <div className={`dark:bg-gray-900 border dark:border-gray-700 ${styles.unit}`}>
               <span className={styles.unit__firstSpan}>
                 {date.seconds < 10
                   ? `0${date.seconds || 0}`
                   : date.seconds || 0}
               </span>
-              <span className={styles.unit__lastSpan}>ثانية</span>
+              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>ثانية</span>
             </div>
           </div>
           <h2
-            className={styles.title}
+            className={`text-secondary dark:text-white ${styles.title}`}
           >
             {event.title}
           </h2>
           <p
-            className={styles.description}
+            className={`text-gray-600 dark:text-gray-400 ${styles.description}`}
           >
             {event.content}
           </p>
         </div>
         <div className={styles.subscribe}>
-          <form onSubmit={handleSubmit} className={styles.subscribe__form}>
+          <form onSubmit={handleSubmit} className={`bg-gray-50 dark:bg-secondary ${styles.subscribe__form}`}>
             <div className={styles.form__field}>
               <input
                 type='text'
                 placeholder='ادخل البريد الالكتروني'
                 name='email'
-                className={styles.email__input}
+                className={`dark:bg-gray-800 dark:text-white ${styles.email__input}`}
                 noValidate
               />
               <button type='submit' className={styles.submit__input}>
