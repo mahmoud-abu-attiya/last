@@ -198,7 +198,11 @@ const Aviation = ({ slide }) => {
           أدخل بياناتك واستلم تذكرتك وانت بمكانك
         </h2>
         <form className={`bg-white dark:bg-gray-800 dark:text-white text-secondary ${styles.form__search}`} onSubmit={handleSubmit2}>
-          <div className={styles.search__select}>
+          <div className={`border-b dark:border-gray-700 py-8 px-4 ${styles.search__select}`}>
+            <h3 className={styles.search__title}>احجز تذاكر الطيران الان</h3>
+            <small style={{ color: 'red', fontSize: '.6rem' }}>
+              {formErrors2?.type}
+            </small>
             <div className={styles.search__content}>
               <div className={styles.select}>
                 <input type='radio' value='go' id='oneway' name='type' />
@@ -213,13 +217,9 @@ const Aviation = ({ slide }) => {
                 <label htmlFor='multible'>وجهات متعددة</label>
               </div>
             </div>
-            <small style={{ color: 'red', fontSize: '.6rem' }}>
-              {formErrors2?.type}
-            </small>
-            <h3 className={styles.search__title}>احجز تذاكر الطيران الان</h3>
           </div>
-          <div className={styles.search__dist}>
-            <div className={styles.card}>
+          <div className={`border-b dark:border-gray-700 ${styles.search__dist}`}>
+            <div className={`dark:border-gray-700 ${styles.card}`}>
               <label htmlFor='travel_from' className={styles.card__title}>من</label>
               <div>
                 {/* <MdLocationOn /> */}
@@ -228,14 +228,14 @@ const Aviation = ({ slide }) => {
                   placeholder='بلد المسكن'
                   name='travel_from'
                   id='travel_from'
-                  className={styles.card__input}
+                  className={`dark:bg-gray-800 dark:border-gray-700 ${styles.card__input}`}
                 />
               </div>
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors2?.travel_from}
               </small>
             </div>
-            <div className={styles.card}>
+            <div className={`dark:border-gray-700 ${styles.card}`}>
               <label htmlFor='travel_to' className={styles.card__title}>الي</label>
               <div>
                 {/* <MdLocationOn /> */}
@@ -244,14 +244,14 @@ const Aviation = ({ slide }) => {
                   placeholder='الوجهة'
                   name='travel_to'
                   id='travel_to'
-                  className={styles.card__input}
+                  className={`dark:bg-gray-800 dark:border-gray-700 ${styles.card__input}`}
                 />
               </div>
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors2?.travel_to}
               </small>
             </div>
-            <div className={styles.card}>
+            <div className={`dark:border-gray-700 ${styles.card}`}>
               <label htmlFor="traveling_date" classname="{styles.card__title}">تاريخ السفر</label>
               <div>
                 <input
@@ -259,14 +259,14 @@ const Aviation = ({ slide }) => {
                   name='traveling_date'
                   id='traveling_date'
                   pattern='\d{2}-\d{2}-\d{4}'
-                  className={styles.card__input}
+                  className={`dark:bg-gray-800 dark:border-gray-700 ${styles.card__input}`}
                 />
               </div>
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors2?.traveling_date}
               </small>
             </div>
-            <div className={styles.card}>
+            <div className={`dark:border-gray-700 ${styles.card}`}>
               <label htmlFor='back_date' className={styles.card__title}>تاريخ العودة</label>
               <div>
                 <input
@@ -274,14 +274,14 @@ const Aviation = ({ slide }) => {
                   name='back_date'
                   id='back_date'
                   pattern='\d{2}-\d{2}-\d{4}'
-                  className={styles.card__input}
+                  className={`dark:bg-gray-800 dark:border-gray-700 ${styles.card__input}`}
                 />
               </div>
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors2?.back_date}
               </small>
             </div>
-            <div className={styles.card} style={{ border: 'none' }}>
+            <div className={`dark:border-gray-700 ${styles.card}`} style={{ border: 'none' }}>
               <label htmlFor='travellers_number' className={styles.card__title}>عدد المسافرين</label>
               <div>
                 {/* <BsFillPeopleFill /> */}
@@ -290,7 +290,7 @@ const Aviation = ({ slide }) => {
                   name='travellers_number'
                   id='travellers_number'
                   placeholder='عدد المسافرين'
-                  className={styles.card__input}
+                  className={`dark:bg-gray-800 dark:border-gray-700 ${styles.card__input}`}
                 />
               </div>
               <small style={{ color: 'red', fontSize: '.6rem' }}>

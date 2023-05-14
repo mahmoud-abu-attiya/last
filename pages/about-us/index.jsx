@@ -54,7 +54,7 @@ const AboutUs = ({ about, slides }) => {
         <h1>{slides[0].title}</h1>
         <ScrollDown />
       </div>
-      <div className={styles.about__us}>
+      <div className={`text-secondary dark:text-white ${styles.about__us}`}>
         <div className={styles.about__us__best}>
           <h2 className='main__title'>انجازاتنا تتحدث عنا</h2>
           <div>
@@ -72,7 +72,7 @@ const AboutUs = ({ about, slides }) => {
         </div>
       </div>
 
-      <div className={styles.about__us__options}>
+      <div className={`bg-gray-200 dark:bg-gray-900 dark:text-white ${styles.about__us__options}`}>
         <div className={styles.about__us__options__img}>
           <Image fill src='/images/boat.gif' alt='' className='object-cover' />
         </div>

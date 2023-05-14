@@ -99,7 +99,7 @@ const Accordion = ({ title, text, index }) => {
 
 const Details = () => {
   const settings = useSelector((state) => state.settings.value)
-  const [offerDetails, setOfferDetails] = useState({})
+  const [offerDetails, setOfferDetails] = useState()
   const [offers, setOffers] = useState([])
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const snackbarRef = useRef(null)
@@ -181,6 +181,10 @@ const Details = () => {
     fetchData()
   }, [details])
 
+  useEffect(() => {
+    console.log(offerDetails);
+  }, [offerDetails])
+
   const handleSubmit = async (event) => {
     try {
       event.preventDefault()
@@ -254,7 +258,7 @@ const Details = () => {
       </Head>
       <div className="bg-gray-50 dark:bg-gray-900">
         <div className={styles.details__bg}>
-        <Image src={offerDetails?.image} alt={offerDetails?.title} fill loading="eager" />
+        <Image src={offerDetails.image} alt={offerDetails.title || "text"} fill priority={true} />
         <div className={styles.content}>
           <h1>
             {offerDetails?.title}
@@ -262,15 +266,15 @@ const Details = () => {
           {/* {program.image.map((img, i) => {
               return ( */}
           <div className="item cursor-pointer relative w-48 h-32 rounded-lg overflow-hidden">
-            <Image src={offerDetails?.image} alt={offerDetails?.title} fill />
+            <Image src={offerDetails.image} alt={offerDetails.title} fill priority={true}/>
           </div>
           {/* )
             })} */}
         </div>
-        <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
+        <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white dark:bg-gray-900 dark:text-gray-50 z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
         <ScrollDown />
       </div>
-      <div className="md:hidden sticky bg-white mb-4 shadow-md text-xs z-30 top-0 left-0 w-full flex gap-5 p-2">
+      <div className="md:hidden sticky bg-white dark:bg-gray-950 justify-between mb-4 shadow-md text-xs z-30 top-[6rem] left-0 w-full flex gap-5 p-2">
         <Link href={"#slider"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 1 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(1)}>وجهات يمكنك زيارتها</Link>
         <Link href={"#line"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 2 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(2)}>خط سير الرحلة</Link>
         <Link href={"#form"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 3 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(3)}>يرجى التواصل معي</Link>
@@ -368,6 +372,7 @@ const Details = () => {
                 id='name'
                 name='name'
                 placeholder='الاسم'
+                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.name}
@@ -380,6 +385,7 @@ const Details = () => {
                 id='email'
                 name='email'
                 placeholder='البريد الالكتروني'
+                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.email}
@@ -392,6 +398,7 @@ const Details = () => {
                 id='phone'
                 name='phone'
                 placeholder='رقم الجوال'
+                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.phone}
@@ -414,6 +421,7 @@ const Details = () => {
                 onClick={handleDate}
                 placeholder={new Date().toLocaleDateString()}
                 value={date}
+                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.travling_date}
@@ -426,6 +434,7 @@ const Details = () => {
                 id='travling_distnation'
                 name='travling_distnation'
                 placeholder='جهة السفر'
+                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
 
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
@@ -439,6 +448,7 @@ const Details = () => {
                 id='ppl_number'
                 name='ppl_number'
                 placeholder='عدد الاشخاص'
+                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.ppl_number}
@@ -451,6 +461,7 @@ const Details = () => {
                 id='childs_number'
                 name='childs_number'
                 placeholder='عدد الاطفال'
+                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.childs_number}

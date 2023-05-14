@@ -2,7 +2,7 @@
 import Head from 'next/head'
 import styles from './index.module.css'
 import Image from 'next/image'
-import BtnArrow from '@/components/BtnArrow'
+// import BtnArrow from '@/components/BtnArrow'
 import ScrollDown from '../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'
@@ -136,7 +136,7 @@ const DesignProgram = ({ data, slide }) => {
           >
             <div className={styles.hero__bg}>
               <h1>{data.title}</h1>
-              <BtnArrow title={slide[0]?.button_text} href='#form' />
+              {/* <BtnArrow title={slide[0]?.button_text} href='#form' /> */}
               <ScrollDown />
             </div>
             <div className={styles.card}>
@@ -184,6 +184,7 @@ const DesignProgram = ({ data, slide }) => {
                         id='firstname'
                         name='first_name'
                         placeholder='الاسم الاول'
+                        className="dark:bg-gray-900 dark:border-gray-700"
                       />
                       <small style={{ color: 'red', fontSize: '.6rem' }}>
                         {formErros?.first_name}
@@ -196,6 +197,7 @@ const DesignProgram = ({ data, slide }) => {
                         id='lastname'
                         name='family_name'
                         placeholder='اسم العائلة'
+                        className="dark:bg-gray-900 dark:border-gray-700"
                       />
                       <small style={{ color: 'red', fontSize: '.6rem' }}>
                         {formErros?.family_name}
@@ -210,6 +212,7 @@ const DesignProgram = ({ data, slide }) => {
                         id='phone'
                         name='phone'
                         placeholder='رقم الجوال'
+                        className="dark:bg-gray-900 dark:border-gray-700"
                       />
                       <small style={{ color: 'red', fontSize: '.6rem' }}>
                         {formErros?.phone}
@@ -222,6 +225,7 @@ const DesignProgram = ({ data, slide }) => {
                         id='email'
                         name='email'
                         placeholder='البريد الالكتروني'
+                        className="dark:bg-gray-900 dark:border-gray-700"
                       />
                       <small style={{ color: 'red', fontSize: '.6rem' }}>
                         {formErros?.email}
@@ -236,6 +240,7 @@ const DesignProgram = ({ data, slide }) => {
                         id='from'
                         name='travel_from'
                         placeholder='بلد المسكن'
+                        className="dark:bg-gray-900 dark:border-gray-700"
                       />
                       <small style={{ color: 'red', fontSize: '.6rem' }}>
                         {formErros?.travel_from}
@@ -248,6 +253,7 @@ const DesignProgram = ({ data, slide }) => {
                         id='to'
                         name='travel_to'
                         placeholder='الوجهة'
+                        className="dark:bg-gray-900 dark:border-gray-700"
                       />
                       <small style={{ color: 'red', fontSize: '.6rem' }}>
                         {formErros?.travel_to}
@@ -262,6 +268,7 @@ const DesignProgram = ({ data, slide }) => {
                         id='passengers'
                         name='adults'
                         placeholder='عدد المسافرين'
+                        className="dark:bg-gray-900 dark:border-gray-700"
                       />
                       <small style={{ color: 'red', fontSize: '.6rem' }}>
                         {formErros?.adults}
@@ -274,6 +281,7 @@ const DesignProgram = ({ data, slide }) => {
                         id='children'
                         name='childs'
                         placeholder='عدد الاطفال'
+                        className="dark:bg-gray-900 dark:border-gray-700"
                       />
                       <small style={{ color: 'red', fontSize: '.6rem' }}>
                         {formErros?.childs}
@@ -288,6 +296,7 @@ const DesignProgram = ({ data, slide }) => {
                         id='date'
                         name='traveling_date'
                         placeholder='تاريخ السفر'
+                        className="dark:bg-gray-900 dark:border-gray-700"
                       />
                       <small style={{ color: 'red', fontSize: '.6rem' }}>
                         {formErros?.traveling_date}
@@ -300,6 +309,7 @@ const DesignProgram = ({ data, slide }) => {
                         id='needs'
                         name='travel_need'
                         placeholder='متطلبات السفر'
+                        className="dark:bg-gray-900 dark:border-gray-700"
                       />
                       <small style={{ color: 'red', fontSize: '.6rem' }}>
                         {formErros?.travel_need}
@@ -312,6 +322,7 @@ const DesignProgram = ({ data, slide }) => {
                       id='details'
                       name='notes'
                       placeholder='اكتب اي تفاصيل أخري هنا...'
+                      className="dark:bg-gray-900 dark:border-gray-700"
                       rows='5'
                       cols='2'
                     />
@@ -325,129 +336,129 @@ const DesignProgram = ({ data, slide }) => {
                   message={snackbarMsg}
                   type={'success'}
                 />
-          <div className={styles.form__img}>
-            <div className={styles.form__img__content}>
-              <h3 className='main__title my-4'>هيا نتواصل</h3>
-              <div className={styles.contact__data}>
-                <div className={`${styles.contact__data__card}`}>
-                  <h3 className='my-4'>الجوال</h3>
-                  <div className={styles.phone}>
-                    <div>
+                <div className={styles.form__img}>
+                  <div className={styles.form__img__content}>
+                    <h3 className='main__title my-4'>هيا نتواصل</h3>
+                    <div className={styles.contact__data}>
+                      <div className={`${styles.contact__data__card}`}>
+                        <h3 className='my-4'>الجوال</h3>
+                        <div className={styles.phone}>
+                          <div>
+                            <a
+                              aria-label='twitter'
+                              href={`tel:${settings.mobile}`}
+                              target='_blank'
+                              rel='noreferrer'
+                            >
+                              {settings.mobile}
+                            </a>
+                            {/* <i className="fas fa-mobile text-primary"></i> */}
+                            <FontAwesomeIcon icon={faMobile} className='text-primary h-4' style={{ height: "1rem" }} />
+                          </div>
+                          <div>
+                            <a
+                              aria-label='twitter'
+                              href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`}
+                              target='_blank'
+                              rel='noreferrer'
+                            >
+                              {settings.whatsup}
+                            </a>
+                            {/* <i className="fab fa-whatsapp text-primary"></i> */}
+                            <FontAwesomeIcon icon={faWhatsapp} className='text-primary h-4' style={{ height: "1rem" }} />
+                          </div>
+                          <div>
+                            <a
+                              aria-label='phone'
+                              href={`tel:${settings.phone}`}
+                              target='_blank'
+                              rel='noreferrer'
+                            >
+                              {settings.phone}
+                            </a>
+                            {/* <i className="fas fa-phone-rotary text-primary"></i> */}
+                            <FontAwesomeIcon icon={faPhoneAlt} className='text-primary h-4' style={{ height: "1rem" }} />
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.contact__data__card}>
+                        <h3 className='my-4'>البريد الالكتروني</h3>
+                        <div>
+                          <a
+                            aria-label='email'
+                            href={`mailto:${settings.email}`}
+                            target='_blank'
+                            rel='noreferrer'
+                          >
+                            {settings.email}
+                          </a>
+                          {/* <i className="fas fa-envelope text-primary"></i> */}
+                          <FontAwesomeIcon icon={faEnvelope} className='text-primary h-4' style={{ height: "1rem" }} />
+                        </div>
+                      </div>
+                      <div className={styles.contact__data__card}>
+                        <h3 className='my-4'>العنوان</h3>
+                        <div>
+                          <div>{settings.address}</div>
+                          {/* <i className="fas fa-map-marker-alt text-primary"></i> */}
+                          <FontAwesomeIcon icon={faLocationPin} className='text-primary h-4' style={{ height: "1rem" }} />
+                        </div>
+                      </div>
+                    </div>
+                    <div className={styles.social__icons}>
+                      <a
+                        aria-label='instagram'
+                        href={settings.instagram}
+                        target='_blank'
+                        rel='noreferrer'
+                        className={styles.instagram}
+                      >
+                        {/* <i className="fab fa-instagram"></i> */}
+                        <FontAwesomeIcon icon={faInstagram} />
+                      </a>
                       <a
                         aria-label='twitter'
-                        href={`tel:${settings.mobile}`}
+                        href={settings.twitter}
                         target='_blank'
                         rel='noreferrer'
+                        className={styles.twitter}
                       >
-                        {settings.mobile}
+                        {/* <i className="fab fa-twitter"></i> */}
+                        <FontAwesomeIcon icon={faTwitter} />
                       </a>
-                      {/* <i className="fas fa-mobile text-primary"></i> */}
-                      <FontAwesomeIcon icon={faMobile} className='text-primary h-4' style={{ height: "1rem" }} />
-                    </div>
-                    <div>
                       <a
-                        aria-label='twitter'
-                        href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`}
+                        aria-label='tiktok'
+                        href={settings.tiktok}
                         target='_blank'
                         rel='noreferrer'
+                        className={styles.tiktok}
                       >
-                        {settings.whatsup}
+                        {/* <i className="fab fa-tiktok"></i> */}
+                        <FontAwesomeIcon icon={faTiktok} />
                       </a>
-                      {/* <i className="fab fa-whatsapp text-primary"></i> */}
-                      <FontAwesomeIcon icon={faWhatsapp} className='text-primary h-4' style={{ height: "1rem" }} />
-                    </div>
-                    <div>
                       <a
-                        aria-label='phone'
-                        href={`tel:${settings.phone}`}
+                        aria-label='snapchat'
+                        href={settings.snapchat}
                         target='_blank'
                         rel='noreferrer'
+                        className={styles.snapchat}
                       >
-                        {settings.phone}
+                        {/* <i className="fab fa-snapchat-ghost"></i> */}
+                        <FontAwesomeIcon icon={faSnapchat} />
                       </a>
-                      {/* <i className="fas fa-phone-rotary text-primary"></i> */}
-                      <FontAwesomeIcon icon={faPhoneAlt} className='text-primary h-4' style={{ height: "1rem" }} />
+                      <a
+                        aria-label='youtube'
+                        href={settings.youtube}
+                        target='_blank'
+                        rel='noreferrer'
+                        className={styles.youtube}
+                      >
+                        {/* <i className="fab fa-youtube"></i> */}
+                        <FontAwesomeIcon icon={faYoutube} />
+                      </a>
                     </div>
                   </div>
                 </div>
-                <div className={styles.contact__data__card}>
-                  <h3 className='my-4'>البريد الالكتروني</h3>
-                  <div>
-                    <a
-                      aria-label='email'
-                      href={`mailto:${settings.email}`}
-                      target='_blank'
-                      rel='noreferrer'
-                    >
-                      {settings.email}
-                    </a>
-                    {/* <i className="fas fa-envelope text-primary"></i> */}
-                    <FontAwesomeIcon icon={faEnvelope} className='text-primary h-4' style={{ height: "1rem" }} />
-                  </div>
-                </div>
-                <div className={styles.contact__data__card}>
-                  <h3 className='my-4'>العنوان</h3>
-                  <div>
-                    <div>{settings.address}</div>
-                    {/* <i className="fas fa-map-marker-alt text-primary"></i> */}
-                    <FontAwesomeIcon icon={faLocationPin} className='text-primary h-4' style={{ height: "1rem" }} />
-                  </div>
-                </div>
-              </div>
-              <div className={styles.social__icons}>
-                <a
-                  aria-label='instagram'
-                  href={settings.instagram}
-                  target='_blank'
-                  rel='noreferrer'
-                  className={styles.instagram}
-                >
-                  {/* <i className="fab fa-instagram"></i> */}
-                  <FontAwesomeIcon icon={faInstagram} />
-                </a>
-                <a
-                  aria-label='twitter'
-                  href={settings.twitter}
-                  target='_blank'
-                  rel='noreferrer'
-                  className={styles.twitter}
-                >
-                  {/* <i className="fab fa-twitter"></i> */}
-                  <FontAwesomeIcon icon={faTwitter} />
-                </a>
-                <a
-                  aria-label='tiktok'
-                  href={settings.tiktok}
-                  target='_blank'
-                  rel='noreferrer'
-                  className={styles.tiktok}
-                >
-                  {/* <i className="fab fa-tiktok"></i> */}
-                  <FontAwesomeIcon icon={faTiktok} />
-                </a>
-                <a
-                  aria-label='snapchat'
-                  href={settings.snapchat}
-                  target='_blank'
-                  rel='noreferrer'
-                  className={styles.snapchat}
-                >
-                  {/* <i className="fab fa-snapchat-ghost"></i> */}
-                  <FontAwesomeIcon icon={faSnapchat} />
-                </a>
-                <a
-                  aria-label='youtube'
-                  href={settings.youtube}
-                  target='_blank'
-                  rel='noreferrer'
-                  className={styles.youtube}
-                >
-                  {/* <i className="fab fa-youtube"></i> */}
-                  <FontAwesomeIcon icon={faYoutube} />
-                </a>
-              </div>
-            </div>
-          </div>
               </div>
             </div>
           </div>

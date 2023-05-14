@@ -1,10 +1,11 @@
 import styles from './index.module.css'
-import BtnArrow from '../BtnArrow'
+// import BtnArrow from '../BtnArrow'
 import Image from 'next/image'
 import ScrollDown from '../scrollDown'
 import { useState, useEffect } from 'react'
 
-const FullPageSlider = ({ title, btnText, btnUrl, data }) => {
+// const FullPageSlider = ({ title, btnText, btnUrl, data }) => {
+const FullPageSlider = ({ title, data }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const next = () => {
     if (activeIndex !== data.length - 1) {
@@ -30,10 +31,10 @@ const FullPageSlider = ({ title, btnText, btnUrl, data }) => {
                   <h1 className={styles.slider__title}>
                     {item.title || title}
                   </h1>
-                  <BtnArrow
+                  {/* <BtnArrow
                     title={item.button_text || btnText}
                     href={btnUrl}
-                  />
+                  /> */}
                 </div>
               </div>
           </div>

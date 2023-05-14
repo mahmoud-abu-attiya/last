@@ -134,6 +134,7 @@ const ContactUs = ({ slide }) => {
                 id='name'
                 name='name'
                 placeholder='الاسم بالكامل'
+                className='dark:bg-gray-900 border border-transparent'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.name}
@@ -146,6 +147,7 @@ const ContactUs = ({ slide }) => {
                 id='phone'
                 name='phone'
                 placeholder='رقم الجوال'
+                className='dark:bg-gray-900 border border-transparent'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.phone}
@@ -158,6 +160,7 @@ const ContactUs = ({ slide }) => {
                 id='email'
                 name='email'
                 placeholder='البريد الالكتروني'
+                className='dark:bg-gray-900 border border-transparent'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.email}
@@ -170,6 +173,7 @@ const ContactUs = ({ slide }) => {
                 name='message'
                 placeholder='الرسالة'
                 rows='5'
+                className='dark:bg-gray-900 border border-transparent'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.message}

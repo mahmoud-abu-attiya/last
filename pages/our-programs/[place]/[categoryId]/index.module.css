@@ -42,7 +42,8 @@
   max-width: min(1200px, 100%);
 }
 .offer__card__container {
-  width: 350px;
+  width: 100%;
+    max-width: 350px;
 }
 .offer__card {
   position: relative;
@@ -50,7 +51,8 @@
   display: flex;
   border-radius: 20px;
   transition: 0.3s;
-  width: fit-content;
+  width: 100%;
+  max-width: 350px;
   margin: auto;
 }
 .offer__card:hover {
