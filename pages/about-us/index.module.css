@@ -24,24 +24,10 @@
   font-size: 3rem;
   direction: rtl;
 }
-.hero__bg::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  border-style: solid;
-  border-width: 0px 0px 91px 1500px;
-  border-color: transparent transparent white transparent;
-}
-@media (max-width: 768px) {
-  .hero__bg::after {
-    bottom: -1px;
-  }
-}
 
 .about__us {
-  background-color: white;
-  direction: rtl;
+  /* background-color: white; */
+  /* direction: rtl; */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -50,12 +36,9 @@
   max-width: min(1100px, 100%);
   margin: 0 auto;
   flex-direction: row-reverse;
-  color: var(--second-clr);
+  /* color: var(--second-clr); */
 }
 @media (prefers-color-scheme: dark) {
-  .hero__bg::after {
-    border-color: transparent transparent #030712 transparent;
-  }
   .about__us{
     background-color: #030712;
     color: white;

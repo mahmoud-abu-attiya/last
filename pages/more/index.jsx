@@ -21,7 +21,7 @@ const Item = ({ data, border }) => {
       <>
          <div
             onClick={() => setOpen(true)}
-            className={`${border ? "border-l" : "border-none"} dark:border-gray-700 group my-12 md:my-0 text-center px-4 flex flex-col items-center w-40 justify-center cursor-pointer gap-4`}>
+            className={`${border ? "border-l" : "border-none"} dark:border-gray-700 group my-12 md:my-0 px-4 flex flex-col items-center w-40 justify-center cursor-pointer gap-4`}>
             <Image src={data.img} alt={data.name} width={48} height={48} className="group-hover:-translate-y-2 group-hover:drop-shadow-md transition duration-300" />
             <h3 className="text-xs text-gray-500 dark:text-gray-300 font-light">{data.name}</h3>
          </div>
@@ -32,32 +32,32 @@ const Item = ({ data, border }) => {
                   اغلاق
                   <FontAwesomeIcon icon={faTimes}/>
                </div>
-            <div className="bg-white dark:bg-gray-900 rounded-b-lg border-t-4 shadow-lg border-primary w-[90%] max-w-md max-h-[90%] overflow-auto">
+            <div className="bg-white dark:bg-gray-900 mx-auto rounded-b-lg border-t-4 shadow-lg border-primary w-[90%] max-w-md max-h-[90%] overflow-auto">
                <div className="grid grid-cols-1 md:grid-cols-6 p-4 items-center gap-4 border-b-4 border-gray-300 dark:border-gray-700">
                   <div className="flex text-center items-center flex-col gap-4 md:col-span-2">
                      <Image src={data.img} alt={data.name} width={58} height={58} />
                      <h3 className="">{data.name}</h3>
                   </div>
-                  <div className="md:col-span-4 p-4 border-r dark:border-gray-700">
-                     <h4>لمحة</h4>
-                     <p className="text-gray-600 dark:text-gray-300 text-xs mt-4 text-justify">{data.desc}</p>
+                  <div className="md:col-span-4 md:p-4 md:border-r dark:border-gray-700">
+                     <h4 className="hidden md:block">لمحة</h4>
+                     <p className="text-gray-600 dark:text-gray-300 text-xs md:mt-4 text-justify">{data.desc}</p>
                   </div>
                </div>
                <div className="flex flex-col p-4">
-                  <div className="border-b p-4 dark:border-gray-700">
+                  <div className="border-b mdp-4 dark:border-gray-700">
                      <h4>كيف تحجز باقتك</h4>
                      <p className="text-gray-600 dark:text-gray-300 text-sm my-4">يمكنك زيارة أي من فروعنا أو التواصل معنا عبر مركز الاتصال لحجز باقة البرنامج التعليمي.</p>
                   </div>
                   <div className="border-b dark:border-gray-700 flex p-4 gap-4 items-center">
                      <FontAwesomeIcon icon={faPhone} className="text-primary text-5xl" />
-                     <Link href={settings.phone}>
+                     <Link href={settings.phone} className="text-start">
                         <span className="text-xs text-gray-500 dark:text-gray-300">تواصل معنا</span>
                         <h5>{settings.phone}</h5>
                      </Link>
                   </div>
                   <div className="flex p-4 gap-4 items-center">
                      <FontAwesomeIcon icon={faLocationDot} className="text-primary text-5xl" />
-                     <Link href={settings.phone}>
+                     <Link href={settings.phone} className="text-start">
                         <span className="text-xs text-gray-500 dark:text-gray-300">قم بذيارتنا</span>
                         <h5 className="text-sm">{settings.address}</h5>
                      </Link>

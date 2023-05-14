@@ -58,11 +58,11 @@ export default function Header() {
         <Link href='/'>
           {settings.logo && (
             <Image
-              src="/images/logo.webp"
+              // src="/images/logo2.webp"
+              src={settings.logo}
               alt='logo'
-              width={120}
-              height={85}
-              priority={true}
+              width={100}
+              height={75}
               className={` object-cover ${styles.header__logo}`}
             />
           )}
@@ -216,7 +216,7 @@ export default function Header() {
               onClick={() => setIsSearch(true)}
             >
               {/* <i className="far fa-search text-xl"></i> */}
-              <FontAwesomeIcon icon={faSearch} className='text-xl' />
+              <FontAwesomeIcon icon={faSearch} style={{ fontSize: "1.7rem" }} />
             </span>
 
             <span
@@ -225,7 +225,7 @@ export default function Header() {
               onClick={() => setShowMenu(true)}
             >
               <span>القائمة</span>
-              <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="5" cy="5" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="19" cy="5" r="1"></circle><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="19" r="1"></circle><circle cx="12" cy="19" r="1"></circle><circle cx="19" cy="19" r="1"></circle></svg>
+              <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="0.8em" width="0.8em" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="5" cy="5" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="19" cy="5" r="1"></circle><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="19" r="1"></circle><circle cx="12" cy="19" r="1"></circle><circle cx="19" cy="19" r="1"></circle></svg>
             </span>
           </div>
         )}

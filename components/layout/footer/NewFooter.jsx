@@ -142,7 +142,7 @@ export default function Footer({ countries }) {
                   ]} />
                   <List title="المساعدة" items={[
                      { name: 'اتصل بنا', link: '/contact-us' },
-                     { name: 'الأسئلة الشائعة', link: '#' },
+                     { name: 'الأسئلة الشائعة', link: '/faq' },
                      { name: 'شكر العملاء', link: '/thanks' },
                   ]} />
                   <List title="موقعنا" items={[

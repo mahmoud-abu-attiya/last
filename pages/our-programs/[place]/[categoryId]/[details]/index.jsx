@@ -242,10 +242,10 @@ const Details = (props) => {
             {/* )
             })} */}
           </div>
-          <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
+          <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white dark:bg-gray-900 dark:text-white z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
           <ScrollDown />
         </div>
-        <div className="md:hidden sticky bg-white dark:bg-gray-950 mb-4 shadow-md text-xs z-30 top-0 left-0 w-full flex gap-5 p-2">
+        <div className="md:hidden sticky bg-white dark:bg-gray-950 mb-4 shadow-md text-xs z-30 top-[6rem] left-0 w-full flex gap-5 p-2">
           <Link href={"#slider"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 1 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(1)}>وجهات يمكنك زيارتها</Link>
           <Link href={"#line"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 2 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(2)}>خط سير الرحلة</Link>
           <Link href={"#form"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 3 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(3)}>يرجى التواصل معي</Link>
@@ -258,9 +258,10 @@ const Details = (props) => {
             <p className={`text-justify dark:text-gray-100 ${noto.className}`}>لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.</p>
             <h2 id='slider' className={`text-secondary dark:text-white border-b-2 border-secondary dark:border-white ${styles.details__details}`}>وجهات يمكنك زيارتها</h2>
             <Responsive data={slides} />
+            <div id="line" />
             <div className="border dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col gap-4 rounded-b-lg">
               <div className={styles.details__details}>
-                <h3 className='text-xl mb-6' id='line'>
+                <h3 className='text-xl mb-6'>
                   خط سير الرحلة
                 </h3>
                 <div className={styles.details__days + " " + noto.className}>
@@ -358,6 +359,7 @@ const Details = (props) => {
                   id='name'
                   name='name'
                   placeholder='الاسم'
+                  className="dark:bg-gray-900 dark:border-gray-700"
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.name}
@@ -370,6 +372,7 @@ const Details = (props) => {
                   id='email'
                   name='email'
                   placeholder='البريد الالكتروني'
+                  className="dark:bg-gray-900 dark:border-gray-700"
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.email}
@@ -382,6 +385,7 @@ const Details = (props) => {
                   id='phone'
                   name='phone'
                   placeholder='رقم الجوال'
+                  className="dark:bg-gray-900 dark:border-gray-700"
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.phone}
@@ -404,6 +408,7 @@ const Details = (props) => {
                   onClick={handleDate}
                   placeholder={new Date().toLocaleDateString()}
                   value={date}
+                  className="dark:bg-gray-900 dark:border-gray-700"
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.travling_date}
@@ -416,6 +421,7 @@ const Details = (props) => {
                   id='travling_distnation'
                   name='travling_distnation'
                   placeholder='جهة السفر'
+                  className="dark:bg-gray-900 dark:border-gray-700"
 
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
@@ -429,6 +435,7 @@ const Details = (props) => {
                   id='ppl_number'
                   name='ppl_number'
                   placeholder='عدد الاشخاص'
+                  className="dark:bg-gray-900 dark:border-gray-700"
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.ppl_number}
@@ -441,6 +448,7 @@ const Details = (props) => {
                   id='childs_number'
                   name='childs_number'
                   placeholder='عدد الاطفال'
+                  className="dark:bg-gray-900 dark:border-gray-700"
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.childs_number}
