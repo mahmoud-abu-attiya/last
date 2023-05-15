@@ -50,11 +50,11 @@ export default function Document() {
          <body dir="rtl" className="dark:bg-gray-950">
             <Main />
             <NextScript />
-            <noscript
+            {/* <noscript
                dangerouslySetInnerHTML={{
                   __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W4V2HT3" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
                }}
-            />
+            /> */}
          </body>
       </Html>
    );
