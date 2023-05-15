@@ -52,7 +52,7 @@ const bukra = localFont({
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
       /> */}
-      <link href={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`} rel="preload" as="script"></link>
+      {/* <link href={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`} rel="preload" as="script"></link> */}
 
       <Script id='gtm2' strategy='lazyOnload'>
         {`
