@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import localFont from 'next/font/local';
 import { useEffect } from 'react';
 import TagManager from 'react-gtm-module'
-import Script from 'next/script';
+// import Script from 'next/script';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 
