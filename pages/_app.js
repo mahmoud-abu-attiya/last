@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import localFont from 'next/font/local';
 import { useEffect } from 'react';
 import TagManager from 'react-gtm-module'
-import Script from 'next/script';
+// import Script from 'next/script';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 
@@ -36,9 +36,12 @@ const bukra = localFont({
       event: 'pageview',
     })
    }, [])
+  //  useEffect(() => {
+  //   console.log(pageProps);
+  //  }, [pageProps]);
   return (
     <>
-    <Script
+    {/* <Script
         id='gtm'
         strategy='lazyOnload'
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
@@ -53,7 +56,7 @@ const bukra = localFont({
           page_path: window.location.pathname,
           });
         `}
-      </Script>
+      </Script> */}
     <style jsx global>{`
         html {
           font-family: ${bukra.style.fontFamily};
