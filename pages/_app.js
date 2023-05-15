@@ -5,8 +5,9 @@ import App from 'next/app'
 import { store } from "../store";
 import { Provider } from 'react-redux';
 import localFont from 'next/font/local';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 // import TagManager from 'react-gtm-module'
+import { useRouter } from 'next/router';
 import Script from 'next/script';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
@@ -26,6 +27,7 @@ const bukra = localFont({
    ],
  })
  export default function MyApp({ Component, pageProps, countries, footerCountries, settings }) {
+  const router = useRouter();
   // const tagManagerArgs = {
   //    gtmId: `${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`,
   //  }
@@ -36,9 +38,13 @@ const bukra = localFont({
   //     event: 'pageview',
   //   })
   //  }, [])
-  //  useEffect(() => {
-  //   console.log(pageProps);
-  //  }, [pageProps]);
+   useEffect(() => {
+    window.dataLayer?.push({
+      event: "VirtualPageView",
+      pageTypeName: pageProps.page || null,
+      url: router.pathname,
+    });
+   }, [pageProps]);
   return (
     <>
     {/* <Script
