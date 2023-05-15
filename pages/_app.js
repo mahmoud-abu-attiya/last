@@ -5,8 +5,8 @@ import App from 'next/app'
 import { store } from "../store";
 import { Provider } from 'react-redux';
 import localFont from 'next/font/local';
-import { useEffect } from 'react';
-import TagManager from 'react-gtm-module'
+// import { useEffect } from 'react';
+// import TagManager from 'react-gtm-module'
 // import Script from 'next/script';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
@@ -27,17 +27,17 @@ const bukra = localFont({
  })
  export default function MyApp({ Component, pageProps, countries, footerCountries, settings }) {
   // const router = useRouter();
-  const GTM_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID;
-  const tagManagerArgs = {
-     gtmId: `${GTM_ID}`,
-   }
+  // const GTM_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID;
+  // const tagManagerArgs = {
+  //     gtmId: `${GTM_ID}`,
+  //   }
  
-   useEffect(() => {
-    TagManager.initialize(tagManagerArgs)
-    window.dataLayer.push({
-      event: 'pageview',
-    })
-   }, [])
+  //  useEffect(() => {
+  //   TagManager.initialize(tagManagerArgs)
+  //   window.dataLayer.push({
+  //     event: 'pageview',
+  //   })
+  //  }, [])
   //  useEffect(() => {
   //   window.dataLayer?.push({
   //     event: "VirtualPageView",
