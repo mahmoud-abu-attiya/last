@@ -6,8 +6,7 @@ import { store } from "../store";
 import { Provider } from 'react-redux';
 import localFont from 'next/font/local';
 import { useEffect } from 'react';
-// import TagManager from 'react-gtm-module'
-import { useRouter } from 'next/router';
+import TagManager from 'react-gtm-module'
 import Script from 'next/script';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
@@ -27,27 +26,28 @@ const bukra = localFont({
    ],
  })
  export default function MyApp({ Component, pageProps, countries, footerCountries, settings }) {
-  const router = useRouter();
-  // const tagManagerArgs = {
-  //    gtmId: `${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`,
-  //  }
+  // const router = useRouter();
+  const GTM_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID;
+  const tagManagerArgs = {
+     gtmId: `${GTM_ID}`,
+   }
  
-  //  useEffect(() => {
-  //   TagManager.initialize(tagManagerArgs)
-  //   window.dataLayer.push({
-  //     event: 'pageview',
-  //   })
-  //  }, [])
    useEffect(() => {
-    window.dataLayer?.push({
-      event: "VirtualPageView",
-      pageTypeName: pageProps.page || null,
-      url: router.pathname,
-    });
-   }, [pageProps]);
+    TagManager.initialize(tagManagerArgs)
+    window.dataLayer.push({
+      event: 'pageview',
+    })
+   }, [])
+  //  useEffect(() => {
+  //   window.dataLayer?.push({
+  //     event: "VirtualPageView",
+  //     pageTypeName: pageProps.page || null,
+  //     url: router.pathname,
+  //   });
+  //  }, [pageProps]);
   return (
     <>
-    {/* <Script
+    <Script
         id='gtm'
         strategy='lazyOnload'
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
@@ -62,16 +62,7 @@ const bukra = localFont({
           page_path: window.location.pathname,
           });
         `}
-      </Script> */}
-                  <Script id="google-tag-manager" strategy="afterInteractive">
-               {`
-               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-               })(window,document,'script','dataLayer','GTM-WKNWPR7');
-               `}
-            </Script>
+      </Script>
     <style jsx global>{`
         html {
           font-family: ${bukra.style.fontFamily};

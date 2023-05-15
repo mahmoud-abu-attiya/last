@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-// import Script from "next/script";
 import Favicon from "@/components/favicon";
 
 export default function Document() {
@@ -32,13 +31,11 @@ export default function Document() {
                property="snapchat:publisher_id"
                content="YOUR_PUBLISHER_ID_HERE"
             /> */}
-
             {/* for facebook */}
             {/* fb:app_id – for linking to a Facebook application (e.g., FB Comments) with the object
             <meta property="fb:admins" content="USER_ID"/>
             <meta property="fb:app_id" content="APP_ID"/>
             */}
-
          </Head>
          <body dir="rtl" className="dark:bg-gray-950">
             <Main />
