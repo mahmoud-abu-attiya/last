@@ -5,9 +5,9 @@ import App from 'next/app'
 import { store } from "../store";
 import { Provider } from 'react-redux';
 import localFont from 'next/font/local';
-import { useEffect } from 'react';
-import TagManager from 'react-gtm-module'
-// import Script from 'next/script';
+// import { useEffect } from 'react';
+// import TagManager from 'react-gtm-module'
+import Script from 'next/script';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 
@@ -26,16 +26,16 @@ const bukra = localFont({
    ],
  })
  export default function MyApp({ Component, pageProps, countries, footerCountries, settings }) {
-  const tagManagerArgs = {
-     gtmId: `${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`,
-   }
+  // const tagManagerArgs = {
+  //    gtmId: `${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`,
+  //  }
  
-   useEffect(() => {
-    TagManager.initialize(tagManagerArgs)
-    window.dataLayer.push({
-      event: 'pageview',
-    })
-   }, [])
+  //  useEffect(() => {
+  //   TagManager.initialize(tagManagerArgs)
+  //   window.dataLayer.push({
+  //     event: 'pageview',
+  //   })
+  //  }, [])
   //  useEffect(() => {
   //   console.log(pageProps);
   //  }, [pageProps]);
@@ -57,6 +57,15 @@ const bukra = localFont({
           });
         `}
       </Script> */}
+                  <Script id="google-tag-manager" strategy="afterInteractive">
+               {`
+               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+               })(window,document,'script','dataLayer','GTM-WKNWPR7');
+               `}
+            </Script>
     <style jsx global>{`
         html {
           font-family: ${bukra.style.fontFamily};
