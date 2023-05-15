@@ -49,10 +49,9 @@ const bukra = localFont({
     <>
     {/* <Script
         id='gtm'
-        strategy="afterInteractive"
+        strategy='lazyOnload'
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
-      /> */}
-      {/* <link href={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`} rel="preload" as="script"></link> */}
+      />
 
       <Script id='gtm2' strategy='lazyOnload'>
         {`
@@ -63,7 +62,7 @@ const bukra = localFont({
           page_path: window.location.pathname,
           });
         `}
-      </Script>
+      </Script> */}
     <style jsx global>{`
         html {
           font-family: ${bukra.style.fontFamily};
