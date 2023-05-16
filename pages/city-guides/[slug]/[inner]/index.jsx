@@ -7,6 +7,9 @@ import Slider from "react-slick";
 import { useRouter } from 'next/router'
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setBacktoData } from '@/slices/backto';
 
 const noto = localFont({ src: '../../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
 
@@ -62,6 +65,10 @@ const Famose = ({ img, title }) => {
 }
 
 export default function Index() {
+   const dispatch = useDispatch()
+   useEffect(() => {
+      dispatch(setBacktoData({ title: "الدولة", href: "/city-guides/50",}))
+   }, []);
    const settings = useSelector(state => state.settings.value)
    const list = [
       {
@@ -101,7 +108,7 @@ export default function Index() {
                content={settings.meta_description}
             />
          </Head>
-         <div className="w-full bg-secondary h-36 md:h-40"></div>
+         <div className="w-full bg-secondary h-20 lg:h-40"></div>
          <div className="w-full h-[50vh] relative overflow-hidden flex">
             <Image src={"https://backend.elnagahtravels.com/storage/countries/HSntLT00EeuGSCtN5PnMQFxZpp5Lnn14qaD08CXI.jpg"} alt="daleel" fill className='object-cover' />
             <div className="w-full relative z-10 bg-gradient-to-t from-black/75 to-transparent text-white py-4 mt-auto">
@@ -111,7 +118,7 @@ export default function Index() {
             </div>
          </div>
          <div className="container dark:text-white">
-            <div className="border-b dark:border-gray-700">
+            <div className="border-b hidden md:block dark:border-gray-700">
                <Breadcrumbs list={list} />
             </div>
             <p className={`my-4 md:my-6 max-w-3xl text-justify ${noto.className}`}>تعد جزر المالديف الوجهة السياحية الأنسب لعشاق البحر والشمس، فهي جزيرة ساحرة تضم العديد من الشواطئ الخلابة ذات المياه الكريستالية. استمتع بالرياضات المائية في المياه الصافية، وشاهد الشعاب المرجانية، تناول ألذ المأكولات البحرية، واستمتع بالرفاهية في أروع منتجعات الجزيرة التي تضمن لك تجربة ولا أروع. سواء كنت ترغب في الاسترخاء على الشاطئ ومشاهدة غروب الشمس، أو تخطّط للاستمتاع بتجربة فريدة في أفضل المنتجعات العالمية فإن جزر المالديف بطابعها الخاص تمنحك الأجواء المناسبة لتمضي أروع الأوقات.</p>

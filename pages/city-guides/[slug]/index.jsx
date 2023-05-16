@@ -6,10 +6,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useRouter } from 'next/router'
+import { useEffect } from 'react';
 import Head from 'next/head'
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch } from 'react-redux'
+import { setBacktoData } from '@/slices/backto'
 
 const noto = localFont({ src: '../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
 
@@ -127,6 +130,10 @@ const FamilyActivity = ({ title, img }) => {
 }
 
 export default function Daleel() {
+   const dispatch = useDispatch()
+   useEffect(() => {
+      dispatch(setBacktoData({ href: '/city-guides', title: 'الدليل السياحي' }))
+   }, []);
    const settings = useSelector(state => state.settings.value)
    const data = {
       id: 1,
@@ -168,7 +175,7 @@ export default function Daleel() {
                content={settings.meta_description}
             />
          </Head>
-         <div className="w-full bg-secondary h-36 md:h-40"></div>
+         <div className="w-full bg-secondary h-20 lg:h-40"></div>
          <div className="w-full h-[50vh] relative overflow-hidden flex">
             <Image src={data.image} alt="daleel" fill className='object-cover' />
             <div className="w-full relative z-10 bg-gradient-to-t from-black/75 to-transparent text-white py-4 mt-auto">

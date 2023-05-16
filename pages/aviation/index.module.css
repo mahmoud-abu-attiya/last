@@ -211,13 +211,13 @@
   border: 1px solid lightgray;
   transition: 0.2s;
 }
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .form__input{
     border-color: #282e42;
     background-color: #111827;
   }
   
-}
+} */
 .form__input::placeholder {
   font-size: 0.9rem;
 }

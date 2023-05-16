@@ -4,14 +4,19 @@ import styles from './index.module.css'
 import Image from 'next/image'
 // import BtnArrow from '@/components/BtnArrow'
 import ScrollDown from '../../components/scrollDown'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Snackbar from '../../components/snackbar'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhoneAlt, faMobile, faEnvelope, faLocationPin } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp, faInstagram, faTwitter, faTiktok, faSnapchat, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { setBacktoData } from '@/slices/backto'
 
 const DesignProgram = ({ data, slide }) => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+  }, [])
   const settings = useSelector((state) => state.settings.value)
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const [formErros, setFormErrors] = useState({})

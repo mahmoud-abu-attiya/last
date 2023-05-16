@@ -3,11 +3,17 @@ import styles from './index.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
 import ScrollDown from '../../components/scrollDown'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { useEffect } from 'react'
+import { setBacktoData } from '@/slices/backto'
 
 const AboutUs = ({ about, slides }) => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+  }, [])
   const settings = useSelector(state => state.settings.value)
   const { images = [], achievements = [], steps = [] } = about
   const imagesStyles = [

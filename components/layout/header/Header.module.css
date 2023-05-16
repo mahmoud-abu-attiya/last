@@ -4,7 +4,7 @@
   position: fixed;
   background: transparent;
   z-index: 60;
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
   transition: 0.3s;
   margin-top: 3rem;
 }
@@ -274,8 +274,13 @@
   .search__close {
     top: 3.5rem;
   }
-  .header {
+  /* .header {
     margin-top: 2rem;
+  } */
+  .header {
+    margin-top: 0;
+    background-color: var(--second-clr);
+    /* padding: 1rem 0 0 0; */
   }
   .header__menu {
     position: fixed;
@@ -398,9 +403,9 @@
   }
 }
 @media (max-width: 520px) {
-  .header {
+  /* .header {
     margin-top: 1rem;
-  }
+  } */
   .header__search__menu {
     padding-top: 40%;
   }

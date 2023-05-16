@@ -5,9 +5,16 @@ import SpecialCard from '../../components/special/specialCard'
 import FullPageSlider from '../../components/fullPageSlider'
 import { useSelector } from 'react-redux'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import { useDispatch } from 'react-redux'
+import { setBacktoData } from '@/slices/backto'
+import { useEffect } from 'react'
 
 const SpecialOffers = ({slides, specialOffers}) => {
   const settings = useSelector(state => state.settings.value);
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+  }, [])
   return (
     <>
       <Head>

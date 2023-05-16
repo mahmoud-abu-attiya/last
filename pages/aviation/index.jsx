@@ -8,8 +8,15 @@ import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhoneAlt, faEnvelope, faMobile, faLocationPin } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp, faTiktok, faInstagram, faTwitter, faSnapchat, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import {useEffect} from 'react'
+import { useDispatch } from 'react-redux'
+import { setBacktoData } from '@/slices/backto'
 
 const Aviation = ({ slide }) => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+     dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+  }, [])
   const settings = useSelector((state) => state.settings.value)
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const snackbarRef = useRef(null)
@@ -320,7 +327,7 @@ const Aviation = ({ slide }) => {
                   id='firstname'
                   name='fullname'
                   placeholder='الاسم بالكامل'
-                  className={styles.form__input}
+                  className={`dark:bg-gray-900 dark:border-gray-700 ${styles.form__input}`}
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.fullname}
@@ -333,7 +340,7 @@ const Aviation = ({ slide }) => {
                   id='phone'
                   name='phone'
                   placeholder='رقم الجوال'
-                  className={styles.form__input}
+                  className={`dark:bg-gray-900 dark:border-gray-700 ${styles.form__input}`}
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.phone}
@@ -348,7 +355,7 @@ const Aviation = ({ slide }) => {
                   id='passengers'
                   name='adults'
                   placeholder='عدد المسافرين'
-                  className={styles.form__input}
+                  className={`dark:bg-gray-900 dark:border-gray-700 ${styles.form__input}`}
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.adults}
@@ -361,7 +368,7 @@ const Aviation = ({ slide }) => {
                   id='children'
                   name='childs'
                   placeholder='عدد الاطفال'
-                  className={styles.form__input}
+                  className={`dark:bg-gray-900 dark:border-gray-700 ${styles.form__input}`}
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.childs}
@@ -376,7 +383,7 @@ const Aviation = ({ slide }) => {
                   id='from'
                   name='travel_from'
                   placeholder='بلد المسكن'
-                  className={styles.form__input}
+                  className={`dark:bg-gray-900 dark:border-gray-700 ${styles.form__input}`}
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.travel_from}
@@ -389,7 +396,7 @@ const Aviation = ({ slide }) => {
                   id='to'
                   name='travel_to'
                   placeholder='الوجهة'
-                  className={styles.form__input}
+                  className={`dark:bg-gray-900 dark:border-gray-700 ${styles.form__input}`}
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.travel_to}
@@ -404,7 +411,7 @@ const Aviation = ({ slide }) => {
                   id='date'
                   name='traveling_date'
                   placeholder='تاريخ السفر'
-                  className={styles.form__input}
+                  className={`dark:bg-gray-900 dark:border-gray-700 ${styles.form__input}`}
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.traveling_date}
@@ -417,7 +424,7 @@ const Aviation = ({ slide }) => {
                   id='backdate'
                   name='back_date'
                   placeholder='تاريخ العودة'
-                  className={styles.form__input}
+                  className={`dark:bg-gray-900 dark:border-gray-700 ${styles.form__input}`}
                 />
                 <small style={{ color: 'red', fontSize: '.6rem' }}>
                   {formErrors?.back_date}
@@ -432,7 +439,7 @@ const Aviation = ({ slide }) => {
                 placeholder='اكتب اي تفاصيل أخري هنا...'
                 rows='5'
                 cols='2'
-                className={styles.form__input}
+                className={`dark:bg-gray-900 dark:border-gray-700 ${styles.form__input}`}
               />
             </div>
             <button type='submit' className={styles.form__btn}>

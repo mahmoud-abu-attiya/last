@@ -18,6 +18,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faSun, faMoon, faLocationPin, faUserFriends, faStar, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { useDispatch } from 'react-redux'
+import { setBacktoData } from '@/slices/backto'
 
 const noto = localFont({ src: '../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
 
@@ -98,6 +100,10 @@ const Accordion = ({ title, text, index }) => {
 
 
 const Details = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setBacktoData({ title: 'العروض الخاصة', href: `/special-offers` }))
+  }, [])
   const settings = useSelector((state) => state.settings.value)
   const [offerDetails, setOfferDetails] = useState()
   const [offers, setOffers] = useState([])

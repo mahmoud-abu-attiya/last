@@ -3,11 +3,16 @@ import styles from './index.module.css'
 import FullPageSlider from '../../components/fullPageSlider'
 import Head from 'next/head'
 import Hotels from '../../components/hotels'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Snackbar from '../../components/snackbar'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
+import { setBacktoData } from '@/slices/backto'
 
 const BookHotel = ({ hotels, slide }) => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+  }, [])
   const settings = useSelector((state) => state.settings.value)
   const [formErrors, setFormErrors] = useState({})
   const [snackbarMsg, setSnackbarMsg] = useState('')

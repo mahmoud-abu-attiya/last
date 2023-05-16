@@ -16,6 +16,8 @@ import Slider from "react-slick";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon, faLocationPin, faUserFriends, faStar, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { useDispatch } from 'react-redux'
+import { setBacktoData } from '../../../../../slices/backto'
 
 const noto = localFont({ src: '../../../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
 
@@ -95,9 +97,13 @@ const Accordion = ({ title, text, index }) => {
 };
 
 const Details = (props) => {
+  const dispatch = useDispatch()
   const settings = useSelector((state) => state.settings.value)
   const program = props.program
   const programs = props.programs
+  useEffect(() => {
+    dispatch(setBacktoData({title : `عروض ${program.country.name}`, href: `/our-programs/${program.country.id}`}))
+  }, [])
   const [snackbarMsg, setSnackbarMsg] = useState('')
   const snackbarRef = useRef(null)
   const dateRef = useRef(null)
@@ -200,6 +206,9 @@ const Details = (props) => {
   const handleDate = () => {
     dateRef.current.showPicker()
   }
+  // useEffect(() => {
+  //   dispatch(setBackto("hi"))
+  // })
   return (
     <>
       <Head>
@@ -245,7 +254,7 @@ const Details = (props) => {
           <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white dark:bg-gray-900 dark:text-white z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
           <ScrollDown />
         </div>
-        <div className="md:hidden sticky bg-white dark:bg-gray-950 mb-4 shadow-md text-xs z-30 top-[6rem] left-0 w-full flex gap-5 p-2">
+        <div className="md:hidden sticky bg-white dark:bg-gray-950 mb-4 shadow-md text-xs z-30 top-[8rem] left-0 w-full flex gap-5 p-2">
           <Link href={"#slider"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 1 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(1)}>وجهات يمكنك زيارتها</Link>
           <Link href={"#line"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 2 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(2)}>خط سير الرحلة</Link>
           <Link href={"#form"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 3 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(3)}>يرجى التواصل معي</Link>

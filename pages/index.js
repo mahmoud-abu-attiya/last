@@ -8,8 +8,15 @@ import Events from "@/components/events/Events";
 import NewPrograms from "@/components/newPrograms/NewPrograms";
 import Head from "next/head";
 import { useSelector } from "react-redux";
+import { useDispatch } from 'react-redux'
+import { setBacktoData } from '@/slices/backto';
+import { useEffect } from 'react';
 
 export default function Home({ data }) {
+   const dispatch = useDispatch()
+   useEffect(() => {
+      dispatch(setBacktoData(false))
+   }, []);
    const settings = useSelector((state) => state.settings.value);
    const {
       features = [],

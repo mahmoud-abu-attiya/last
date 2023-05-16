@@ -2,9 +2,11 @@
 import styles from './index.module.css'
 import BtnArrow from '@/components/BtnArrow'
 import Image from 'next/image'
+import { useEffect } from 'react'
+import { setBacktoData } from '@/slices/backto'
 import Head from 'next/head'
 import FullPageSlider from '../../components/fullPageSlider'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon, faUserFriends, faStar } from '@fortawesome/free-solid-svg-icons'
 import Breadcrumbs from '@/components/Breadcrumbs'
@@ -18,6 +20,10 @@ const SeaTripes = ({
     const program = programs?.find((p) => p?.id === id)
     return `شكرا لك علي تواصلك مع وكالة وسام النجاح للسفر والسياحة - الوجهة: ${program.title}, عدد الايام: ${program.days}, عدد الليالي: ${program.nights}, السعر بعد الخصم: ${program.price_after_discount}`
   }
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+  }, [])
   return (
     <>
       <Head>

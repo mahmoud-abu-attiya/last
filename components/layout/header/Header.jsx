@@ -13,6 +13,7 @@ import { faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 export default function Header() {
   const settings = useSelector((state) => state.settings.value);
   const forPrograms = useSelector((state) => state.forPrograms.value);
+  const backto = useSelector((state) => state.backto.value);
   const [countries, setCounties] = useState();
 
   const [showHeader, setShowHeader] = useState(false); // to hide/show on scroll
@@ -48,10 +49,11 @@ export default function Header() {
     result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج');
   };
   return (
+    <>
     <header
       // className={`${styles.header} ${showHeader ? styles.active : ''} ${isScrollTop ? styles.hide : ''
       //   }`}
-      className={`${styles.header} ${showHeader ? styles.active : ''}`}
+      className={`${backto ? "pt-4" : "py-4"} ${styles.header} ${showHeader ? styles.active : ''}`}
     >
       <nav className={styles.nav}>
         {/* Logo */}
@@ -230,6 +232,13 @@ export default function Header() {
           </div>
         )}
       </nav>
+    {backto && (<div className="backto w-full bg-gray-800 text-white px-4 py-2 text-sm mt-2">
+      <Link href={backto.href}>
+        <FontAwesomeIcon icon={faArrowLeft} className='ml-2 rotate-180' />
+        {backto.title}
+      </Link>
+    </div>)}
     </header>
+    </>
   )
 }

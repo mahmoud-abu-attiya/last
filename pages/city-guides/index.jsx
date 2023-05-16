@@ -4,14 +4,17 @@ import Image from 'next/image'
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux'
+import { setBacktoData } from '@/slices/backto'
+import { useEffect } from 'react';
 
 export default function Index({ data }) {
+   const dispatch = useDispatch()
+   useEffect(() => {
+      dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+   }, [])
    const settings = useSelector((state) => state.settings.value);
    const countries = data.countries;
-   // const router = useRouter();
-   // const handleClick = (id) => {
-   //    router.push(`/city-guides/${id}`)
-   // }
    return (
       <>
       <Head>
@@ -37,10 +40,10 @@ export default function Index({ data }) {
                content={settings.meta_description}
             />
       </Head>
-      <div className='bg-gray-50 dark:bg-gray-900'>
-         <div className="top h-36 md:h-44 bg-secondary w-full"></div>
+      <div className='bg-gray-50 dark:bg-gray-900 pt-24 md:pt-28'>
+         {/* <div className="top h-20 md:h-44 bg-secondary w-full"></div> */}
          <div className='container max-w-7xl'>
-            <div className="border-b dark:border-gray-700">
+            <div className="border-b hidden md:block dark:border-gray-700">
             <Breadcrumbs list={[{ title: "الدليل السياحي" }]} />
             </div>
             <div className="py-16 md:py-20">

@@ -13,8 +13,14 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import CountryHero from '@/components/countryHero'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon, faLocationPin, faUserFriends, faStar } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch } from 'react-redux'
+import { setBacktoData } from '@/slices/backto'
 
 const Place = (props) => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(setBacktoData({title: 'البرامج السياحية', href: `/our-programs/`}))
+  }, [])
   const categories = props.categories
   const countries = props.countries
   const place = props.place

@@ -1,11 +1,12 @@
 import Head from "next/head"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import Breadcrumbs from "@/components/Breadcrumbs"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPhone, faLocationDot, faTimes } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
+import { setBacktoData } from "@/slices/backto"
 
 const Item = ({ data, border }) => {
    const settings = useSelector(state => state.settings.value)
@@ -88,6 +89,10 @@ const Section = ({ data }) => {
 }
 
 export default function Index() {
+   const dispatch = useDispatch()
+   useEffect(() => {
+     dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+   }, [])
    const settings = useSelector(state => state.settings.value)
    const data = [
       {
@@ -207,9 +212,9 @@ export default function Index() {
             />
          </Head>
          <div className='bg-gray-50 dark:bg-gray-900 dark:text-white'>
-            <div className="top h-36 md:h-44 bg-secondary w-full"></div>
+            <div className="top h-20 lg:h-36 bg-secondary w-full"></div>
             <div className='container max-w-7xl'>
-               <div className="border-b hidden md:block dark:border-gray-700">
+               <div className="border-b hidden lg:block dark:border-gray-700">
                   <Breadcrumbs list={[{ title: "المزيد من الخدمات" }]} />
                </div>
                <div className="py-16 md:py-20">

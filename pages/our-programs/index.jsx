@@ -7,6 +7,8 @@ import Head from 'next/head'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import { useDispatch } from 'react-redux'
+import { setBacktoData } from '@/slices/backto'
 
 const Hero = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -63,6 +65,10 @@ const Hero = ({ data }) => {
 }
 
 const OurPrograms = ({ countries, slides }) => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+  }, [])
   const settings = useSelector(state => state.settings.value);
   return (
     <>
