@@ -7,6 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPhone, faLocationDot, faTimes } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
 import { setBacktoData } from "@/slices/backto"
+import localFont from 'next/font/local';
+
+const noto = localFont({ src: '../../public/fonts/NotoNaskhArabic-Regular.ttf' })
 
 const Item = ({ data, border }) => {
    const settings = useSelector(state => state.settings.value)
@@ -22,18 +25,18 @@ const Item = ({ data, border }) => {
       <>
          <div
             onClick={() => setOpen(true)}
-            className={`${border ? "border-l" : "border-none"} dark:border-gray-700 group my-12 md:my-0 px-4 flex flex-col items-center w-40 justify-center cursor-pointer gap-4`}>
+            className={`${border ? "border-l" : "border-none"} more_item grow dark:border-gray-700 group my-6 lg:my-0 px-2 md:px-4 flex flex-row md:flex-col items-center w-40 justify-start md:justify-center cursor-pointer gap-4`}>
             <Image src={data.img} alt={data.name} width={48} height={48} className="group-hover:-translate-y-2 group-hover:drop-shadow-md transition duration-300" />
-            <h3 className="text-xs text-gray-500 dark:text-gray-300 font-light">{data.name}</h3>
+            <h3 className={`text-xs text-gray-500 dark:text-gray-300 font-light ${noto.className}`}>{data.name}</h3>
          </div>
          <div style={{ zIndex: "70" }} className={`${open ? "block" : "hidden"} fixed top-0 w-full h-full left-0 flex items-center justify-center`}>
             <div className="w-full absolute top-0 left-0 h-full bg-black/50 backdrop-blur" onClick={() => setOpen(false)}></div>
-            <div className="relative">
-               <div className="absolute top-0 left-0 cursor-pointer rounded-t text-white translate-x-1/2 -translate-y-full bg-primary flex gap-4 px-4 py-2 text-xs" onClick={() => setOpen(false)}>
+            <div className="relative mx-auto w-[90%] max-w-md max-h-[90%]">
+               <div className="absolute top-0 left-0 cursor-pointer rounded-t text-white translate-x-0 -translate-y-full bg-primary flex gap-4 px-4 py-2 text-xs" onClick={() => setOpen(false)}>
                   اغلاق
                   <FontAwesomeIcon icon={faTimes}/>
                </div>
-            <div className="bg-white dark:bg-gray-900 mx-auto rounded-b-lg border-t-4 shadow-lg border-primary w-[90%] max-w-md max-h-[90%] overflow-auto">
+            <div className="bg-white dark:bg-gray-900 rounded-b-lg border-t-4 shadow-lg border-primary overflow-auto">
                <div className="grid grid-cols-1 md:grid-cols-6 p-4 items-center gap-4 border-b-4 border-gray-300 dark:border-gray-700">
                   <div className="flex text-center items-center flex-col gap-4 md:col-span-2">
                      <Image src={data.img} alt={data.name} width={58} height={58} />
@@ -76,7 +79,7 @@ const Section = ({ data }) => {
       return (
          <div className="grid grid-cols-1 md:grid-cols-8 my-12 md:my-20 text-center md:text-start">
             <h2 className="md:col-span-2">{data.title}</h2>
-            <div className="md:col-span-6 flex flex-wrap md:flex-nowrap">
+            <div className="md:col-span-6 flex flex-wrap lg:flex-nowrap">
                {data.items.map((item, i) => {
                   return (
                      <Item key={i} data={item} border={item.name === data.items[data.items.length - 1].name ? false : true} />
@@ -213,12 +216,12 @@ export default function Index() {
          </Head>
          <div className='bg-gray-50 dark:bg-gray-900 dark:text-white'>
             <div className="top h-20 lg:h-36 bg-secondary w-full"></div>
-            <div className='container max-w-7xl'>
+            <div className='container p-0 sm:px-4 max-w-7xl'>
                <div className="border-b hidden lg:block dark:border-gray-700">
                   <Breadcrumbs list={[{ title: "المزيد من الخدمات" }]} />
                </div>
                <div className="py-16 md:py-20">
-                  <h1 className='text-xl md:text-2xl mb-6'>المزيد من الخدمات</h1>
+                  <h1 className='text-xl md:text-2xl mb-6 pr-4 md:pr-0'>المزيد من الخدمات</h1>
                   <Section />
                   {data.map((section, i) => {
                      return (

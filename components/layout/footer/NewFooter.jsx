@@ -169,7 +169,7 @@ export default function Footer({ countries }) {
                      </p>
                      <p className='text-xs bold'>{settings.copy_rights}</p>
                   </div>
-                  <div className='flex gap-4 items-center'>
+                  <div className='flex gap-4 flex-wrap items-center'>
                      <Image src="/images/pay1.png" alt="apple pay" title='apple pay' width={40} height={30} />
                      <Image src="/images/pay2.png" alt="mastercard" title="mastercard" width={40} height={30} />
                      <Image src="/images/pay3.png" alt="visa" title='visa' width={40} height={30} />

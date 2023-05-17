@@ -388,6 +388,7 @@ h2 {
       overflow: hidden;
       position: relative;
    }
+   
    .glitter::after{
       position: absolute;
       content: "";
@@ -411,6 +412,7 @@ h2 {
       animation: glitter2 0.4s linear;
       animation-delay: 0.03s;
    } */
+   
    .subFooter .whats {
       background-image: linear-gradient(to bottom, rgb(0, 169, 0), rgb(0, 110, 0));
    }
@@ -429,6 +431,20 @@ h2 {
 
    .subFooter a img {
       filter: invert(100%) sepia(4%) saturate(16%) hue-rotate(115deg) brightness(106%) contrast(103%);
+   }
+   .more_item{
+      position: relative;
+   }
+   
+   .more_item::after{
+      content: "";
+      position: absolute;
+      top: 150%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      @apply bg-gray-300 dark:bg-gray-700
    }
 }
 

@@ -91,7 +91,7 @@ export default function Index() {
    }, [activeIndex])
 
    return (
-      <div className='h-screen w-full overflow-hidden relative'>
+      <div className='h-[70vh] w-full overflow-hidden relative'>
          <div className="absolute top-0 left-0 w-full h-screen bg-black/25 z-10"><span className='sr-only'>overlay</span></div>
          {data.map((slide, index) => {
             return (
@@ -104,7 +104,7 @@ export default function Index() {
                </div>
             )
          })}
-          <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white dark:bg-gray-900 dark:text-gray-50 z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
+            <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white dark:bg-gray-900 dark:text-gray-50 z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
       </div>
    )
 }

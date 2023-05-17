@@ -26,12 +26,12 @@ const Hero = ({ data }) => {
     return () => clearTimeout(interval)
   }, [activeIndex])
   return (
-    <div className='h-screen w-full overflow-hidden relative'>
+    <div className='h-[70vh] md:h-screen w-full overflow-hidden relative'>
       {data.map((slide, index) => {
         return (
           <div className={`transition duration-500 w-full h-full ${index === activeIndex ? "opacity-100" : "opacity-0"}`} key={index}>
             <div className="absolute top-0 left-0 w-full h-screen bg-secondary/75 z-10"><span className='sr-only'>overlay</span></div>
-            <Image src={slide.image} alt="hero" fill className={`object-cover hero-img transition duration-[10s] ease-linear scale-100 ${index === activeIndex && "scaleAmimation"}`} />
+            <Image src={slide.image} alt="hero" fill className={`object-cover object-center hero-img transition duration-[10s] ease-linear scale-100 ${index === activeIndex && "scaleAmimation"}`} />
             <div className="absolute top-0 left-0 flex justify-center items-center w-full h-full z-10 text-white">
               <h2 className="text-xl md:text-2xl max-w-xl text-center">{slide.title}</h2>
             </div>

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Menu from './menu'
 import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 // import { faSearch, faMobile, faPhoneAlt, faEnvelope, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 // import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
@@ -232,9 +232,9 @@ export default function Header() {
           </div>
         )}
       </nav>
-    {backto && (<div className="backto w-full bg-gray-800 text-white px-4 py-2 text-sm mt-2">
-      <Link href={backto.href}>
-        <FontAwesomeIcon icon={faArrowLeft} className='ml-2 rotate-180' />
+    {backto && (<div className="backto w-full bg-secondary text-white px-4 py-2 mt-2">
+      <Link href={backto.href} className='bold flex gap-3 items-center'>
+        <FontAwesomeIcon icon={faArrowRight} className='text-xl' beat />
         {backto.title}
       </Link>
     </div>)}
