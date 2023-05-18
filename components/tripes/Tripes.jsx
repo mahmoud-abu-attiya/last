@@ -135,7 +135,7 @@ const Tripes = () => {
           عرض الكل
         </Link>
         <h2
-          className={`xl:hidden text-gray-600 dark:text-gray-200 ${styles.tripes__title}`}
+          className={`xl:hidden text-gray-700 dark:text-gray-200 ${styles.tripes__title}`}
         >
           اختر وجهتك الان
         </h2>

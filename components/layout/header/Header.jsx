@@ -202,7 +202,7 @@ export default function Header() {
           <div className={`max-h-full overflow-y-auto dark:bg-gray-800 ${styles.dropdown}`}>
             {countries?.map(({ name, id }) => (
               <Link
-                className={`dark:text-white text-secondary ${styles.dropdown__row}`}
+                className={`dark:text-white text-secondary hover:bg-gray-300 dark:hover:bg-gray-900 ${styles.dropdown__row}`}
                 key={id}
                 // onClick={() => { setSearchTerm(name); setIsSearch(false); }}
                 onClick={() => setIsSearch(false)}

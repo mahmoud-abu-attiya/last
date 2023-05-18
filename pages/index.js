@@ -56,7 +56,6 @@ export default function Home({ data }) {
          <Tripes />
          <About data={about_wsam_elngah} />
          <Special data={special_offers} />
-         {/* <div className="spikes"></div> */}
          <Events event={event} />
          <NewPrograms programs={latest_programs} />
       </>

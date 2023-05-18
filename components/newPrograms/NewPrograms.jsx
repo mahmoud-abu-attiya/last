@@ -15,11 +15,11 @@ const NewPrograms = ({ programs }) => {
   return (
     <div className={styles.newPrograms__container}>
       <h2
-        className={styles.newPrograms__title}
-        // variants={topToBottomAnimation}
-        // initial='hidden'
-        // whileInView='show'
-        // viewport={{ once: true }}
+        className={`dark:text-white ${styles.newPrograms__title}`}
+      // variants={topToBottomAnimation}
+      // initial='hidden'
+      // whileInView='show'
+      // viewport={{ once: true }}
       >
         أحدث البرامج السياحية
       </h2>
@@ -36,31 +36,23 @@ const NewPrograms = ({ programs }) => {
             </div>
             <div className={`bg-white dark:bg-gray-900 text-secondary dark:text-white ${styles.newPrograms__card__content}`}>
               <div className={` bg-secondary text-white dark:bg-white dark:text-secondary ${styles.newPrograms__card__period}`}>
-              <span>
-                        {/* <BsFillSunFill /> */}
-                        {/* <i className="fas fa-sun"></i> */}
-                        <FontAwesomeIcon icon={faSun} />
-                        {program.days} أيام
-                      </span>
-                      <span>
-                        {/* <BsFillMoonFill /> */}
-                        {/* <i className="fas fa-moon"></i> */}
-                        <FontAwesomeIcon icon={faMoon} />
-                        {program.nights} ليالي
-                      </span>
-                      <span>
-                        {/* <MdLocationOn /> */}
-                        {/* <i className="fas fa-map-marker-alt"></i> */}
-                        <FontAwesomeIcon icon={faLocation} />
-                        {program.country.name}
-                      </span>
-                      {program.people && (
-                        <span>
-                          {/* <BsFillPeopleFill /> */}
-                          {/* <i className="fas fa-user-friends"></i> */}
-                          <FontAwesomeIcon icon={faUserFriends} />
-                          {program.people}
-                        </span>
+                <span>
+                  <FontAwesomeIcon icon={faSun} />
+                  {program.days} أيام
+                </span>
+                <span>
+                  <FontAwesomeIcon icon={faMoon} />
+                  {program.nights} ليالي
+                </span>
+                <span>
+                  <FontAwesomeIcon icon={faLocation} />
+                  {program.country.name}
+                </span>
+                {program.people && (
+                  <span>
+                    <FontAwesomeIcon icon={faUserFriends} />
+                    {program.people}
+                  </span>
                 )}
               </div>
               <div className={styles.newPrograms__heading__container}>
@@ -68,15 +60,14 @@ const NewPrograms = ({ programs }) => {
                   <Link
                     href={`/our-programs/${program.country.id}/${program.category.id}/${program.id}`}
                   >
-                      <h3 className={styles.newPrograms__card__title}>
-                        {program.title}{' '}
-                        {program.category.name && program.category.name}{' '}
-                      </h3>
+                    <h3 className={styles.newPrograms__card__title}>
+                      {program.title}{' '}
+                      {program.category.name && program.category.name}{' '}
+                    </h3>
                   </Link>
                 </div>
                 <div className={styles.stars}>
                   {Array.from(Array(program.rate)).map((s, i) => (
-                    //  <i className="fas fa-star text-yellow-400" key={i}></i>
                     <FontAwesomeIcon icon={faStar} key={i} />
                   ))}
                 </div>
@@ -92,9 +83,8 @@ const NewPrograms = ({ programs }) => {
                 />
                 <BtnArrow
                   title='حجز العرض'
-                  href={`https://api.whatsapp.com/send?phone=${
-                    settings.whatsup
-                  }&${message(program.id)}`}
+                  href={`https://api.whatsapp.com/send?phone=${settings.whatsup
+                    }&${message(program.id)}`}
                 />
               </div>
             </div>

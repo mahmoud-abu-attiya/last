@@ -162,18 +162,6 @@
   font-size: 0.9rem;
   padding-right: 0.4rem;
 }
-/* @media (prefers-color-scheme: dark) {
-  .search__select, .search__dist {
-    border-bottom: 1px solid #353b51;
-  }
-  .card__input{
-    background-color: #1f2937;
-    border-bottom: 2px solid transparent;
-  }
-  .card{
-    border-left: 1px solid #353b51;
-  }
-} */
 .search__checkbox {
   display: flex;
   align-items: center;

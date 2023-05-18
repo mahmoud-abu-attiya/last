@@ -318,14 +318,6 @@
   }
 }
 
-/* @media (prefers-color-scheme: dark) {
-  .form__data input,
-.form__data textarea {
-    background-color: #111827;
-    border: 1px solid #374151;
-  }
-} */
-
 /* Map */
 .contact__map {
   height: 400px;

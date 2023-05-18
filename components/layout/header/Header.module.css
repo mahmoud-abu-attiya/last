@@ -243,14 +243,6 @@
   padding: 0.4rem 0.2rem;
   transition: 0.2s;
 }
-.dropdown__row:hover {
-  background-color: lightgray;
-}
-@media screen and (prefers-color-scheme: dark) {
-  .dropdown__row:hover {
-    background-color: #192030;
-  }
-}
 .search__close {
   position: absolute;
   top: 5rem;

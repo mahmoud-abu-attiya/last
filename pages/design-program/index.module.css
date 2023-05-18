@@ -97,14 +97,6 @@
   border: 1px solid lightgray;
   transition: 0.2s;
 }
-/* @media (prefers-color-scheme: dark) {
-  .form__data input,
-  .form__data textarea {
-    border: 1px solid #374151;
-    background-color: #111827;
-  }
-  
-} */
 .form__data input::placeholder,
 .form__data textarea::placeholder {
   font-size: 0.9rem;
