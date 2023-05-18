@@ -48,6 +48,11 @@ export default function Header() {
     setCounties(value ? result : setResponse(' لا توجد نتائج'));
     result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج');
   };
+  const search = (value) => {
+    const result = forPrograms.filter(({ name }) => name.startsWith(value));
+    setCounties(value ? result : setResponse(' لا توجد نتائج'));
+    result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج');
+  };
   return (
     <>
     <header
@@ -152,10 +157,10 @@ export default function Header() {
               type='text'
               placeholder='البحث'
               // value={searchTerm}
-              onChange={() => {
+              onChange={(e) => {
                 // setSearchTerm(event.target.value)
                 setResponse('')
-                // onSearch(event, event.target.value)
+                search(e.target.value)
               }}
               className={`border-b focus:border-primary dark:bg-gray-900 dark:text-white dark:border-gray-700 ${styles.search__input}`}
             />

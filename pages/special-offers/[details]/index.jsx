@@ -16,7 +16,7 @@ import Slider from "react-slick";
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faSun, faMoon, faLocationPin, faUserFriends, faStar, faAngleUp } from '@fortawesome/free-solid-svg-icons'
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faAngleUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { useDispatch } from 'react-redux'
 import { setBacktoData } from '@/slices/backto'
@@ -102,7 +102,7 @@ const Accordion = ({ title, text, index }) => {
 const Details = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setBacktoData({ title: 'العروض الخاصة', href: `/special-offers` }))
+    dispatch(setBacktoData({ title: 'العروض المميزة', href: `/special-offers` }))
   }, [])
   const settings = useSelector((state) => state.settings.value)
   const [offerDetails, setOfferDetails] = useState()
@@ -264,235 +264,244 @@ const Details = () => {
       </Head>
       <div className="bg-gray-50 dark:bg-gray-900">
         <div className={styles.details__bg}>
-        <Image src={offerDetails.image} alt={offerDetails.title || "text"} fill priority={true} />
-        <div className={styles.content}>
-          <h1>
-            {offerDetails?.title}
-          </h1>
-          {/* {program.image.map((img, i) => {
+          <Image src={offerDetails.image} alt={offerDetails.title || "text"} fill priority={true} />
+          <div className={styles.content}>
+            <h1>
+              {offerDetails?.title}
+            </h1>
+            {/* {program.image.map((img, i) => {
               return ( */}
-          <div className="item cursor-pointer relative w-48 h-32 rounded-lg overflow-hidden">
-            <Image src={offerDetails.image} alt={offerDetails.title} fill priority={true}/>
-          </div>
-          {/* )
+            <div className="item cursor-pointer relative w-48 h-32 rounded-lg overflow-hidden">
+              <Image src={offerDetails.image} alt={offerDetails.title} fill priority={true} />
+            </div>
+            {/* )
             })} */}
-        </div>
-        <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white dark:bg-gray-900 dark:text-gray-50 z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
-        <ScrollDown />
-      </div>
-      <div className="md:hidden sticky bg-white dark:bg-gray-950 justify-between mb-4 shadow-md text-xs z-30 top-[6rem] left-0 w-full flex gap-5 p-2">
-        <Link href={"#slider"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 1 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(1)}>وجهات يمكنك زيارتها</Link>
-        <Link href={"#line"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 2 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(2)}>خط سير الرحلة</Link>
-        <Link href={"#form"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 3 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(3)}>يرجى التواصل معي</Link>
-      </div>
-      <div className={`${styles.details} grid grid-cols-3`}>
-        <div className={`${styles.details__info} col-span-3 lg:col-span-2`}>
-          <div className="hidden md:block border-b dark:border-gray-700">
-            <Breadcrumbs list={[{ title: 'العروض المميزة', href: "/special-offers" }, { title: offerDetails?.title, href: null }]} />
           </div>
-          <p className={`text-justify dark:text-gray-50 ${noto.className}`}>لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.</p>
-          <h2 id='slider' className={`text-secondary dark:text-white ${styles.details__details}`}>وجهات يمكنك زيارتها</h2>
-          <Responsive data={slides} />
-          <div className="border dark:border-gray-700 dark:bg-gray-800 dark:text-white flex flex-col gap-4 rounded-b-lg">
-            <div className={styles.details__details}>
-              <h3 className='text-xl mb-6' id='line'>
-                تفاصيل البرنامج السياحي
-              </h3>
-              <div className={styles.details__days + " " + noto.className}>
-                {offerDetails?.program_days?.map((day, i) => (
-                  <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
-                    <div className="col-span-2 md:col-span-1 max-h-[55px]">
-                      <div className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
-                        {day.name}
+          <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white dark:bg-gray-900 dark:text-gray-50 z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
+          <ScrollDown />
+        </div>
+        <div className="md:hidden sticky bg-white dark:bg-gray-950 justify-between mb-4 shadow-md text-xs z-30 top-[8rem] left-0 w-full flex gap-5 p-2">
+          <Link href={"#slider"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 1 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(1)}>وجهات يمكنك زيارتها</Link>
+          <Link href={"#line"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 2 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(2)}>خط سير الرحلة</Link>
+          <Link href={"#form"} className={`py-2 px-3 text-primary rounded-full ${noto.className} ${activeTap == 3 ? "border border-primary bg-primary/25" : "border-none bg-transparent"}`} onClick={() => setActiveTap(3)}>يرجى التواصل معي</Link>
+        </div>
+        <div className={`${styles.details} grid grid-cols-3`}>
+          <div className={`${styles.details__info} col-span-3 lg:col-span-2`}>
+            <div className="hidden md:block border-b dark:border-gray-700">
+              <Breadcrumbs list={[{ title: 'العروض المميزة', href: "/special-offers" }, { title: offerDetails?.title, href: null }]} />
+            </div>
+            <p className={`text-justify dark:text-gray-50 ${noto.className}`}>لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.</p>
+            <h2 className={`text-secondary dark:text-white relative ${styles.details__details}`}>وجهات يمكنك زيارتها <span id='slider' className=' absolute left-0 -top-44'></span></h2>
+            <Responsive data={slides} />
+            <div className="border dark:border-gray-700 dark:bg-gray-800 dark:text-white flex flex-col gap-4 rounded-b-lg">
+              <div className={styles.details__details}>
+                <h3 className='text-xl mb-6 relative'>
+                  تفاصيل البرنامج السياحي
+                  <span id='line' className=' absolute left-0 -top-44'></span>
+                </h3>
+                <div className={styles.details__days + " " + noto.className}>
+                  {offerDetails?.program_days?.map((day, i) => (
+                    <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
+                      <div className="col-span-2 md:col-span-1 max-h-[55px]">
+                        <div className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
+                          {day.name}
+                        </div>
+                      </div>
+                      <div className="col-span-7 md:col-span-6">
+                        <Accordion title="الوصول إلى بانكوك" text={day.content} index={i} />
                       </div>
                     </div>
-                    <div className="col-span-7 md:col-span-6">
-                      <Accordion title="الوصول إلى بانكوك" text={day.content} index={i} />
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className={styles.details__details}>
-              <h3 className='text-xl mb-6'>
-                الرحلة تشمل:
-              </h3>
-              <div className={styles.details__days + " " + noto.className}>
-                {offerDetails.includes?.map((item, i) => (
-                  <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
-                    <div className="col-span-2 md:col-span-1 max-h-[55px]">
-                      <div className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
+              <div className={styles.details__details}>
+                <h3 className='text-xl mb-6'>
+                  الرحلة تشمل:
+                </h3>
+                <div className={styles.details__days + " " + noto.className}>
+                  {offerDetails.includes?.map((item, i) => (
+                    <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
+                      <div className="col-span-2 md:col-span-1 max-h-[55px]">
+                        <div className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
 
+                        </div>
+                      </div>
+                      <div className="col-span-7 md:col-span-6">
+                        <Accordion title={"الرحلة تشمل:"} text={item} index={i} />
                       </div>
                     </div>
-                    <div className="col-span-7 md:col-span-6">
-                      <Accordion title={"الرحلة تشمل:"} text={item} index={i} />
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className={styles.details__details}>
-              <h3 className='text-xl mb-6'>
-                الرحلة لا تشمل:
-              </h3>
-              <div className={styles.details__days + " " + noto.className}>
-                {offerDetails.exculdes?.map((item, i) => (
-                  <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
-                    <div className="col-span-2 md:col-span-1 max-h-[55px]">
-                      <div className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
+              <div className={styles.details__details}>
+                <h3 className='text-xl mb-6'>
+                  الرحلة لا تشمل:
+                </h3>
+                <div className={styles.details__days + " " + noto.className}>
+                  {offerDetails.exculdes?.map((item, i) => (
+                    <div className="grid grid-cols-9 md:grid-cols-7" key={i}>
+                      <div className="col-span-2 md:col-span-1 max-h-[55px]">
+                        <div className='text-xs md:text-sm font-light flex justify-between w-full p-4 pr-0'>
 
+                        </div>
+                      </div>
+                      <div className="col-span-7 md:col-span-6">
+                        <Accordion title={"الرحلة لا تشمل:"} text={item} index={i} />
                       </div>
                     </div>
-                    <div className="col-span-7 md:col-span-6">
-                      <Accordion title={"الرحلة لا تشمل:"} text={item} index={i} />
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className={`${noto.className} p-4 border-t dark:border-gray-700`}>
-              <p className="text-gray-400">استمتع بالتخطيط لرحلتك كيفما شئت مع باقات العطلات المخصصة لشخص واحد</p>
-              <div id='form'>من <span className='text-xl font-bold'>{offerDetails.price_after_discount} SAR</span></div>
+              <div className={`${noto.className} p-4 border-t dark:border-gray-700`}>
+                <p className="text-gray-400">استمتع بالتخطيط لرحلتك كيفما شئت مع باقات العطلات المخصصة لشخص واحد</p>
+                <div>من <span className='text-xl font-bold'>{offerDetails.price_after_discount} SAR</span></div>
+              </div>
             </div>
           </div>
+          <div className={`${styles.details__form} col-span-3 relative lg:col-span-1 bg-white dark:bg-gray-800 border border-t-none dark:border-gray-700 dark:text-white`}>
+          <span id='form' className=' absolute left-0 -top-44'></span>
+            <Link className="w-full rounded-full shadow-md bg-green-600 text-white p-4 flex gap-4 items-center justify-center" href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} target='_blank' rel='noreferrer'>
+              {/* <i className="fab fa-whatsapp text-2xl"></i> */}
+              <FontAwesomeIcon icon={faWhatsapp} className="text-2xl" />
+              <span>تواصل معنا عن طريق الوتساب</span>
+            </Link>
+            <div className="relative w-full my-4">
+              <span className='bg-white dark:bg-gray-800 p-4 text-gray-600 dark:text-gray-400 text-xs z-10 relative'>أو</span>
+              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1 w-[75%] bg-gray-200 dark:bg-gray-700"></span>
+            </div>
+            <form
+              className={styles.details__form__cards + " " + noto.className}
+              onSubmit={handleSubmit}
+            >
+              <div className={styles.details__form__card}>
+                <label htmlFor='name'>الاسم</label>
+                <input
+                  type='text'
+                  id='name'
+                  name='name'
+                  placeholder='الاسم'
+                  className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.name}
+                </small>
+              </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='email'>البريد الالكتروني</label>
+                <input
+                  type='text'
+                  id='email'
+                  name='email'
+                  placeholder='البريد الالكتروني'
+                  className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.email}
+                </small>
+              </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='phone'>رقم الجوال</label>
+                <input
+                  type='number'
+                  id='phone'
+                  name='phone'
+                  placeholder='رقم الجوال'
+                  className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.phone}
+                </small>
+              </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='travling_date'>تاريخ السفر</label>
+                <input
+                  type="date"
+                  id='travling_date'
+                  name='travling_date'
+                  className='absolute'
+                  onChange={(e) => setDate(e.target.value)}
+                  style={{ width: '0', height: '0', zIndex: '-1' }}
+                  ref={dateRef}
+                />
+                <input
+                  type="text"
+                  onFocus={handleDate}
+                  onClick={handleDate}
+                  placeholder={new Date().toLocaleDateString()}
+                  value={date}
+                  className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.travling_date}
+                </small>
+              </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='travling_distnation'>جهة السفر</label>
+                <input
+                  type='text'
+                  id='travling_distnation'
+                  name='travling_distnation'
+                  placeholder='جهة السفر'
+                  className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
+
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.travling_distnation}
+                </small>
+              </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='ppl_number'>عدد الاشخاص</label>
+                <input
+                  type='number'
+                  id='ppl_number'
+                  name='ppl_number'
+                  placeholder='عدد الاشخاص'
+                  className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.ppl_number}
+                </small>
+              </div>
+              <div className={styles.details__form__card}>
+                <label htmlFor='childs_number'>عدد الاطفال</label>
+                <input
+                  type='number'
+                  id='childs_number'
+                  name='childs_number'
+                  placeholder='عدد الاطفال'
+                  className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
+                />
+                <small style={{ color: 'red', fontSize: '.6rem' }}>
+                  {formErrors?.childs_number}
+                </small>
+              </div>
+              <button className={styles.form__btn} type='submit'>
+                ارسال
+              </button>
+            </form>
+            <Snackbar ref={snackbarRef} message={snackbarMsg} type={'success'} />
+          </div>
         </div>
-        <div className={`${styles.details__form} col-span-3 lg:col-span-1 bg-white dark:bg-gray-800 border border-t-none dark:border-gray-700 dark:text-white`}>
-          <Link className="w-full rounded-full shadow-md bg-green-600 text-white p-4 flex gap-4 items-center justify-center" href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} target='_blank' rel='noreferrer'>
-            {/* <i className="fab fa-whatsapp text-2xl"></i> */}
-            <FontAwesomeIcon icon={faWhatsapp} className="text-2xl" />
-            <span>تواصل معنا عن طريق الوتساب</span>
+        <div className="text-center my-8 md:my-16 w-fit mx-auto">
+          <div className='text-xl md:text-2xl mb-4 dark:text-white'>يمكنك تحميل تفاصيل العرض PDF</div>
+          <Link href={"/our-programs"} className='p-4 bg-[#ef4050] flex items-center text-white w-full gap-4 justify-center hover:shadow-lg rounded-full'>
+            تحميل PDF
+            <FontAwesomeIcon icon={faArrowDown} className="text-xl" />
           </Link>
-          <div className="relative w-full my-4">
-            <span className='bg-white dark:bg-gray-800 p-4 text-gray-600 dark:text-gray-400 text-xs z-10 relative'>أو</span>
-            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1 w-[75%] bg-gray-200 dark:bg-gray-700"></span>
-          </div>
-          <form
-            className={styles.details__form__cards + " " + noto.className}
-            onSubmit={handleSubmit}
-          >
-            <div className={styles.details__form__card}>
-              <label htmlFor='name'>الاسم</label>
-              <input
-                type='text'
-                id='name'
-                name='name'
-                placeholder='الاسم'
-                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
-              />
-              <small style={{ color: 'red', fontSize: '.6rem' }}>
-                {formErrors?.name}
-              </small>
-            </div>
-            <div className={styles.details__form__card}>
-              <label htmlFor='email'>البريد الالكتروني</label>
-              <input
-                type='text'
-                id='email'
-                name='email'
-                placeholder='البريد الالكتروني'
-                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
-              />
-              <small style={{ color: 'red', fontSize: '.6rem' }}>
-                {formErrors?.email}
-              </small>
-            </div>
-            <div className={styles.details__form__card}>
-              <label htmlFor='phone'>رقم الجوال</label>
-              <input
-                type='number'
-                id='phone'
-                name='phone'
-                placeholder='رقم الجوال'
-                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
-              />
-              <small style={{ color: 'red', fontSize: '.6rem' }}>
-                {formErrors?.phone}
-              </small>
-            </div>
-            <div className={styles.details__form__card}>
-              <label htmlFor='travling_date'>تاريخ السفر</label>
-              <input
-                type="date"
-                id='travling_date'
-                name='travling_date'
-                className='absolute'
-                onChange={(e) => setDate(e.target.value)}
-                style={{ width: '0', height: '0', zIndex: '-1' }}
-                ref={dateRef}
-              />
-              <input
-                type="text"
-                onFocus={handleDate}
-                onClick={handleDate}
-                placeholder={new Date().toLocaleDateString()}
-                value={date}
-                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
-              />
-              <small style={{ color: 'red', fontSize: '.6rem' }}>
-                {formErrors?.travling_date}
-              </small>
-            </div>
-            <div className={styles.details__form__card}>
-              <label htmlFor='travling_distnation'>جهة السفر</label>
-              <input
-                type='text'
-                id='travling_distnation'
-                name='travling_distnation'
-                placeholder='جهة السفر'
-                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
-
-              />
-              <small style={{ color: 'red', fontSize: '.6rem' }}>
-                {formErrors?.travling_distnation}
-              </small>
-            </div>
-            <div className={styles.details__form__card}>
-              <label htmlFor='ppl_number'>عدد الاشخاص</label>
-              <input
-                type='number'
-                id='ppl_number'
-                name='ppl_number'
-                placeholder='عدد الاشخاص'
-                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
-              />
-              <small style={{ color: 'red', fontSize: '.6rem' }}>
-                {formErrors?.ppl_number}
-              </small>
-            </div>
-            <div className={styles.details__form__card}>
-              <label htmlFor='childs_number'>عدد الاطفال</label>
-              <input
-                type='number'
-                id='childs_number'
-                name='childs_number'
-                placeholder='عدد الاطفال'
-                className='dark:bg-gray-900 dark:border-gray-700 dark:text-white'
-              />
-              <small style={{ color: 'red', fontSize: '.6rem' }}>
-                {formErrors?.childs_number}
-              </small>
-            </div>
-            <button className={styles.form__btn} type='submit'>
-              ارسال
-            </button>
-          </form>
-          <Snackbar ref={snackbarRef} message={snackbarMsg} type={'success'} />
         </div>
-      </div>
-      {offers.filter((prog) => prog?.id !== offerDetails?.id).length > 0 && (
-        <div className={styles.similar}>
-          <h2 className='dark:text-white'>برامج مشابهة</h2>
-          <div className={styles.similar__cards}>
-            {offers
-              ?.filter((offer) => offer?.id !== offerDetails?.id)
-              .slice(0, 3)
-              .map((offer) => (
-                <SpecialCard item={offer} key={offer?.id} />
-              ))}
+        {offers.filter((prog) => prog?.id !== offerDetails?.id).length > 0 && (
+          <div className={styles.similar}>
+            <h2 className='dark:text-white'>برامج مشابهة</h2>
+            <div className={styles.similar__cards}>
+              {offers
+                ?.filter((offer) => offer?.id !== offerDetails?.id)
+                .slice(0, 3)
+                .map((offer) => (
+                  <SpecialCard item={offer} key={offer?.id} />
+                ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
       </div>
     </>
   )

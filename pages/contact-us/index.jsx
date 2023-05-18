@@ -1,5 +1,5 @@
 import styles from './index.module.css'
-import BtnArrow from '@/components/BtnArrow'
+// import BtnArrow from '@/components/BtnArrow'
 import Image from 'next/image'
 import Head from 'next/head'
 import ScrollDown from '../../components/scrollDown'
@@ -117,15 +117,15 @@ const ContactUs = ({ slide }) => {
           />
         )}
         <h1>{slide[0].title}</h1>
-        <BtnArrow
+        {/* <BtnArrow
           title={slide[0].button_text}
           href={'#form'}
-        />
+        /> */}
         <ScrollDown />
       </div>
       <div className={styles.form} id='form'>
         <div className={styles.form__bg}></div>
-        <h2>سنكون سعيدين باستلام رسالتك</h2>
+        <h2 className='text-white'>سنكون سعيدين باستلام رسالتك</h2>
         <div className={`bg-white dark:bg-gray-800 dark:text-white ${styles.form__data}`}>
           <form
             className={styles.form__content}
@@ -139,7 +139,7 @@ const ContactUs = ({ slide }) => {
                 id='name'
                 name='name'
                 placeholder='الاسم بالكامل'
-                className='dark:bg-gray-900 border border-transparent'
+                className='dark:bg-gray-900 border dark:border-gray-700'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.name}
@@ -152,7 +152,7 @@ const ContactUs = ({ slide }) => {
                 id='phone'
                 name='phone'
                 placeholder='رقم الجوال'
-                className='dark:bg-gray-900 border border-transparent'
+                className='dark:bg-gray-900 border dark:border-gray-700'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.phone}
@@ -165,7 +165,7 @@ const ContactUs = ({ slide }) => {
                 id='email'
                 name='email'
                 placeholder='البريد الالكتروني'
-                className='dark:bg-gray-900 border border-transparent'
+                className='dark:bg-gray-900 border dark:border-gray-700'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.email}
@@ -178,7 +178,7 @@ const ContactUs = ({ slide }) => {
                 name='message'
                 placeholder='الرسالة'
                 rows='5'
-                className='dark:bg-gray-900 border border-transparent'
+                className='dark:bg-gray-900 border dark:border-gray-700'
               />
               <small style={{ color: 'red', fontSize: '.6rem' }}>
                 {formErrors?.message}

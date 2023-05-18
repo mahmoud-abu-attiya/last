@@ -14,7 +14,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun, faMoon, faLocationPin, faUserFriends, faStar, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faSun, faMoon, faLocationPin, faUserFriends, faStar, faAngleUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { useDispatch } from 'react-redux'
 import { setBacktoData } from '../../../../../slices/backto'
@@ -265,13 +265,13 @@ const Details = (props) => {
               <Breadcrumbs list={[{ title: 'البرامج السياحية', href: "/our-programs" }, { title: program.country.name, href: `/our-programs/${program.country.id}` }, { title: program.category.name, href: null }]} />
             </div>
             <p className={`text-justify dark:text-gray-100 ${noto.className}`}>لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.</p>
-            <h2 id='slider' className={`text-secondary dark:text-white border-b-2 border-secondary dark:border-white ${styles.details__details}`}>وجهات يمكنك زيارتها</h2>
+            <h2 className={`text-secondary relative dark:text-white border-b-2 border-secondary dark:border-white ${styles.details__details}`}>وجهات يمكنك زيارتها <span id='slider' className=' absolute left-0 -top-44'></span></h2>
             <Responsive data={slides} />
-            <div id="line" />
             <div className="border dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col gap-4 rounded-b-lg">
               <div className={styles.details__details}>
-                <h3 className='text-xl mb-6'>
+                <h3 className='text-xl mb-6 relative'>
                   خط سير الرحلة
+                  <span id='line' className=' absolute left-0 -top-44'></span>
                 </h3>
                 <div className={styles.details__days + " " + noto.className}>
                   {program.program_days?.map((day, i) => (
@@ -328,26 +328,12 @@ const Details = (props) => {
               </div>
               <div className={`${noto.className} p-4 border-t dark:border-gray-700`}>
                 <p className="text-gray-400">استمتع بالتخطيط لرحلتك كيفما شئت مع باقات العطلات المخصصة لشخص واحد</p>
-                <div id='form'>من <span className='text-xl font-bold'>{program.price_after_discount} SAR</span></div>
+                <div>من <span className='text-xl font-bold'>{program.price_after_discount} SAR</span></div>
               </div>
             </div>
           </div>
-          <div className={`${styles.details__form} border dark:border-gray-700 dark:text-white col-span-3 lg:col-span-1 dark:bg-gray-800 bg-white`}>
-            {/* <div className={styles.details__form__card}>
-              <h3>السعر</h3>
-              <div className={styles.details__card__price}>
-                <div>
-                  <span className={styles.new__price}>
-                    {program.price_after_discount}
-                  </span>
-                  ريال سعودي
-                </div>
-                <div>
-                  بدلا من
-                  <span className={styles.old__price}>{program.price}</span>
-                </div>
-              </div>
-            </div> */}
+          <div className={`${styles.details__form} border relative dark:border-gray-700 dark:text-white col-span-3 lg:col-span-1 dark:bg-gray-800 bg-white`}>
+          <span id='form' className=' absolute left-0 -top-44'></span>
             <Link className="w-full rounded-full shadow-md bg-green-600 text-white p-4 flex gap-4 items-center justify-center" href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} target='_blank' rel='noreferrer'>
               {/* <i className="fab fa-whatsapp text-2xl"></i> */}
               <FontAwesomeIcon icon={faWhatsapp} className="text-2xl" />
@@ -473,6 +459,13 @@ const Details = (props) => {
               type={'success'}
             />
           </div>
+        </div>
+        <div className="text-center my-8 md:my-16 w-fit mx-auto">
+          <div className='text-xl md:text-2xl mb-4 dark:text-white'>يمكنك تحميل تفاصيل العرض PDF</div>
+          <Link href={"/our-programs"} className='p-4 bg-[#ef4050] flex items-center text-white w-full gap-4 justify-center hover:shadow-lg rounded-full'>
+            تحميل PDF
+            <FontAwesomeIcon icon={faArrowDown} className="text-xl" />
+          </Link>
         </div>
         {programs?.filter((prog) => prog?.id !== program.id).length > 0 && (
           <div className={styles.similar}>

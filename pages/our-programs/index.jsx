@@ -102,7 +102,7 @@ const OurPrograms = ({ countries, slides }) => {
       <Hero data={slides} />
       <div className={`bg-gray-100 dark:bg-gray-900`} id='content'>
         <div className="container">
-          <div className=" border-b dark:border-gray-600">
+          <div className=" border-b hidden md:block dark:border-gray-600">
             <Breadcrumbs list={[{ title: "البرامج السياحية" }]} />
           </div>
           <div className="py-14 md:py-20">
