@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import styles from './index.module.css'
-import cartStyle from "./[categoryId]/index.module.css"
+// import style from "./[categoryId]/index.module.css"
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -49,7 +49,7 @@ const Place = (props) => {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
-    initialSlide: 1,
+    initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
@@ -107,7 +107,7 @@ const Place = (props) => {
       </Slider>
       </div>
       <div className="container">
-      <div className=" hidden sm:block">
+      <div className=" hidden md:block">
       <Slider {...settings} className='w-full prog border-b dark:border-gray-700'>
         {categories.map((category) => {
           return (
@@ -119,20 +119,20 @@ const Place = (props) => {
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-16 transition duration-300 ${anim ? "opacity-0" : "opacity-100"}`}>
           {data ? data.map((item) => {
             return (
-              <div className={cartStyle.offer__card} key={item.id}>
-                <div className={cartStyle.offer__card__container}>
-                  <div className={cartStyle.offer__img__container}>
+              <div className={styles.offer__card} key={item.id}>
+                <div className={styles.offer__card__container}>
+                  <div className={styles.offer__img__container}>
                     {item.image && (
                       <Image
                         src={item.image}
                         alt={item.title}
                         fill
-                        className={cartStyle.offer__card__img}
+                        className={styles.offer__card__img}
                       />
                     )}
                   </div>
-                  <div className={`bg-white dark:bg-gray-800 dark:text-gray-50 ${cartStyle.offer__card__content}`}>
-                    <div className={`text-white dark:text-secondary ${cartStyle.offer__card__period}`}>
+                  <div className={`bg-white dark:bg-gray-800 dark:text-gray-50 ${styles.offer__card__content}`}>
+                    <div className={`text-white dark:text-secondary ${styles.offer__card__period}`}>
                       <span>
                         {/* <i className="fas fa-sun"></i> */}
                         <FontAwesomeIcon icon={faSun} />
@@ -156,11 +156,11 @@ const Place = (props) => {
                         </span>
                       )}
                     </div>
-                    <div className={cartStyle.offer__heading}>
+                    <div className={styles.offer__heading}>
                       <Link
                         href={`/our-programs/${place}/${id}/${item.id}`}
                       >
-                        <h3 className={`text-secondary dark:text-white ${cartStyle.offer__card__title}`}>
+                        <h3 className={`text-secondary dark:text-white ${styles.offer__card__title}`}>
                           {item.category.name} {item.rate} نجوم
                         </h3>
                       </Link>
@@ -171,7 +171,7 @@ const Place = (props) => {
                         ))}
                       </div>
                     </div>
-                    <div className={cartStyle.offer__card__price}>
+                    <div className={styles.offer__card__price}>
                       <div>
                         <span className={styles.new__price}>
                           {item.price_after_discount}
@@ -179,7 +179,7 @@ const Place = (props) => {
                         ريال سعودي
                       </div>
                     </div>
-                    <div className={cartStyle.offer__card__btns}>
+                    <div className={styles.offer__card__btns}>
                       <BtnArrow
                         title='تفاصيل العرض'
                         href={`/our-programs/${place}/${id}/${item.id}`}

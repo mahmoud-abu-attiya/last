@@ -162,7 +162,6 @@
 .sales {
   position: relative;
   width: auto;
-  /* background-color: #e4faef; */
   margin-bottom: 2rem;
   padding: 0.5rem;
   display: flex;
@@ -171,11 +170,6 @@
   gap: 0.5rem;
   font-size: 0.8rem;
 }
-/* @media (prefers-color-scheme: dark) {
-  .sales {
-    background-color: #276445;
-  }
-} */
 .sales span {
   font-size: 1.1rem;
   font-weight: bold;

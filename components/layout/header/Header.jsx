@@ -58,7 +58,7 @@ export default function Header() {
     <header
       // className={`${styles.header} ${showHeader ? styles.active : ''} ${isScrollTop ? styles.hide : ''
       //   }`}
-      className={`${backto ? "pt-4" : "py-4"} ${styles.header} ${showHeader ? styles.active : ''}`}
+      className={`sticky md:fixed ${backto ? "pt-4" : "py-4"} ${styles.header} ${showHeader ? styles.active : ''}`}
     >
       <nav className={styles.nav}>
         {/* Logo */}
@@ -162,7 +162,7 @@ export default function Header() {
                 setResponse('')
                 search(e.target.value)
               }}
-              className={`border-b focus:border-primary dark:bg-gray-900 dark:text-white dark:border-gray-700 ${styles.search__input}`}
+              className={`border-b text-black focus:border-primary dark:bg-gray-900 dark:text-white dark:border-gray-700 ${styles.search__input}`}
             />
             <button type='submit' className={`text-secondary dark:text-white ${styles.search__btn}`}>
               ابحث

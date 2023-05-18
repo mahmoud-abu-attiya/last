@@ -3,6 +3,7 @@ import styles from './index.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
 import ScrollDown from '../../components/scrollDown'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import { useSelector, useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
@@ -59,6 +60,9 @@ const AboutUs = ({ about, slides }) => {
         )}
         <h1>{slides[0].title}</h1>
         <ScrollDown />
+      </div>
+      <div className="container hidden md:block border-b dark:border-gray-700">
+        <Breadcrumbs list={[{ title: "نبذه عنا" }]} />
       </div>
       <div className={`text-secondary dark:text-white ${styles.about__us}`}>
         <div className={styles.about__us__best}>

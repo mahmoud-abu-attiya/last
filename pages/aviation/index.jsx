@@ -235,7 +235,7 @@ const Aviation = ({ slide }) => {
                   placeholder='بلد المسكن'
                   name='travel_from'
                   id='travel_from'
-                  className={`dark:bg-gray-800 dark:border-gray-700 ${styles.card__input}`}
+                  className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
                 />
               </div>
               <small style={{ color: 'red', fontSize: '.6rem' }}>
@@ -251,7 +251,7 @@ const Aviation = ({ slide }) => {
                   placeholder='الوجهة'
                   name='travel_to'
                   id='travel_to'
-                  className={`dark:bg-gray-800 dark:border-gray-700 ${styles.card__input}`}
+                  className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
                 />
               </div>
               <small style={{ color: 'red', fontSize: '.6rem' }}>
@@ -266,7 +266,7 @@ const Aviation = ({ slide }) => {
                   name='traveling_date'
                   id='traveling_date'
                   pattern='\d{2}-\d{2}-\d{4}'
-                  className={`dark:bg-gray-800 dark:border-gray-700 ${styles.card__input}`}
+                  className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
                 />
               </div>
               <small style={{ color: 'red', fontSize: '.6rem' }}>
@@ -281,7 +281,7 @@ const Aviation = ({ slide }) => {
                   name='back_date'
                   id='back_date'
                   pattern='\d{2}-\d{2}-\d{4}'
-                  className={`dark:bg-gray-800 dark:border-gray-700 ${styles.card__input}`}
+                  className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
                 />
               </div>
               <small style={{ color: 'red', fontSize: '.6rem' }}>
@@ -297,7 +297,7 @@ const Aviation = ({ slide }) => {
                   name='travellers_number'
                   id='travellers_number'
                   placeholder='عدد المسافرين'
-                  className={`dark:bg-gray-800 dark:border-gray-700 ${styles.card__input}`}
+                  className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
                 />
               </div>
               <small style={{ color: 'red', fontSize: '.6rem' }}>

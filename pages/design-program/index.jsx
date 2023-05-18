@@ -2,7 +2,7 @@
 import Head from 'next/head'
 import styles from './index.module.css'
 import Image from 'next/image'
-// import BtnArrow from '@/components/BtnArrow'
+import Breadcrumbs from '../../components/Breadcrumbs'
 import ScrollDown from '../../components/scrollDown'
 import { useRef, useState, useEffect } from 'react'
 import Snackbar from '../../components/snackbar'
@@ -144,6 +144,11 @@ const DesignProgram = ({ data, slide }) => {
               {/* <BtnArrow title={slide[0]?.button_text} href='#form' /> */}
               <ScrollDown />
             </div>
+                <div className="bg-gray-100 dark:bg-gray-900">
+                  <div className="container hidden md:block">
+                  <Breadcrumbs list={[{ title: data?.subtitle }]} />
+                </div>
+                </div>
             <div className={styles.card}>
               <div className={styles.card__container}>
                 <div className={styles.card__content}>

@@ -91,8 +91,8 @@ export default function Index() {
    }, [activeIndex])
 
    return (
-      <div className='h-[70vh] w-full overflow-hidden relative'>
-         <div className="absolute top-0 left-0 w-full h-screen bg-black/25 z-10"><span className='sr-only'>overlay</span></div>
+      <div className='h-[50vh] md:h-screen w-full overflow-hidden relative'>
+         <div className="absolute top-0 left-0 w-full h-screen bg-black/50 z-10"><span className='sr-only'>overlay</span></div>
          {data.map((slide, index) => {
             return (
                <div className={`transition duration-500 w-full h-full`} key={index}>

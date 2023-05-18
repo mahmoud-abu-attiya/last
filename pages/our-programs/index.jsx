@@ -26,7 +26,7 @@ const Hero = ({ data }) => {
     return () => clearTimeout(interval)
   }, [activeIndex])
   return (
-    <div className='h-[70vh] md:h-screen w-full overflow-hidden relative'>
+    <div className='h-[50vh] md:h-screen w-full overflow-hidden relative'>
       {data.map((slide, index) => {
         return (
           <div className={`transition duration-500 w-full h-full ${index === activeIndex ? "opacity-100" : "opacity-0"}`} key={index}>
@@ -105,9 +105,9 @@ const OurPrograms = ({ countries, slides }) => {
           <div className=" border-b hidden md:block dark:border-gray-600">
             <Breadcrumbs list={[{ title: "البرامج السياحية" }]} />
           </div>
-          <div className="py-14 md:py-20">
+          <div className="py-12 md:py-20">
             <h2 className='main__title'>البرامج السياحية</h2>
-            <p className='max-w-2xl text-center mb-8 mx-auto dark:text-gray-300'> غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.  غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.</p>
+            <p className='max-w-2xl text-justify mb-8 mx-auto dark:text-gray-300'> غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.  غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.</p>
             <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-8`}>
               {countries.map((country) => ( // remove reverse() to egnore the error
                 <Link

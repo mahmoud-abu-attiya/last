@@ -2,6 +2,7 @@ import styles from './index.module.css'
 // import BtnArrow from '@/components/BtnArrow'
 import Image from 'next/image'
 import Head from 'next/head'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import ScrollDown from '../../components/scrollDown'
 import { useRef, useState, useEffect } from 'react'
 import Snackbar from '../../components/snackbar'
@@ -124,6 +125,9 @@ const ContactUs = ({ slide }) => {
         <ScrollDown />
       </div>
       <div className={styles.form} id='form'>
+      <div className="container hidden md:block border-b dark:border-gray-700">
+        <Breadcrumbs list={[{ title: "تواصل معنا" }]} />
+      </div>
         <div className={styles.form__bg}></div>
         <h2 className='text-white'>سنكون سعيدين باستلام رسالتك</h2>
         <div className={`bg-white dark:bg-gray-800 dark:text-white ${styles.form__data}`}>

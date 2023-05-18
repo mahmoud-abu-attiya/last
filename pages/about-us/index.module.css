@@ -26,8 +26,6 @@
 }
 
 .about__us {
-  /* background-color: white; */
-  /* direction: rtl; */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -36,14 +34,7 @@
   max-width: min(1100px, 100%);
   margin: 0 auto;
   flex-direction: row-reverse;
-  /* color: var(--second-clr); */
 }
-/* @media (prefers-color-scheme: dark) {
-  .about__us{
-    background-color: #030712;
-    color: white;
-  }
-} */
 .about__us__best {
   display: flex;
   justify-content: center;
@@ -145,16 +136,9 @@
   margin: 4rem auto;
   box-sizing: border-box;
   padding: 2rem 1rem;
-  /* background-color: #eeebe5; */
   width: 1200px;
   max-width: min(1200px, 95%);
 }
-/* @media (prefers-color-scheme: dark) {
-  .about__us__options {
-    background-color: #030712;
-    color: white;
-  }
-} */
 .about__us__options__img {
   position: relative;
   width: 600px;

@@ -1,10 +1,11 @@
 /* Header & Nav */
 .header {
   width: 100%;
-  position: fixed;
+  /* position: fixed; */
   background: transparent;
   z-index: 60;
   /* padding: 1rem 0; */
+  top: 0;
   transition: 0.3s;
   margin-top: 3rem;
 }
@@ -314,16 +315,7 @@
   .header__li {
     flex-direction: row;
   }
-  /* .header__li .nav__icon {
-    filter: none;
-  } */
-  /* @media screen and (prefers-color-scheme: dark) {
-    .header__li .nav__icon {
-      filter: invert(100%) sepia(0%) saturate(7481%) hue-rotate(57deg) brightness(106%) contrast(101%);
-    }
-  } */
   .header__menu span {
-    /* color: var(--second-clr); */
     font-size: 0.8rem;
   }
   .header__search::after {

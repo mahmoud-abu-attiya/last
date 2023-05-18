@@ -175,7 +175,7 @@ export default function Daleel() {
                content={settings.meta_description}
             />
          </Head>
-         <div className="w-full bg-secondary h-20 lg:h-40"></div>
+         <div className="w-full bg-secondary hidden md:block h-20 lg:h-40"></div>
          <div className="w-full h-[50vh] relative overflow-hidden flex">
             <Image src={data.image} alt="daleel" fill className='object-cover' />
             <div className="w-full relative z-10 bg-gradient-to-t from-black/75 to-transparent text-white py-4 mt-auto">

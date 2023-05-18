@@ -55,7 +55,7 @@ const SpecialOffers = ({ slides, specialOffers }) => {
       <div className="container hidden md:block border-b dark:border-gray-700">
         <Breadcrumbs list={[{ title: "العروض المميزة" }]} />
       </div>
-      <div className={"container py-20"} id='content'>
+      <div className={"container py-12 md:py-20"} id='content'>
         <h2 className='main__title'>العروض المميزة</h2>
         <p className=' max-w-4xl mx-auto mb-14 text-justify dark:text-white'>سواء كنت رحالة تحب البحث عن كنوز التاريخ المخفية في المملكة العربية السعودية أو من عُشاق المغامرة دائمي البحث عن التجارب المثيرة، فإن باقات عطلات المسافر هي حتماً ما تبحث عنه! إذا كنت تريد اكتشاف الوجهات المحلية، فنحن نوفر لك باقاتٍ تأخذك إلى وجهات جميلة داخل المملكة حيث يمكنك الاستمتاع بالمناظر الخلابة والأنشطة المثيرة</p>
         <div className={"grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"}>
@@ -91,11 +91,11 @@ const SpecialOffers = ({ slides, specialOffers }) => {
             //   </div>
             // </div>
             <div key={i} dir='rtl'>
-              <Link href={`/special-offers/${card.id}`} className='group shadow-md border block dark:border-gray-700 dark:bg-gray-800 overflow-hidden mx-2 rounded-lg cursor-pointer'>
+              <Link href={`/special-offers/${card.id}`} className='group shadow-md border block dark:border-gray-700  overflow-hidden mx-2 rounded-lg cursor-pointer'>
                 <div className="relative h-[13rem]">
                   <Image src={card.image} alt="any" fill className='object-cover' />
                 </div>
-                <div className="flex justify-between items-center px-4 py-8 bg-gray-100">
+                <div className="flex justify-between items-center px-4 py-8 bg-gray-100  dark:text-white  dark:bg-gray-800">
                   <div className="">
                     <h3>جينو بارادايس</h3>
                     <p className='text-xs text-gray-500 dark:text-gray-400'>يحتوي مركز جينو بارادايس على ملاهي مائية رائع...</p>

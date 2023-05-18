@@ -8,7 +8,6 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  direction: rtl;
 }
 @media (max-width: 768px) {
   .hero__bg {
@@ -41,7 +40,7 @@
 /* Form */
 .form {
   width: 100%;
-  padding: 4rem 0;
+  padding: 0 0 4rem 0;
   position: relative;
   direction: rtl;
   display: flex;
@@ -319,13 +318,13 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .form__data input,
 .form__data textarea {
     background-color: #111827;
     border: 1px solid #374151;
   }
-}
+} */
 
 /* Map */
 .contact__map {

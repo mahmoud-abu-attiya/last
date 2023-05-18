@@ -1,6 +1,7 @@
 import styles from './index.module.css'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Breadcrumbs from '../Breadcrumbs'
 
 const Hotels = ({ hotels, settings }) => {
 	const countries = hotels
@@ -23,6 +24,9 @@ const Hotels = ({ hotels, settings }) => {
 		<div className={styles.hotels} id='hotels'>
 			{/* <div className={styles.hotels__container}> */}
 			<div className={"container"}>
+				<div className="border-b hidden md:block dark:border-gray-700">
+					<Breadcrumbs list={[{ title: "أشهر فنادق" }]} />
+				</div>
 				<div className={styles.hotels__heading}>
 					<h2 className={`text-secondary dark:text-white ${styles.hotels__title}`}> أشهر فنادق</h2>
 					<div className={styles.hotels__tabs}>
@@ -30,7 +34,7 @@ const Hotels = ({ hotels, settings }) => {
 							<button
 								key={i}
 								onClick={() => setValue(i)}
-								className={`text-secondary dark:text-white ${styles.hotels__tab} ${value === i ? styles.hotels__tab__active : ''
+								className={`text-secondary dark:text-white text-sm mt-4 md:text-base pb-2 ${value === i ? styles.hotels__tab__active : ''
 									}`}
 							>
 								{tab}
