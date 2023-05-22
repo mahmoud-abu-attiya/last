@@ -25,7 +25,7 @@ const FullPageSlider = ({ title, data }) => {
       {data.map((item, i) => {
         return (
           <div className={`transition duration-500 ${i === activeIndex ? "opacity-100" : "opacity-0"}`} key={i}>
-            <Image src={item.image} alt="hero" fill className={`object-cover`} loading='eager' />
+            <Image src={item.image} alt="hero" fill className={`object-cover`} priority />
             <div className={styles.slider__content}>
                 <div className={styles.slider__container}>
                   <h1 className={styles.slider__title}>
