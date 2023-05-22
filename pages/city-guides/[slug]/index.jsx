@@ -58,6 +58,7 @@ const Famose = ({ img, title }) => {
                               src={img}
                               fill
                               alt={"any"}
+                              quality={50}
                               className='w-full group-hover:scale-110 transition duration-1000 object-cover rounded-lg' />
                            <div className='relative text-white w-full mt-auto bg-gradient-to-t from-black/75 to-transparent flex flex-col items-start md:items-center justify-end p-4 text-center'>
                               <h3 className='text-xl'> تمثال أم الجورجيين</h3>
@@ -110,7 +111,7 @@ const FamilyActivity = ({ title, img }) => {
                   <div key={i} dir='rtl'>
                      <div className='group border dark:border-gray-700 dark:bg-gray-800 overflow-hidden mx-2 rounded-lg cursor-pointer' onClick={() => handleClick(i)}>
                         <div className="relative h-[13rem]">
-                           <Image src={img} alt="any" fill className='object-cover' />
+                           <Image src={img} alt="any" fill quality={50} className='object-cover' />
                         </div>
                         <div className="flex justify-between items-center px-4 py-8">
                            <div className="">
@@ -177,7 +178,7 @@ export default function Daleel() {
          </Head>
          <div className="w-full bg-secondary hidden md:block h-20 lg:h-40"></div>
          <div className="w-full h-[50vh] relative overflow-hidden flex">
-            <Image src={data.image} alt="daleel" fill className='object-cover' />
+            <Image src={data.image} alt="daleel" fill priority className='object-cover' />
             <div className="w-full relative z-10 bg-gradient-to-t from-black/75 to-transparent text-white py-4 mt-auto">
                <div className="container">
                   <h1 className="text-xl md:text-2xl">{data.title}</h1>

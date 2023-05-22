@@ -53,7 +53,7 @@ export default function Index({ data }) {
                      {countries.map((country) => (
                         <Link className='group overflow-hidden rounded-lg cursor-pointer' key={country.id} href={`/city-guides/${country.id}`}>
                            <div className='relative h-[250px] md:h-[370px] flex'>
-                              <Image src={country.image} quality={50} fill alt={country.name} className='w-full group-hover:scale-110 transition duration-1000 object-cover rounded-lg' />
+                              <Image src={country.image} priority quality={50} fill alt={country.name} className='w-full group-hover:scale-110 transition duration-1000 object-cover rounded-lg' />
                               <div className='relative text-white w-full mt-auto bg-gradient-to-t from-black/75 to-transparent flex flex-col items-start md:items-center justify-end p-4 text-center'>
                                  <h2 className='text-xl'>{country.name}</h2>
                                  <p className="sup text-xs">متعة التسوّق، المأكولات الشهية والترفيه</p>

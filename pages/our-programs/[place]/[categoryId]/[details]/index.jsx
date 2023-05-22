@@ -246,7 +246,7 @@ const Details = (props) => {
             {/* {program.image.map((img, i) => {
               return ( */}
             <div className="item cursor-pointer relative w-48 h-32 rounded-lg overflow-hidden">
-              <Image src={program.image} alt={program.title} fill />
+              <Image src={program.image} alt={program.title} fill priority />
             </div>
             {/* )
             })} */}
