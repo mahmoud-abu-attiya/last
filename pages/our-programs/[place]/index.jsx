@@ -10,16 +10,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BtnArrow from '@/components/BtnArrow'
 import Breadcrumbs from '@/components/Breadcrumbs'
-// import CountryHero from '@/components/countryHero'
+import CountryHero from '@/components/countryHero'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon, faLocationPin, faUserFriends, faStar } from '@fortawesome/free-solid-svg-icons'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setBacktoData } from '@/slices/backto'
 
 const Place = (props) => {
+  const settings = useSelector((state) => state.settings.value)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(setBacktoData({title: 'البرامج السياحية', href: `/our-programs/`}))
+    dispatch(setBacktoData({ title: 'البرامج السياحية', href: `/our-programs/` }))
+
   }, [])
   const categories = props.categories
   const countries = props.countries
@@ -42,7 +44,7 @@ const Place = (props) => {
         }, 500)
       }).catch(err => console.log(err))
   }, [id])
-  const settings = {
+  const setting = {
     dots: false,
     infinite: false,
     centerMode: false,
@@ -71,133 +73,128 @@ const Place = (props) => {
     <>
       <Head>
         <title>{country.name}</title>
-            <meta
-               name="viewport"
-               content="width=device-width, initial-scale=1"
-            />
-            <meta
-               name="description"
-               content={settings.meta_description}
-            />
-            <meta property="og:title" content={settings.meta_title} />
-            <meta property="og:url" content="https://last-delta.vercel.app/our-programs" />
-            <meta name="keywords" content={settings.keywords} />
-            <meta
-               property="og:description"
-               content={settings.meta_description}
-            />
-            <meta name="twitter:title" content={settings.meta_title} />
-            <meta
-               name="twitter:description"
-               content={settings.meta_description}
-            />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+        <meta
+          name="description"
+          content={settings.meta_description}
+        />
+        <meta property="og:title" content={settings.meta_title} />
+        <meta property="og:url" content="https://last-delta.vercel.app/our-programs" />
+        <meta name="keywords" content={settings.keywords} />
+        <meta
+          property="og:description"
+          content={settings.meta_description}
+        />
+        <meta name="twitter:title" content={settings.meta_title} />
+        <meta
+          name="twitter:description"
+          content={settings.meta_description}
+        />
       </Head>
-      {/* <CountryHero /> */}
+      <CountryHero />
       <div className="container hidden md:block">
-        <Breadcrumbs list={[{title: 'البرامج السياحية', href: "/our-programs"}, {title: country.name}]} />
+        <Breadcrumbs list={[{ title: 'البرامج السياحية', href: "/our-programs" }, { title: country.name }]} />
       </div>
       <div className="bg-gray-50 dark:bg-gray-900">
-      <div className="md:hidden">
-      <Slider {...settings} className='w-full prog border-b dark:border-gray-700'>
-        {categories.map((category) => {
-          return (
-            <button onClick={() => setId(category.id)} key={category?.id} className={`text-sm transition duration-500 text-center hover:bg-gray-400/25 py-4 ${id == category.id ? "border-b-4 border-primary dark:text-primary text-black bold" : "text-gray-500 border-none font-light"}`}>{category.name}</button>
-          )
-        })}
-      </Slider>
-      </div>
-      <div className="container">
-      <div className=" hidden md:block">
-      <Slider {...settings} className='w-full prog border-b dark:border-gray-700'>
-        {categories.map((category) => {
-          return (
-            <button onClick={() => setId(category.id)} key={category?.id} className={`text-sm transition duration-500 text-center hover:bg-gray-400/25 py-4 ${id == category.id ? "border-b-4 border-primary text-black dark:text-primary bold" : "text-gray-500 border-none font-light"}`}>{category.name}</button>
-          )
-        })}
-      </Slider>
-      </div>
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-16 transition duration-300 ${anim ? "opacity-0" : "opacity-100"}`}>
-          {data ? data.map((item) => {
-            return (
-              <div className={styles.offer__card} key={item.id}>
-                <div className={styles.offer__card__container}>
-                  <div className={styles.offer__img__container}>
-                    {item.image && (
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className={styles.offer__card__img}
-                        priority
-                      />
-                    )}
-                  </div>
-                  <div className={`bg-white dark:bg-gray-800 dark:text-gray-50 ${styles.offer__card__content}`}>
-                    <div className={`text-white dark:text-secondary ${styles.offer__card__period}`}>
-                      <span>
-                        {/* <i className="fas fa-sun"></i> */}
-                        <FontAwesomeIcon icon={faSun} />
-                        {item.days} أيام
-                      </span>
-                      <span>
-                        {/* <i className="fas fa-moon"></i> */}
-                        <FontAwesomeIcon icon={faMoon} />
-                        {item.nights} ليالي
-                      </span>
-                      <span title={item.country.name}>
-                        {/* <i className="fas fa-map-marker-alt"></i> */}
-                        <FontAwesomeIcon icon={faLocationPin} />
-                        {item.country.name.slice(0, 10) + '...'}
-                      </span>
-                      {item.people && (
-                        <span>
-                          {/* <i className="fas fa-user-friends"></i> */}
-                          <FontAwesomeIcon icon={faUserFriends} />
-                          {item.people}
-                        </span>
+        <div className="md:hidden">
+          <Slider {...setting} className='w-full prog border-b dark:border-gray-700'>
+            {categories.map((category) => {
+              return (
+                <button onClick={() => setId(category.id)} key={category?.id} className={`text-sm transition duration-500 text-center hover:bg-gray-400/25 py-4 ${id == category.id ? "border-b-4 border-primary dark:text-primary text-black bold" : "text-gray-500 border-none font-light"}`}>{category.name}</button>
+              )
+            })}
+          </Slider>
+        </div>
+        <div className="container">
+          <div className=" hidden md:block">
+            <Slider {...setting} className='w-full prog border-b dark:border-gray-700'>
+              {categories.map((category) => {
+                return (
+                  <button onClick={() => setId(category.id)} key={category?.id} className={`text-sm transition duration-500 text-center hover:bg-gray-400/25 py-4 ${id == category.id ? "border-b-4 border-primary text-black dark:text-primary bold" : "text-gray-500 border-none font-light"}`}>{category.name}</button>
+                )
+              })}
+            </Slider>
+          </div>
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-16 transition duration-300 ${anim ? "opacity-0" : "opacity-100"}`}>
+            {data ? data.map((item) => {
+              return (
+                <div className={styles.offer__card} key={item.id}>
+                  <div className={styles.offer__card__container}>
+                    <div className={styles.offer__img__container}>
+                      {item.image && (
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className={styles.offer__card__img}
+                          quality={50}
+                        />
                       )}
                     </div>
-                    <div className={styles.offer__heading}>
-                      <Link
-                        href={`/our-programs/${place}/${id}/${item.id}`}
-                      >
-                        <h3 className={`text-secondary dark:text-white ${styles.offer__card__title}`}>
-                          {item.category.name} {item.rate} نجوم
-                        </h3>
-                      </Link>
-                      <div className={styles.stars}>
-                        {Array.from(Array(item.rate)).map((s, i) => (
-                          // <i className="fas fa-star text-yellow-400" key={i}></i>
-                          <FontAwesomeIcon icon={faStar} key={i} className='text-yellow-400' />
-                        ))}
+                    <div className={`bg-white dark:bg-gray-800 dark:text-gray-50 ${styles.offer__card__content}`}>
+                      <div className={`text-white dark:text-secondary ${styles.offer__card__period}`}>
+                        <span>
+                          <FontAwesomeIcon icon={faSun} />
+                          {item.days} أيام
+                        </span>
+                        <span>
+                          <FontAwesomeIcon icon={faMoon} />
+                          {item.nights} ليالي
+                        </span>
+                        <span title={item.country.name}>
+                          <FontAwesomeIcon icon={faLocationPin} />
+                          {item.country.name.slice(0, 10) + '...'}
+                        </span>
+                        {item.people && (
+                          <span>
+                            <FontAwesomeIcon icon={faUserFriends} />
+                            {item.people}
+                          </span>
+                        )}
                       </div>
-                    </div>
-                    <div className={styles.offer__card__price}>
-                      <div>
-                        <span className={styles.new__price}>
-                          {item.price_after_discount}
-                        </span>{' '}
-                        ريال سعودي
+                      <div className={styles.offer__heading}>
+                        <Link
+                          href={`/our-programs/${place}/${id}/${item.id}`}
+                        >
+                          <h3 className={`text-secondary dark:text-white ${styles.offer__card__title}`}>
+                            {item.category.name} {item.rate} نجوم
+                          </h3>
+                        </Link>
+                        <div className={styles.stars}>
+                          {Array.from(Array(item.rate)).map((s, i) => (
+                            <FontAwesomeIcon icon={faStar} key={i} className='text-yellow-400' />
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                    <div className={styles.offer__card__btns}>
-                      <BtnArrow
-                        title='تفاصيل العرض'
-                        href={`/our-programs/${place}/${id}/${item.id}`}
-                      />
-                      <BtnArrow
-                        title='حجز العرض'
-                        href={`https://api.whatsapp.com/send?phone=${settings.whatsup
-                          }&${message(item?.id)}`}
-                      />
+                      <div className={styles.offer__card__price}>
+                        <div>
+                          <span className={styles.new__price}>
+                            {item.price_after_discount}
+                          </span>{' '}
+                          ريال سعودي
+                        </div>
+                      </div>
+                      <div className={styles.offer__card__btns}>
+                        <BtnArrow
+                          title='تفاصيل العرض'
+                          href={`/our-programs/${place}/${id}/${item.id}`}
+                        />
+                        <BtnArrow
+                          title='حجز العرض'
+                          href={`https://api.whatsapp.com/send?phone=${settings.whatsup
+                            }&${message(item?.id)}`}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )
-          }) : <h2>loading...</h2>}
+              )
+            }) : <h2>loading...</h2>}
+          </div>
         </div>
-      </div>
       </div>
     </>
   )

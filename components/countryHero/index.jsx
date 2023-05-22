@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -55,14 +55,14 @@ export default function Index() {
          if (i === activeIndex) {
             image.style.zIndex = 1
             setTimeout(() => {
-            image.classList.remove("unshow")
-            image.classList.add("show")
+               image.classList.remove("unshow")
+               image.classList.add("show")
             }, 100)
          } else {
             image.style.zIndex = -1
             setTimeout(() => {
-            image.classList.remove("show")
-            image.classList.add("unshow")
+               image.classList.remove("show")
+               image.classList.add("unshow")
             }, 1500)
          }
       })
@@ -104,7 +104,7 @@ export default function Index() {
                </div>
             )
          })}
-            <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white dark:bg-gray-900 dark:text-gray-50 z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
+         <Link href={"/our-programs"} className='rounded-full px-4 py-2 text-xs bg-white dark:bg-gray-900 dark:text-gray-50 z-10 absolute bottom-4 block md:hidden right-4 bold'>عودة إلى الباقات</Link>
       </div>
    )
 }
