@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BtnArrow from '@/components/BtnArrow'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import CountryHero from '@/components/countryHero'
+// import CountryHero from '@/components/countryHero'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon, faLocationPin, faUserFriends, faStar } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch } from 'react-redux'
@@ -92,7 +92,7 @@ const Place = (props) => {
                content={settings.meta_description}
             />
       </Head>
-      <CountryHero />
+      {/* <CountryHero /> */}
       <div className="container hidden md:block">
         <Breadcrumbs list={[{title: 'البرامج السياحية', href: "/our-programs"}, {title: country.name}]} />
       </div>
