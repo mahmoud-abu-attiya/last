@@ -71,7 +71,6 @@ export default function Header() {
               width={100}
               height={75}
               className={` object-cover ${styles.header__logo}`}
-              priority={true}
             />
           )}
         </Link>
