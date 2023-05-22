@@ -130,7 +130,7 @@ const Place = (props) => {
                           alt={item.title}
                           fill
                           className={styles.offer__card__img}
-                          quality={50}
+                          quality={30}
                         />
                       )}
                     </div>
