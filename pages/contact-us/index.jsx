@@ -319,7 +319,7 @@ const ContactUs = ({ slide }) => {
         </div>
       </div>
       {/* Map */}
-      <div className={styles.contact__map}>
+      {/* <div className={styles.contact__map}>
         {settings.latitude && settings.longitude && (
           <iframe
             src={`https://maps.google.com/maps?q=${settings.latitude},${settings.longitude}&zoom=15&hl=es;&output=embed`}
@@ -332,7 +332,7 @@ const ContactUs = ({ slide }) => {
             referrerPolicy='no-referrer-when-downgrade'
           ></iframe>
         )}
-      </div>
+      </div> */}
     </>
   )
 }
