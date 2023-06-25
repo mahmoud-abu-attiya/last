@@ -42,7 +42,7 @@ const Success = ({ data, features_slides }) => {
             </button>
           ))}
         </div>
-        <Link href='/about-us' className={"border-b pb-2 hidden xl:block text-xs whitespace-nowrap"}>
+        <Link href='/about' className={"border-b pb-2 hidden xl:block text-xs whitespace-nowrap"}>
           عرض مميزات وسام النجاح
         </Link>
       </div>
@@ -58,7 +58,7 @@ const Success = ({ data, features_slides }) => {
                 >
                   <h3 className={styles.success__item__title}>{data[i].name}</h3>
                   <p className={styles.success__item__text}>{data[i].content}</p>
-                  <BtnArrow title={data[i].name} href={'/about-us'} />
+                  <BtnArrow title={data[i].name} href={'/about'} />
                 </div>
               </div>
             </div>
@@ -66,7 +66,7 @@ const Success = ({ data, features_slides }) => {
         })}
       </div>
       <div className="col-span-12 block xl:hidden w-full bg-secondary py-4 text-xs text-center">
-        <Link href='/about-us' className={"border-b pb-2 text-xs whitespace-nowrap"}>
+        <Link href='/about' className={"border-b pb-2 text-xs whitespace-nowrap"}>
           عرض مميزات وسام النجاح
         </Link>
       </div>

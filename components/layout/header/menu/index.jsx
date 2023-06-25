@@ -54,7 +54,7 @@ export const headerLinks = [
   },
   {
     text: 'نبذه عنا',
-    route: '/about-us',
+    route: '/about',
     icon: "/icons/info.svg"
   },
   // {
