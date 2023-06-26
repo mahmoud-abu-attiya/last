@@ -319,7 +319,7 @@ export default function About({ about, slides }) {
       if (index === 0) return "20%";
       if (index === 3) return "30%";
       if (index === 1) return "70%";
-      if (index === 2) return "10%";
+      if (index === 2) return "25%";
       if (index === 4) return "85%";
    };
    const imgLeft = (index) => {
@@ -336,6 +336,29 @@ export default function About({ about, slides }) {
       if (index === 2) return scrolltrans / 5;
       if (index === 4) return scrolltrans / 2;
    };
+   useEffect(() => {
+      // set height of the svg path as constant
+      const svg = document.getElementById("svgPath");
+      const length = svg.getTotalLength();
+
+      // start positioning of svg drawing
+      svg.style.strokeDasharray = length;
+
+      // hide svg before scrolling starts
+      svg.style.strokeDashoffset = length;
+
+      window.addEventListener("scroll", function () {
+         const scrollpercent =
+            (document.body.scrollTop + document.documentElement.scrollTop) /
+            (document.documentElement.scrollHeight -
+               document.documentElement.clientHeight);
+
+         const draw = length * scrollpercent * 4;
+
+         // Reverse the drawing when scroll upwards
+         svg.style.strokeDashoffset = length - draw;
+      });
+   }, []);
    return (
       <>
          <Head>
@@ -364,14 +387,15 @@ export default function About({ about, slides }) {
                content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
             />
          </Head>
-         <section className="h-[110vh] overflow-hidden bg-gradient-to-b from-secondary to-white dark:to-gray-950">
-            <div className="container grid grid-cols-1 md:grid-cols-2 items-center h-full text-white">
+         <div className="dark:hidden h-40 z-20 bg-secondary w-full absolute top-0 left-0"></div>
+         <section className="h-[110vh] overflow-hidden text-secondary dark:text-white">
+            <div className="container grid grid-cols-1 md:grid-cols-2 items-center h-full">
                <div className="flex flex-col gap-10">
                   <div className="info flex gap-4">
-                     <div className="py-1 px-3 border bg-secondary dark:bg-gray-800 border-secondary/50 rounded-md text-xs">
+                     <div className="py-1 px-3 border bg-secondary text-white dark:bg-gray-800 border-secondary/50 rounded-md text-xs">
                         <span className="text-primary">30 </span> رحلة
                      </div>
-                     <div className="py-1 px-3 border bg-secondary dark:bg-gray-800 border-secondary/50 rounded-md text-xs">
+                     <div className="py-1 px-3 border bg-secondary text-white dark:bg-gray-800 border-secondary/50 rounded-md text-xs">
                         اكثر<span className="text-primary"> 20 </span> مكان
                      </div>
                   </div>
@@ -391,6 +415,16 @@ export default function About({ about, slides }) {
                   </Link>
                </div>
                <div className="relative w-full h-full">
+                  <div
+                     className="absolute bg-primary shadow-xl rounded-lg overflow-hidden transition ease-in-out duration-500"
+                     style={{
+                        width: `30%`,
+                        height: `200px`,
+                        top: '50%',
+                        left: '-10px',
+                        transform: `translateY(-${imgTransform(images.length)}px)`,
+                     }}
+                  ></div>
                   {images.slice(0, 5).map((image, index) => {
                      return (
                         <div
@@ -421,7 +455,91 @@ export default function About({ about, slides }) {
          </section>
          <section className="py-20 md:py-44">
             <div className="container grid gap-10 grid-cols-1 md:grid-cols-2 dark:text-white">
-               <div className="imgs grid grid-cols-2 gap-4 md:gap-8">
+               <div className="info">
+                  <h1 className="text-4xl md:text-5xl max-w-lg mb-10 drop-shadow-md">
+                     نحن السوق العالمية الرائدة لتجارب سفر لا تُنسى
+                  </h1>
+                  <p className="text-gray-700 dark:text-gray-300 max-w-lg mb-10">
+                     لم يعد الأمر يتعلق بكيفية وصولنا إلى هناك أو أين ننام ،
+                     ولكن حول ما نقوم به. لكن العثور على أشياء لا تصدق للقيام
+                     بها ليس دائما سهلا.
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 max-w-lg">
+                     في الوقت الحالي ، سوق الخبرات المحلية هو 80٪ خارج الإنترنت
+                     ومجزأة بشكل كبير. في وسام النجاح ، نحن نتغير الذي - التي.
+                  </p>
+               </div>
+               <div className="imgs grid grid-cols-2 gap-4 md:gap-8 pr-10 relative">
+                  <div className="absolute -top-4 md:-top-16 -right-10 md:-right-36 w-full md:w-[130%]">
+                     <svg
+                        width="100%"
+                        viewBox="0 0 948 1480"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                     >
+                        <defs>
+                           <mask id="home-journey-svg-mask">
+                              <path
+                                 d="M781.244 80.3838C713.752 147.095 506.021 277.396 316.888 180.957C167.845 104.96 68.8953 180.957 22.6438 269.964C-32.3476 375.791 30.7194 869.031 361.827 714.731C678.353 567.226 999.883 688.964 933.256 944.815C832.057 1333.42 824.266 1510.08 824.266 1510.08"
+                                 stroke="#FFF"
+                                 strokeWidth={9}
+                                 strokeLinecap="square"
+                                 style={{
+                                    strokeDashoffset: 0,
+                                    strokeDasharray: "1795.72px, 1126.38px",
+                                 }}
+                              />
+                              <circle
+                                 cx="824.928"
+                                 cy="1510.47"
+                                 r="10.5"
+                                 fill="#FFF"
+                              />
+                              <path
+                                 d="M812.816 38.6992C812.816 57.6354 778.816 93.4111 778.816 93.4111C778.816 93.4111 744.816 57.6354 744.816 38.6992C744.816 29.6055 748.398 20.8842 754.775 14.4539C761.151 8.02362 769.799 4.41113 778.816 4.41113C787.834 4.41113 796.482 8.02362 802.858 14.4539C809.234 20.8842 812.816 29.6055 812.816 38.6992Z"
+                                 fill="#FFF"
+                              />
+                              <path
+                                 d="M766.311 41.7843V45.1324C766.311 51.5333 771.022 56.2477 776.832 56.2477C780.457 56.2477 783.655 54.4013 785.51 51.5948V55.7307H790.393V41.7843H777.296V46.5726H782.691C782.178 49.1083 779.908 51.0163 777.235 51.0163C774.22 51.0163 771.742 48.6529 771.742 45.1324V41.7843H766.311ZM769.02 40.0733C770.644 40.0733 771.938 38.8055 771.938 37.1314C771.938 35.4574 770.644 34.1895 769.02 34.1895C767.397 34.1895 766.103 35.4574 766.103 37.1314C766.103 38.8055 767.397 40.0733 769.02 40.0733ZM778.285 21.3633C771.535 21.3633 766.311 25.8808 766.311 32.4785H771.742C771.742 29.0566 774.562 26.5947 778.26 26.5947C781.959 26.5947 784.778 29.0566 784.778 32.4785H790.21C790.185 25.8808 784.998 21.3633 778.285 21.3633Z"
+                                 fill="white"
+                              />
+                           </mask>
+                        </defs>
+                        <g mask="url(#home-journey-svg-mask)" id="">
+                           <path
+                              id="svgPath"
+                              d="M781.244 80.3838C713.752 147.095 506.021 277.396 316.888 180.957C167.845 104.96 68.8953 180.957 22.6438 269.964C-32.3476 375.791 30.7194 869.031 361.827 714.731C678.353 567.226 999.883 688.964 933.256 944.815C832.057 1333.42 824.266 1510.08 824.266 1510.08"
+                              stroke="#59b5ba"
+                              strokeWidth={9}
+                              strokeLinecap="square"
+                              strokeDasharray="8 18"
+                              className="transition-all duration-500"
+                           />
+                           <circle
+                              cx="824.928"
+                              cy="1510.47"
+                              r="10.5"
+                              fill="#59b5ba"
+                           />
+                           <circle
+                              cx="895.857"
+                              cy="750.459"
+                              r="11.033"
+                              fill="#59b5ba"
+                              stroke="#F7F8F9"
+                              strokeWidth={4}
+                           />
+                           <path
+                              d="M812.816 38.6992C812.816 57.6354 778.816 93.4111 778.816 93.4111C778.816 93.4111 744.816 57.6354 744.816 38.6992C744.816 29.6055 748.398 20.8842 754.775 14.4539C761.151 8.02362 769.799 4.41113 778.816 4.41113C787.834 4.41113 796.482 8.02362 802.858 14.4539C809.234 20.8842 812.816 29.6055 812.816 38.6992Z"
+                              fill="#59b5ba"
+                           />
+                           <path
+                              d="M766.311 41.7843V45.1324C766.311 51.5333 771.022 56.2477 776.832 56.2477C780.457 56.2477 783.655 54.4013 785.51 51.5948V55.7307H790.393V41.7843H777.296V46.5726H782.691C782.178 49.1083 779.908 51.0163 777.235 51.0163C774.22 51.0163 771.742 48.6529 771.742 45.1324V41.7843H766.311ZM769.02 40.0733C770.644 40.0733 771.938 38.8055 771.938 37.1314C771.938 35.4574 770.644 34.1895 769.02 34.1895C767.397 34.1895 766.103 35.4574 766.103 37.1314C766.103 38.8055 767.397 40.0733 769.02 40.0733ZM778.285 21.3633C771.535 21.3633 766.311 25.8808 766.311 32.4785H771.742C771.742 29.0566 774.562 26.5947 778.26 26.5947C781.959 26.5947 784.778 29.0566 784.778 32.4785H790.21C790.185 25.8808 784.998 21.3633 778.285 21.3633Z"
+                              fill="#fff"
+                           />
+                        </g>
+                     </svg>
+                  </div>
                   <div className="relative pt-[177.777777778%] h-0 shadow-lg rounded-xl overflow-hidden translate-y-6 md:translate-y-16">
                      <Image
                         src={images[6].image}
@@ -440,20 +558,6 @@ export default function About({ about, slides }) {
                         alt="about us"
                      />
                   </div>
-               </div>
-               <div className="info">
-                  <h1 className="text-4xl md:text-5xl max-w-lg mb-10 drop-shadow-md">
-                     نحن السوق العالمية الرائدة لتجارب سفر لا تُنسى
-                  </h1>
-                  <p className="text-gray-700 dark:text-gray-300 max-w-lg mb-10">
-                     لم يعد الأمر يتعلق بكيفية وصولنا إلى هناك أو أين ننام ،
-                     ولكن حول ما نقوم به. لكن العثور على أشياء لا تصدق للقيام
-                     بها ليس دائما سهلا.
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-300 max-w-lg">
-                     في الوقت الحالي ، سوق الخبرات المحلية هو 80٪ خارج الإنترنت
-                     ومجزأة بشكل كبير. في وسام النجاح ، نحن نتغير الذي - التي.
-                  </p>
                </div>
             </div>
          </section>
@@ -740,8 +844,10 @@ export default function About({ about, slides }) {
          </section>
          <section className="py-20 md:py-28 dark:text-white">
             <div className="container text-center max-w-2xl">
-               <h6 className="text-xl mb-8">مميزات الحجز عن طريق موقع المطار</h6>
-               <div className="flex gap-8">
+               <h6 className="text-xl mb-8">
+                  مميزات الحجز عن طريق موقع وسام النجاح
+               </h6>
+               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                   <div className="flex flex-col gap-4 items-center">
                      <Image
                         src={"/images/debit-card.svg"}
