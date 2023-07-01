@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { useSelector, useDispatch } from "react-redux"
 import Breadcrumbs from "@/components/Breadcrumbs"
-// import Image from "next/image"
+import Image from "next/image"
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPhone, faLocationDot, faTimes, faPlaneDeparture, faShip, faTrophy, faCampground, faCar, faTrain, faCameraRetro, faGlobeAfrica, faThList, faPassport, faCouch, faUniversalAccess, faMap } from "@fortawesome/free-solid-svg-icons"
@@ -26,8 +26,8 @@ const Item = ({ data, border }) => {
          <div
             onClick={() => setOpen(true)}
             className={`${border ? "border-l" : "border-none"} more_item grow dark:border-gray-700 group my-6 lg:my-0 px-2 md:px-4 flex flex-row md:flex-col items-center w-40 justify-start md:justify-center cursor-pointer gap-4`}>
-            {/* <Image src={data.img} alt={data.name} width={48} height={48} className="group-hover:-translate-y-2 group-hover:drop-shadow-md transition duration-300" /> */}
-            <FontAwesomeIcon icon={data.icon} className="text-primary text-5xl group-hover:-translate-y-2 drop-shadow-md transition duration-300" />
+            <Image src={data.img} alt={data.name} width={48} height={48} className="group-hover:-translate-y-2 group-hover:drop-shadow-md transition duration-300" />
+            {/* <FontAwesomeIcon icon={data.icon} className="text-primary text-5xl group-hover:-translate-y-2 drop-shadow-md transition duration-300" /> */}
             <h3 className={`text-xs lg:text-sm text-gray-500 dark:text-gray-300 font-light ${noto.className}`}>{data.name}</h3>
          </div>
          <div style={{ zIndex: "70" }} className={`${open ? "block" : "hidden"} fixed top-0 w-full h-full left-0 flex items-center justify-center`}>
@@ -40,8 +40,8 @@ const Item = ({ data, border }) => {
             <div className="bg-white dark:bg-gray-900 rounded-b-lg border-t-4 shadow-lg border-primary overflow-auto">
                <div className="grid grid-cols-1 md:grid-cols-6 p-4 items-center gap-4 border-b-4 border-gray-300 dark:border-gray-700">
                   <div className="flex text-center items-center flex-col gap-4 md:col-span-2">
-                     {/* <Image src={data.img} alt={data.name} width={58} height={58} /> */}
-                     <FontAwesomeIcon icon={data.icon} className="text-primary text-5xl drop-shadow-md" />
+                     <Image src={data.img} alt={data.name} width={58} height={58} />
+                     {/* <FontAwesomeIcon icon={data.icon} className="text-primary text-5xl drop-shadow-md" /> */}
                      <h3 className="">{data.name}</h3>
                   </div>
                   <div className="md:col-span-4 md:p-4 md:border-r dark:border-gray-700">
@@ -105,26 +105,31 @@ export default function Index() {
          items: [
             {
                icon: faPlaneDeparture,
+               img: "/images/istegar.svg",
                name: "باقات السياحة الداخلية",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
             {
                icon: faShip,
+               img: "/images/bahr.svg",
                name: "باقات الرحلات البحرية",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
             {
                icon: faThList,
+               img: "/images/map.svg",
                name: "باقات",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
             {
                icon: faTrophy,
+               img: "/images/sports.svg",
                name: "الباقات الرياضية",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
             {
                icon: faCampground,
+               img: "/images/summer.svg",
                name: "المخيمات الصيفية",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
@@ -135,16 +140,19 @@ export default function Index() {
          items: [
             {
                icon: faCar,
+               img: "/images/istegar.svg",
                name: "خدمة تأجير السيارات",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
             {
                icon: faMap,
+               img: "/images/transfers.svg",
                name: "التنقلات",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
             {
                icon: faTrain,
+               img: "/images/train.svg",
                name: "تذاكر القطار",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
@@ -155,11 +163,13 @@ export default function Index() {
          items: [
             {
                icon: faCameraRetro,
+               img: "/images/camera.svg",
                name: "أنشطة السياحة",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
             {
                icon: faGlobeAfrica,
+               img: "/images/user.svg",
                name: "أنشطة السياحة الدولية",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
@@ -170,6 +180,7 @@ export default function Index() {
          items: [
             {
                icon: faPassport,
+               img: "/images/visa.svg",
                name: "التأشيرة",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
@@ -180,11 +191,13 @@ export default function Index() {
          items: [
             {
                icon: faCouch,
+               img: "/images/rest.svg",
                name: "دخول صالة الاستراحة في المطار",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },
             {
                icon: faUniversalAccess,
+               img: "/images/hand.svg",
                name: "خدمة الاستقبال والترحيب لكبار الشخصيات",
                desc: "هل ترغب بالذهاب في رحلة بحرية شيّقة حول العالم؟ سواءً كنت ترغب بتجربة في غاية الفخامة أو بتكلفة معقولة، صممنا لك باقات متعددة بمرافق عالمية المستوى، بالإضافة إلى وسائل الترفية وقائمة واسعة من الأطباق الشهية، كل هذا لتحظى بعطلة رائعة تبقى في الذاكرة. بإمكانك الاستمتاع بالكثير من النشاطات"
             },

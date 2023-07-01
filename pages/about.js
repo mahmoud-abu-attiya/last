@@ -11,6 +11,7 @@ import BtnArrow from "@/components/BtnArrow";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const AsNavFor = () => {
    const [nav1, setNav1] = useState(null);
@@ -353,7 +354,7 @@ export default function About({ about, slides }) {
             (document.documentElement.scrollHeight -
                document.documentElement.clientHeight);
 
-         const draw = length * scrollpercent * 4;
+         const draw = length * scrollpercent * 4.5;
 
          // Reverse the drawing when scroll upwards
          svg.style.strokeDashoffset = length - draw;
@@ -387,10 +388,15 @@ export default function About({ about, slides }) {
                content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
             />
          </Head>
-         <div className="dark:hidden h-40 z-20 bg-secondary w-full absolute top-0 left-0"></div>
+         <div className="h-40 z-20 bg-secondary w-full absolute top-0 left-0">
+
+         <div className="container hidden md:block border-b border-gray-700">
+            <Breadcrumbs list={[{ title: "نبذه عنا" }]} />
+         </div>
+         </div>
          <section className="h-[110vh] overflow-hidden text-secondary dark:text-white">
             <div className="container grid grid-cols-1 md:grid-cols-2 items-center h-full">
-               <div className="flex flex-col gap-10">
+               <div className="flex flex-col gap-8">
                   <div className="info flex gap-4">
                      <div className="py-1 px-3 border bg-secondary text-white dark:bg-gray-800 border-secondary/50 rounded-md text-xs">
                         <span className="text-primary">30 </span> رحلة
@@ -420,9 +426,11 @@ export default function About({ about, slides }) {
                      style={{
                         width: `30%`,
                         height: `200px`,
-                        top: '50%',
-                        left: '-10px',
-                        transform: `translateY(-${imgTransform(images.length)}px)`,
+                        top: "50%",
+                        left: "-10px",
+                        transform: `translateY(-${imgTransform(
+                           images.length
+                        )}px)`,
                      }}
                   ></div>
                   {images.slice(0, 5).map((image, index) => {
@@ -486,7 +494,6 @@ export default function About({ about, slides }) {
                                  strokeLinecap="square"
                                  style={{
                                     strokeDashoffset: 0,
-                                    strokeDasharray: "1795.72px, 1126.38px",
                                  }}
                               />
                               <circle
@@ -652,7 +659,7 @@ export default function About({ about, slides }) {
             <AsNavFor />
          </section>
          <section className="relative md:min-h-[300vh] bg-primary pt-16 md:pt-0">
-            <div className="md:absolute top-1/2 right-1/2 md:w-1/2 max-w-xs md:max-w-lg mx-auto">
+            <div className="md:absolute top-1/2 z-10 right-1/2 md:w-1/2 max-w-xs md:max-w-lg mx-auto">
                <div className="grid grid-cols-4 gap-x-4 gap-y-10">
                   {/* /////////////// */}
                   <div></div>
@@ -715,8 +722,18 @@ export default function About({ about, slides }) {
                   {/* /////////////// */}
                </div>
             </div>
-            <div className="md:sticky md:h-screen py-20 md:py-0 top-0 flex items-center">
-               {/* <div className="absolute w-1/2 top-0 left-0 bg-green-400 h-full"></div> */}
+            <div className="md:sticky md:h-screen py-20 md:py-0 top-0 flex items-center overflow-hidden">
+               <div className="absolute w-1/2 top-0 left-0 -z-20 h-full p-20">
+                  <div className="relative w-[90%] h-0 pt-[100%] -translate-x-48">
+                     <div className="absolute top-0 left-0 w-full h-full bg-primary/50 z-10"></div>
+                     <Image
+                        src="/images/globe.png"
+                        alt="hi"
+                        fill
+                        className="object-contain"
+                     />
+                  </div>
+               </div>
                <div
                   className="absolute top-0 left-0 w-full md:h-screen"
                   style={{

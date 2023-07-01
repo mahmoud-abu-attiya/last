@@ -20,7 +20,6 @@ export default function Layout({ children, countries, footerCountries, settings 
       }
    }, [theme]);
    useEffect(() => {
-      console.log('render');
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
          document.documentElement.classList.add("dark");
          dispatch(setTheme(true))
