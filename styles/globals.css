@@ -444,12 +444,12 @@ h2 {
    }
 }
 
-footer {
+footer, .scc {
    background-image: linear-gradient(280deg, rgb(0, 49, 67), rgb(35, 165, 185));
    color: white;
 }
 
-.dark footer {
+.dark footer, .dark .scc {
    background-image: linear-gradient(280deg, rgb(0, 49, 67), var(--second-clr));
 }
 

@@ -49,7 +49,7 @@ export const headerLinks = [
   },
   {
     text: 'تواصل معنا',
-    route: '/contact-us',
+    route: '/contact',
     icon: "/icons/user.svg"
   },
   {

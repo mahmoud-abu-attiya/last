@@ -141,7 +141,7 @@ export default function Footer({ countries }) {
                      { name: 'سياسة الخصوصية', link: '/privacy-policy' },
                   ]} />
                   <List title="المساعدة" items={[
-                     { name: 'اتصل بنا', link: '/contact-us' },
+                     { name: 'اتصل بنا', link: '/contact' },
                      { name: 'الأسئلة الشائعة', link: '/faq' },
                      { name: 'شكر العملاء', link: '/thanks' },
                   ]} />

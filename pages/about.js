@@ -413,7 +413,7 @@ export default function About({ about, slides }) {
                      لا ينسى الخبرات حول العالم. الانضمام إلينا في رحلة.
                   </p>
                   <Link
-                     href="/contact-us"
+                     href="/contact"
                      className="bg-primary w-fit py-4 px-6 rounded-full flex items-center gap-4"
                   >
                      تواصل معنا
