@@ -374,7 +374,7 @@ export default function Index() {
                content={settings.meta_description}
             />
          </Head>
-         <div className="w-full bg-secondary h-36 md:h-40"></div>
+         <div className="hidden md:block w-full bg-secondary h-36 md:h-40"></div>
          <div className="w-full h-[50vh] relative overflow-hidden flex">
             <Image src={"https://www.pmfurniture.com/blog/wp-content/uploads/2017/10/faqs.jpg"} alt="daleel" fill className='object-cover' />
             <div className="w-full h-full relative z-10 bg-gradient-to-t from-black/75 to-transparent text-white py-4 mt-auto">

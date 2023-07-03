@@ -130,7 +130,7 @@ const Special = ({ data }) => {
   const SampleNextArrow = (props) => {
     const { onClick } = props;
     return (
-      <button className="absolute top-[67%] left-[calc(50% + 100px)] btn p-4 group hover:mr-4 -translate-x-1/2 duration-500" style={{ left: 'calc(50% + 100px)' }} onClick={onClick}>
+      <button className="absolute top-[67%] left-[calc(50% + 100px)] btn group pt-4 -translate-x-1/2 duration-500" style={{ left: 'calc(50% + 100px)' }} onClick={onClick}>
           <Image src="/icons/prev-arrow.svg" alt="arrow-left" width={60} height={60} priority={true} />
           <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">prev</span>
         </button>
@@ -140,7 +140,7 @@ const Special = ({ data }) => {
   const SamplePrevArrow = (props) => {
     const { onClick } = props;
     return (
-      <button className=" absolute top-[67%] left-[calc(50% - 100px)] btn p-4 group hover:mr-4 -translate-x-1/2 duration-500" style={{ left: 'calc(50% - 100px)' }} onClick={onClick}>
+      <button className=" absolute top-[67%] left-[calc(50% - 100px)] btn group pt-4 -translate-x-1/2 duration-500" style={{ left: 'calc(50% - 100px)' }} onClick={onClick}>
           <Image src="/icons/next-arrow.svg" alt="arrow-right" width={60} height={60} priority={true} />
           <span className="opacity-0 group-hover:opacity-100 transition text-gray-400 uppercase text-xs duration-500">next</span>
         </button>

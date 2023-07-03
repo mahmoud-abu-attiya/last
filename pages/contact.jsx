@@ -120,7 +120,7 @@ export default function Contact({ slide }) {
             />
          </Head>
          <div className="flex flex-col">
-            <div className="h-40 w-full bg-secondary"></div>
+            <div className="hidden md:block h-40 w-full bg-secondary"></div>
             <div className="h-52 w-full flex items-center justify-center relative">
                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-20"></div>
                <div className="flex text-white flex-col gap-4 items-center relative z-30">
@@ -140,7 +140,7 @@ export default function Contact({ slide }) {
                </div>
                <div className="grid grid-cols-1 gap-8 md:grid-cols-6 dark:text-white pb-8">
                   <div className="md:col-span-4">
-                     <h2 className="text-2xl">تواصل معنا</h2>
+                     <h2 className="text-2xl my-4 md:m-0">تواصل معنا</h2>
                      <p>
                         الرجاء ملء النموذج التالي لتصلنا رسالتك بالبريد
                         الإلكتروني

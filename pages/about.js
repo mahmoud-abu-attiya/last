@@ -724,7 +724,7 @@ export default function About({ about, slides }) {
             </div>
             <div className="md:sticky md:h-screen py-20 md:py-0 top-0 flex items-center overflow-hidden">
                <div className="absolute w-1/2 top-0 left-0 -z-20 h-full p-20">
-                  <div className="relative w-[90%] h-0 pt-[100%] -translate-x-48">
+                  <div className="hidden md:block relative w-[90%] h-0 pt-[100%] -translate-x-48">
                      <div className="absolute top-0 left-0 w-full h-full bg-primary/50 z-10"></div>
                      <Image
                         src="/images/globe.png"

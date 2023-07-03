@@ -29,10 +29,10 @@ export default function Hero({ slides }) {
       return () => clearInterval(interval)
    }, [activeIndex])
    return (
-      <div className='h-screen w-full'>
+      <div className='h-screen w-full overflow-hidden relative'>
          {slides.map((slide, index) => {
             return (
-               <div className={`hero absolute w-full h-full top-0 left-0 transition duration-500 ${index === activeIndex ? "opacity-100" : "opacity-0"}`} key={index}>
+               <div className={`hero absolute w-full h-screen overflow-hidden top-0 left-0 transition duration-500 ${index === activeIndex ? "opacity-100" : "opacity-0"}`} key={index}>
                   <div className="absolute top-0 left-0 w-full h-screen bg-black/50 z-10"><span className='sr-only'>overlay</span></div>
                   <Image src={slide.image} alt="hero" fill className={`object-cover hero-img`} />
                   <div className={styles.hero__content}>

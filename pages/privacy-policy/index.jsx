@@ -71,7 +71,7 @@ export default function Index() {
                content={settings.meta_description}
             />
          </Head>
-         <div className="w-full bg-secondary h-36 md:h-40"></div>
+         <div className="hidden md:block w-full bg-secondary h-36 md:h-40"></div>
          <div className="w-full h-[50vh] relative overflow-hidden flex">
             <Image src={"https://d2poqm5pskresc.cloudfront.net/wp-content/uploads/2019/11/Privacy-Policy.jpg"} alt="daleel" fill className='object-cover' />
             <div className="w-full h-full relative z-10 bg-gradient-to-t from-black/75 to-transparent text-white py-4 mt-auto">
@@ -84,7 +84,7 @@ export default function Index() {
             <div className="border-b dark:border-gray-700">
                <Breadcrumbs list={[{ title: "سياسة الخصوصية" }]} />
             </div>
-            <h2 className="">لأننا نهتم بحقوقك، نرجو منك الاطلاع بدقة على هذه الشروط والأحكام قبل استخدام الموقع.</h2>
+            <h2 className="mt-8">لأننا نهتم بحقوقك، نرجو منك الاطلاع بدقة على هذه الشروط والأحكام قبل استخدام الموقع.</h2>
             <p className="text-sm">يشير موقع <Link href="https://elnagahtravels.com/" className="text-blue-500">https://elnagahtravels.com/</Link> إلى ("وسام النجاح" أو "شركة وسام النجاح" أو "المتجر الإلكتروني" الخاص بشركة وسام النجاح، والمذكور في جميع السياسات، الشروط والأحكام والأسئلة المتكررة)، والذي يشمل: موقع الجوال، تطبيقات الهواتف الذكية لنظام الأيفون، الأندرويد، الويندوز. إن وسام النجاح هي شركة تابعة لمجموعة "سيرا"، وتأسست في المملكة العربية السعودية.</p>
             <div className="">
                {categories.items.map((item, i) => {
