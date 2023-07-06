@@ -135,8 +135,8 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
           style={{ letterSpacing: "2px" }}
         >
           {settings.phone}
-          <FontAwesomeIcon icon={faPhoneAlt} />
-          {/* <Image src="/icons/24-7.png" alt="phone" width={25} height={25} style={{ filter: 'invert(100%) sepia(6%) saturate(7477%) hue-rotate(324deg) brightness(99%) contrast(96%)' }} /> */}
+          {/* <FontAwesomeIcon icon={faPhoneAlt} /> */}
+          <Image src="/icons/24-7.png" alt="phone" width={25} height={25} style={{ filter: 'invert(100%) sepia(6%) saturate(7477%) hue-rotate(324deg) brightness(99%) contrast(96%)' }} />
         </Link>
 
       </div>

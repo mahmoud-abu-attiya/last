@@ -434,7 +434,7 @@ const Details = () => {
                   {/* <h2 className={`text-secondary dark:text-white relative ${styles.details__details}`}>وجهات يمكنك زيارتها <span id='slider' className=' absolute left-0 -top-44'></span></h2> */}
                   {/* <Responsive data={slides} /> */}
                   <div className="border rounded-lg dark:border-gray-800 dark:text-gray-white">
-                     <div className="head p-4 bg-gray-100 dark:bg-gray-800 dark:text-white">
+                     <div className="head p-4 bg-[#c7dbdb] dark:bg-gray-800 dark:text-white">
                         <h3 className="text-xl">الشروط والأحكام العامة</h3>
                      </div>
                      <div className="p-4 text-gray-600 dark:text-gray-300">
