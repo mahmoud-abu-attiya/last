@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import styles from '../Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faYoutube, faTwitter, faTiktok, faSnapchat, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 export const headerLinks = [
@@ -107,11 +108,38 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
   return (
     <div
       className={
-        `menu ${showMenu
+        `menu relative ${showMenu
           ? `${styles.header__menu} ${styles.show__menu}`
           : styles.header__menu}`
       }
     >
+      <div className="absolute top-0 left-0 -translate-y-16 flex gap-8 text-sm">
+      <Link
+          href={`mailto:${settings.email}`}
+          target='_blank'
+          rel='noreferrer'
+          aria-label='Header menu link - Phone'
+          className={`flex gap-2 bold`}
+          style={{ letterSpacing: "2px" }}
+        >
+          {settings.email}
+          <FontAwesomeIcon icon={faEnvelope} />
+          {/* <Image src="/icons/24-7.png" alt="phone" width={25} height={25} style={{ filter: 'invert(100%) sepia(6%) saturate(7477%) hue-rotate(324deg) brightness(99%) contrast(96%)' }} /> */}
+        </Link>
+      <Link
+          href={`tel:${settings.phone}`}
+          target='_blank'
+          rel='noreferrer'
+          aria-label='Header menu link - Phone'
+          className={`flex gap-2 bold`}
+          style={{ letterSpacing: "2px" }}
+        >
+          {settings.phone}
+          <FontAwesomeIcon icon={faPhoneAlt} />
+          {/* <Image src="/icons/24-7.png" alt="phone" width={25} height={25} style={{ filter: 'invert(100%) sepia(6%) saturate(7477%) hue-rotate(324deg) brightness(99%) contrast(96%)' }} /> */}
+        </Link>
+
+      </div>
       {/* Header Links */}
       <ul className={styles.header__links}>
         {headerLinks.map((link, i) => {

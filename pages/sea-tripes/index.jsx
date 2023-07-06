@@ -61,6 +61,7 @@ const SeaTripes = ({
       </div>
       <div className={styles.seaTripes__content} id='content'>
         <h2 className='main__title'>الرحلات البحرية</h2>
+        <p className='max-w-2xl text-justify mb-8 mx-auto dark:text-gray-300'> غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.  غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.</p>
         <div className={styles.offer__cards}>
           {programs.map((card) => (
             <div className={styles.offer__card} key={card.id}>
@@ -73,8 +74,9 @@ const SeaTripes = ({
                     className={styles.offer__card__img}
                     quality={50}
                   />
+                  <div className="absolute text-xs py-1 px-3 bg-gray-100 dark:bg-gray-800 dark:text-white rounded-full top-4 left-4 z-10">تأشيرة سهلة</div>
                 </div>
-                <div className={` dark:bg-gray-900 dark:text-white ${styles.offer__card__content}`}>
+                <div className={` dark:bg-gray-900 dark:text-white flex flex-col gap-4 ${styles.offer__card__content}`}>
                   <div className={styles.offer__card__period}>
                     <span>
                       <FontAwesomeIcon icon={faSun} />
@@ -106,6 +108,9 @@ const SeaTripes = ({
                         <FontAwesomeIcon icon={faStar} key={i} className='text-yellow-400' />
                       ))}
                     </div>
+                  </div>
+                  <div className="text-xs">
+                    المانيا - بلجيكا - هولندا - فرنسا - سويسرا
                   </div>
                   <div className={styles.offer__card__price}>
                     <div>

@@ -87,8 +87,6 @@
 }
 /* Start Search Section */
 .form__search {
-  flex: 2;
-  display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 1rem;

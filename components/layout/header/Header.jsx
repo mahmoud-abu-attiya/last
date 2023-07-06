@@ -74,49 +74,7 @@ export default function Header() {
             />
           )}
         </Link>
-
-        {/* Header Icons */}
-        {/* {settings.logo && (
-          <div className={styles.header__icons}>
-            <a
-              href={`tel:${settings.mobile}`}
-              target='_blank'
-              rel='noreferrer'
-              className={styles.mobile}
-              aria-label='Mobile'
-            >
-              <FontAwesomeIcon icon={faMobile} />
-            </a>
-            <a
-              href={`tel:${settings.phone}`}
-              target='_blank'
-              rel='noreferrer'
-              className={styles.phone}
-              aria-label='Phone'
-            >
-              <FontAwesomeIcon icon={faPhoneAlt} />
-            </a>
-            <a
-              href={`mailto:${settings.email}`}
-              target='_blank'
-              rel='noreferrer'
-              className={styles.mail}
-              aria-label='Email'
-            >
-              <FontAwesomeIcon icon={faEnvelope} />
-            </a>
-            <a
-              href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`}
-              target='_blank'
-              rel='noreferrer'
-              className={styles.whats}
-              aria-label='Whatsapp'
-            >
-              <FontAwesomeIcon icon={faWhatsapp} />
-            </a>
-          </div>
-        )} */}
-        <Link
+        {/* <Link
           href={`tel:${settings.phone}`}
           target='_blank'
           rel='noreferrer'
@@ -126,7 +84,7 @@ export default function Header() {
         >
           {settings.phone}
           <Image src="/icons/24-7.png" alt="phone" width={25} height={25} style={{ filter: 'invert(70%) sepia(95%) saturate(529%) hue-rotate(360deg) brightness(104%) contrast(104%)' }} />
-        </Link>
+        </Link> */}
 
         {/* Menu */}
         {settings.logo && (

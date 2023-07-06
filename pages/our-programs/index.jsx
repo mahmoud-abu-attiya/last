@@ -77,6 +77,7 @@ const OurPrograms = ({ countries, slides }) => {
                     alt={'country image'}
                     className={`object-cover group-hover:scale-110 transition-all duration-1000 ease-in-out`}
                   />
+                  <div className="absolute text-xs py-1 px-3 bg-gray-100 dark:bg-gray-800 dark:text-white rounded-full top-4 left-4 z-10">تأشيرة سهلة</div>
                   <div className="flex flex-col gap-4 justify-end h-full w-full p-4 bg-gradient-to-t from-black/75 relative z-10 text-white to-transparent">
                     <h3 className='text-xl'>{country.name}</h3>
                     <div className="flex gap-2 items-center text-sm">

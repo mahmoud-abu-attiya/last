@@ -16,10 +16,10 @@ const SpecialCard = ({ item }) => {
       </div>
       <div className="p-4">
         <h3 className="text-gray-800 dark:text-gray-100 font-semibold text-lg mb-1">عرض الصيف المميز</h3>
-        <p className="text-gray-600 dark:text-gray-300 text-sm">العرض صالح للتطبيق حتي : ديسمبر ٣١ , ٢۰٢٣ </p>
+        <p className="text-gray-600 dark:text-gray-300 text-sm">العرض صالح للتطبيق حتي : <span className='text-primary'>ديسمبر ٣١ , ٢۰٢٣ </span></p>
         <div className="flex items-center justify-between mt-4">
           <span className="text-gray-800 dark:text-gray-100 font-bold text-sm">3500 ريال</span>
-          <Link href={`/special-offers/${item.id}`} className="text-primary text-sm hover:underline">
+          <Link href={`/special-offers/${item.id}`} className="text-[#ff234f] text-sm hover:underline">
             عرض التفاصيل
           </Link>
         </div>

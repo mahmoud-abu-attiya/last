@@ -1,7 +1,7 @@
 import styles from './index.module.css'
 import Image from 'next/image'
 import Head from 'next/head'
-import ScrollDown from '../../components/scrollDown'
+// import ScrollDown from '../../components/scrollDown'
 import { useRef, useState } from 'react'
 import Snackbar from '../../components/snackbar'
 import { useSelector } from 'react-redux'
@@ -196,15 +196,126 @@ const Aviation = ({ slide }) => {
             className='object-cover'
           />
         )}
-        <h1 className={styles.hero__title}>{slides[0]?.title}</h1>
-        <p className={styles.hero__text}>{slides[0]?.button_text}</p>
-        <ScrollDown />
+        {/* <h1 className={styles.hero__title}>{slides[0]?.title}</h1>
+        <p className={styles.hero__text}>{slides[0]?.button_text}</p> */}
+        {/* <ScrollDown /> */}
+        <form className={`bg-white dark:bg-gray-800 dark:text-white text-secondary rounded-lg hidden md:flex ${styles.form__search}`} onSubmit={handleSubmit2}>
+          <div className={`border-b dark:border-gray-700 py-8 px-4 ${styles.search__select}`}>
+            <h3 className={styles.search__title}>احجز تذاكر الطيران الان</h3>
+            <small style={{ color: 'red', fontSize: '.6rem' }}>
+              {formErrors2?.type}
+            </small>
+            <div className={styles.search__content}>
+              <div className={styles.select}>
+                <input type='radio' value='go' id='oneway' name='type' />
+                <label htmlFor='oneway'>ذهاب فقط</label>
+              </div>
+              <div className={styles.select}>
+                <input type='radio' value='goAndBack' id='round' name='type' />
+                <label htmlFor='round'>ذهاب وعودة</label>
+              </div>
+              <div className={styles.select}>
+                <input type='radio' value='multi' id='multible' name='type' />
+                <label htmlFor='multible'>وجهات متعددة</label>
+              </div>
+            </div>
+          </div>
+          <div className={`border-b dark:border-gray-700 ${styles.search__dist}`}>
+            <div className={`dark:border-gray-700 ${styles.card}`}>
+              <label htmlFor='travel_from' className={styles.card__title}>من</label>
+              <div>
+                {/* <MdLocationOn /> */}
+                <input
+                  type='text'
+                  placeholder='بلد المسكن'
+                  name='travel_from'
+                  id='travel_from'
+                  className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
+                />
+              </div>
+              <small style={{ color: 'red', fontSize: '.6rem' }}>
+                {formErrors2?.travel_from}
+              </small>
+            </div>
+            <div className={`dark:border-gray-700 ${styles.card}`}>
+              <label htmlFor='travel_to' className={styles.card__title}>الي</label>
+              <div>
+                {/* <MdLocationOn /> */}
+                <input
+                  type='text'
+                  placeholder='الوجهة'
+                  name='travel_to'
+                  id='travel_to'
+                  className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
+                />
+              </div>
+              <small style={{ color: 'red', fontSize: '.6rem' }}>
+                {formErrors2?.travel_to}
+              </small>
+            </div>
+            <div className={`dark:border-gray-700 ${styles.card}`}>
+              <label htmlFor="traveling_date" classname="{styles.card__title}">تاريخ السفر</label>
+              <div>
+                <input
+                  type='date'
+                  name='traveling_date'
+                  id='traveling_date'
+                  pattern='\d{2}-\d{2}-\d{4}'
+                  className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
+                />
+              </div>
+              <small style={{ color: 'red', fontSize: '.6rem' }}>
+                {formErrors2?.traveling_date}
+              </small>
+            </div>
+            <div className={`dark:border-gray-700 ${styles.card}`}>
+              <label htmlFor='back_date' className={styles.card__title}>تاريخ العودة</label>
+              <div>
+                <input
+                  type='date'
+                  name='back_date'
+                  id='back_date'
+                  pattern='\d{2}-\d{2}-\d{4}'
+                  className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
+                />
+              </div>
+              <small style={{ color: 'red', fontSize: '.6rem' }}>
+                {formErrors2?.back_date}
+              </small>
+            </div>
+            <div className={`dark:border-gray-700 ${styles.card}`} style={{ border: 'none' }}>
+              <label htmlFor='travellers_number' className={styles.card__title}>عدد المسافرين</label>
+              <div>
+                {/* <BsFillPeopleFill /> */}
+                <input
+                  type='number'
+                  name='travellers_number'
+                  id='travellers_number'
+                  placeholder='عدد المسافرين'
+                  className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
+                />
+              </div>
+              <small style={{ color: 'red', fontSize: '.6rem' }}>
+                {formErrors2?.travellers_number}
+              </small>
+            </div>
+          </div>
+          <div className={styles.search__checkbox}>
+            <input type='checkbox' name='direct_trips' id='direct_trips' />
+            <label htmlFor='direct_trips'>رحلات مباشرة</label>
+            <input type='checkbox' name='retreiv_taxes' id='retreiv_taxes' />
+            <label htmlFor='retreiv_taxes'>ضريبة الاسترجاع</label>
+          </div>
+          <button type='submit' className={styles.form__btn}>
+            تسجيل
+          </button>
+        </form>
       </div>
       <div className={styles.form}>
         <h2 className={styles.form__title}>
           أدخل بياناتك واستلم تذكرتك وانت بمكانك
         </h2>
-        <form className={`bg-white dark:bg-gray-800 dark:text-white text-secondary ${styles.form__search}`} onSubmit={handleSubmit2}>
+        <form className={`bg-white dark:bg-gray-800 dark:text-white text-secondary flex md:hidden ${styles.form__search}`} onSubmit={handleSubmit2}>
           <div className={`border-b dark:border-gray-700 py-8 px-4 ${styles.search__select}`}>
             <h3 className={styles.search__title}>احجز تذاكر الطيران الان</h3>
             <small style={{ color: 'red', fontSize: '.6rem' }}>

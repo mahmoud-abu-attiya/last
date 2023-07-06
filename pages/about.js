@@ -16,6 +16,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 const AsNavFor = () => {
    const [nav1, setNav1] = useState(null);
    const [nav2, setNav2] = useState(null);
+   const [mobile, setMobile] = useState(false);
 
    const slider1 = useRef();
    const slider2 = useRef();
@@ -226,6 +227,21 @@ const AsNavFor = () => {
       setNav2(slider2.current);
    }, [slider1, slider2]);
 
+   useEffect(() => {
+      if(window.innerWidth < 768){
+         setMobile(true)
+      }
+   }, [])
+
+   const dataList = (item) => {
+      if(mobile){
+         console.log(item.items);
+         return item.items.slice(0,2)
+      }else{
+         return item
+      }
+   }
+
    return (
       <div>
          <Slider
@@ -238,9 +254,9 @@ const AsNavFor = () => {
             <div className="border-dashed border-t-8 w-screen border-primary absolute top-1/2 left-0 -translate-y-1/2"></div>
             {data.map((item) => {
                return (
-                  <div key={item.id} className="px-14 py-4">
+                  <div key={item.id} className="px-4 md:px-14 py-4">
                      <div className="flex gap-10">
-                        {item.items.map((item) => {
+                        {(mobile ? item.items.slice(0,2) : item.items).map((item) => {
                            return (
                               <div
                                  key={item.id}
@@ -299,6 +315,7 @@ export default function About({ about, slides }) {
    const settings = useSelector((state) => state.settings.value);
    const { images = [], achievements = [], steps = [] } = about;
    const [scrolltrans, setScrolltrans] = useState(0);
+   
    useEffect(() => {
       window.addEventListener("scroll", () => {
          setScrolltrans(window.scrollY);
@@ -388,15 +405,16 @@ export default function About({ about, slides }) {
                content="وسام النجاح للسفر والسياحة دليل المسافر العربي الشامل للسياحة والسفر من أفضل الوجهات السياحية والأماكن والوجهات الخاصة بالأعياد والمناسبات وشهر العسل بالإضافة إلى نصائح..."
             />
          </Head>
-         <div className="h-40 z-20 bg-secondary w-full absolute top-0 left-0">
-
-         <div className="container hidden md:block border-b border-gray-700">
-            <Breadcrumbs list={[{ title: "نبذه عنا" }]} />
-         </div>
+         <div className="hidden md:block h-40 z-20 bg-secondary w-full absolute top-0 left-0">
+            {/* <div className="container hidden md:block border-b border-gray-700">
+               <Breadcrumbs list={[{ title: "نبذه عنا" }]} />
+            </div> */}
          </div>
          <section className="h-[110vh] overflow-hidden text-secondary dark:text-white">
             <div className="container grid grid-cols-1 md:grid-cols-2 items-center h-full">
                <div className="flex flex-col gap-8">
+               <div className="f">
+               <Breadcrumbs list={[{ title: "نبذه عنا" }]} />
                   <div className="info flex gap-4">
                      <div className="py-1 px-3 border bg-secondary text-white dark:bg-gray-800 border-secondary/50 rounded-md text-xs">
                         <span className="text-primary">30 </span> رحلة
@@ -405,6 +423,7 @@ export default function About({ about, slides }) {
                         اكثر<span className="text-primary"> 20 </span> مكان
                      </div>
                   </div>
+               </div>
                   <h1 className="text-5xl max-w-lg leading-[4rem] drop-shadow-md">
                      غير طريقة تجربة الملايين للعالم
                   </h1>
