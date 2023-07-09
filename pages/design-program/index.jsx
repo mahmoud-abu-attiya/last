@@ -3,13 +3,14 @@ import Head from 'next/head'
 import styles from './index.module.css'
 import Image from 'next/image'
 import Breadcrumbs from '../../components/Breadcrumbs'
-import ScrollDown from '../../components/scrollDown'
+// import ScrollDown from '../../components/scrollDown'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useRef, useState, useEffect } from 'react'
 import Snackbar from '../../components/snackbar'
 import { useSelector, useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhoneAlt, faMobile, faEnvelope, faLocationPin } from '@fortawesome/free-solid-svg-icons'
-import { faWhatsapp, faInstagram, faTwitter, faTiktok, faSnapchat, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { faWhatsapp, faInstagram, faTwitter, faTiktok, faYoutube, faSnapchatSquare } from '@fortawesome/free-brands-svg-icons'
 import { setBacktoData } from '@/slices/backto'
 
 const DesignProgram = ({ data, slide }) => {
@@ -137,19 +138,62 @@ const DesignProgram = ({ data, slide }) => {
         <>
           <div
             className={styles.bg}
-            style={{ backgroundImage: `url(${slide[0]?.image})` }}
+            
           >
-            <div className={styles.hero__bg}>
-              <h1>{data.title}</h1>
-              {/* <BtnArrow title={slide[0]?.button_text} href='#form' /> */}
-              <ScrollDown />
+            <div className={styles.hero__bg} style={{ backgroundImage: `url(${slide[0]?.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+              <div className="absolute w-full h-full bg-black/50"></div>
+              <div className="container relative">
+                <form className='text-black dark:text-white flex flex-col md:flex-row w-full max-w-5xl mx-auto'>
+                <div className="flex flex-col gap-4 p-4 bg-white dark:bg-gray-900 grow rounded-t-xl md:rounded-tl-none md:rounded-r-xl">
+                  <label htmlFor="category" className='text-gray-600 dark:text-gray-400 text-xs'>رحلة مناسبة ل</label>
+                  <select
+                    name="category"
+                    id="category"
+                    className="w-full outline-none bg-white dark:bg-gray-900"
+                  >
+                    <option value="honeymoon">شهر العسل</option>
+                    <option value="family">العائلة</option>
+                    <option value="friends">الأصدقاء</option>
+                    <option value="solo">منفرد</option>
+                  </select>
+                </div>
+                <div className="flex flex-col gap-4 p-4 bg-white dark:bg-gray-900 grow">
+                  <label htmlFor="date" className='text-gray-600 dark:text-gray-400 text-xs'>التاريخ</label>
+                  <select
+                    name="date"
+                    id="date"
+                    className="w-full outline-none bg-white dark:bg-gray-900"
+                  >
+                    <option value="honeymoon">شهر العسل</option>
+                    <option value="family">العائلة</option>
+                    <option value="friends">الأصدقاء</option>
+                    <option value="solo">منفرد</option>
+                  </select>
+                </div>
+                <div className="flex flex-col gap-4 p-4 bg-white dark:bg-gray-900 grow">
+                  <label htmlFor="date" className='text-gray-600 dark:text-gray-400 text-xs'>مدة الباقة (اختياري)</label>
+                  <select
+                    name="date"
+                    id="date"
+                    className="w-full outline-none bg-white dark:bg-gray-900"
+                  >
+                    <option value="honeymoon">الكل</option>
+                    <option value="family"> ويكند سريع <span className="text-xs">(حتى 3 ليالي)</span></option>
+                    <option value="family">  باقة طويلة   <span className="text-xs">(4 ليالي فآكثر)</span></option>
+                  </select>
+                </div>
+                <button type="submit" className='bg-yellow-600 text-white px-6 text-3xl py-4 rounded-b-xl md:rounded-br-none md:rounded-l-xl'>
+                  <FontAwesomeIcon icon={faSearch} />
+                </button>
+              </form>
+              </div>
             </div>
                 <div className="bg-gray-100 dark:bg-gray-900">
                   <div className="container hidden md:block">
                   <Breadcrumbs list={[{ title: data?.subtitle }]} />
                 </div>
                 </div>
-            <div className={styles.card}>
+            <div className={`dark:text-white ${styles.card}`}>
               <div className={styles.card__container}>
                 <div className={styles.card__content}>
                   <h2>{data?.subtitle}</h2>
@@ -182,8 +226,8 @@ const DesignProgram = ({ data, slide }) => {
               </div>
             </div>
             <div className={styles.form} id='form'>
-              <div className={styles.form__bg}></div>
-              <h2>صمم برنامجك بطريقتك</h2>
+              {/* <div className={styles.form__bg}></div> */}
+              <h2 className='dark:text-white'>صمم برنامجك بطريقتك</h2>
               <div className={`bg-white dark:bg-gray-800 dark:text-white ${styles.form__data}`} >
                 <form className={styles.form__content} onSubmit={handleSubmit}>
                   <div className={styles.row}>
@@ -421,50 +465,54 @@ const DesignProgram = ({ data, slide }) => {
                         href={settings.instagram}
                         target='_blank'
                         rel='noreferrer'
-                        className={styles.instagram}
+                        className={"group"}
                       >
-                        {/* <i className="fab fa-instagram"></i> */}
-                        <FontAwesomeIcon icon={faInstagram} />
+                        <div className="absolute w-full h-full transition duration-500 translate-y-full group-hover:translate-y-0" style={{ backgroundImage: "linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7)" }} ></div>
+                        <FontAwesomeIcon icon={faInstagram} className='transition duration-500' />
                       </a>
                       <a
                         aria-label='twitter'
                         href={settings.twitter}
                         target='_blank'
                         rel='noreferrer'
-                        className={styles.twitter}
+                        className={"group"}
                       >
+                        <div className="absolute w-full h-full transition duration-500 translate-y-full group-hover:translate-y-0 bg-[#1DA1F2]"></div>
                         {/* <i className="fab fa-twitter"></i> */}
-                        <FontAwesomeIcon icon={faTwitter} />
+                        <FontAwesomeIcon icon={faTwitter}  className='transition duration-500' />
                       </a>
                       <a
                         aria-label='tiktok'
                         href={settings.tiktok}
                         target='_blank'
                         rel='noreferrer'
-                        className={styles.tiktok}
+                        className={"group"}
                       >
+                        <div className="absolute w-full h-full transition duration-500 translate-y-full group-hover:translate-y-0" style={{ backgroundImage: "linear-gradient(45deg, #ff0050, #00f2ea)" }} ></div>
                         {/* <i className="fab fa-tiktok"></i> */}
-                        <FontAwesomeIcon icon={faTiktok} />
+                        <FontAwesomeIcon icon={faTiktok} className='transition duration-500' />
                       </a>
                       <a
                         aria-label='snapchat'
                         href={settings.snapchat}
                         target='_blank'
                         rel='noreferrer'
-                        className={styles.snapchat}
+                        className={"group"}
                       >
                         {/* <i className="fab fa-snapchat-ghost"></i> */}
-                        <FontAwesomeIcon icon={faSnapchat} />
+                      <div className="absolute w-full h-full transition duration-500 translate-y-full group-hover:translate-y-0 bg-[#FFFC00]"></div>
+                        <FontAwesomeIcon icon={faSnapchatSquare} className='transition duration-500' />
                       </a>
                       <a
                         aria-label='youtube'
                         href={settings.youtube}
                         target='_blank'
                         rel='noreferrer'
-                        className={styles.youtube}
+                        className={"group"}
                       >
+                        <div className="absolute w-full h-full transition duration-500 translate-y-full group-hover:translate-y-0 bg-[#FF0000]"></div>
                         {/* <i className="fab fa-youtube"></i> */}
-                        <FontAwesomeIcon icon={faYoutube} />
+                        <FontAwesomeIcon icon={faYoutube} className='transition duration-500' />
                       </a>
                     </div>
                   </div>

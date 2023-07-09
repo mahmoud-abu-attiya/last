@@ -7,8 +7,7 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  z-index: 1;
-  direction: rtl;
+  position: relative;
 }
 @media (max-width: 768px) {
   .hero__bg {
@@ -38,7 +37,7 @@
 }
 
 /* Form */
-.bg {
+/* .bg {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -48,12 +47,11 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-}
+} */
 .form {
   width: 100%;
   padding: 2rem 0 4rem;
   position: relative;
-  direction: rtl;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -262,22 +260,32 @@
   display: flex;
 }
 .social__icons a {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  margin: 0 5px;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: white;
-  background-color: var(--second-clr);
-  transition: 0.3s;
+  justify-content: center;
+  border-radius: 0.7rem;
+  background-color: #fff;
+  margin: 0 0.5rem;
+  border: 1px solid white;
+  color: black;
+  position: relative;
+  overflow: hidden;
+}
+.social__icons a:hover {
+  color: #fff;
+}
+.social__icons a:hover > svg {
+  transform: rotate3d(0, 1, 0, 360deg);
+}
+.social__icons a:hover > .absolute {
+  transform: translate(0);
 }
 .social__icons svg {
   font-size: 1.2rem;
 }
-.social__icons .instagram:hover {
+/* .social__icons .instagram:hover {
   background-color: purple;
   color: white;
 }
@@ -296,7 +304,7 @@
 .social__icons .youtube:hover {
   background-color: #c4302b;
   color: white;
-}
+} */
 
 .form__btn {
   padding: 0.5rem 0;
@@ -340,9 +348,7 @@
 /* Card */
 .card {
   padding: 1rem;
-  box-sizing: border-box;
-  direction: rtl;
-  background-image: url('/images/visionbg.webp');
+  /* background-image: url('/images/visionbg.webp'); */
   width: 100%;
 }
 .card__container {
@@ -353,7 +359,7 @@
   width: 1200px;
   max-width: min(1200px, 100%);
   margin: 0 auto;
-  color: #fff;
+  /* color: #fff; */
 }
 .card__content {
   display: flex;
