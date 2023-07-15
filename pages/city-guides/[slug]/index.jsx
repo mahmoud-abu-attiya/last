@@ -256,10 +256,10 @@ export default function Daleel() {
             <Famose title="اكتشف ثقافة البلد وعاداته" img="https://backend.elnagahtravels.com/storage/countries/XzqoXv2ckJGaCQ1LLCIzBdLN7nQ4t0arOJGWDbP2.jpg" />
             <Famose title="أروع وجهات التسوق" img="https://backend.elnagahtravels.com/storage/countries/YurnHNmE6GpQeKn1I5zyv1JwilVeNWhkio4ymvJ7.jpg" />
             <FamilyActivity title="أروع المطاعم وأشهى المأكولات" img="https://backend.elnagahtravels.com/storage/countries/QumVlZgE6YAF5HtxJ0GQzrSNAjZgqliWBlFZ5Z9r.png" />
-            <div className="text-center my-8 md:my-16 w-fit mx-auto">
+            {/* <div className="text-center my-8 md:my-16 w-fit mx-auto">
                <div className='text-xl md:text-2xl mb-4'>هل تبحث عن رحلات إلى تبليسي؟</div>
                <Link href={"/our-programs"} className='p-4 bg-[#ef4050] text-white w-full block rounded-full'>بحث عن رحلات</Link>
-            </div>
+            </div> */}
          </div>
       </>
    )

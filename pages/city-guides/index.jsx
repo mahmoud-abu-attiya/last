@@ -8,10 +8,11 @@ import { useDispatch } from 'react-redux'
 import { setBacktoData } from '@/slices/backto'
 import { useEffect } from 'react';
 
-export default function Index({ data }) {
+export default function Index({ data, guide }) {
    const dispatch = useDispatch()
    useEffect(() => {
       dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+      console.log(guide.tours);
    }, [])
    const settings = useSelector((state) => state.settings.value);
    const countries = data.countries;
@@ -71,9 +72,12 @@ export default function Index({ data }) {
 
 export async function getServerSideProps() {
    const mainRes = await fetch("https://backend.elnagahtravels.com/public/api/countries").then((res) => res.json())
+   const guideRes = await fetch("https://backendtwo.elnagahtravels.com/public/api/tourism_guide").then((res) => res.json())
 
    const data = mainRes;
+   const guide = guideRes;
 
-   return { props: { data } };
+   return { props: { data, guide } };
+   // return { props: { data } };
 }
 

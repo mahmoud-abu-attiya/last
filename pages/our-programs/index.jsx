@@ -7,6 +7,9 @@ import { useEffect, lazy, Suspense } from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { useDispatch } from 'react-redux'
 import { setBacktoData } from '@/slices/backto'
+// import dynamic from 'next/dynamic'
+// import { WeatherWidget } from "@daniel-szulc/react-weather-widget"
+// const WeatherWidget = dynamic(() => import("@daniel-szulc/react-weather-widget"))
 // import Hero from '@/components/ProgramsHero'
 
 const Hero = lazy(() => import('@/components/ProgramsHero'))
@@ -91,6 +94,9 @@ const OurPrograms = ({ countries, slides }) => {
                       <span className='h-1 w-1 bg-white rounded-full'></span>
                       <span>9 ليال </span>
                     </div>
+                    {/* <WeatherWidget
+        autoLocate="gps" 
+        /> */}
                   </div>
                 </Link>
               ))}

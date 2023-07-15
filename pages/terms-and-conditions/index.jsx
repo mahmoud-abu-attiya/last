@@ -7,13 +7,16 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 // import Slider from "react-slick";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
-export default function Index() {
+export default function Index({ data }) {
    const [id, setId] = useState(0);
    const settings = useSelector((state) => state.settings.value);
+   useEffect(() => {
+      console.log(data);
+   }, []);
 
    const categories = [
       {
@@ -591,3 +594,12 @@ export default function Index() {
       </>
    );
 }
+
+export async function getServerSideProps() {
+   const mainRes = await fetch("https://backendtwo.elnagahtravels.com/public/api/terms_condition").then((res) => res.json())
+
+   const data = mainRes;
+
+   return { props: { data } };
+}
+

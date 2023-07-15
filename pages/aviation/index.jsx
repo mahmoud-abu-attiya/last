@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import Snackbar from "../../components/snackbar";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import AviationFrom from "@/components/AviationFrom";
 import {
    faPhoneAlt,
    faEnvelope,
@@ -29,7 +30,7 @@ import { setBacktoData } from "@/slices/backto";
 const Accordion = ({ item }) => {
 	const [open, setOpen] = useState(false);
    return (
-      <button onClick={() => setOpen(!open)} className={`flex bg-gray-100 dark:bg-gray-800 p-4 justify-between items-center relative transition-[border-radius] duration-500 ${open ? "rounded-t-xl" : "rounded-xl"}`}>
+      <button onClick={() => setOpen(!open)} className={`flex bg-gray-100 text-black dark:text-white dark:bg-gray-800 p-4 justify-between items-center relative transition-[border-radius] duration-500 ${open ? "rounded-t-xl" : "rounded-xl"}`}>
          <Image src={item.img} width={50} height={50} alt="air arabia" />
          <p>{item.name}</p>
          <FontAwesomeIcon icon={faAngleDown} className={`transition duration-500 text-xl ${open ? "rotate-180" : ""}`} />
@@ -55,10 +56,10 @@ const Aviation = ({ slide }) => {
    const settings = useSelector((state) => state.settings.value);
    const [snackbarMsg, setSnackbarMsg] = useState("");
    const snackbarRef = useRef(null);
-   const [snackbarMsg2, setSnackbarMsg2] = useState("");
-   const snackbarRef2 = useRef(null);
+   // const [snackbarMsg2, setSnackbarMsg2] = useState("");
+   // const snackbarRef2 = useRef(null);
    const [formErrors, setFormErrors] = useState({});
-   const [formErrors2, setFormErrors2] = useState({});
+   // const [formErrors2, setFormErrors2] = useState({});
    const slides = slide;
    const validate = (values) => {
       const errors = {};
@@ -88,28 +89,28 @@ const Aviation = ({ slide }) => {
       }
       return errors;
    };
-   const validate2 = (values) => {
-      const errors = {};
-      if (!values.type) {
-         errors.type = "نوع الرحلة مطلوب";
-      }
-      if (!values.travellers_number) {
-         errors.travellers_number = "عدد المسافرين مطلوب";
-      }
-      if (!values.travel_from) {
-         errors.travel_from = "حقل السفر من مطلوب";
-      }
-      if (!values.travel_to) {
-         errors.travel_to = "حقل السفر الي مطلوب";
-      }
-      if (!values.traveling_date) {
-         errors.traveling_date = "حقل تاريخ السفر مطلوب";
-      }
-      if (!values.back_date) {
-         errors.back_date = "حقل تاريخ العودة مطلوب";
-      }
-      return errors;
-   };
+   // const validate2 = (values) => {
+   //    const errors = {};
+   //    if (!values.type) {
+   //       errors.type = "نوع الرحلة مطلوب";
+   //    }
+   //    if (!values.travellers_number) {
+   //       errors.travellers_number = "عدد المسافرين مطلوب";
+   //    }
+   //    if (!values.travel_from) {
+   //       errors.travel_from = "حقل السفر من مطلوب";
+   //    }
+   //    if (!values.travel_to) {
+   //       errors.travel_to = "حقل السفر الي مطلوب";
+   //    }
+   //    if (!values.traveling_date) {
+   //       errors.traveling_date = "حقل تاريخ السفر مطلوب";
+   //    }
+   //    if (!values.back_date) {
+   //       errors.back_date = "حقل تاريخ العودة مطلوب";
+   //    }
+   //    return errors;
+   // };
    const handleSubmit = async (event) => {
       try {
          event.preventDefault();
@@ -154,50 +155,50 @@ const Aviation = ({ slide }) => {
          console.log(error);
       }
    };
-   const handleSubmit2 = async (event) => {
-      try {
-         event.preventDefault();
+   // const handleSubmit2 = async (event) => {
+   //    try {
+   //       event.preventDefault();
 
-         // Get data from the form.
-         const data = {
-            travel_from: event.target.travel_from.value,
-            travel_to: event.target.travel_to.value,
-            traveling_date: event.target.traveling_date.value,
-            back_date: event.target.back_date.value,
-            type: event.target.type.value,
-            retreiv_taxes: event.target.retreiv_taxes.checked ? "1" : "0",
-            direct_trips: event.target.direct_trips.checked ? "1" : "0",
-            travellers_number: event.target.travellers_number.value,
-         };
-         setFormErrors2(validate2(data));
-         // Send the data to the server in JSON format.
-         const JSONdata = JSON.stringify(data);
+   //       // Get data from the form.
+   //       const data = {
+   //          travel_from: event.target.travel_from.value,
+   //          travel_to: event.target.travel_to.value,
+   //          traveling_date: event.target.traveling_date.value,
+   //          back_date: event.target.back_date.value,
+   //          type: event.target.type.value,
+   //          retreiv_taxes: event.target.retreiv_taxes.checked ? "1" : "0",
+   //          direct_trips: event.target.direct_trips.checked ? "1" : "0",
+   //          travellers_number: event.target.travellers_number.value,
+   //       };
+   //       setFormErrors2(validate2(data));
+   //       // Send the data to the server in JSON format.
+   //       const JSONdata = JSON.stringify(data);
 
-         // API endpoint where we send form data.
-         const endpoint =
-            "https://backend.elnagahtravels.com/public/api/aviation2";
+   //       // API endpoint where we send form data.
+   //       const endpoint =
+   //          "https://backend.elnagahtravels.com/public/api/aviation2";
 
-         // Form the request for sending data to the server.
-         const options = {
-            method: "POST",
-            headers: {
-               "Content-Type": "application/json",
-            },
-            body: JSONdata,
-         };
+   //       // Form the request for sending data to the server.
+   //       const options = {
+   //          method: "POST",
+   //          headers: {
+   //             "Content-Type": "application/json",
+   //          },
+   //          body: JSONdata,
+   //       };
 
-         const response = await fetch(endpoint, options);
+   //       const response = await fetch(endpoint, options);
 
-         if (Object.keys(validate2(data)).length === 0) {
-            const result = await response.json();
-            setSnackbarMsg2(result?.message || result);
-            snackbarRef2.current.show();
-            event.target.reset();
-         }
-      } catch (error) {
-         console.log(error);
-      }
-   };
+   //       if (Object.keys(validate2(data)).length === 0) {
+   //          const result = await response.json();
+   //          setSnackbarMsg2(result?.message || result);
+   //          snackbarRef2.current.show();
+   //          event.target.reset();
+   //       }
+   //    } catch (error) {
+   //       console.log(error);
+   //    }
+   // };
 	const airs = [
 		{
 			name: "الخطوط السعودية",
@@ -350,343 +351,19 @@ const Aviation = ({ slide }) => {
                {slides[0]?.button_text}
             </p>
             {/* <ScrollDown /> */}
-            <form
-               className={`bg-white dark:bg-gray-800 dark:text-white text-secondary rounded-xl hidden md:flex ${styles.form__search}`}
-               onSubmit={handleSubmit2}
-            >
-               <div
-                  className={`border-b dark:border-gray-700 py-8 px-4 ${styles.search__select}`}
-               >
-                  <h3 className={styles.search__title}>
-                     ابحث عن تذاكر الطيران الان
-                  </h3>
-                  <small style={{ color: "red", fontSize: ".6rem" }}>
-                     {formErrors2?.type}
-                  </small>
-                  <div className={styles.search__content}>
-                     <div className={styles.select}>
-                        <input
-                           type="radio"
-                           value="go"
-                           id="oneway"
-                           name="type"
-                        />
-                        <label htmlFor="oneway">ذهاب فقط</label>
-                     </div>
-                     <div className={styles.select}>
-                        <input
-                           type="radio"
-                           value="goAndBack"
-                           id="round"
-                           name="type"
-                        />
-                        <label htmlFor="round">ذهاب وعودة</label>
-                     </div>
-                     <div className={styles.select}>
-                        <input
-                           type="radio"
-                           value="multi"
-                           id="multible"
-                           name="type"
-                        />
-                        <label htmlFor="multible">وجهات متعددة</label>
-                     </div>
-                  </div>
-               </div>
-               <div
-                  className={`border-b dark:border-gray-700 ${styles.search__dist}`}
-               >
-                  <div className={`dark:border-gray-700 ${styles.card}`}>
-                     <label
-                        htmlFor="travel_from"
-                        className={styles.card__title}
-                     >
-                        من
-                     </label>
-                     <div>
-                        {/* <MdLocationOn /> */}
-                        <input
-                           type="text"
-                           placeholder="بلد المسكن"
-                           name="travel_from"
-                           id="travel_from"
-                           className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
-                        />
-                     </div>
-                     <small style={{ color: "red", fontSize: ".6rem" }}>
-                        {formErrors2?.travel_from}
-                     </small>
-                  </div>
-                  <div className={`dark:border-gray-700 ${styles.card}`}>
-                     <label htmlFor="travel_to" className={styles.card__title}>
-                        الي
-                     </label>
-                     <div>
-                        {/* <MdLocationOn /> */}
-                        <input
-                           type="text"
-                           placeholder="الوجهة"
-                           name="travel_to"
-                           id="travel_to"
-                           className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
-                        />
-                     </div>
-                     <small style={{ color: "red", fontSize: ".6rem" }}>
-                        {formErrors2?.travel_to}
-                     </small>
-                  </div>
-                  <div className={`dark:border-gray-700 ${styles.card}`}>
-                     <label
-                        htmlFor="traveling_date"
-                        classname="{styles.card__title}"
-                     >
-                        تاريخ السفر
-                     </label>
-                     <div>
-                        <input
-                           type="date"
-                           name="traveling_date"
-                           id="traveling_date"
-                           pattern="\d{2}-\d{2}-\d{4}"
-                           className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
-                        />
-                     </div>
-                     <small style={{ color: "red", fontSize: ".6rem" }}>
-                        {formErrors2?.traveling_date}
-                     </small>
-                  </div>
-                  <div className={`dark:border-gray-700 ${styles.card}`}>
-                     <label htmlFor="back_date" className={styles.card__title}>
-                        تاريخ العودة
-                     </label>
-                     <div>
-                        <input
-                           type="date"
-                           name="back_date"
-                           id="back_date"
-                           pattern="\d{2}-\d{2}-\d{4}"
-                           className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
-                        />
-                     </div>
-                     <small style={{ color: "red", fontSize: ".6rem" }}>
-                        {formErrors2?.back_date}
-                     </small>
-                  </div>
-                  <div
-                     className={`dark:border-gray-700 ${styles.card}`}
-                     style={{ border: "none" }}
-                  >
-                     <label
-                        htmlFor="travellers_number"
-                        className={styles.card__title}
-                     >
-                        عدد المسافرين
-                     </label>
-                     <div>
-                        {/* <BsFillPeopleFill /> */}
-                        <input
-                           type="number"
-                           name="travellers_number"
-                           id="travellers_number"
-                           placeholder="عدد المسافرين"
-                           className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
-                        />
-                     </div>
-                     <small style={{ color: "red", fontSize: ".6rem" }}>
-                        {formErrors2?.travellers_number}
-                     </small>
-                  </div>
-               </div>
-               <div className={styles.search__checkbox}>
-                  <input
-                     type="checkbox"
-                     name="direct_trips"
-                     id="direct_trips"
-                  />
-                  <label htmlFor="direct_trips">رحلات مباشرة</label>
-                  <input
-                     type="checkbox"
-                     name="retreiv_taxes"
-                     id="retreiv_taxes"
-                  />
-                  <label htmlFor="retreiv_taxes">ضريبة الاسترجاع</label>
-               </div>
-               <button type="submit" className={styles.form__btn}>
-                  بحث
-               </button>
-            </form>
+            <div className="container hidden md:block">
+            <AviationFrom />
+            </div>
          </div>
          <div className={styles.form}>
-            <form
-               className={`bg-white dark:bg-gray-800 dark:text-white text-secondary rounded-xl flex md:hidden ${styles.form__search}`}
-               onSubmit={handleSubmit2}
-            >
-               <div
-                  className={`border-b dark:border-gray-700 py-8 px-4 ${styles.search__select}`}
-               >
-                  <h3 className={styles.search__title}>
-                     ابحث عن تذاكر الطيران الان
-                  </h3>
-                  <small style={{ color: "red", fontSize: ".6rem" }}>
-                     {formErrors2?.type}
-                  </small>
-                  <div className={styles.search__content}>
-                     <div className={styles.select}>
-                        <input
-                           type="radio"
-                           value="go"
-                           id="oneway"
-                           name="type"
-                        />
-                        <label htmlFor="oneway">ذهاب فقط</label>
-                     </div>
-                     <div className={styles.select}>
-                        <input
-                           type="radio"
-                           value="goAndBack"
-                           id="round"
-                           name="type"
-                        />
-                        <label htmlFor="round">ذهاب وعودة</label>
-                     </div>
-                     <div className={styles.select}>
-                        <input
-                           type="radio"
-                           value="multi"
-                           id="multible"
-                           name="type"
-                        />
-                        <label htmlFor="multible">وجهات متعددة</label>
-                     </div>
-                  </div>
-               </div>
-               <div
-                  className={`border-b dark:border-gray-700 ${styles.search__dist}`}
-               >
-                  <div className={`dark:border-gray-700 ${styles.card}`}>
-                     <label
-                        htmlFor="travel_from"
-                        className={styles.card__title}
-                     >
-                        من
-                     </label>
-                     <div>
-                        {/* <MdLocationOn /> */}
-                        <input
-                           type="text"
-                           placeholder="بلد المسكن"
-                           name="travel_from"
-                           id="travel_from"
-                           className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
-                        />
-                     </div>
-                     <small style={{ color: "red", fontSize: ".6rem" }}>
-                        {formErrors2?.travel_from}
-                     </small>
-                  </div>
-                  <div className={`dark:border-gray-700 ${styles.card}`}>
-                     <label htmlFor="travel_to" className={styles.card__title}>
-                        الي
-                     </label>
-                     <div>
-                        {/* <MdLocationOn /> */}
-                        <input
-                           type="text"
-                           placeholder="الوجهة"
-                           name="travel_to"
-                           id="travel_to"
-                           className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
-                        />
-                     </div>
-                     <small style={{ color: "red", fontSize: ".6rem" }}>
-                        {formErrors2?.travel_to}
-                     </small>
-                  </div>
-                  <div className={`dark:border-gray-700 ${styles.card}`}>
-                     <label
-                        htmlFor="traveling_date"
-                        classname="{styles.card__title}"
-                     >
-                        تاريخ السفر
-                     </label>
-                     <div>
-                        <input
-                           type="date"
-                           name="traveling_date"
-                           id="traveling_date"
-                           pattern="\d{2}-\d{2}-\d{4}"
-                           className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
-                        />
-                     </div>
-                     <small style={{ color: "red", fontSize: ".6rem" }}>
-                        {formErrors2?.traveling_date}
-                     </small>
-                  </div>
-                  <div className={`dark:border-gray-700 ${styles.card}`}>
-                     <label htmlFor="back_date" className={styles.card__title}>
-                        تاريخ العودة
-                     </label>
-                     <div>
-                        <input
-                           type="date"
-                           name="back_date"
-                           id="back_date"
-                           pattern="\d{2}-\d{2}-\d{4}"
-                           className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
-                        />
-                     </div>
-                     <small style={{ color: "red", fontSize: ".6rem" }}>
-                        {formErrors2?.back_date}
-                     </small>
-                  </div>
-                  <div
-                     className={`dark:border-gray-700 ${styles.card}`}
-                     style={{ border: "none" }}
-                  >
-                     <label
-                        htmlFor="travellers_number"
-                        className={styles.card__title}
-                     >
-                        عدد المسافرين
-                     </label>
-                     <div>
-                        {/* <BsFillPeopleFill /> */}
-                        <input
-                           type="number"
-                           name="travellers_number"
-                           id="travellers_number"
-                           placeholder="عدد المسافرين"
-                           className={`dark:bg-gray-800 border-b dark:border-gray-700 ${styles.card__input}`}
-                        />
-                     </div>
-                     <small style={{ color: "red", fontSize: ".6rem" }}>
-                        {formErrors2?.travellers_number}
-                     </small>
-                  </div>
-               </div>
-               <div className={styles.search__checkbox}>
-                  <input
-                     type="checkbox"
-                     name="direct_trips"
-                     id="direct_trips"
-                  />
-                  <label htmlFor="direct_trips">رحلات مباشرة</label>
-                  <input
-                     type="checkbox"
-                     name="retreiv_taxes"
-                     id="retreiv_taxes"
-                  />
-                  <label htmlFor="retreiv_taxes">ضريبة الاسترجاع</label>
-               </div>
-               <button type="submit" className={styles.form__btn}>
-                  بحث
-               </button>
-            </form>
-            <Snackbar
+            <div className="container md:hidden">
+            <AviationFrom />
+            </div>
+            {/* <Snackbar
                ref={snackbarRef2}
                message={snackbarMsg2}
                type={"success"}
-            />
+            /> */}
             <div className="container mb-16">
                <div className="flex flex-col max-w-xl mx-auto mb-10 text-center gap-4">
                   <h2 className="text-2xl">

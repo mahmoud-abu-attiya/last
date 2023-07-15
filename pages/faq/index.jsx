@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons"
 
@@ -30,9 +30,12 @@ const Accordion = ({ title, items }) => {
    )
 }
 
-export default function Index() {
+export default function Index({ questions }) {
    const [id, setId] = useState(0)
    const settings = useSelector((state) => state.settings.value)
+   useEffect(() => {
+      console.log(questions);
+   }, [])
 
    const categories = [
       {
@@ -412,3 +415,12 @@ export default function Index() {
       </>
    )
 }
+
+export async function getServerSideProps() {
+   const mainRes = await fetch("https://backendtwo.elnagahtravels.com/public/api/question").then((res) => res.json())
+
+   const questions = mainRes;
+
+   return { props: { questions } };
+}
+

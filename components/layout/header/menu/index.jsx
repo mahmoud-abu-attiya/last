@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import styles from '../Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons'
 import { faYoutube, faTwitter, faTiktok, faSnapchat, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 export const headerLinks = [
@@ -119,24 +119,36 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
           target='_blank'
           rel='noreferrer'
           aria-label='Header menu link - Phone'
-          className={`flex gap-2 bold`}
+          className={`flex gap-2 bold items-center`}
           style={{ letterSpacing: "2px" }}
         >
           {settings.email}
-          <FontAwesomeIcon icon={faEnvelope} />
+          <FontAwesomeIcon icon={faEnvelopeOpenText} className='text-xl' />
           {/* <Image src="/icons/24-7.png" alt="phone" width={25} height={25} style={{ filter: 'invert(100%) sepia(6%) saturate(7477%) hue-rotate(324deg) brightness(99%) contrast(96%)' }} /> */}
         </Link>
       <Link
-          href={`tel:${settings.phone}`}
+          href={`https://wa.me/${settings.whatsup}`}
           target='_blank'
           rel='noreferrer'
           aria-label='Header menu link - Phone'
-          className={`flex gap-2 bold`}
+          className={`flex gap-2 bold items-center`}
           style={{ letterSpacing: "2px" }}
         >
           {settings.phone}
           {/* <FontAwesomeIcon icon={faPhoneAlt} /> */}
-          <Image src="/icons/24-7.png" alt="phone" width={25} height={25} style={{ filter: 'invert(100%) sepia(6%) saturate(7477%) hue-rotate(324deg) brightness(99%) contrast(96%)' }} />
+          <Image src="/icons/24-7.png" alt="phone" width={25} className='object-contain' height={25} style={{ filter: 'invert(100%) sepia(6%) saturate(7477%) hue-rotate(324deg) brightness(99%) contrast(96%)' }} />
+        </Link>
+        <Link
+          href={`https://wa.me/${settings.whatsup}`}
+          target='_blank'
+          rel='noreferrer'
+          aria-label='Header menu link - Phone'
+          className={`flex gap-2 bold items-center`}
+          style={{ letterSpacing: "2px" }}
+        >
+          {settings.whatsup}
+          {/* <FontAwesomeIcon icon={faWhatsapp} className='text-xl' /> */}
+          <Image src="/images/whatsapp.png" alt="phone" width={35} height={25}/>
         </Link>
 
       </div>

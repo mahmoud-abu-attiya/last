@@ -4,9 +4,13 @@ import Image from "next/image"
 import { useSelector } from "react-redux"
 import Breadcrumbs from "@/components/Breadcrumbs"
 import Link from "next/link"
+import { useEffect } from "react"
 
-export default function Index() {
+export default function Index({ data }) {
    const settings = useSelector((state) => state.settings.value)
+   useEffect(() => {
+      console.log(data)
+   }, [])
 
    const categories = {
          id: 0,
@@ -100,3 +104,12 @@ export default function Index() {
       </>
    )
 }
+
+export async function getServerSideProps() {
+   const mainRes = await fetch("https://backendtwo.elnagahtravels.com/public/api/usage_agreements").then((res) => res.json())
+
+   const data = mainRes;
+
+   return { props: { data } };
+}
+

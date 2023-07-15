@@ -103,10 +103,11 @@ const Section = ({ data }) => {
    }
 }
 
-export default function Index() {
-   const dispatch = useDispatch()
+export default function Index({ services }) {
+   const dispatch = useDispatch();
    useEffect(() => {
      dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+     console.log(services);
    }, [])
    const settings = useSelector(state => state.settings.value)
    const data = [
@@ -264,3 +265,12 @@ export default function Index() {
       </>
    )
 }
+
+export async function getServerSideProps() {
+   const mainRes = await fetch("https://backendtwo.elnagahtravels.com/public/api/other_services").then((res) => res.json())
+
+   const services = mainRes;
+
+   return { props: { services } };
+}
+
