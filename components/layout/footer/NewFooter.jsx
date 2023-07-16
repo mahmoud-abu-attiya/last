@@ -8,10 +8,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import { setTheme } from '../../../slices/themeSlice'
 // import localFont from 'next/font/local';
+import { handelLangs } from '../../../slices/langsSlice'
 
 // const noto = localFont({ src: '../../../public/fonts/NotoNaskhArabic-Regular.ttf' })
 
-const SubFooter = ({ settings }) => {
+const SubFooter = ({ settings, en }) => {
    const [glitter, setGlitter] = useState(1)
    useEffect(() => {
       const timeoutId = setTimeout(() => {
@@ -27,13 +28,13 @@ const SubFooter = ({ settings }) => {
 
    return (
       <div className="sticky subFooter bottom-0 lg:p-4 lg:px-16 grid grid-cols-4 lg:bg-gray-100 lg:dark:bg-gray-800 lg:dark:text-white z-20 lg:gap-0">
-         <a href={`tel:${settings.mobile}`} className={`${glitter === 1 ? "glitter" : ""} lg:shadow-none phone bg-[green] p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10`} target='_blank' rel='noreferrer' aria-label='Mobile'>
+         <a href={`tel:${settings.mobile}`} className={`${glitter === 1 ? "glitter" : ""} lg:shadow-none phone bg-[green] p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 ${en ? "lg:border-r-2 border-gray-300" : ""}`} target='_blank' rel='noreferrer' aria-label='Mobile'>
             {/* <i className="fal fa-mobile text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
             <div className="icon">
                <FontAwesomeIcon icon={faMobile} className='text-white lg:text-primary text-3xl sm:text-4xl' />
             </div>
             <div className='hidden lg:block'>
-               <p className="text-xs">اتصل بنا علي المحمول.</p>
+               <p className="text-xs">{en ? "Call us on mobile" : "اتصل بنا علي المحمول."}</p>
                <p className="link bold hover:underline">{settings.mobile}</p>
             </div>
          </a>
@@ -43,7 +44,7 @@ const SubFooter = ({ settings }) => {
                <Image src="/icons/24-7.png" alt="phone" width={40} height={40} />
             </div>
             <div className='hidden lg:block'>
-               <p className="text-xs">اتصل بنا علي الهاتف الرضي.</p>
+               <p className="text-xs">{en ? "Call us on the landline." : "اتصل بنا علي الهاتف الرضي."}</p>
                <p className="link bold hover:underline">{settings.phone}</p>
             </div>
          </a>
@@ -53,17 +54,17 @@ const SubFooter = ({ settings }) => {
                <FontAwesomeIcon icon={faEnvelopeOpenText} className='text-white lg:text-primary text-3xl sm:text-4xl' />
             </div>
             <div className='hidden lg:block'>
-               <p className="text-xs">يمكنك مراسلتنا علي البريد الالكتروني.</p>
+               <p className="text-xs">{en ? "You can send us an e-mail." : "يمكنك مراسلتنا علي البريد الالكتروني."}</p>
                <p className="link bold hover:underline">{settings.email}</p>
             </div>
          </a>
-         <a href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} className={`${glitter === 4 ? "glitter" : ""} lg:shadow-none whats bg-green-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 lg:border-r-2 border-gray-300`} target='_blank' rel='noreferrer' aria-label='WhatsApp'>
+         <a href={`https://api.whatsapp.com/send?phone=${settings.whatsup}`} className={`${glitter === 4 ? "glitter" : ""} lg:shadow-none whats bg-green-500 p-4 lg:p-0 lg:bg-transparent flex items-center justify-center gap-6 md:px-10 ${en ? "" : "lg:border-r-2 border-gray-300"}`} target='_blank' rel='noreferrer' aria-label='WhatsApp'>
             {/* <i className="fab fa-whatsapp text-white lg:text-primary text-3xl sm:text-4xl"></i> */}
             <div className="icon">
                <FontAwesomeIcon icon={faWhatsapp} className='text-white lg:text-primary text-3xl sm:text-4xl' />
             </div>
             <div className='hidden lg:block'>
-               <p className="text-xs">تواصل معنا عن طرق الواتساب.</p>
+               <p className="text-xs">{en ? "Contact us via WhatsApp." : "تواصل معنا عن طرق الواتساب."}</p>
                <p className="link bold hover:underline">{settings.whatsup}</p>
             </div>
          </a>
@@ -109,6 +110,7 @@ export default function Footer({ countries }) {
    const dispatch = useDispatch();
    const settings = useSelector((state) => state.settings.value)
    const theme = useSelector((state) => state.theme.value);
+   const en = useSelector((state) => state.langs.value);
    const famousCountries = () => {
       const items = []
       for (let i = 0; i < 7; i++) {
@@ -121,34 +123,34 @@ export default function Footer({ countries }) {
       return items
    }
 
-
    return (
       <>
-         <SubFooter settings={settings} />
+         <SubFooter settings={settings} en={en} />
          <footer className=''>
             <div className="container">
                <div className="grid grid-cols-2 gap-8 lg:grid-cols-5 py-12 md:py-16">
-                  <List title="أشهر الوجهات السياحية" items={famousCountries()} />
-                  <List title="تابعنا علي" items={[
-                     { blank: true, label: "instagram", icon: faInstagram, name: "انستجرام", link: settings.instagram },
-                     { blank: true, label: "twitter", icon: faTwitter, name: 'تويتر', link: settings.twitter },
-                     { blank: true, label: "youtube", icon: faYoutube, name: 'يوتيوب', link: settings.youtube },
-                     { blank: true, label: "tiktok", icon: faTiktok, name: 'تيك توك', link: settings.tiktok },
-                     { blank: true, label: "snapchat", icon: faSnapchat, name: 'سناب شات', link: settings.snapchat },
+                  <List title={en ? "Tourist destinations" : "أشهر الوجهات السياحية"} items={famousCountries()} />
+                  <List title={en ? "Follow Us" : "تابعنا علي"} items={[
+                     { blank: true, label: "instagram", icon: faInstagram, name: en ? "Instagram" : "انستجرام", link: settings.instagram },
+                     { blank: true, label: "twitter", icon: faTwitter, name: en ? "Twitter" : 'تويتر', link: settings.twitter },
+                     { blank: true, label: "youtube", icon: faYoutube, name: en ? "Youtube" : 'يوتيوب', link: settings.youtube },
+                     { blank: true, label: "tiktok", icon: faTiktok, name: en ? "Tiktok" : 'تيك توك', link: settings.tiktok },
+                     { blank: true, label: "snapchat", icon: faSnapchat, name: en ? "Snapchat" : 'سناب شات', link: settings.snapchat },
                   ]} />
-                  <List title="قانوني" items={[
-                     { name: 'الشروط و الأحكام', link: '/terms-and-conditions' },
-                     { name: 'سياسة الخصوصية', link: '/privacy-policy' },
+                  <List title={en ? "Legal" : "قانوني"} items={[
+                     { name: en ? "Terms & Conditions" : 'الشروط و الأحكام', link: '/terms-and-conditions' },
+                     { name: en ? "Privacy policy" : 'سياسة الخصوصية', link: '/privacy-policy' },
                   ]} />
-                  <List title="المساعدة" items={[
-                     { name: 'اتصل بنا', link: '/contact' },
-                     { name: 'الأسئلة الشائعة', link: '/faq' },
-                     { name: 'شكر العملاء', link: '/thanks' },
+                  <List title={en ? "Help" : "المساعدة"} items={[
+                     { name: en ? "Contact us" : 'اتصل بنا', link: '/contact' },
+                     { name: en ? "FAQs" : 'الأسئلة الشائعة', link: '/faq' },
+                     { name: en ? "Customer thanks" : 'شكر العملاء', link: '/thanks' },
                   ]} />
-                  <List title="موقعنا" items={[
+                  <List title={en ? "Our Location" : "موقعنا"} items={[
                      { blank: true, name: settings.address, link: `https://www.google.com/maps/place/24%C2%B042'28.7%22N+46%C2%B037'39.0%22E/@24.707979,46.6254091,16z/data=!4m4!3m3!8m2!3d24.7079785!4d46.627512?hl=en-US` },
                   ]} />
-                  <div className="col-span-2 lg:col-span-5 flex items-center gap-3">
+                  <div className="col-span-2 lg:col-span-5 flex gap-8">
+                  <div className="flex items-center gap-3">
                      <FontAwesomeIcon icon={faSun} className={`text-yellow-300 ${theme && " opacity-30"}`} />
                      <button
                         className={`p-[2px] w-[3rem] flex flex-col  bg-gray-200  dark:bg-gray-950 rounded-full border dark:border-gray-800`}
@@ -158,6 +160,8 @@ export default function Footer({ countries }) {
                         <span className={`block h-4 w-4 shadow-md rounded-full bg-gray-400 dark:bg-gray-700 transition-[margin] duration-300 ${theme ? "mr-6" : "m-0"}`}></span>
                      </button>
                      <FontAwesomeIcon icon={faMoon} className={`text-gray-200 ${!theme && "opacity-30"}`} />
+                  </div>
+                  <button className='underline' onClick={() => dispatch(handelLangs(!en))}>{en ? "العربية" : "English"}</button>
                   </div>
                </div>
                <div className="py-10 text-sm border-t flex flex-col md:flex-row gap-10 justify-between items-center md:items-start">

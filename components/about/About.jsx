@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import BtnArrow from '../BtnArrow'
 
-const About = ({ data }) => {
+const About = ({ data, en }) => {
   const [value, setValue] = useState(0)
   return (
     <div className={styles.about} id='about'>
@@ -12,7 +12,7 @@ const About = ({ data }) => {
           <h2
             className={styles.about__title}
           >
-            عن وسام النجاح
+            {en ? "About Wesam El-Nagah" : "عن وسام النجاح"}
           </h2>
           {/* tabs */}
           <div
@@ -26,6 +26,7 @@ const About = ({ data }) => {
                   value === i ? styles.about__tab__active : ''
                 }`}
               >
+                {/* {en ? tab.title.en : tab.title.ar} */}
                 {tab.title}
               </button>
             ))}
@@ -54,12 +55,15 @@ const About = ({ data }) => {
             <h3
               className={styles.about__item__title}
             >
+              {/* {en ? data[value].subtitle.en : data[value].subtitle.ar} */}
               {data[value].subtitle}
             </h3>
             <div
               className={styles.about__item__content}
             >
+              {/* <p className={styles.about__item__text}>{en ? data[value].content.en : data[value].content.ar}</p> */}
               <p className={styles.about__item__text}>{data[value].content}</p>
+              {/* <BtnArrow title={en ? data[value].title.en : data[value].title.ar} href={'/contact'} /> */}
               <BtnArrow title={data[value].title} href={'/contact'} />
             </div>
           </div>

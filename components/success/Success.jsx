@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import BtnArrow from '../BtnArrow'
+import { useSelector } from 'react-redux'
 
 const Success = ({ data, features_slides }) => {
+  const en = useSelector((state) => state.langs.value);
   const [activeIndex, setActiveIndex] = useState(0)
   const changebg = () => {
     if (activeIndex !== features_slides.length - 1) {
@@ -23,9 +25,9 @@ const Success = ({ data, features_slides }) => {
     <div className={`grid grid-cols-12 ${styles.success__container}`} id='success'>
       <div className={`col-span-12 xl:col-span-5 gap-4 xl:gap-20 ${styles.success__top}`}>
         <h2
-          className={styles.success__title}
+          className={en ? styles.success__title + ' w-[250px]' : styles.success__title + ' w-1/2'}
         >
-          مميزات وسام النجاح
+          {en ? "Advantages of Wesam El-Nagah" : "مميزات وسام النجاح"}
         </h2>
         <div
           className={styles.success__tabs}
@@ -38,12 +40,14 @@ const Success = ({ data, features_slides }) => {
                 activeIndex === i ? styles.success__tab__active : ''
               }`}
             >
+              {/* {en ? tab.name.en : tab.name.ar} */}
               {tab.name}
+              {activeIndex == i && <div className={`line absolute top-1/2 w-[70px] h-[4px] bg-white ${en ? "right-[-140px]" : "left-[-140px]"}`}></div>}
             </button>
           ))}
         </div>
         <Link href='/about' className={"border-b pb-2 hidden xl:block text-xs whitespace-nowrap"}>
-          عرض مميزات وسام النجاح
+        {en ? "Advantages of Wesam El-Nagah" : "مميزات وسام النجاح"}
         </Link>
       </div>
       <div className={`col-span-12 xl:col-span-7 ${styles.success__content}`}>

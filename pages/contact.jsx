@@ -14,6 +14,7 @@ import Link from "next/link";
 
 export default function Contact({ slide }) {
    const settings = useSelector((state) => state.settings.value);
+   const en = useSelector((state) => state.langs.value);
    const dispatch = useDispatch();
    const [snackbarMsg, setSnackbarMsg] = useState("");
    const [formErrors, setFormErrors] = useState({});
@@ -136,14 +137,17 @@ export default function Contact({ slide }) {
             </div>
             <div className="container">
                <div className="hidden mb-8 md:block border-b dark:border-gray-700">
-                  <Breadcrumbs list={[{ title: "تواصل معنا" }]} />
+                  <Breadcrumbs
+                     list={[{ title: en ? "Contact us" : "تواصل معنا" }]}
+                  />
                </div>
                <div className="grid grid-cols-1 gap-8 md:grid-cols-6 dark:text-white pb-8">
                   <div className="md:col-span-4">
-                     <h2 className="text-2xl my-4 md:m-0">تواصل معنا</h2>
+                     <h2 className="text-2xl my-4 md:m-0">
+                        {en ? "Contact us" : "تواصل معنا"}
+                     </h2>
                      <p>
-                        الرجاء ملء النموذج التالي لتصلنا رسالتك بالبريد
-                        الإلكتروني
+                        {en ? "Please fill out the following form to receive your message by e-mail" : "الرجاء ملء النموذج التالي لتصلنا رسالتك بالبريد الإلكتروني"}
                      </p>
                      <form
                         onSubmit={(e) => handleSubmit(e)}
@@ -156,7 +160,7 @@ export default function Contact({ slide }) {
                                  htmlFor="name"
                                  className="flex gap-4 items-end"
                               >
-                                 الاسم الاول
+                                 {en ? "First Name" : "الاسم الاول"}
                                  <small
                                     style={{ color: "red", fontSize: ".6rem" }}
                                  >
@@ -167,7 +171,7 @@ export default function Contact({ slide }) {
                                  type="text"
                                  id="first_name"
                                  name="first_name"
-                                 className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded"
+                                 className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded outline-none"
                               />
                            </div>
                            <div className="flex flex-col gap-4">
@@ -175,7 +179,7 @@ export default function Contact({ slide }) {
                                  htmlFor="name"
                                  className="flex gap-4 items-end"
                               >
-                                 الاسم الاخير
+                                 {en ? "Last Name" : "الاسم الاخير"}
                                  <small
                                     style={{ color: "red", fontSize: ".6rem" }}
                                  >
@@ -186,7 +190,7 @@ export default function Contact({ slide }) {
                                  type="text"
                                  id="last_name"
                                  name="last_name"
-                                 className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded"
+                                 className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded outline-none"
                               />
                            </div>
                            <div className="flex flex-col gap-4">
@@ -194,7 +198,7 @@ export default function Contact({ slide }) {
                                  htmlFor="phone"
                                  className="flex gap-4 items-end"
                               >
-                                 رقم الجوال
+                                 {en ? "Phone number" : "رقم الجوال"}
                                  <small
                                     style={{ color: "red", fontSize: ".6rem" }}
                                  >
@@ -205,7 +209,7 @@ export default function Contact({ slide }) {
                                  type="number"
                                  id="phone"
                                  name="phone"
-                                 className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded"
+                                 className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded outline-none"
                               />
                            </div>
                            <div className="flex flex-col gap-4">
@@ -213,7 +217,7 @@ export default function Contact({ slide }) {
                                  htmlFor="email"
                                  className="flex gap-4 items-end"
                               >
-                                 البريد الالكتروني
+                                 {en ? "Email" : "البريد الالكتروني"}
                                  <small
                                     style={{ color: "red", fontSize: ".6rem" }}
                                  >
@@ -224,7 +228,7 @@ export default function Contact({ slide }) {
                                  type="text"
                                  id="email"
                                  name="email"
-                                 className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded"
+                                 className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded outline-none"
                               />
                            </div>
                         </div>
@@ -233,7 +237,7 @@ export default function Contact({ slide }) {
                               htmlFor="phone"
                               className="flex gap-4 items-end"
                            >
-                              الموضوع
+                              {en ? "Subject" : "الموضوع"}
                               <small
                                  style={{ color: "red", fontSize: ".6rem" }}
                               >
@@ -244,7 +248,7 @@ export default function Contact({ slide }) {
                               size="1"
                               name="subject"
                               id="subject"
-                              className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded"
+                              className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded outline-none"
                               autocomplete="off"
                            >
                               <option selected="selected" value="">
@@ -264,7 +268,7 @@ export default function Contact({ slide }) {
                               htmlFor="message"
                               className="flex gap-4 items-end"
                            >
-                              الرسالة
+                              {en ? "Message" : "الرسالة"}
                               <small
                                  style={{ color: "red", fontSize: ".6rem" }}
                               >
@@ -275,7 +279,7 @@ export default function Contact({ slide }) {
                               id="message"
                               name="message"
                               rows="5"
-                              className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded"
+                              className="dark:bg-gray-900 border dark:border-gray-700 px-4 py-3 bg-gray-100 rounded outline-none"
                            />
                         </div>
                         <div className="flex gap-4 justify-end">
@@ -283,13 +287,13 @@ export default function Contact({ slide }) {
                               type="reset"
                               className="dark:bg-yellow-600 text-white bg-yellow-400 dark:text-black px-4 py-3 rounded-md border dark:border-yellow-700 border-yellow-500"
                            >
-                              إعادة ضبط
+                              {en ? "Reset" : "إعادة ضبط"}
                            </button>
                            <button
                               type="submit"
                               className="bg-secondary text-white dark:bg-gray-200 dark:text-black px-4 py-3 rounded-md border border-gray-800 dark:border-gray-400"
                            >
-                              ارسال
+                              {en ? "Send" : "ارسال"}
                            </button>
                         </div>
                      </form>
@@ -298,11 +302,11 @@ export default function Contact({ slide }) {
                      <div className="bg-gray-100 dark:bg-gray-900">
                         <div className="p-4 flex items-end gap-4 bg-secondary text-white dark:bg-gray-800">
                            <span className="text-3xl bold">24/7</span>
-                           <h3 className="text-xl">خدمة العملاء</h3>
+                           <h3 className="text-xl">{en ? "Call center" : "خدمة العملاء"}</h3>
                         </div>
                         <div className="p-4 space-y-4">
                            <div className="flex flex-col gap-2 text-sm">
-                              <div className="tex">للاتصال:</div>
+                              <div className="tex">{en ? "Call" : "للاتصال"}:</div>
                               <Link
                                  href="#"
                                  className="flex flex-col text-gray-600 dark:text-primary"
@@ -323,7 +327,7 @@ export default function Contact({ slide }) {
                               </Link>
                            </div>
                            <div className="flex flex-col gap-2 text-sm">
-                              <div className="tex">للتواصل عبر الواتساب:</div>
+                              <div className="tex">{en ? "Contact via WhatsApp" : "للتواصل عبر الواتساب"}:</div>
                               <Link
                                  href="#"
                                  className="flex flex-col text-gray-600 dark:text-primary"
@@ -335,7 +339,7 @@ export default function Contact({ slide }) {
                               </Link>
                            </div>
                            <div className="flex flex-col gap-2 text-sm">
-                              <div className="tex">لأي استفسارات أخرى:</div>
+                              <div className="tex">{en ? "For any other inquiries" : "لأي استفسارات أخرى"}:</div>
                               <Link
                                  href="#"
                                  className="flex flex-col text-gray-600 dark:text-primary"
@@ -351,31 +355,61 @@ export default function Contact({ slide }) {
                         </div>
                      </div>
                      <div className="bg-gray-100 dark:bg-gray-900 p-4 space-y-4">
-                        <h4 className="text-xl">عنواننا:</h4>
-                        <Link href="https://www.google.com/maps/place/24%C2%B042'28.7%22N+46%C2%B037'39.0%22E/@24.707979,46.6254091,16z/data=!4m4!3m3!8m2!3d24.7079785!4d46.627512?hl=en-US" className="flex text-gray-600 hover:underline">
-                        حى الرائد-طرق الملك عبد اللة -امام مستشفى الملك خالد - بجوار شركة موبايلى
+                        <h4 className="text-xl">{en ? "Our Address" : "عنواننا"}:</h4>
+                        <Link
+                           href="https://www.google.com/maps/place/24%C2%B042'28.7%22N+46%C2%B037'39.0%22E/@24.707979,46.6254091,16z/data=!4m4!3m3!8m2!3d24.7079785!4d46.627512?hl=en-US"
+                           className="flex text-gray-600 hover:underline"
+                        >
+                           {settings.address}
                         </Link>
                      </div>
                   </div>
                </div>
                <div className="grid grid-cols-1 md:grid-cols-3 max-w-4xl gap-6 py-16 mx-auto">
-                  <Link href={"#"} className="scc flex items-center flex-col gap-4 p-4 rounded-lg shadow-lg">
+                  <Link
+                     href={"#"}
+                     className="scc flex items-center flex-col gap-4 p-4 rounded-lg shadow-lg"
+                  >
                      <div className="relative rounded-full w-32 h-32 bg-primary/50 shadow-md">
-                        <Image src="/icons/terms.png" alt="icon" width={70} height={70} className="absolute drop-shadow-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-contain" />
+                        <Image
+                           src="/icons/terms.png"
+                           alt="icon"
+                           width={70}
+                           height={70}
+                           className="absolute drop-shadow-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-contain"
+                        />
                      </div>
-                     <h6>الشروط و الأحكام</h6>
+                     <h6>{en ? "Terms & Conditions" : "الشروط و الأحكام"}</h6>
                   </Link>
-                  <Link href={"#"} className="scc flex items-center flex-col gap-4 p-4 rounded-lg shadow-lg">
+                  <Link
+                     href={"#"}
+                     className="scc flex items-center flex-col gap-4 p-4 rounded-lg shadow-lg"
+                  >
                      <div className="relative rounded-full w-32 h-32 bg-primary/50 shadow-md">
-                        <Image src="/icons/privacy.png" alt="icon" width={70} height={70} className="absolute drop-shadow-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-contain" />
+                        <Image
+                           src="/icons/privacy.png"
+                           alt="icon"
+                           width={70}
+                           height={70}
+                           className="absolute drop-shadow-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-contain"
+                        />
                      </div>
-                     <h6>سياسة الخصوصية</h6>
+                     <h6>{en ? "Privacy policy" : "سياسة الخصوصية"}</h6>
                   </Link>
-                  <Link href={"#"} className="scc flex items-center flex-col gap-4 p-4 rounded-lg shadow-lg">
+                  <Link
+                     href={"#"}
+                     className="scc flex items-center flex-col gap-4 p-4 rounded-lg shadow-lg"
+                  >
                      <div className="relative rounded-full w-32 h-32 bg-primary/50 shadow-md">
-                        <Image src="/icons/help.png" alt="icon" width={70} height={70} className="absolute drop-shadow-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-contain" />
+                        <Image
+                           src="/icons/help.png"
+                           alt="icon"
+                           width={70}
+                           height={70}
+                           className="absolute drop-shadow-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-contain"
+                        />
                      </div>
-                     <h6>الأسئلة الشائعة</h6>
+                     <h6>{en ? "FAQs" : "الأسئلة الشائعة"}</h6>
                   </Link>
                </div>
             </div>

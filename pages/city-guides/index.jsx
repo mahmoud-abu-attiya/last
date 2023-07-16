@@ -15,6 +15,7 @@ export default function Index({ data, guide }) {
       console.log(guide.tours);
    }, [])
    const settings = useSelector((state) => state.settings.value);
+   const en = useSelector((state) => state.langs.value);
    const countries = data.countries;
    return (
       <>
@@ -45,11 +46,11 @@ export default function Index({ data, guide }) {
             <div className="hidden md:block top h-20 md:h-44 bg-secondary w-full"></div>
             <div className='container max-w-7xl'>
                <div className="border-b hidden md:block dark:border-gray-700">
-                  <Breadcrumbs list={[{ title: "الدليل السياحي" }]} />
+                  <Breadcrumbs list={[{ title: en ? "Tourist guide" : "الدليل السياحي" }]} />
                </div>
                <div className="py-12 md:py-20">
-                  <h1 className='text-xl md:text-2xl mb-4 dark:text-white'>الدليل السياحي</h1>
-                  <p className='text-gray-500 dark:text-gray-400'>اكتشف معنا أروع وجهات السفر</p>
+                  <h1 className='text-xl md:text-2xl mb-4 dark:text-white'>{en ? "Tourist guide" : "الدليل السياحي"}</h1>
+                  <p className='text-gray-500 dark:text-gray-400'>{en ? "Discover with us the most amazing travel destinations" : "اكتشف معنا أروع وجهات السفر"}</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
                      {countries.map((country) => (
                         <Link className='group overflow-hidden rounded-lg cursor-pointer' key={country.id} href={`/city-guides/${country.id}`}>

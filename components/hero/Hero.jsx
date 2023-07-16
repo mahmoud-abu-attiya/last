@@ -49,7 +49,7 @@ export default function Hero({ slides }) {
                </div>
             )
          })}
-         <div className={`${styles.btns} absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4 xl:gap-12 z-10`}>
+         <div dir='rtl' className={`${styles.btns} absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4 xl:gap-12 z-10`}>
             <button className="btn p-4 group opacity-50 hover:opacity-100" onClick={prev}>
             <Image src="/icons/prev-arrow.svg" className='group-hover:translate-x-4 transition' alt="arrow-left" width={100} height={100} />
             </button>

@@ -8,9 +8,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import { useEffect } from 'react';
 
-const SpecialCard = ({ item }) => {
+const SpecialCard = ({ item, en }) => {
   return (
-    <div className="bg-gray-200 mx-4 dark:bg-gray-800 rounded-lg overflow-hidden" dir='rtl'>
+    <div className="bg-gray-200 mx-4 dark:bg-gray-800 rounded-lg overflow-hidden" dir={en ? "ltr" : 'rtl'}>
       <div className="relative h-[14rem]">
         <Image src={item.image} alt={item.title} fill className='object-cover' />
       </div>
@@ -20,7 +20,7 @@ const SpecialCard = ({ item }) => {
         <div className="flex items-center justify-between mt-4">
           <span className="text-gray-800 dark:text-gray-100 font-bold text-sm">3500 ريال</span>
           <Link href={`/special-offers/${item.id}`} className="text-[#ff234f] text-sm hover:underline">
-            عرض التفاصيل
+            {en ? "View details" : "عرض التفاصيل"}
           </Link>
         </div>
       </div>
@@ -28,104 +28,7 @@ const SpecialCard = ({ item }) => {
   )
 }
 
-const Special = ({ data }) => {
-  // const slides = data.concat(data.slice(0, 4))
-  // slides.unshift(data[data.length - 1])
-  // const step = 100 / slides.length
-  // let [translate, setTranslate] = useState(step)
-  // let [index, setIndex] = useState(1)
-  // const [transition, setTransition] = useState(true)
-  // const [canClick, setCanClick] = useState(true)
-  // const [position, setPosition] = useState(null)
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [])
-
-
-  // const next = () => {
-  //   if (!canClick) return
-  //   setCanClick(false)
-  //   setIndex(index + 1)
-  //   setTranslate((index + 1) * (step))
-  //   if (index === slides.length - 5) {
-  //     setTimeout(() => {
-  //       setTransition(false)
-  //       setTranslate(step)
-  //       setIndex(1)
-  //       setTimeout(() => {
-  //         setTransition(true)
-  //         setCanClick(true)
-  //       }, 10)
-  //     }, 500);
-  //   } else {
-  //     setTimeout(() => {
-  //       setCanClick(true)
-  //     }, 500);
-  //   }
-  // }
-
-  // const prev = () => {
-  //   if (!canClick) return
-  //   setCanClick(false)
-  //   if (index === 1) {
-  //     setTransition(false)
-  //     setTranslate((100 / slides.length) * (slides.length - 4))
-  //     setIndex(slides.length - 4)
-  //     translate = (100 / slides.length) * (slides.length - 4)
-  //     index = slides.length - 4
-  //     setTimeout(() => {
-  //       setTransition(true)
-  //       setIndex(index - 1)
-  //       setTranslate(translate - 100 / slides.length)
-  //       setTimeout(() => {
-  //         setCanClick(true)
-  //       }, 500);
-  //     }, 10);
-  //   } else {
-  //     setIndex(index - 1)
-  //     setTranslate(translate - 100 / slides.length)
-  //     setTimeout(() => {
-  //       setCanClick(true)
-  //     }, 500);
-  //   }
-
-  // }
-
-  // const handleStart = (e) => {
-  //   let down;
-  //   if (e.touches) {
-  //     down = e.touches[0].clientX
-  //   } else {
-  //     down = e.clientX
-  //   }
-  //   setPosition(down)
-  // }
-
-  // const handleMove = (e) => {
-  //   const down = position
-
-  //   if (down === null) {
-  //     return
-  //   }
-
-  //   let current;
-  //   if (e.touches) {
-  //     current = e.touches[0].clientX
-  //   } else {
-  //     current = e.clientX
-  //   }
-  //   const diff = down - current
-
-  //   if (diff > 5) {
-  //     prev()
-  //   }
-
-  //   if (diff < -5) {
-  //     next()
-  //   }
-
-  //   setPosition(null)
-  // }
+const Special = ({ data, en }) => {
 
   const SampleNextArrow = (props) => {
     const { onClick } = props;
@@ -175,7 +78,7 @@ const Special = ({ data }) => {
       <h3
         className={`mb-10 text-gray-600 dark:text-gray-100 ${styles.news__title}`}
       >
-        العروض المميزة
+        {en ? "Special Offers" : "العروض المميزة"}
       </h3>
       {/* <div className='w-full md:container special overflow-hidden' onTouchStart={handleStart} onTouchMove={handleMove} onMouseMove={handleMove} onMouseDown={handleStart}>
         <div className='swiper-wrapper'>
@@ -195,14 +98,14 @@ const Special = ({ data }) => {
           {data.map((slide, index) => {
             return (
               <SpecialCard
-                key={index} item={slide}
+                key={index} item={slide} en={en}
               />
             )
           })}
         </Slider>
       </div>
       <Link href='/special-offers' className={`border-b-2 border-secondary dark:border-gray-300 text-secondary dark:text-gray-300 ${styles.view__all}`}>
-        عرض الكل
+        {en ? "View All" : "عرض الكل"}
       </Link>
       {/* <div className='flex gap-20 text-center items-center justify-center mt-20'>
         <button className="btn p-4 group hover:translate-x-3 duration-500" onClick={prev}>

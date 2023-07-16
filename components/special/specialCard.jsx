@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-const SpecialCard = ({ item }) => {
+const SpecialCard = ({ item, en }) => {
   const settings = useSelector((state) => state.settings.value)
   const router = useRouter()
   const routerTo = () => {
@@ -25,7 +25,7 @@ const SpecialCard = ({ item }) => {
         />
         <div className={styles.card__content}>
           <Link href={`/special-offers/${item.id}`} className={styles.card__btn}>
-              التفاصيل
+              {en ? "Details" : "التفاصيل"}
               {/* <BsArrowLeft className={styles.card__btn__icon} /> */}
               <span className={styles.card__btn__icon}>
 

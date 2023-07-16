@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './index.module.css'
 import Snackbar from '../snackbar'
 
-const Events = ({ event }) => {
+const Events = ({ event, en }) => {
   const [formError, setFormError] = useState({})
 
   const [date, setDate] = useState({
@@ -89,7 +89,7 @@ const Events = ({ event }) => {
       <h2
         className={`text-secondary dark:text-white ${styles.title}`}
       >
-        أخر الأحداث
+        {en ? "Latest events" : "أخر الأحداث"}
       </h2>
       <div className='container'>
         <div className={styles.info}>
@@ -98,11 +98,11 @@ const Events = ({ event }) => {
           >
             <div className={`dark:bg-gray-900 border dark:border-gray-700 ${styles.unit}`}>
               <span className={styles.unit__firstSpan}>{date.days || 0}</span>
-              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>يوم</span>
+              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>{en ? "Day" : "يوم"}</span>
             </div>
             <div className={`dark:bg-gray-900 border dark:border-gray-700 ${styles.unit}`}>
               <span className={styles.unit__firstSpan}>{date.hours || 0}</span>
-              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>ساعة</span>
+              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>{en ? "Houre" : "ساعة"}</span>
             </div>
             <div className={`dark:bg-gray-900 border dark:border-gray-700 ${styles.unit}`}>
               <span className={styles.unit__firstSpan}>
@@ -110,7 +110,7 @@ const Events = ({ event }) => {
                   ? `0${date.minutes || 0}`
                   : date.minutes || 0}
               </span>
-              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>دقيقة</span>
+              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>{en ? "Minute" : "دقيقة"}</span>
             </div>
             <div className={`dark:bg-gray-900 border dark:border-gray-700 ${styles.unit}`}>
               <span className={styles.unit__firstSpan}>
@@ -118,17 +118,19 @@ const Events = ({ event }) => {
                   ? `0${date.seconds || 0}`
                   : date.seconds || 0}
               </span>
-              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>ثانية</span>
+              <span className={` border-t dark:border-gray-700 ${styles.unit__lastSpan}`}>{en ? "Second" : "ثانية"}</span>
             </div>
           </div>
           <h2
             className={`text-secondary dark:text-white ${styles.title}`}
           >
+            {/* {en ? event.title.en : event.title.ar} */}
             {event.title}
           </h2>
           <p
             className={`text-gray-600 dark:text-gray-400 ${styles.description}`}
           >
+            {/* {en ? event.content.en : event.content.ar} */}
             {event.content}
           </p>
         </div>
@@ -137,13 +139,13 @@ const Events = ({ event }) => {
             <div className={styles.form__field}>
               <input
                 type='text'
-                placeholder='ادخل البريد الالكتروني'
+                placeholder={en ? "Enter email" : 'ادخل البريد الالكتروني'}
                 name='email'
                 className={`dark:bg-gray-800 dark:text-white ${styles.email__input}`}
                 noValidate
               />
               <button type='submit' className={styles.submit__input}>
-                اشترك
+                {en ? "Subscribe" : "اشترك"}
               </button>
             </div>
             <small style={{ color: 'red' }}>{formError.email}</small>

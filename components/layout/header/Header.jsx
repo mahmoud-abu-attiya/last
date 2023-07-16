@@ -14,6 +14,7 @@ export default function Header() {
   const settings = useSelector((state) => state.settings.value);
   const forPrograms = useSelector((state) => state.forPrograms.value);
   const backto = useSelector((state) => state.backto.value);
+  const en = useSelector((state) => state.langs.value);
   const [countries, setCounties] = useState();
 
   const [showHeader, setShowHeader] = useState(false); // to hide/show on scroll
@@ -45,13 +46,13 @@ export default function Header() {
     const value = event.target.querySelector('input').value;
     console.log(value);
     const result = forPrograms.filter(({ name }) => name.startsWith(value));
-    setCounties(value ? result : setResponse(' لا توجد نتائج'));
-    result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج');
+    setCounties(value ? result : setResponse(en ? "No Result" : ' لا توجد نتائج'));
+    result.length !== 0 ? setResponse('') : setResponse(en ? "No Result" : ' لا توجد نتائج');
   };
   const search = (value) => {
     const result = forPrograms.filter(({ name }) => name.startsWith(value));
-    setCounties(value ? result : setResponse(' لا توجد نتائج'));
-    result.length !== 0 ? setResponse('') : setResponse(' لا توجد نتائج');
+    setCounties(value ? result : setResponse(en ? "No Result" : ' لا توجد نتائج'));
+    result.length !== 0 ? setResponse('') : setResponse(en ? "No Result" : ' لا توجد نتائج');
   };
   return (
     <>
@@ -113,7 +114,7 @@ export default function Header() {
           >
             <input
               type='text'
-              placeholder='البحث'
+              placeholder={en ? "Search" : 'البحث'}
               // value={searchTerm}
               onChange={(e) => {
                 // setSearchTerm(event.target.value)
@@ -123,7 +124,7 @@ export default function Header() {
               className={`border-b text-black focus:border-primary dark:bg-gray-900 dark:text-white dark:border-gray-700 ${styles.search__input}`}
             />
             <button type='submit' className={`text-secondary dark:text-white ${styles.search__btn}`}>
-              ابحث
+            {en ? "Search" : 'ابحث'}
               {/* <BsArrowLeft /> */}
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
@@ -189,7 +190,7 @@ export default function Header() {
               className={styles.header__menu__btn}
               onClick={() => setShowMenu(true)}
             >
-              <span>القائمة</span>
+              <span>{en ? "Menu" : "القائمة"}</span>
               <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="0.8em" width="0.8em" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="5" cy="5" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="19" cy="5" r="1"></circle><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="19" r="1"></circle><circle cx="12" cy="19" r="1"></circle><circle cx="19" cy="19" r="1"></circle></svg>
             </span>
           </div>

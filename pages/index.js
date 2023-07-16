@@ -18,6 +18,7 @@ export default function Home({ data }) {
       dispatch(setBacktoData(false))
    }, []);
    const settings = useSelector((state) => state.settings.value);
+   const en = useSelector((state) => state.langs.value);
    const {
       features = [],
       about_wsam_elngah = [],
@@ -51,13 +52,13 @@ export default function Home({ data }) {
             />
          </Head>
          <Hero slides={slides} />
-         <Programs data={latest_discounts} />
-         <Success data={features} features_slides={features_slides} />
-         <Tripes />
-         <About data={about_wsam_elngah} />
-         <Special data={special_offers} />
-         <Events event={event} />
-         <NewPrograms programs={latest_programs} />
+         <Programs data={latest_discounts} en={en} />
+         <Success data={features} features_slides={features_slides} en={en} />
+         <Tripes en={en} />
+         <About data={about_wsam_elngah} en={en} />
+         <Special data={special_offers} en={en} />
+         <Events event={event} en={en} />
+         <NewPrograms programs={latest_programs} en={en} />
       </>
    );
 }

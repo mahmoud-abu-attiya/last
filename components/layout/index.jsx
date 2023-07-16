@@ -12,6 +12,7 @@ export default function Layout({ children, countries, footerCountries, settings 
    dispatch(setSettingsData(settings))
    dispatch(setForProgramsData(countries))
    const theme = useSelector((state) => state.theme.value);
+   const en = useSelector((state) => state.langs.value);
    useEffect(() => {
       if (theme === true) {
          document.documentElement.classList.add("dark");
@@ -29,10 +30,10 @@ export default function Layout({ children, countries, footerCountries, settings 
       }
    }, []);
    return (
-      <>
+      <main dir={en ? "ltr" : "rtl"}>
          <Header />
          {children}
          <Footer countries={footerCountries} />
-      </>
+      </main>
    )
 }

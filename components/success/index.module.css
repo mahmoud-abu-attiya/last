@@ -18,8 +18,8 @@
 }
 .success__title {
   font-size: 2.5rem;
-  width: 55%;
-  text-align: right;
+  /* width: 55%; */
+  /* text-align: right; */
 }
 .success__tabs {
   display: flex;
@@ -44,17 +44,16 @@
   position: relative;
   transform: translateX(-1rem);
 }
-.success__tab__active::after {
+/* .success__tab__active .line {
   content: '';
   position: absolute;
   top: 50%;
-  left: -140px;
   transform: translateY(-50%);
   width: 70px;
   height: 4px;
   background-color: white;
   border-radius: 20px;
-}
+} */
 .success__item {
   display: flex;
   flex-direction: column;

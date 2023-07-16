@@ -1,14 +1,16 @@
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { useSelector } from 'react-redux'
 
 const Breadcrumbs = ({ list }) => {
+   const en = useSelector((state) => state.langs.value);
    return (
       <nav className="flex py-4" aria-label="Breadcrumb">
          <ol className="inline-flex items-center gap-4">
             <li className="inline-flex items-center">
                <Link href={"/"} className="inline-flex text-primary items-center text-xs md:text-sm gap-4">
-                  الرئيسية
+                  {en ? "Home" : "الرئيسية"}
                   {/* <i className="far fa-angle-left text-primary"></i> */}
                   <FontAwesomeIcon icon={faAngleLeft} className='text-primary' />
                </Link>

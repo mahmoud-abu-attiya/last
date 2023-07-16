@@ -10,7 +10,7 @@
   position: relative;
   align-items: flex-start;
   gap: 4.2rem;
-  padding-right: 2rem;
+  /* padding-right: 2rem; */
 }
 .tripes__tab {
   transition: 0.2s;

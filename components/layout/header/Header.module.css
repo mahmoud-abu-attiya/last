@@ -142,7 +142,7 @@
   position: relative;
   transform: translateY(3px);
 }
-.header__search::after {
+/* .header__search::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -152,7 +152,7 @@
   height: 40px;
   background-color: lightgray;
   opacity: 0.5;
-}
+} */
 .header__search svg {
   font-size: 1.5rem;
   color: white;

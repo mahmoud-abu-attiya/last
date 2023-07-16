@@ -136,10 +136,11 @@ export default function Daleel() {
       dispatch(setBacktoData({ href: '/city-guides', title: 'الدليل السياحي' }))
    }, []);
    const settings = useSelector(state => state.settings.value)
+   const en = useSelector(state => state.langs.value);
    const data = {
       id: 1,
-      title: "الدليل السياحي",
-      desc: 'اكتشف معنا أروع وجهات السفر',
+      title: en ? "Tourist guide" : "الدليل السياحي",
+      desc: en ? "Discover with us the most amazing travel destinations" : 'اكتشف معنا أروع وجهات السفر',
       image: "https://backend.elnagahtravels.com/storage/countries/VDHSwd11Kov6I5ZqcAfrptFR5vrl6WPN0a0n6ldb.jpg"
    }
    const list = [
@@ -148,7 +149,7 @@ export default function Daleel() {
          href: "/city-guides"
       },
       {
-         title: "الدولة",
+         title: en ? "Country" : "الدولة",
       },
    ]
    return (
@@ -190,11 +191,11 @@ export default function Daleel() {
             <div className="border-b hidden lg:block dark:border-gray-700">
                <Breadcrumbs list={list} />
             </div>
-            <p className={`my-4 md:my-6 max-w-3xl text-justify ${noto.className}`}>تعد جزر المالديف الوجهة السياحية الأنسب لعشاق البحر والشمس، فهي جزيرة ساحرة تضم العديد من الشواطئ الخلابة ذات المياه الكريستالية. استمتع بالرياضات المائية في المياه الصافية، وشاهد الشعاب المرجانية، تناول ألذ المأكولات البحرية، واستمتع بالرفاهية في أروع منتجعات الجزيرة التي تضمن لك تجربة ولا أروع. سواء كنت ترغب في الاسترخاء على الشاطئ ومشاهدة غروب الشمس، أو تخطّط للاستمتاع بتجربة فريدة في أفضل المنتجعات العالمية فإن جزر المالديف بطابعها الخاص تمنحك الأجواء المناسبة لتمضي أروع الأوقات.</p>
+            <p className={`my-4 md:my-6 max-w-3xl text-justify ${!en && noto.className}`}>{en ? "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi perspiciatis dolorem iure repudiandae similique molestiae itaque consequatur aut autem quasi animi harum recusandae beatae esse, atque accusamus quam quas neque deleniti vitae praesentium minus cupiditate optio. Ea, repudiandae! Recusandae laboriosam voluptates fugiat, quibusdam possimus aut. Impedit aut accusamus temporibus beatae." : "تعد جزر المالديف الوجهة السياحية الأنسب لعشاق البحر والشمس، فهي جزيرة ساحرة تضم العديد من الشواطئ الخلابة ذات المياه الكريستالية. استمتع بالرياضات المائية في المياه الصافية، وشاهد الشعاب المرجانية، تناول ألذ المأكولات البحرية، واستمتع بالرفاهية في أروع منتجعات الجزيرة التي تضمن لك تجربة ولا أروع. سواء كنت ترغب في الاسترخاء على الشاطئ ومشاهدة غروب الشمس، أو تخطّط للاستمتاع بتجربة فريدة في أفضل المنتجعات العالمية فإن جزر المالديف بطابعها الخاص تمنحك الأجواء المناسبة لتمضي أروع الأوقات."}</p>
             <div className="my-4 md:my-6">
-               <h2 className=''>مستجدات السفر</h2>
-               <p className={`my-4 max-w-3xl ${noto.className}`}>تعرّف على آخر مستجدات السفر، إجراءات السلامة وقيود الدخول إلى جزر المالديف. <Link className='text-blue-500 hover:underline' href={"#"}>عرض التفاصيل</Link></p>
-               <mark className={`my-4 max-w-3xl text-ellipsis ${noto.className}`}> <strong>ملاحظة:</strong> <em>قد تكون بعض المعالم المذكورة مغلقة حالياً نظراً للقيود المفروضة على الحركة</em></mark>
+               <h2 className=''>{en ? "Travel updates" : "مستجدات السفر"}</h2>
+               <p className={`my-4 max-w-3xl ${!en && noto.className}`}>تعرّف على آخر مستجدات السفر، إجراءات السلامة وقيود الدخول إلى جزر المالديف. <Link className='text-blue-500 hover:underline' href={"#"}>عرض التفاصيل</Link></p>
+               <mark className={`my-4 max-w-3xl text-ellipsis ${!en && noto.className}`}> <strong>ملاحظة:</strong> <em>قد تكون بعض المعالم المذكورة مغلقة حالياً نظراً للقيود المفروضة على الحركة</em></mark>
             </div>
             <div className="flibs flex gap-4 flex-wrap">
                <div className="flip-card text-center city_flip rounded-xl relative mx-auto md:m-0">

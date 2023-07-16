@@ -47,7 +47,7 @@ export default function Document() {
                `}
             </Script>
          </Head>
-         <body dir="rtl" className="dark:bg-gray-950">
+         <body className="dark:bg-gray-950">
             <Main />
             <NextScript />
             <noscript

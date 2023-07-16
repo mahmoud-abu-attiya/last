@@ -6,55 +6,86 @@ import styles from '../Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons'
 import { faYoutube, faTwitter, faTiktok, faSnapchat, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { useSelector } from 'react-redux'
 
 export const headerLinks = [
   {
-    text: 'الرئيسية',
+    text:{
+      en: "Home",
+      ar:  'الرئيسية',
+    },
     route: '/',
     icon: "/icons/home.svg"
   },
   {
-    text: 'البرامج السياحية',
+    text:{
+      en: "Tourism programmes",
+      ar:  'البرامج السياحية',
+    },
     route: '/our-programs',
     icon: "/icons/flag.svg"
   },
   {
-    text: 'العروض المميزة',
+    text:{
+      en: "Special Offers",
+      ar:  'العروض المميزة',
+    },
     route: '/special-offers',
     icon: "/icons/thunder.svg"
   },
   {
-    text: 'الدليل السياحي',
+    text:{
+      en: "Tourist guide",
+      ar:  'الدليل السياحي',
+    },
     route: '/city-guides',
     icon: "/icons/offer.svg"
   },
   {
-    text: 'الطيران',
+    text:{
+      en: "Aviation",
+      ar:  'الطيران',
+    },
     route: '/aviation',
     icon: "/icons/plane.svg"
   },
   {
-    text: 'حجز فنادق',
+    text:{
+      en: "Hotel reservation",
+      ar:  'حجز فنادق',
+    },
     route: '/book-hotel',
     icon: "/icons/hotel.svg"
   },
   {
-    text: 'تصميم برنامج سياحي',
+    text:{
+      en: "Tourism program design",
+      ar:  'تصميم برنامج سياحي',
+    },
     route: '/design-program',
     icon: "/icons/design.svg"
   },
   {
-    text: 'رحلات بحرية',
+    text:{
+      en: "Sea ​​tripes",
+      ar:  'رحلات بحرية',
+    },
     route: '/sea-tripes',
     icon: "/icons/boot.svg"
   },
   {
-    text: 'تواصل معنا',
+    text:{
+      en: "Contact",
+      ar:  'تواصل معنا',
+    },
     route: '/contact',
     icon: "/icons/user.svg"
   },
   {
-    text: 'نبذه عنا',
+    text:{
+      en: "About",
+      ar:  'نبذه عنا',
+    },
     route: '/about',
     icon: "/icons/info.svg"
   },
@@ -64,7 +95,10 @@ export const headerLinks = [
   //   icon: "/icons/hand.svg"
   // },
   {
-    text: 'خدمات اخري',
+    text:{
+      en: "More Services",
+      ar:  'خدمات اخري',
+    },
     route: '/more',
     icon: "/icons/more.svg"
   }
@@ -74,6 +108,7 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
   // const { showMenu, setShowMenu, setShowHeader, isSearch, settings } = props
   const router = useRouter()
   const [value, setValue] = useState(0)
+  const en = useSelector((state) => state.langs.value)
 
   const changeBg = () => {
     if (window.scrollY >= 100) {
@@ -105,6 +140,10 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
   useEffect(() => {
     document.body.style.overflowY = showMenu ? 'hidden' : 'visible'
   }, [showMenu])
+
+  useEffect(() => {
+    console.log(en);
+  }, [en])
   return (
     <div
       className={
@@ -172,7 +211,7 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
                 className={`navicon ${styles.nav__icon}`}
               />
               <Link href={link.route} onClick={() => setValue(i)} className={styles.header__link}>
-                {link.text}
+                {en ? link.text.en : link.text.ar}
               </Link>
             </li>
           )
@@ -237,6 +276,7 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
         </a>
       </div>
       {/* Header Menu Footer (Visible only on mobile) */}
+      {/* <span className={`text-secondary dark:text-white ${styles.header__footer}`}>{en ? settings.copy_rights.en : settings.copy_rights.ar}</span> */}
       <span className={`text-secondary dark:text-white ${styles.header__footer}`}>{settings.copy_rights}</span>
       <span
         id='menuClose'
