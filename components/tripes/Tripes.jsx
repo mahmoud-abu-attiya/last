@@ -28,6 +28,9 @@ const Tripes = ({ en }) => {
    const [canClick, setCanClick] = useState(true);
    const [position, setPosition] = useState(null);
    const [animate, setAnimate] = useState(false);
+   // useEffect(() => {
+   //    console.log(countries);
+   // }, []);
 
    const next = () => {
       if (!canClick) return;
@@ -252,7 +255,7 @@ const Tripes = ({ en }) => {
                   >
                      {slides.length > 1
                         ? slides.map((slide, index) => {
-                             return <TripesCard item={slide} key={index} />;
+                             return <TripesCard item={slide} key={index} en={en} />;
                           })
                         : "loading..."}
                   </div>

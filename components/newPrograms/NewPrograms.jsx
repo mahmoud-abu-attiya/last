@@ -11,8 +11,12 @@ import {
    faUserFriends,
    faLocation,
 } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
 
 const NewPrograms = ({ programs, en }) => {
+   useEffect(() => {
+      console.log(programs);
+   }, []);
    const settings = useSelector((state) => state.settings.value);
    const message = (id) => {
       const program = programs.find((p) => p.id === id);
@@ -56,7 +60,7 @@ const NewPrograms = ({ programs, en }) => {
                         </span>
                         <span>
                            <FontAwesomeIcon icon={faLocation} />
-                           {program.country.name}
+                           {en ? program.country.name_en : program.country.name}
                         </span>
                         {program.people && (
                            <span>
@@ -71,9 +75,9 @@ const NewPrograms = ({ programs, en }) => {
                               href={`/our-programs/${program.country.id}/${program.category.id}/${program.id}`}
                            >
                               <h3 className={styles.newPrograms__card__title}>
-                                 {program.title}{" "}
+                                 {en ? program.title_en : program.title}{" "}
                                  {program.category.name &&
-                                    program.category.name}{" "}
+                                    en ? program.category.name_en : program.category.name}{" "}
                               </h3>
                            </Link>
                         </div>

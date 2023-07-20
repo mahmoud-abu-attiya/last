@@ -13,7 +13,7 @@ import { setBacktoData } from '@/slices/backto'
 const AboutUs = ({ about, slides }) => {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+    dispatch(setBacktoData({ href: '/', title: en ? 'Home' : 'الرئيسية' }))
   }, [])
   const settings = useSelector(state => state.settings.value)
   const { images = [], achievements = [], steps = [] } = about

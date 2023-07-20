@@ -13,16 +13,17 @@ import Link from 'next/link'
 
 const SpecialOffers = ({ slides, specialOffers }) => {
   const settings = useSelector(state => state.settings.value);
+  const en = useSelector(state => state.langs.value);
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+    dispatch(setBacktoData({ href: '/', title: en ? 'Home' : 'الرئيسية' }))
     console.log(specialOffers);
   }, [])
   // const message = `شكرا لك علي تواصلك مع وكالة وسام النجاح للسفر والسياحة`
   return (
     <>
       <Head>
-        <title>العروض المميزة</title>
+        <title>{en ? "Special Offers" : "العروض المميزة"}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"
@@ -51,11 +52,11 @@ const SpecialOffers = ({ slides, specialOffers }) => {
         btnUrl={'#content'}
       />
       <div className="container hidden md:block border-b dark:border-gray-700">
-        <Breadcrumbs list={[{ title: "العروض المميزة" }]} />
+        <Breadcrumbs list={[{ title: en ? "Special Offers" : "العروض المميزة" }]} />
       </div>
       <div className={"container py-12 md:py-20"} id='content'>
-        <h2 className='main__title'>العروض المميزة</h2>
-        <p className=' max-w-4xl mx-auto mb-14 text-justify dark:text-white'>سواء كنت رحالة تحب البحث عن كنوز التاريخ المخفية في المملكة العربية السعودية أو من عُشاق المغامرة دائمي البحث عن التجارب المثيرة، فإن باقات عطلات المسافر هي حتماً ما تبحث عنه! إذا كنت تريد اكتشاف الوجهات المحلية، فنحن نوفر لك باقاتٍ تأخذك إلى وجهات جميلة داخل المملكة حيث يمكنك الاستمتاع بالمناظر الخلابة والأنشطة المثيرة</p>
+        <h2 className='main__title'>{en ? "Special Offers" : "العروض المميزة"}</h2>
+        <p className=' max-w-4xl mx-auto mb-14 text-justify dark:text-white'>{en ? "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto sequi laboriosam maxime repellat recusandae nesciunt eos ab fuga? Debitis harum fuga quod, alias sit sapiente pariatur impedit commodi animi architecto fugiat tenetur ipsum velit quasi ullam ducimus dolorem voluptates numquam?" : "سواء كنت رحالة تحب البحث عن كنوز التاريخ المخفية في المملكة العربية السعودية أو من عُشاق المغامرة دائمي البحث عن التجارب المثيرة، فإن باقات عطلات المسافر هي حتماً ما تبحث عنه! إذا كنت تريد اكتشاف الوجهات المحلية، فنحن نوفر لك باقاتٍ تأخذك إلى وجهات جميلة داخل المملكة حيث يمكنك الاستمتاع بالمناظر الخلابة والأنشطة المثيرة"}</p>
         <div className={"grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"}>
           {specialOffers.map((card, i) => (
               <div key={i} className='shadow-md border dark:border-gray-700 overflow-hidden mx-2 rounded-lg'>
@@ -66,9 +67,9 @@ const SpecialOffers = ({ slides, specialOffers }) => {
                     <h3>جينو بارادايس</h3>
                     <p className='text-xs text-gray-500 dark:text-gray-400'>يحتوي مركز جينو بارادايس على ملاهي مائية رائع...</p>
                     <div className="border-t pt-4 dark:border-gray-700 flex items-center justify-between gap-4">
-                      <span className=''>1200 ربال</span>
+                      <span className=''>1200 {en ? "SR" : "ربال"}</span>
                       <Link href={`/special-offers/${card.id}`} className='px-4 py-3 rounded-md bg-secondary text-white text-sm'>
-                      عرض التفاصيل
+                      {en ? "View details" : "عرض التفاصيل"}
                       </Link>
                     </div>
                 </div>

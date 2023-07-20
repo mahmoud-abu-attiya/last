@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Hero from "@/components/hero/Hero";
 import Programs from "@/components/Programs";
 import Success from "@/components/success/Success";
@@ -51,8 +52,8 @@ export default function Home({ data }) {
                content={settings.meta_description}
             />
          </Head>
-         <Hero slides={slides} />
-         <Programs data={latest_discounts} en={en} />
+         <Hero slides={slides} en={en} />
+         {/* <Programs data={latest_discounts} en={en} /> */}
          <Success data={features} features_slides={features_slides} en={en} />
          <Tripes en={en} />
          <About data={about_wsam_elngah} en={en} />
@@ -65,7 +66,7 @@ export default function Home({ data }) {
 
 export async function getServerSideProps(context) {
    const mainRes = await fetch(
-      "https://backend.elnagahtravels.com/public/api/index"
+      "https://backendtwo.elnagahtravels.com/public/api/index"
    ).then((res) => res.json());
 
    const data = mainRes;

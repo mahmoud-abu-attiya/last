@@ -10,8 +10,9 @@ import { setBacktoData } from '@/slices/backto'
 
 const BookHotel = ({ hotels, slide }) => {
   const dispatch = useDispatch()
+  const en = useSelector((state) => state.langs.value)
   useEffect(() => {
-    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+    dispatch(setBacktoData({ href: '/', title: en ? 'Home' : 'الرئيسية' }))
   }, [])
   const settings = useSelector((state) => state.settings.value)
   const [formErrors, setFormErrors] = useState({})
@@ -85,7 +86,7 @@ const BookHotel = ({ hotels, slide }) => {
   return (
     <>
       <Head>
-        <title>حجز فندق</title>
+        <title>{en ? "Book hotel" : "حجز فندق"}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"

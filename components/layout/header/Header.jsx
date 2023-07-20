@@ -198,7 +198,7 @@ export default function Header() {
       </nav>
     {backto && (<div className="backto w-full bg-secondary text-white px-4 py-2 mt-2">
       <Link href={backto.href} className='bold flex gap-3 items-center'>
-        <FontAwesomeIcon icon={faArrowRight} className='text-xl' beat />
+        <FontAwesomeIcon icon={en ? faArrowLeft : faArrowRight} className='text-xl' beat />
         {backto.title}
       </Link>
     </div>)}

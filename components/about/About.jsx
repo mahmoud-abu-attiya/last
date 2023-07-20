@@ -5,6 +5,9 @@ import BtnArrow from '../BtnArrow'
 
 const About = ({ data, en }) => {
   const [value, setValue] = useState(0)
+//   useEffect(() => {
+//     console.log(data);
+//  }, []);
   return (
     <div className={styles.about} id='about'>
       <div className={styles.about__container}>
@@ -26,8 +29,7 @@ const About = ({ data, en }) => {
                   value === i ? styles.about__tab__active : ''
                 }`}
               >
-                {/* {en ? tab.title.en : tab.title.ar} */}
-                {tab.title}
+                {en ? tab.title_en : tab.title}
               </button>
             ))}
           </div>
@@ -55,16 +57,13 @@ const About = ({ data, en }) => {
             <h3
               className={styles.about__item__title}
             >
-              {/* {en ? data[value].subtitle.en : data[value].subtitle.ar} */}
-              {data[value].subtitle}
+              {en ? data[value].subtitle_en : data[value].subtitle}
             </h3>
             <div
               className={styles.about__item__content}
             >
-              {/* <p className={styles.about__item__text}>{en ? data[value].content.en : data[value].content.ar}</p> */}
-              <p className={styles.about__item__text}>{data[value].content}</p>
-              {/* <BtnArrow title={en ? data[value].title.en : data[value].title.ar} href={'/contact'} /> */}
-              <BtnArrow title={data[value].title} href={'/contact'} />
+              <p className={styles.about__item__text}>{en ? data[value].content_en : data[value].content}</p>
+              <BtnArrow title={en ? data[value].title_en : data[value].title} href={'/contact'} />
             </div>
           </div>
         </div>

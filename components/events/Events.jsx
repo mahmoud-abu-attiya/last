@@ -124,14 +124,12 @@ const Events = ({ event, en }) => {
           <h2
             className={`text-secondary dark:text-white ${styles.title}`}
           >
-            {/* {en ? event.title.en : event.title.ar} */}
-            {event.title}
+            {en ? event.title_en : event.title}
           </h2>
           <p
             className={`text-gray-600 dark:text-gray-400 ${styles.description}`}
           >
-            {/* {en ? event.content.en : event.content.ar} */}
-            {event.content}
+            {en ? event.content_en : event.content}
           </p>
         </div>
         <div className={styles.subscribe}>

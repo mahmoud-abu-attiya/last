@@ -2,10 +2,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
-import { useSelector } from 'react-redux'
 import { useEffect, lazy, Suspense } from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setBacktoData } from '@/slices/backto'
 // import dynamic from 'next/dynamic'
 // import { WeatherWidget } from "@daniel-szulc/react-weather-widget"
@@ -23,9 +22,10 @@ const Loading = () => {
 }
 
 const OurPrograms = ({ countries, slides }) => {
+  const en = useSelector(state => state.langs.value)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+    dispatch(setBacktoData({ href: '/', title: en ? 'Home' : 'الرئيسية' }))
   }, [])
   const settings = useSelector(state => state.settings.value);
   return (
@@ -63,11 +63,11 @@ const OurPrograms = ({ countries, slides }) => {
       <div className={`bg-gray-100 dark:bg-gray-900`} id='content'>
         <div className="container">
           <div className=" border-b hidden md:block dark:border-gray-600">
-            <Breadcrumbs list={[{ title: "البرامج السياحية" }]} />
+            <Breadcrumbs list={[{ title: en ? "Tourism programmes" :  "البرامج السياحية" }]} />
           </div>
           <div className="py-12 md:py-20">
-            <h2 className='main__title'>البرامج السياحية</h2>
-            <p className='max-w-2xl text-justify mb-8 mx-auto dark:text-gray-300'> غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.  غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.</p>
+            <h2 className='main__title'>{en ? "Tourism programmes" : "البرامج السياحية"}</h2>
+            <p className='max-w-2xl text-justify mb-8 mx-auto dark:text-gray-300'>{en ? "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, harum dignissimos recusandae ipsam, dolores adipisci quaerat sed assumenda sit pariatur provident sequi aliquid, dolore tenetur sapiente voluptates? Reprehenderit, tempore dolor!" : " غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد.  غينيا واستمر العصبة ضرب قد. وباءت الأمريكي الأوربيين هو به،, هو العالم، الثقيلة بال. مع وايرلندا الأوروبيّون كان, قد بحق أسابيع العظمى واعتلاء. انه كل وإقامة المواد."}</p>
             <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-8`}>
               {countries.map((country) => ( // remove reverse() to egnore the error
                 <Link

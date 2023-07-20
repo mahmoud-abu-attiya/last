@@ -4,7 +4,7 @@ import styles from './index.module.css'
 import BtnArrow from '../BtnArrow'
 import ScrollDown from '../scrollDown'
 
-export default function Hero({ slides }) {
+export default function Hero({ slides, en }) {
    const [activeIndex, setActiveIndex] = useState(0)
    const next = () => {
       if (activeIndex !== slides.length - 1) {
@@ -28,6 +28,9 @@ export default function Hero({ slides }) {
       }, 4000)
       return () => clearInterval(interval)
    }, [activeIndex])
+   // useEffect(() => {
+   //    console.log(slides);
+   // }, [])
    return (
       <div className='h-screen w-full overflow-hidden relative'>
          {slides.map((slide, index) => {
@@ -39,9 +42,9 @@ export default function Hero({ slides }) {
                      <div
                         className={styles.hero__container}
                      >
-                        {slide[2] ? <h1 className={styles.hero__title}>{slide.title}</h1> : <h2 className={styles.hero__title}>{slide.title}</h2>}
+                        {slide[2] ? <h1 className={styles.hero__title}>{en ? slide.title_en : slide.title}</h1> : <h2 className={styles.hero__title}>{en ? slide.title_en : slide.title}</h2>}
                         <BtnArrow
-                           title={slide.button_text}
+                           title={en ? slide.button_text_en : slide.button_text}
                            href={slide.link || '/'}
                         />
                      </div>

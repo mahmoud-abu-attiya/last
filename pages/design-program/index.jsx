@@ -16,7 +16,7 @@ import { setBacktoData } from '@/slices/backto'
 const DesignProgram = ({ data, slide }) => {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+    dispatch(setBacktoData({ href: '/', title: en ? 'Home' : 'الرئيسية' }))
   }, [])
   const settings = useSelector((state) => state.settings.value)
   const [snackbarMsg, setSnackbarMsg] = useState('')

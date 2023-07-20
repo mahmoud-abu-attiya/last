@@ -104,9 +104,10 @@ const Section = ({ data }) => {
 }
 
 export default function Index({ services }) {
+   const en = useSelector(state => state.langs.value)
    const dispatch = useDispatch();
    useEffect(() => {
-     dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+     dispatch(setBacktoData({ href: '/', title: en ? 'Home' : 'الرئيسية' }))
      console.log(services);
    }, [])
    const settings = useSelector(state => state.settings.value)

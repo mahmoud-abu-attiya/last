@@ -11,8 +11,8 @@ import { useEffect } from 'react';
 export default function Index({ data, guide }) {
    const dispatch = useDispatch()
    useEffect(() => {
-      dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
-      console.log(guide.tours);
+      dispatch(setBacktoData({ href: '/', title: en ? 'Home' : 'الرئيسية' }))
+      console.log(guide);
    }, [])
    const settings = useSelector((state) => state.settings.value);
    const en = useSelector((state) => state.langs.value);
@@ -20,7 +20,7 @@ export default function Index({ data, guide }) {
    return (
       <>
          <Head>
-            <title>الدليل السياحي</title>
+            <title>{en ? "Tourist guide" : "الدليل السياحي"}</title>
             <meta
                name="viewport"
                content="width=device-width, initial-scale=1"

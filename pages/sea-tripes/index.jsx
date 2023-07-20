@@ -22,7 +22,7 @@ const SeaTripes = ({
   }
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+    dispatch(setBacktoData({ href: '/', title: en ? 'Home' : 'الرئيسية' }))
   }, [])
   return (
     <>

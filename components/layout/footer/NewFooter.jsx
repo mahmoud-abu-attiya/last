@@ -107,6 +107,9 @@ const List = ({ title, items }) => {
 }
 
 export default function Footer({ countries }) {
+   useEffect(() => {
+      console.log("countries", countries);
+   }, [])
    const dispatch = useDispatch();
    const settings = useSelector((state) => state.settings.value)
    const theme = useSelector((state) => state.theme.value);
@@ -116,7 +119,7 @@ export default function Footer({ countries }) {
       for (let i = 0; i < 7; i++) {
          items.push({
             arrow: true,
-            name: countries[i].name,
+            name: en ? countries[i].name_en : countries[i].name,
             link: `/our-programs/${countries[i].id}`
          })
       }

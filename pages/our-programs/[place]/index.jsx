@@ -18,9 +18,10 @@ import { setBacktoData } from '@/slices/backto'
 
 const Place = (props) => {
   const settings = useSelector((state) => state.settings.value)
+  const en = useSelector((state) => state.langs.value)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(setBacktoData({ title: 'البرامج السياحية', href: `/our-programs/` }))
+    dispatch(setBacktoData({ title: en ? "Tourism programmes" : 'البرامج السياحية', href: `/our-programs/` }))
 
   }, [])
   const categories = props.categories
@@ -96,7 +97,7 @@ const Place = (props) => {
       </Head>
       <CountryHero />
       <div className="container hidden md:block">
-        <Breadcrumbs list={[{ title: 'البرامج السياحية', href: "/our-programs" }, { title: country.name }]} />
+        <Breadcrumbs list={[{ title: en ? "Tourism programmes" : 'البرامج السياحية', href: "/our-programs" }, { title: country.name }]} />
       </div>
       <div className="bg-gray-50 dark:bg-gray-900">
         <div className="md:hidden">
@@ -138,11 +139,11 @@ const Place = (props) => {
                       <div className={`text-white dark:text-secondary ${styles.offer__card__period}`}>
                         <span>
                           <FontAwesomeIcon icon={faSun} />
-                          {item.days} أيام
+                          {item.days} {en ? "Days" : "أيام"}
                         </span>
                         <span>
                           <FontAwesomeIcon icon={faMoon} />
-                          {item.nights} ليالي
+                          {item.nights} {en ? "Nights" : "ليالي"}
                         </span>
                         <span title={item.country.name}>
                           <FontAwesomeIcon icon={faLocationPin} />
@@ -160,7 +161,7 @@ const Place = (props) => {
                           href={`/our-programs/${place}/${id}/${item.id}`}
                         >
                           <h3 className={`text-secondary dark:text-white ${styles.offer__card__title}`}>
-                            {item.category.name} {item.rate} نجوم
+                            {item.category.name} {item.rate} {en ? "Stars" : "نجوم"}
                           </h3>
                         </Link>
                         <div className={styles.stars}>
@@ -174,16 +175,16 @@ const Place = (props) => {
                           <span className={styles.new__price}>
                             {item.price_after_discount}
                           </span>{' '}
-                          ريال سعودي
+                          {en ? "SR" : "ريال سعودي"}
                         </div>
                       </div>
                       <div className={styles.offer__card__btns}>
                         <BtnArrow
-                          title='تفاصيل العرض'
+                          title={en ? "Offer details" : 'تفاصيل العرض'}
                           href={`/our-programs/${place}/${id}/${item.id}`}
                         />
                         <BtnArrow
-                          title='حجز العرض'
+                          title={en ? "Book Offer" : "حجز العرض"}
                           href={`https://api.whatsapp.com/send?phone=${settings.whatsup
                             }&${message(item?.id)}`}
                         />

@@ -7,7 +7,7 @@ const nextConfig = {
     formats: ['image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    domains: ['elnagahtravels.com', "www.pmfurniture.com", 'backend.elnagahtravels.com', "www.visitcascais.com", "d2poqm5pskresc.cloudfront.net", 'images.unsplash.com',"www.almosafer.com", "cms-cdn.almosafer.com"],
+    domains: ['elnagahtravels.com', "www.pmfurniture.com", 'backend.elnagahtravels.com',"backendtwo.elnagahtravels.com", "www.visitcascais.com", "d2poqm5pskresc.cloudfront.net", 'images.unsplash.com',"www.almosafer.com", "cms-cdn.almosafer.com"],
   },
   async headers() {
     return [

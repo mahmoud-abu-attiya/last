@@ -13,9 +13,10 @@ import { faWhatsapp, faInstagram, faTwitter, faTiktok, faSnapchat, faYoutube } f
 import { setBacktoData } from '@/slices/backto'
 
 const ContactUs = ({ slide }) => {
+  const en = useSelector((state) => state.langs.value)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(setBacktoData({ href: '/', title: 'الرئيسية' }))
+    dispatch(setBacktoData({ href: '/', title: en ? 'Home' : 'الرئيسية' }))
   }, [])
   const settings = useSelector((state) => state.settings.value)
   const [snackbarMsg, setSnackbarMsg] = useState('')
