@@ -88,7 +88,7 @@ export default function Header() {
         </Link> */}
 
         {/* Menu */}
-        {settings.logo && (
+        {settings?.logo && (
           <Menu
             // setIsScrollTop={setIsScrollTop}
             setShowHeader={setShowHeader}

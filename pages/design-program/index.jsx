@@ -15,6 +15,7 @@ import { setBacktoData } from '@/slices/backto'
 
 const DesignProgram = ({ data, slide }) => {
   const dispatch = useDispatch()
+  const en = useSelector((state) => state.langs.value)
   useEffect(() => {
     dispatch(setBacktoData({ href: '/', title: en ? 'Home' : 'الرئيسية' }))
   }, [])

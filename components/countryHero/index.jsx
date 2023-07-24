@@ -6,7 +6,7 @@ import { faCalendar, faClock } from "@fortawesome/free-solid-svg-icons";
 
 const getWeather = async (city) => {
    const res = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=0e9415515df24a47a78152654232307&q=${city}`
+      `https://api.weatherapi.com/v1/current.json?key=0e9415515df24a47a78152654232307&q=${city}`
    );
    const data = await res.json();
    return data;
