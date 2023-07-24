@@ -645,18 +645,6 @@ const Details = (props) => {
                   />
                </div>
             </div>
-            {/* <div className="text-center my-8 md:my-16 w-fit mx-auto">
-               <div className="text-xl md:text-2xl mb-4 dark:text-white">
-                  يمكنك تحميل تفاصيل العرض PDF
-               </div>
-               <Link
-                  href={"/our-programs"}
-                  className="p-4 bg-[#ef4050] flex items-center text-white w-full gap-4 justify-center hover:shadow-lg rounded-full"
-               >
-                  تحميل PDF
-                  <FontAwesomeIcon icon={faArrowDown} className="text-xl" />
-               </Link>
-            </div> */}
             {programs?.filter((prog) => prog?.id !== program.id).length > 0 && (
                <div className={styles.similar}>
                   <h2 className="dark:text-white">برامج مشابهة</h2>

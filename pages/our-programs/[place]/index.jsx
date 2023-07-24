@@ -95,7 +95,7 @@ const Place = (props) => {
           content={settings.meta_description}
         />
       </Head>
-      <CountryHero />
+      <CountryHero counrty="cairo" en={en} />
       <div className="container hidden md:block">
         <Breadcrumbs list={[{ title: en ? "Tourism programmes" : 'البرامج السياحية', href: "/our-programs" }, { title: country.name }]} />
       </div>

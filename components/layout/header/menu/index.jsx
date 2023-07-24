@@ -185,7 +185,7 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
           className={`flex gap-2 bold items-center`}
           style={{ letterSpacing: "2px" }}
         >
-          {settings.whatsup}
+          {settings.whatsup}+
           {/* <FontAwesomeIcon icon={faWhatsapp} className='text-xl' /> */}
           <Image src="/images/whatsapp.png" alt="phone" width={35} height={25}/>
         </Link>

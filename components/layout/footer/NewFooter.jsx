@@ -65,7 +65,7 @@ const SubFooter = ({ settings, en }) => {
             </div>
             <div className='hidden lg:block'>
                <p className="text-xs">{en ? "Contact us via WhatsApp." : "تواصل معنا عن طرق الواتساب."}</p>
-               <p className="link bold hover:underline">{settings.whatsup}</p>
+               <p className="link bold hover:underline">{settings.whatsup}+</p>
             </div>
          </a>
       </div>

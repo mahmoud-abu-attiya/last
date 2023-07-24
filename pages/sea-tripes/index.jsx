@@ -16,6 +16,7 @@ const SeaTripes = ({
   slide,
 }) => {
   const settings = useSelector((state) => state.settings.value)
+  const en = useSelector((state) => state.langs.value)
   const message = (id) => {
     const program = programs?.find((p) => p?.id === id)
     return `شكرا لك علي تواصلك مع وكالة وسام النجاح للسفر والسياحة - الوجهة: ${program.title}, عدد الايام: ${program.days}, عدد الليالي: ${program.nights}, السعر بعد الخصم: ${program.price_after_discount}`

@@ -130,9 +130,10 @@ const FamilyActivity = ({ title, img }) => {
    )
 }
 
-export default function Daleel() {
+export default function Daleel({guide}) {
    const dispatch = useDispatch()
    useEffect(() => {
+      console.log(guide);
       dispatch(setBacktoData({ href: '/city-guides', title: 'الدليل السياحي' }))
    }, []);
    const settings = useSelector(state => state.settings.value)
@@ -264,4 +265,15 @@ export default function Daleel() {
          </div>
       </>
    )
+}
+
+export async function getServerSideProps ({ params }) {
+   const { slug } = params;
+   const res = await fetch(`https://backendtwo.elnagahtravels.com/public/api/tourism_guide/details/${slug}`)
+   const guide = await res.json()
+   return {
+      props: {
+         guide
+      }
+   }
 }

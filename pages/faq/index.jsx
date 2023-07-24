@@ -3,9 +3,9 @@ import Head from "next/head"
 import Image from "next/image"
 import { useSelector } from "react-redux"
 import Breadcrumbs from "@/components/Breadcrumbs"
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons"
@@ -31,7 +31,7 @@ const Accordion = ({ title, items }) => {
 }
 
 export default function Index({ questions }) {
-   const [id, setId] = useState(0)
+   // const [id, setId] = useState(0)
    const settings = useSelector((state) => state.settings.value)
    useEffect(() => {
       console.log(questions);
@@ -323,31 +323,31 @@ export default function Index({ questions }) {
          ]
       },
    ];
-   const setting = {
-      dots: false,
-      infinite: false,
-      centerMode: false,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      initialSlide: categories[categories.length - 5]?.id,
-      responsive: [
-         {
-            breakpoint: 1024,
-            settings: {
-               slidesToShow: 3,
-               dots: true,
-            }
-         },
-         {
-            breakpoint: 640,
-            settings: {
-               slidesToShow: 2,
-               dots: true,
-            }
-         }
-      ]
-   };
+   // const setting = {
+   //    dots: false,
+   //    infinite: false,
+   //    centerMode: false,
+   //    speed: 500,
+   //    slidesToShow: 4,
+   //    slidesToScroll: 1,
+   //    initialSlide: categories[categories.length - 5]?.id,
+   //    responsive: [
+   //       {
+   //          breakpoint: 1024,
+   //          settings: {
+   //             slidesToShow: 3,
+   //             dots: true,
+   //          }
+   //       },
+   //       {
+   //          breakpoint: 640,
+   //          settings: {
+   //             slidesToShow: 2,
+   //             dots: true,
+   //          }
+   //       }
+   //    ]
+   // };
    // useEffect(() => {
    //    const cat = categories.find((category) => category.id === id);
    //    console.log(cat.items);
@@ -393,21 +393,21 @@ export default function Index({ questions }) {
             <p className="my-4">
                لديك أسئلة؟ هذه القائمة ستختصر عليك كثيرا من الوقت فهي تجيب على معظم استفساراتك. يمكنك الإطلاع على الأسئلة الشائعة هنا:
             </p>
-            <Slider {...setting} className='w-full prog border-b dark:border-gray-700 my-10' dir="ltr">
+            {/* <Slider {...setting} className='w-full prog border-b dark:border-gray-700 my-10' dir="ltr">
                {categories.map((category) => {
                   return (
                      <button onClick={() => setId(category.id)} key={category.id} className={`text-xs transition duration-500 text-center hover:bg-gray-400/25 py-4 ${id === category.id ? "border-b-4 border-primary text-black dark:text-primary bold" : "text-gray-500 border-none font-light"}`}>{category.name}</button>
                   )
                })}
-            </Slider>
+            </Slider> */}
             <div className="">
-               {categories.find((category) => category.id === id).items.map((item, i) => {
+               {categories.map((item, i) => {
                   return (
                      // <div key={i} className={`my-10 dark:border-gray-700 ${i != 0 ? "border-t" : "border-none"}`}>
                      //    <h2 className="text-xl my-4">{item.title}</h2>
                      //    <p className="text-sm text-justify text-gray-500 dark:text-gray-400">{item.desc}</p>
                      // </div>
-                     <Accordion key={i} title={item.title} items={item.items} />
+                     item.items.map((item) => <Accordion key={i} title={item.title} items={item.items} />)
                   )
                })}
             </div>
