@@ -96,10 +96,17 @@ const Place = (props) => {
         />
       </Head>
       <CountryHero counrty="cairo" en={en} />
-      <div className="container hidden md:block">
+      <div className="bg-gray-50 dark:bg-gray-900 relative">
+        <div className="container hidden md:grid absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full text-white overflow-x-auto" style={{ gridTemplateColumns: `repeat(${categories.length}, minmax(0, 1fr))` }}>
+          {categories.map((category) => {
+            return (
+              <button onClick={() => setId(category.id)} key={category?.id} className={` border-t px-2 py-4 bold ${id == category.id ? "opacity-100" : "opacity-50"}`}>{category.name}</button>
+            )
+          })}
+        </div>
+      <div className="container hidden md:block border-b dark:border-gray-700">
         <Breadcrumbs list={[{ title: en ? "Tourism programmes" : 'البرامج السياحية', href: "/our-programs" }, { title: country.name }]} />
       </div>
-      <div className="bg-gray-50 dark:bg-gray-900">
         <div className="md:hidden">
           <Slider {...setting} className='w-full prog border-b dark:border-gray-700'>
             {categories.map((category) => {
@@ -110,7 +117,7 @@ const Place = (props) => {
           </Slider>
         </div>
         <div className="container">
-          <div className=" hidden md:block">
+          {/* <div className=" hidden md:block">
             <Slider {...setting} className='w-full prog border-b dark:border-gray-700'>
               {categories.map((category) => {
                 return (
@@ -118,7 +125,7 @@ const Place = (props) => {
                 )
               })}
             </Slider>
-          </div>
+          </div> */}
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-16 transition duration-300 ${anim ? "opacity-0" : "opacity-100"}`}>
             {data ? data.map((item) => {
               return (
@@ -161,7 +168,8 @@ const Place = (props) => {
                           href={`/our-programs/${place}/${id}/${item.id}`}
                         >
                           <h3 className={`text-secondary dark:text-white ${styles.offer__card__title}`}>
-                            {item.category.name} {item.rate} {en ? "Stars" : "نجوم"}
+                            {en ? "Tourist programme" : "برنامج سياحي"} {item.rate} {en ? "Stars" : "نجوم"}
+                            {/* {item.category.name} {item.rate} {en ? "Stars" : "نجوم"} */}
                           </h3>
                         </Link>
                         <div className={styles.stars}>

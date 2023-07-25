@@ -14,6 +14,7 @@ const noto = localFont({ src: '../../public/fonts/NotoNaskhArabic-Regular.ttf' }
 
 const Item = ({ data, border }) => {
    const settings = useSelector(state => state.settings.value)
+   const en = useSelector(state => state.langs.value)
    const [open, setOpen] = useState(false)
    const router = useRouter()
    useEffect(() => {
@@ -75,7 +76,7 @@ const Item = ({ data, border }) => {
                      <FontAwesomeIcon icon={faLocationDot} className="text-primary text-5xl" />
                      <Link href={settings.phone} className="text-start">
                         <span className="text-xs text-gray-500 dark:text-gray-300">قم بذيارتنا</span>
-                        <h5 className="text-sm">{settings.address}</h5>
+                        <h5 className="text-sm">{en ? settings.address_en : settings.address}</h5>
                      </Link>
                   </div>
                </div>

@@ -360,7 +360,7 @@ export default function Contact({ slide }) {
                            href="https://www.google.com/maps/place/24%C2%B042'28.7%22N+46%C2%B037'39.0%22E/@24.707979,46.6254091,16z/data=!4m4!3m3!8m2!3d24.7079785!4d46.627512?hl=en-US"
                            className="flex text-gray-600 hover:underline"
                         >
-                           {settings.address}
+                           {en ? settings.address_en : settings.address}
                         </Link>
                      </div>
                   </div>

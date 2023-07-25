@@ -141,9 +141,23 @@ const Accordion = ({ title, text, index }) => {
    );
 };
 
+const getWeather = async (city) => {
+   const res = await fetch(
+      `https://api.weatherapi.com/v1/current.json?key=0e9415515df24a47a78152654232307&q=${city}`
+   );
+   const data = await res.json();
+   const weather = {
+      temp_c: data.current.temp_c,
+      icon: data.current.condition.icon,
+      text: data.current.condition.text,
+   };
+   return weather;
+};
+
 const Details = (props) => {
    const dispatch = useDispatch();
    const settings = useSelector((state) => state.settings.value);
+   const en = useSelector((state) => state.langs.value);
    const program = props.program;
    const programs = props.programs;
    useEffect(() => {
@@ -248,7 +262,7 @@ const Details = (props) => {
          console.log(error);
       }
    };
-
+   const [weather, setWeather] = useState(null);
    const message = (id) => {
       const program = programs?.find((p) => p?.id === id);
       return `شكرا لك علي تواصلك مع وكالة وسام النجاح للسفر والسياحة - الوجهة: ${program.title}, عدد الايام: ${program.days}, عدد الليالي: ${program.nights}, السعر بعد الخصم: ${program.price_after_discount}`;
@@ -256,9 +270,9 @@ const Details = (props) => {
    const handleDate = () => {
       dateRef.current.showPicker();
    };
-   // useEffect(() => {
-   //   dispatch(setBackto("hi"))
-   // })
+   useEffect(() => {
+      getWeather("cairo").then((res) => setWeather(res));
+   }, []);
    return (
       <>
          <Head>
@@ -387,13 +401,37 @@ const Details = (props) => {
                   <h2
                      className={`text-secondary relative dark:text-white border-b-2 border-secondary dark:border-white ${styles.details__details}`}
                   >
-                     وجهات يمكنك زيارتها{" "}
+                     وجهات يمكنك زيارتها
                      <span
                         id="slider"
                         className=" absolute left-0 -top-44"
                      ></span>
                   </h2>
                   <Responsive data={slides} />
+                  <div className="border dark:bg-gray-800 dark:border-gray-700 dark:text-white p-4 rounded-lg grid grid-cols-5">
+                     <div className="col-span-1 flex flex-col items-center">
+                        {weather && (
+                           <>
+                              <Image
+                                 src={`https:${weather.icon}`}
+                                 alt="weather"
+                                 width={60}
+                                 height={60}
+                                 className="object-cover"
+                              />
+                              <h5 className="text-2xl">{weather.temp_c}C</h5>
+                           </>
+                        )}
+                     </div>
+                     <div
+                        className={`col-span-4 flex flex-col gap-2 justify-center ${en ? "border-l pl-4" : "border-r pr-4"} dark:border-gray-700`}
+                     >
+                        <h4 className="text-2xl">{en ? "Weather" : "الطقس"}</h4>
+                        لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول
+                        استنكار النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك
+                        التفاصيل لتكتشف
+                     </div>
+                  </div>
                   <div className="border dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col gap-4 rounded-b-lg">
                      <div className={styles.details__details}>
                         <h3 className="text-xl mb-6 relative">

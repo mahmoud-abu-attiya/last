@@ -68,7 +68,7 @@ const Country = ({ country, en }) => {
          </div>
             {weather && <div className="absolute flex items-center text-xs px-3 bg-gray-100 dark:bg-gray-800 dark:text-white text-black rounded-full top-4 right-4 z-10">
                {weather.temp_c}c
-					{weather.icon && <Image src={"https:" + weather.icon} alt="weather icon" width={30} height={30} />}
+					{weather.icon && <Image src={"https:" + weather.icon} alt="weather icon" width={30} height={30} className="object-cover" />}
             </div>}
       </Link>
    );

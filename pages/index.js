@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import Hero from "@/components/hero/Hero";
 import Programs from "@/components/Programs";
@@ -9,14 +10,15 @@ import Events from "@/components/events/Events";
 import NewPrograms from "@/components/newPrograms/NewPrograms";
 import Head from "next/head";
 import { useSelector } from "react-redux";
-import { useDispatch } from 'react-redux'
-import { setBacktoData } from '@/slices/backto';
-import { useEffect } from 'react';
+import { useDispatch } from "react-redux";
+import { setBacktoData } from "@/slices/backto";
+import { useEffect } from "react";
 
-export default function Home({ data }) {
-   const dispatch = useDispatch()
+export default function Home({ data, old }) {
+   const dispatch = useDispatch();
    useEffect(() => {
-      dispatch(setBacktoData(false))
+      dispatch(setBacktoData(false));
+      // console.log(old);
    }, []);
    const settings = useSelector((state) => state.settings.value);
    const en = useSelector((state) => state.langs.value);
@@ -27,9 +29,12 @@ export default function Home({ data }) {
       event = {},
       special_offers = [],
       features_slides = [],
-      latest_discounts = [],
+      // latest_discounts = [],
       slides = [],
    } = data;
+   const {
+      latest_discounts = [],
+   } = old;
    return (
       <>
          <Head>
@@ -53,7 +58,7 @@ export default function Home({ data }) {
             />
          </Head>
          <Hero slides={slides} en={en} />
-         {/* <Programs data={latest_discounts} en={en} /> */}
+         <Programs data={latest_discounts} en={en} />
          <Success data={features} features_slides={features_slides} en={en} />
          <Tripes en={en} />
          <About data={about_wsam_elngah} en={en} />
@@ -65,16 +70,26 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps(context) {
-   const mainRes = await fetch(
-      "https://backendtwo.elnagahtravels.com/public/api/index"
-   ).then((res) => res.json());
+   // const mainRes = await fetch(
+   //    "https://backendtwo.elnagahtravels.com/public/api/index"
+   // ).then((res) => res.json());
 
-   const data = mainRes;
+   // const oldRes = await fetch(
+   //    "https://backend.elnagahtravels.com/public/api/index"
+   // ).then((res) => res.json());
+
+   // const data = mainRes;
+   // const old = oldRes;
+   const [mainRes, oldRes] = await Promise.all([
+      fetch("https://backendtwo.elnagahtravels.com/public/api/index"),
+      fetch("https://backend.elnagahtravels.com/public/api/index"),
+   ]);
+   const [ data, old ] = await Promise.all([mainRes.json(), oldRes.json()]);
 
    context.res.setHeader(
       "Cache-Control",
       "public, max-age=31536000, immutable"
    );
 
-   return { props: { data } };
+   return { props: { data, old } };
 }

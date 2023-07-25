@@ -107,9 +107,9 @@ const List = ({ title, items }) => {
 }
 
 export default function Footer({ countries }) {
-   useEffect(() => {
-      console.log("countries", countries);
-   }, [])
+   // useEffect(() => {
+   //    console.log("countries", countries);
+   // }, [])
    const dispatch = useDispatch();
    const settings = useSelector((state) => state.settings.value)
    const theme = useSelector((state) => state.theme.value);
@@ -150,7 +150,7 @@ export default function Footer({ countries }) {
                      { name: en ? "Customer thanks" : 'شكر العملاء', link: '/thanks' },
                   ]} />
                   <List title={en ? "Our Location" : "موقعنا"} items={[
-                     { blank: true, name: settings.address, link: `https://www.google.com/maps/place/24%C2%B042'28.7%22N+46%C2%B037'39.0%22E/@24.707979,46.6254091,16z/data=!4m4!3m3!8m2!3d24.7079785!4d46.627512?hl=en-US` },
+                     { blank: true, name: en ? settings.address_en : settings.address, link: `https://www.google.com/maps/place/24%C2%B042'28.7%22N+46%C2%B037'39.0%22E/@24.707979,46.6254091,16z/data=!4m4!3m3!8m2!3d24.7079785!4d46.627512?hl=en-US` },
                   ]} />
                   <div className="col-span-2 lg:col-span-5 flex gap-8">
                   <div className="flex items-center gap-3">
@@ -174,7 +174,7 @@ export default function Footer({ countries }) {
                      <p className='text-xs bold'>
                         Made with <FontAwesomeIcon icon={faHeart} className='text-red-500 text-sm' /> in Elnagah
                      </p>
-                     <p className='text-xs bold'>{settings.copy_rights}</p>
+                     <p className='text-xs bold'>{en ? settings.copy_rights_en : settings.copy_rights}</p>
                   </div>
                   <div className='flex gap-4 flex-wrap items-center'>
                      <Image src="/images/pay1.png" alt="apple pay" title='apple pay' width={40} height={30} />

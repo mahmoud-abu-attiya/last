@@ -54,6 +54,7 @@ const Aviation = ({ slide }) => {
       dispatch(setBacktoData({ href: "/", title: "الرئيسية" }));
    }, []);
    const settings = useSelector((state) => state.settings.value);
+   const en = useSelector((state) => state.langs.value);
    const [snackbarMsg, setSnackbarMsg] = useState("");
    const snackbarRef = useRef(null);
    // const [snackbarMsg2, setSnackbarMsg2] = useState("");
@@ -591,7 +592,7 @@ const Aviation = ({ slide }) => {
                               icon={faLocationPin}
                               style={{ height: "1rem" }}
                            />
-                           <span>{settings.address}</span>
+                           <span>{en ? settings.address_en : settings.address}</span>
                         </div>
                      </div>
                   </div>

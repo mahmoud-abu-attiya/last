@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 const SpecialCard = ({ item, en }) => {
   return (
@@ -49,9 +49,9 @@ const Special = ({ data, en }) => {
         </button>
     )
   }
-  useEffect(() => {
-    console.log(data);
- }, []);
+//   useEffect(() => {
+//     console.log(data);
+//  }, []);
   
 
   const settings = {

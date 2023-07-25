@@ -141,9 +141,9 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
     document.body.style.overflowY = showMenu ? 'hidden' : 'visible'
   }, [showMenu])
 
-  useEffect(() => {
-    console.log(en);
-  }, [en])
+  // useEffect(() => {
+  //   console.log(en);
+  // }, [en])
   return (
     <div
       className={
@@ -276,8 +276,8 @@ const Menu = ({ showMenu, setShowMenu, setShowHeader, settings }) => {
         </a>
       </div>
       {/* Header Menu Footer (Visible only on mobile) */}
-      {/* <span className={`text-secondary dark:text-white ${styles.header__footer}`}>{en ? settings.copy_rights.en : settings.copy_rights.ar}</span> */}
-      <span className={`text-secondary dark:text-white ${styles.header__footer}`}>{settings.copy_rights}</span>
+      <span className={`text-secondary dark:text-white ${styles.header__footer}`}>{en ? settings.copy_rights_en : settings.copy_rights.ar}</span>
+      {/* <span className={`text-secondary dark:text-white ${styles.header__footer}`}>{settings.copy_rights}</span> */}
       <span
         id='menuClose'
         className={styles.header__close}

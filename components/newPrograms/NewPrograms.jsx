@@ -11,12 +11,12 @@ import {
    faUserFriends,
    faLocation,
 } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const NewPrograms = ({ programs, en }) => {
-   useEffect(() => {
-      console.log(programs);
-   }, []);
+   // useEffect(() => {
+   //    console.log(programs);
+   // }, []);
    const settings = useSelector((state) => state.settings.value);
    const message = (id) => {
       const program = programs.find((p) => p.id === id);

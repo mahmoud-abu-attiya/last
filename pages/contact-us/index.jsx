@@ -257,7 +257,7 @@ const ContactUs = ({ slide }) => {
                 <div className={styles.contact__data__card}>
                   <h3 className='my-4'>العنوان</h3>
                   <div>
-                    <div>{settings.address}</div>
+                    <div>{en ? settings.address_en : settings.address}</div>
                     {/* <i className="fas fa-map-marker-alt text-primary"></i> */}
                     <FontAwesomeIcon icon={faLocationPin} className='text-primary h-4' style={{ height: "1rem" }} />
                   </div>
